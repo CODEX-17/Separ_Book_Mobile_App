@@ -3,6 +3,8 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import WelcomeScreen from './WelcomeScreen';
 import OnBoardScreen from './pages/OnBoardScreen/OnBoardScreen';
 import MenuLayout from './pages/Menu/MenuLayout'
+import { BottomNavigationProvider } from './context/BottomNavigationContext';
+
 
 const Stack = createNativeStackNavigator();
 
@@ -18,6 +20,7 @@ export default function RootLayout() {
   }
 
   return (
+    <BottomNavigationProvider>
       <Stack.Navigator initialRouteName='welcome'>
         <Stack.Screen
           name="welcome"
@@ -35,5 +38,6 @@ export default function RootLayout() {
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
+    </BottomNavigationProvider>
   )
 }
