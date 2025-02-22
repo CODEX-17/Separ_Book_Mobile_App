@@ -1,7 +1,13 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, ImageBackground, Image, Pressable } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import CustomizeButton from '../../components/CustomizeButton';
+import Animated, { 
+    useSharedValue,
+    useAnimatedStyle,
+    withSpring,
+ } from 'react-native-reanimated';
+
 
 const OnBoardScreen = ({ navigation }) => {
 
@@ -42,6 +48,10 @@ const OnBoardScreen = ({ navigation }) => {
 
     const handleNextContent = () => {
 
+         // Reset animation values before updating state
+         progress.value = 0;
+         scale.value = 0.8;
+
         const currentIndex = selectedContent?.index
 
         if (currentIndex < contentList.length - 1) {
@@ -49,7 +59,25 @@ const OnBoardScreen = ({ navigation }) => {
         }else {
             navigation.navigate('menu')
         }
+
+        progress.value = withSpring(1, { damping: 10, stiffness: 364 });
+        scale.value = withSpring(1, { damping: 10, stiffness: 364 });
     }
+
+
+     const progress = useSharedValue(0);
+     const scale = useSharedValue(0.1); 
+ 
+     useEffect(() => {
+        progress.value = withSpring(1, { damping: 10, stiffness: 364 });
+        scale.value = withSpring(1, { damping: 10, stiffness: 364 });
+     }, [selectedContent]);
+ 
+
+     const popAnimation = useAnimatedStyle(() => ({
+         opacity: progress.value,
+         transform: [{ scale: scale.value }],
+     }));
 
     return (
         <ImageBackground
@@ -69,15 +97,18 @@ const OnBoardScreen = ({ navigation }) => {
             }
             
             <View style={styles.container}>
-                <Image
-                    source={selectedContent?.imagePath}
-                    style={styles.image}
-                />
 
-                <View style={{ marginBottom: 20 }}>
+                <Animated.View style={popAnimation}>
+                    <Image
+                        source={selectedContent?.imagePath}
+                        style={styles.image}
+                    />
+                </Animated.View>
+
+                <Animated.View style={[popAnimation, { marginBottom: 20 }]}>
                     <Text style={styles.title}>{selectedContent?.title}</Text>
                     <Text style={styles.subtitle}>{selectedContent?.subtitle}</Text>
-                </View>
+                </Animated.View>
 
                 <View style={{ gap: 15 }}>
                     <CustomizeButton 
