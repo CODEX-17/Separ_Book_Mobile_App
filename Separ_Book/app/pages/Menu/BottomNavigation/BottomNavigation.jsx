@@ -51,7 +51,7 @@ const BottomNavigation = () => {
                         >
                             <Image 
                                 source={btn?.iconPath}
-                                style={{ width: 20, tintColor: bottomNavigation === btn?.title ? '#0943AF': '#343434' }}
+                                style={{ width: 27, height: 27, tintColor: bottomNavigation === btn?.title ? '#0943AF': '#343434' }}
                             />
                             <Text style={[styles.buttonText, { color: bottomNavigation === btn?.title ? '#0943AF': '#343434' }]}>{btn?.title}</Text>
                         </Pressable>
@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#BDD4FF',
+        backgroundColor: '#E9F0FF',
         borderRadius: 10,
         height: 60,
         gap: 5,
