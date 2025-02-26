@@ -85,15 +85,15 @@ const OnBoardScreen = ({ navigation }) => {
             style={styles.background}
             resizeMode="cover"
         >
+        
             {
                 selectedContent?.index < 4 &&
-                <Pressable
-                    onPress={() => navigation.navigate('menu')}
-                    style={styles.btnSkip}
-                >
-                    <Text style={styles.subtitle}>Skip</Text>
+                <View style={styles.btnSkip}>
+                    <Pressable onPress={() => navigation.navigate('menu')}>
+                        <Text style={[styles.subtitle, { fontSize: 20 }]}>Skip</Text>
+                    </Pressable>
                     <Icon name="navigate-next" color="'#343434'" size={25}/>
-                </Pressable>
+                </View>
             }
             
             <View style={styles.container}>
@@ -159,27 +159,29 @@ const styles = StyleSheet.create({
         position: 'relative',
       },
       btnSkip: {
-        position: 'absolute',
-        top: 100,
-        right: 20,
         display: 'flex',
         flexDirection: 'row',
+        width: '100%',
+        justifyContent: 'flex-end',
+        alignItems: 'flex-end',
+        paddingTop: 20,
+        paddingRight: 20,
       },
       image: {
-        width: 338,
-        height: 338,
+        width: 300,
+        height: 300,
       },
       title: {
         fontFamily: 'Poppins_700Bold',
         color: '#343434',
-        fontSize: 30,
+        fontSize: 25,
         textAlign: 'center',
-        marginBottom: 20,
+        marginBottom: 10,
       },
       subtitle: {
         fontFamily: 'Poppins_400Regular',
         color: '#343434',
-        fontSize: 20,
+        fontSize: 15,
         textAlign: 'center',
       },
 });

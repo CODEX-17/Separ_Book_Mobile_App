@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { View, Pressable, Text, StyleSheet, Image } from 'react-native';
+import { View, Pressable, Text, StyleSheet, Image, Platform } from 'react-native';
 import { BottomNavigationContext } from '../../../context/BottomNavigationContext';
 
 
@@ -75,6 +75,8 @@ const styles = StyleSheet.create({
         padding: 10,
         borderTopLeftRadius: 20,
         borderTopRightRadius: 20,
+
+
         // Shadow for iOS
         shadowColor: '#000',
         shadowOffset: { width: 0, height: -5 },
@@ -82,9 +84,11 @@ const styles = StyleSheet.create({
         shadowRadius: 4,
 
         // Shadow for Android
-        elevation: 5,
+        elevation: 1,
     },
     navList: {
+        borderTopLeftRadius: 20,
+        borderTopRightRadius: 20,
         width: '100%',
         height: '100%',
         display: 'flex',

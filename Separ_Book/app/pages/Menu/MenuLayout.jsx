@@ -1,12 +1,29 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import BottomNavigation from './BottomNavigation/BottomNavigation';
 import Header from './Header/Header';
-
+import { BottomNavigationContext } from '../../context/BottomNavigationContext';
+import ChapterScreen from './Tabs/Chapter/ChapterScreen';
+import BottomNavigation from './BottomNavigation/BottomNavigation';
 
 
 const Menu = () => {
+
+    const { bottomNavigation } = useContext(BottomNavigationContext)
+
+    console.log(bottomNavigation)
+
+    const renderTab = () => {
+        switch (bottomNavigation) {
+            case 'Home':
+            case 'Chapters':
+            case 'Default':
+                return <ChapterScreen />;
+            default:
+                return <Text>No tab selected</Text>; // Fallback UI
+        }
+    };
+
     return (
         
             <View style={styles.container}>
@@ -15,7 +32,7 @@ const Menu = () => {
                         <Header/>
                     </View>
                     <View style={styles.content}>
-                        <Text>Content</Text>
+                        {renderTab()}
                     </View>
                     <View style={styles.bottonNavigation}>
                         <BottomNavigation/>
@@ -53,6 +70,11 @@ const styles = StyleSheet.create({
     bottonNavigation: {
         width: '100%',
         height: '10%',
+        backgroundColor: '#fff',
+        elevation: 10,
+        borderTopLeftRadius: 20,
+        borderTopRightRadius: 20,
+
     }
 });
 
