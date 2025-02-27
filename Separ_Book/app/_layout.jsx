@@ -4,6 +4,8 @@ import WelcomeScreen from './WelcomeScreen';
 import OnBoardScreen from './pages/OnBoardScreen/OnBoardScreen';
 import MenuLayout from './pages/Menu/MenuLayout'
 import { BottomNavigationProvider } from './context/BottomNavigationContext';
+import { ChapterContextProvider } from './context/ChapterContex';
+import ViewChapter from './pages/Menu/Tabs/Chapter/ViewChapter/ViewChapter';
 
 
 const Stack = createNativeStackNavigator();
@@ -21,23 +23,30 @@ export default function RootLayout() {
 
   return (
     <BottomNavigationProvider>
-      <Stack.Navigator initialRouteName='welcome'>
-        <Stack.Screen
-          name="welcome"
-          component={WelcomeScreen}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="onboard"
-          component={OnBoardScreen}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="menu"
-          component={MenuLayout}
-          options={{ headerShown: false }}
-        />
-      </Stack.Navigator>
+      <ChapterContextProvider>
+        <Stack.Navigator initialRouteName='welcome'>
+          <Stack.Screen
+            name="welcome"
+            component={WelcomeScreen}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="onboard"
+            component={OnBoardScreen}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="menu"
+            component={MenuLayout}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="view"
+            component={ViewChapter}
+            options={{ headerShown: false }}
+          />
+        </Stack.Navigator>
+      </ChapterContextProvider>
     </BottomNavigationProvider>
   )
 }

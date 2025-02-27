@@ -1,14 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import { ChapterContext } from '../../../../../context/ChapterContex';
 
 
 const ViewChapter = () => {
+
+    const { currentChapter } = useContext(ChapterContext)
+
+    console.log(currentChapter)
+
     return (
         <View style={styles.container}>
-            <Text style={styles.chapter}>Chapter 1</Text>
-            <Text style={styles.verse}>Verse 2</Text>
-
-            <Text style={styles.content}>Lorem ipsum dolor sit amet consectetur adipisicing elit. A totam neque quis similique aut minus et quae nisi atque officiis?</Text>
+            <Text style={styles.chapter}>{`Chapter ${currentChapter?.chapter}`}</Text>
+            <Text style={styles.verse}>{`Verse ${currentChapter?.verse}`}</Text>
+            <Text style={styles.content}>{currentChapter?.content}</Text>
         </View>
     );
 };
@@ -20,6 +25,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#fff',
+        padding: 10,
     },
     chapter: {
         fontFamily: 'Poppins_700Bold',
@@ -36,7 +42,7 @@ const styles = StyleSheet.create({
     content: {
         fontFamily: 'Poppins_400Regular',
         color: '#343434',
-        fontSize: 30,
+        fontSize: 20,
         textAlign: 'center',
         marginTop: 20,
     },

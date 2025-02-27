@@ -1,5 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, StyleSheet, ImageBackground, Image, Pressable } from 'react-native';
+import { 
+    View, 
+    Text, 
+    StyleSheet, 
+    ImageBackground, 
+    Image, 
+    Pressable,
+    SafeAreaView,
+
+} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import CustomizeButton from '../../components/CustomizeButton';
 import Animated, { 
@@ -85,7 +94,7 @@ const OnBoardScreen = ({ navigation }) => {
             style={styles.background}
             resizeMode="cover"
         >
-        
+        <SafeAreaView>
             {
                 selectedContent?.index < 4 &&
                 <View style={styles.btnSkip}>
@@ -135,7 +144,7 @@ const OnBoardScreen = ({ navigation }) => {
                     />
                 </View>
             </View>
-            
+        </SafeAreaView>
         </ImageBackground>
     );
 };

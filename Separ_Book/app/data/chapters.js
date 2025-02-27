@@ -1,6 +1,5 @@
 
-
-const separ = [
+export const separ = [
     {
         chapter: 1,
         verse: 1,
@@ -2546,8 +2545,6 @@ const separ = [
 
 ]
 
-
-export default separ
 
 
 

@@ -7,18 +7,16 @@ import ChapterScreen from './Tabs/Chapter/ChapterScreen';
 import BottomNavigation from './BottomNavigation/BottomNavigation';
 
 
-const Menu = () => {
+const Menu = ({ navigation }) => {
 
     const { bottomNavigation } = useContext(BottomNavigationContext)
-
-    console.log(bottomNavigation)
 
     const renderTab = () => {
         switch (bottomNavigation) {
             case 'Home':
             case 'Chapters':
             case 'Default':
-                return <ChapterScreen />;
+                return <ChapterScreen navigation={navigation}/>;
             default:
                 return <Text>No tab selected</Text>; // Fallback UI
         }
