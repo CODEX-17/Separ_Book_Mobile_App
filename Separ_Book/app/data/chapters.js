@@ -9,8 +9,7 @@ export const separ = [
     {
         chapter: 1,
         verse: 2,
-        content: `Ipinakilala ko ang aking pangalan sa panahon paman ni Adan kay noach,kay Avraham,kay moshe,kay samual,kay aliyahu,kay ezra,kay nahemyahu, kay yob,kay dawud,kay yeshayahu,kay yeremhayahu ,kay ezikiel,
-        ,kay danail,kay amos,kay hosiyahu,kay yual,kay yonas,kay micas,kay obadyahu,kay nahum,kay habakuk, kay zepanyahu, kay hagagai,kay zecharayu,kay malakyahu,sa ibang mga proprta at ipinakilala ni yahushua, at muling ipinakikilala ng aking sugo`
+        content: `Ipinakilala ko ang aking pangalan sa panahon paman ni Adan kay noach, kay Avraham, kay moshe, kay samual, kay aliyahu, kay ezra, kay nahemyahu, kay yob, kay dawud, kay yeshayahu, kay yeremhayahu, kay ezikiel, kay danail, kay amos, kay hosiyahu, kay yual, kay yonas, kay micas, kay obadyahu, kay nahum, kay habakuk, kay zepanyahu, kay hagagai, kay zecharayu, kay malakyahu sa ibang mga propeta at ipinakilala ni yahushua, at muling ipinakikilala ng aking sugo`
     },
 
     {
@@ -1388,7 +1387,7 @@ export const separ = [
     {
         chapter: 2,
         verse: 42,
-        content: `Ang araw ay darating na ang sinomang bansa ang hindi makiisa sa pagdiriwang ng mga pistang ito ay hindi ko bibigyan ng ulan, bagkus padadalhan ko sila ng mga sunod-sunod na salot, at makikilala ng buong mundo na ako si YAHUWEH ang nag-iisang Makapangyarihan sa lahat ay nagbibigay ng biyaya at pagpapala sa aking mga pinili sa bansang yahsraal at sa lahat ng mga hentil na may takot sa akin na nagsisigawa ng aking mga salita.  `
+        content: `Ang araw ay darating na ang sinomang bansa ang hindi makiisa sa pagdiriwang ng mga pistang ito ay hindi ko bibigyan ng ulan, bagkus padadalhan ko sila ng mga sunod-sunod na salot, at makikilala ng buong mundo na ako si YAHUWEH ang nag-iisang Makapangyarihan sa lahat ay nagbibigay ng biyaya at pagpapala sa aking mga pinili sa bansang yahsraal at sa lahat ng mga hentil na may takot sa akin na nagsisigawa ng aking mga salita.`
     },
     {
         chapter: 2,
@@ -1834,7 +1833,7 @@ export const separ = [
     {
         chapter: 2,
         verse: 131,
-        content: `Huw2ag kang lalayo sa liwanag na ito bagkus ay magpatuloy ka na mamuhay dito, sapgkat ang mga tumalikod ay hindi ko kinalulugdan, oo ang mga nagtatakwil ng liwanag na ito ay hindi makakaiwas sa parusa sa impierno.`
+        content: `Huwag kang lalayo sa liwanag na ito bagkus ay magpatuloy ka na mamuhay dito, sapgkat ang mga tumalikod ay hindi ko kinalulugdan, oo ang mga nagtatakwil ng liwanag na ito ay hindi makakaiwas sa parusa sa impierno.`
     },
     {
         chapter: 2,
@@ -2366,7 +2365,7 @@ export const separ = [
         content: `Sikapin ninyong makaakay ng inyong kapwa sa kabutihan, ipangaral ninyo ang Aking Banal Na Pangalan, at turuan silang sumamba sa Akin, turuang sumunod sa lahat ng Aking ipinag-uutos. Ako si Yahuweh na Makapangyarihan sa lahat ay lagi ninyong kasama saan man kayo pumaroon.`
     },
     {
-        chapter: 5,
+        chapter: 3,
         verse: 58,
         content: `Ito ang inyong misyon ang matulungan kayo na makaakay ng mga tao upang maging tulad na sumasamba sa Akin at sumusunod sa Aking mga utos.`
     },
@@ -2376,7 +2375,7 @@ export const separ = [
         content: `Kayo ay iisang pamilya. kaya't magtulungan kayo, magmalasakitan sa isa't-isa, at magkaisa sa isang diwa.`
     },
     {
-        chapter: 5,
+        chapter: 3,
         verse: 60,
         content: `Huwag kang mag-aalala, ipagkatiwala mo sa Akin ang lahat ng mga bagay, at tutulungan kita. Ako si Yahuweh ang may hawak ng iyong buhay.`
     },
@@ -2535,13 +2534,6 @@ export const separ = [
         verse: 83,
         content: ``
     },
-
-
-
-
-
-
-
 
 ]
 

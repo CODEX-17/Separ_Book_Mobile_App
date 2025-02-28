@@ -20,6 +20,8 @@ const ChapterScreen = ({ navigation }) => {
 
     const [loading, setLoading] = useState(false)
 
+    console.log(chapterList)
+
     const handleSelect = (data) => {
         setLoading(true)
         setSelectedChapter(data)
@@ -39,9 +41,11 @@ const ChapterScreen = ({ navigation }) => {
         setLoading(true)
         const chapter = selectedChapter
         const verse = data
-        const result = chapters.filter((data) => data.chapter == chapter && data.verse == verse)
-        if (result) {
-            setCurrentChapter(result[0])
+        if (chapter && verse) {
+            setCurrentChapter({
+                chapter,
+                verse,
+            })
             setTimeout(() => {
                 setLoading(false)
             }, 1000)
@@ -127,8 +131,6 @@ const ChapterScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
         padding: 20,
         backgroundColor: '#fff',
     },
@@ -145,7 +147,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
     },
     header: {
-        height: '20%',
+        height: 150,
         width: '100%',
     },
     menuList: {
@@ -159,6 +161,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         flexWrap: 'wrap', // Wrap items to next row
         justifyContent: 'space-between',
+        paddingBottom: 20,
     },
     btn: {
         backgroundColor: '#0943AF',
