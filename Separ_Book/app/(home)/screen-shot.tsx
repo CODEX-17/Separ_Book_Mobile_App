@@ -142,19 +142,19 @@ const styles = StyleSheet.create({
 
     },
     chapter: {
-        fontFamily: 'Poppins_700Bold',
+        fontFamily: 'Poppins-Bold',
         color: '#343434',
         fontSize: 30,
         textAlign: 'center',
     },
     verse: {
-        fontFamily: 'Poppins_400Regular',
+        fontFamily: 'Poppins-Regular',
         color: '#343434',
         fontSize: 15,
         textAlign: 'center',
     },
     contentText: {
-        fontFamily: 'Poppins_400Regular',
+        fontFamily: 'Poppins-Regular',
         color: '#343434',
         fontSize: 15,
         textAlign: 'center',

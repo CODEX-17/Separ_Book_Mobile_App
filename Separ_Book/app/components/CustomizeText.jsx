@@ -4,7 +4,7 @@ import { Text } from 'react-native';
 
 const CustomizeText = ({ content, fontSize, fontWeight }) => {
 
-    const fontFamily = fontWeight === 'bold' ? 'Poppins_700Bold' : 'Poppins_400Regular'
+    const fontFamily = fontWeight === 'bold' ? 'Poppins-Bold' : 'Poppins-Regular'
 
     return ( 
         <Text 

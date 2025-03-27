@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
 
-const boldFont = 'Poppins_700Bold'
-const regularFont = 'Poppins_400Regular'
+const boldFont = 'Poppins-Bold'
+const regularFont = 'Poppins-Regular'
 const primaryColor = '#003092'
 const whiteColor = '#fff'
 

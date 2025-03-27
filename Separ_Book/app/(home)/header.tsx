@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import { View, Text, StyleSheet, Pressable } from 'react-native';
-import { BottomNavigationContext } from '../../../context/BottomNavigationContext';
+import { BottomNavigationContext } from '../context/BottomNavigationContext';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Entypo from 'react-native-vector-icons/Entypo';
 import Animated, { 
@@ -55,7 +55,7 @@ const Header = () => {
                 <Entypo 
                     name="menu" 
                     color="#343434" 
-                    size={30}
+                    size={25}
                 />
              </Animated.View>
             <Text style={styles.text}>{bottomNavigation}</Text>
@@ -63,7 +63,7 @@ const Header = () => {
                 <Icon 
                     name="settings" 
                     color="#343434" 
-                    size={30}
+                    size={25}
                 />
              </Animated.View>
              
@@ -85,8 +85,8 @@ const styles = StyleSheet.create({
         paddingRight: 10,
     },
     text:{
-        fontSize: 30,
-        fontFamily: 'Poppins_700Bold',
+        fontSize: 20,
+        fontFamily: 'Poppins-Bold',
         color: '#0943AF',
     }
 });

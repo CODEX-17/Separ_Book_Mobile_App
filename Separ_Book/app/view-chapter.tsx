@@ -7,31 +7,43 @@ import {
     ScrollView,
     SafeAreaView,
 } from 'react-native';
-import { ChapterContext } from '../../../../../context/ChapterContex';
-import { getChapter } from '../../../../../Utils/getChapter';
-import { separ as chapterList } from '../../../../../data/chapters'
+import { ChapterContext } from './context/ChapterContex';
+import { getChapter } from './Utils/getChapter';
+import { separ as chapterList } from './data/chapters'
 import { SkipForward, SkipBack, Undo2, Heart, Share2, ImageDown, Settings } from 'lucide-react-native';
-import ScreenShot from './ScreetShot/ScreetShot';
-import Setting from './ModalSetting/ModalSetting';
+import ScreenShot from './(home)/screen-shot';
+import { useRouter } from 'expo-router';
+import { SettingContext } from './context/SettingContext';
 
 
+const ViewChapter = () => {
 
-const ViewChapter = ({ navigation }) => {
+    const router = useRouter()
 
     const { currentChapter, setCurrentChapter } = useContext(ChapterContext)
+    const { objSetting } = useContext(SettingContext)
 
+    const fontSize = objSetting.fontSize
 
-    const [selectedVerse, setSelectedVerse] = useState(null) 
-    const [currentIndexChapter, setCurrentIndexChapter] = useState(null)
-    const [fontSize, setFontSize] = useState(30)
+    type Verse = {
+        chapter: number;
+        verse: number;
+        content: string;
+    }
 
+    const [selectedVerse, setSelectedVerse] = useState<Verse | null>(null)
+    const [currentIndexChapter, setCurrentIndexChapter] = useState<number | null>(null)
     const [isShowPreview, setIsShowPreview] = useState(false)
-    const [isShowSetting, setIsShowSetting] = useState(false)
+
 
     useEffect(() => {
-        const result = getChapter(currentChapter.chapter, currentChapter.verse)   
-        setSelectedVerse(result.content)
-        setCurrentIndexChapter(result.index)
+        const result = getChapter(currentChapter.chapter, currentChapter.verse)  
+        
+        if (result) {
+            setSelectedVerse(result.content)
+            setCurrentIndexChapter(result.index)
+        }
+       
     },[currentChapter])
 
     useEffect(() => {
@@ -42,8 +54,9 @@ const ViewChapter = ({ navigation }) => {
         
     },[selectedVerse])
 
-    const handleSwitchVerse = (type) => {
-        const index = type === 'next' ? currentIndexChapter + 1 : currentIndexChapter - 1
+    const handleSwitchVerse = (type: string) => {
+
+        const index = type === 'next' ? (currentIndexChapter ?? 0) + 1 : (currentIndexChapter ?? 0) - 1
         if (index < 0 || index >= chapterList.length - 1) return; 
         
         setCurrentIndexChapter(index)
@@ -66,22 +79,13 @@ const ViewChapter = ({ navigation }) => {
                         />
                     </View>
                 }
-                {
-                    isShowSetting &&
-                    <View style={styles.modal}>
-                        <Setting 
-                            fontSize={fontSize}
-                            setFontSize={setFontSize}
-                            setIsShowSetting={setIsShowSetting}
-                        />
-                    </View>
-                }
+
                 <SafeAreaView>                  
                     <View style={styles.content}>
                         <View style={styles.display}>
                             <View style={styles.header}>
                                 <TouchableOpacity
-                                    onPress={() => navigation.navigate("menu")}
+                                    onPress={() => router.dismiss(1)}
                                 >
                                     <Undo2 color="#003092" size={25} />
                                 </TouchableOpacity>
@@ -90,19 +94,20 @@ const ViewChapter = ({ navigation }) => {
                                     <Text style={styles.verse}>{`Verse ${selectedVerse?.verse}`}</Text>
                                 </View>
                                 <TouchableOpacity
-                                    onPress={() => setIsShowSetting(true)}
+                                    onPress={() => router.push('/setting')}
                                 >
                                     <Settings color="#003092" size={25} />
                                 </TouchableOpacity>
                             </View>
                             <View style={styles.displayContent}>
                                 {
-                                    selectedVerse?.content.length  > 400 ?
+                                    selectedVerse && 
+                                    selectedVerse.content.length > 400 ?
                                         <ScrollView style={{ padding: 10 }}> 
-                                            <Text style={[styles.contentText, { fontSize: fontSize }]}>{selectedVerse?.content}</Text>
+                                            <Text style={[styles.contentText, { fontSize: objSetting.fontSize }]}>{selectedVerse?.content}</Text>
                                         </ScrollView> 
                                     :
-                                        <Text style={[styles.contentText, { fontSize: fontSize }]}>{selectedVerse?.content}</Text>
+                                        <Text style={[styles.contentText, { fontSize: objSetting.fontSize }]}>{selectedVerse?.content}</Text>
                                 }
                             </View>
                         </View>
@@ -184,24 +189,23 @@ const styles = StyleSheet.create({
         height: '10%',
         width: '100%',
         display: 'flex',
-        flexDirection: 'row',
         alignItems: 'flex-start',
         justifyContent: 'space-around',
     },
     chapter: {
-        fontFamily: 'Poppins_700Bold',
+        fontFamily: 'Poppins-Bold',
         color: '#343434',
         fontSize: 40,
         textAlign: 'center',
     },
     verse: {
-        fontFamily: 'Poppins_400Regular',
+        fontFamily: 'Poppins-Regular',
         color: '#343434',
         fontSize: 20,
         textAlign: 'center',
     },
     contentText: {
-        fontFamily: 'Poppins_400Regular',
+        fontFamily: 'Poppins-Regular',
         color: '#343434',
         fontSize: 30,
         textAlign: 'center',

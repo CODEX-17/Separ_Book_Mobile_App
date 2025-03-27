@@ -2,9 +2,13 @@ import React from 'react';
 import { View, Image, StyleSheet, Text, ImageBackground } from 'react-native';
 import CustomizeButton from './components/CustomizeButton';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import { useRouter } from 'expo-router';
 
 
-const WelcomeScreen = ({ navigation }) => {
+const WelcomeScreen = () => {
+
+  const router = useRouter()
+
   return (
     <ImageBackground 
       source={require("../assets/images/bg-blue.jpg")}
@@ -22,7 +26,7 @@ const WelcomeScreen = ({ navigation }) => {
           <CustomizeButton 
             title={'Explore'} 
             icons={<Icon name="navigate-next" color="#003092" size={25}/>}
-            onPress={() => navigation.navigate('onboard')}
+            onPress={() => router.push('/onboard')}
             width={250}
             styleButton={[{ borderRadius: 50, backgroundColor: '#fff' }]}
             styleText={{ color: '#003092' }}
@@ -60,10 +64,14 @@ const styles = StyleSheet.create({
   },  
   text: {
    color: '#fff',
-   fontFamily: 'Poppins_400Regular'
+   fontFamily: 'Poppins-Regular'
   },
   footer: {
     height: 40,
+  },
+  image: {
+    width: 100,
+    height: 100,
   }
 });
 

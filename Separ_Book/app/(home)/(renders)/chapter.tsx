@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useRef } from 'react';
 import { 
     View, 
     Text, 
@@ -6,28 +6,35 @@ import {
     ScrollView,
     TouchableOpacity
 } from 'react-native';
-import { separ as chapters } from '../../../../data/chapters'
-import { ChapterContext } from '../../../../context/ChapterContex';
+import { separ as chapters } from '../../data/chapters'
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import LottieView from 'lottie-react-native';
+import { ChapterContext } from '../../context/ChapterContex';
+import { useRouter } from 'expo-router';
 
-const ChapterScreen = ({ navigation }) => {
+const ChapterScreen = () => {
+
+    const router = useRouter()
+
+    const scrollViewRef = useRef<ScrollView>(null);
 
     const { currentChapter, setCurrentChapter } = useContext(ChapterContext)
     const chapterList = [...new Set(chapters.map(data => data.chapter))]
-    const [selectedChapter, setSelectedChapter] = useState(null)
-    const [verseList, setVerseList] = useState(null) 
+    const [selectedChapter, setSelectedChapter] = useState<number | null>(null)
+    const [verseList, setVerseList] = useState<number[] | null>(null) 
 
     const [loading, setLoading] = useState(false)
 
     console.log(chapterList)
 
-    const handleSelect = (data) => {
+    const handleSelect = (data: number) => {
+        console.log(data)
         setLoading(true)
         setSelectedChapter(data)
        
         setVerseList(() => {
-            return chapters.filter((chap) => chap.chapter == data)
+            return chapters
+            .filter((chp) => chp.chapter === data)
             .map((data) => data.verse)
         })
 
@@ -37,7 +44,7 @@ const ChapterScreen = ({ navigation }) => {
         
     }
 
-    const handleSelectVerse = (data) => {
+    const handleSelectVerse = (data: number) => {
         setLoading(true)
         const chapter = selectedChapter
         const verse = data
@@ -49,50 +56,69 @@ const ChapterScreen = ({ navigation }) => {
             setTimeout(() => {
                 setLoading(false)
             }, 1000)
-            navigation.navigate("view")
+            router.push("/view-chapter")
         }
         
         
     }   
 
+    const scrollToBottom = () => {
+        scrollViewRef.current?.scrollToEnd({ animated: true });
+    };
+
     return (
         <View style={styles.container}>
             <View style={styles.header}>
                 <Text style={styles.title}>{selectedChapter ? 'Select Verse': 'Select Chapter'}</Text>
-                {
-                    selectedChapter ?
-                    <View style={{ width: '100%', flexDirection: 'row', justifyContent: 'space-between', marginTop: 10 }}>
-                        <TouchableOpacity 
-                            style={{ flexDirection: 'row', gap: 5 }}
-                            onPress={() => {setVerseList(null), setSelectedChapter(null)}}
-                        >
-                            <AntDesign name="back" color="#003092" size={20}/>
-                            <Text style={{ fontSize: 20 }}>{`Back`}</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity 
-                            style={{ flexDirection: 'row', gap: 5 }}
-                        >
-                            <Text style={{ fontSize: 20 }}>{`Scroll to End`}</Text>
-                            <AntDesign name="down" color="#003092" size={20}/>
-                        </TouchableOpacity>
-                    </View>
-                    :
-                    <Text style={styles.subtitle}>Easily navigate through the sacred writings. Browse and select chapters to explore divine wisdom at your own pace.</Text>
-                }
+                <Text style={styles.subtitle}>
+                    {
+                        selectedChapter ? `Chapter ${selectedChapter}` : 'Easily navigate through the sacred writings. Browse and select chapters to explore divine wisdom at your own pace.'
+                    }
+                </Text>
+                <View 
+                    style={{ 
+                        width: '100%', 
+                        flexDirection: 'row', 
+                        justifyContent: 'space-between', 
+                        marginTop: 20,
+                    }}
+                >
+                    <TouchableOpacity 
+                        style={{ flexDirection: 'row', gap: 5 }}
+                        onPress={() => {setVerseList(null), setSelectedChapter(null)}}
+                    >
+                        <AntDesign name="back" color="#003092" size={20}/>
+                        <Text style={{ fontSize: 15 }}>{`Back`}</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity 
+                        style={{ flexDirection: 'row', gap: 5 }}
+                        onPress={scrollToBottom}
+                    >
+                        <Text style={{ fontSize: 15 }}>{`Scroll to End`}</Text>
+                        <AntDesign name="down" color="#003092" size={20}/>
+                    </TouchableOpacity>
+                </View>
             </View>
             <View style={styles.menuList}>
                 {
                     loading ? 
-                    <View style={{ width: '100%', height: '100%', display: "flex", alignItems: 'center', justifyContent: 'center' }}>
+                    <View 
+                        style={{ 
+                            flex: 1, 
+                            display: "flex", 
+                            alignItems: 'center', 
+                            justifyContent: 'center' 
+                        }}
+                    >
                         <LottieView 
-                            source={require('../../../../../assets/loader.json')} 
+                            source={require('../../../assets/loader.json')} 
                             autoPlay 
                             loop 
                             style={styles.lottie}
                         />
                     </View>
                     :
-                    <ScrollView>
+                    <ScrollView ref={scrollViewRef}>
                         <View style={styles.scroll}>
                         {
                             verseList ?
@@ -135,20 +161,21 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
     },
     title: {
-        fontFamily: 'Poppins_700Bold',
+        fontFamily: 'Poppins-Bold',
         color: '#343434',
-        fontSize: 30,
+        fontSize: 25,
         textAlign: 'center',
     },
     subtitle: {
-        fontFamily: 'Poppins_400Regular',
+        fontFamily: 'Poppins-Regular',
         color: '#343434',
-        fontSize: 15,
+        fontSize: 12,
         textAlign: 'center',
     },
     header: {
-        height: 150,
+        height: 'auto',
         width: '100%',
+        paddingBottom: 20,
     },
     menuList: {
         width: '100%',
@@ -157,7 +184,7 @@ const styles = StyleSheet.create({
     scroll: {
         width: '100%',
         height: '100%',
-        justifyContent: 'center',
+        // justifyContent: 'center',
         flexDirection: 'row',
         flexWrap: 'wrap', // Wrap items to next row
         justifyContent: 'space-between',
@@ -176,14 +203,13 @@ const styles = StyleSheet.create({
         marginBottom: 10,
     },
     btnTitle: {
-        fontFamily: 'Poppins_400Regular',
-        color: '#343434',
+        fontFamily: 'Poppins-Regular',
+        color: '#fff',
         fontSize: 15,
         textAlign: 'center',
-        color: '#fff',
     },
     btnNumber: {
-        fontFamily: 'Poppins_700Bold',
+        fontFamily: 'Poppins-Bold',
         fontSize: 35,
         textAlign: 'center',
         color: '#fff',

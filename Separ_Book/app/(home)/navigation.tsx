@@ -1,38 +1,37 @@
 import React, { useContext, useState } from 'react';
 import { View, Pressable, Text, StyleSheet, Image, Platform } from 'react-native';
-import { BottomNavigationContext } from '../../../context/BottomNavigationContext';
-
+import { BottomNavigationContext } from '../context/BottomNavigationContext';
 
 const BottomNavigation = () => {
 
 
-    const { bottomNavigation, setBottomNavigation } = useContext(BottomNavigationContext)
+    const { bottomNavigation, setBottomNavigation }= useContext(BottomNavigationContext)
 
     const buttonList = [
         {
             title: 'Home',
-            iconPath: require('../../../../assets/images/icons/home.png'),
+            iconPath: require('../../assets/images/icons/home.png'),
         },
         {
             title: 'Chapters',
-            iconPath: require('../../../../assets/images/icons/book.png'),
+            iconPath: require('../../assets/images/icons/book.png'),
         },
         {
             title: 'Search',
-            iconPath: require('../../../../assets/images/icons/search.png'),
+            iconPath: require('../../assets/images/icons/search.png'),
         },
         {
             title: 'New Moon',
-            iconPath: require('../../../../assets/images/icons/moon.png'),
+            iconPath: require('../../assets/images/icons/moon.png'),
         },
         {
             title: 'Random',
-            iconPath: require('../../../../assets/images/icons/random.png'),
+            iconPath: require('../../assets/images/icons/random.png'),
         },
 
     ]
 
-    const handleNavigation = (title) => {
+    const handleNavigation = (title: string) => {
         setBottomNavigation(title)
     }
 
@@ -51,7 +50,7 @@ const BottomNavigation = () => {
                         >
                             <Image 
                                 source={btn?.iconPath}
-                                style={{ width: 27, height: 27, tintColor: bottomNavigation === btn?.title ? '#0943AF': '#343434' }}
+                                style={{ width: 20, height: 20, tintColor: bottomNavigation === btn?.title ? '#0943AF': '#343434' }}
                             />
                             <Text style={[styles.buttonText, { color: bottomNavigation === btn?.title ? '#0943AF': '#343434' }]}>{btn?.title}</Text>
                         </Pressable>
@@ -70,8 +69,6 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#fff',
-        height: '100%',
-        width: '100%',
         padding: 10,
         borderTopLeftRadius: 20,
         borderTopRightRadius: 20,
@@ -89,8 +86,7 @@ const styles = StyleSheet.create({
     navList: {
         borderTopLeftRadius: 20,
         borderTopRightRadius: 20,
-        width: '100%',
-        height: '100%',
+        flex: 1,
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
@@ -118,11 +114,11 @@ const styles = StyleSheet.create({
         gap: 5,
     },
     buttonText: {
-        fontSize: 15,
+        fontSize: 13,
         textAlign: 'center',
         padding: 0,
         margin: 0,
-        fontFamily: 'Poppins_700Bold',
+        fontFamily: 'Poppins-Bold',
         color: '#343434',
     }
 });

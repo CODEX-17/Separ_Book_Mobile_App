@@ -7,49 +7,51 @@ import {
     Image, 
     Pressable,
     SafeAreaView,
-
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import CustomizeButton from '../../components/CustomizeButton';
+import CustomizeButton from './components/CustomizeButton';
 import Animated, { 
     useSharedValue,
     useAnimatedStyle,
     withSpring,
  } from 'react-native-reanimated';
+import { useRouter } from 'expo-router';
 
 
-const OnBoardScreen = ({ navigation }) => {
+const OnBoardScreen = () => {
+
+    const router = useRouter()
 
     const contentList = [
         {
             index: 0,
             title: 'Welcome to Separ The Book of Remembrance',
             subtitle: 'A sacred collection of divine verses to inspire, guide, and uplift your soul. Begin your journey of reflection and wisdom.',
-            imagePath: require("../../../assets/images/book-story.png")
+            imagePath: require("../assets/images/book-story.png")
         },
         {
             index: 1,
             title: 'Find Wisdom Instantly',
             subtitle: 'Easily search for verses that resonate with your heart. Filter by topic, keyword, or theme to find divine guidance.',
-            imagePath: require("../../../assets/images/search-story.png")
+            imagePath: require("../assets/images/search-story.png")
         },
         {
             index: 2,
             title: 'Observe the New Moon for Sacred Worship',
             subtitle: 'Observe the new moon phases as a guide for Shabbath worship, following the sacred traditions practiced by the Hebrews.',
-            imagePath: require("../../../assets/images/pray-story.png")
+            imagePath: require("../assets/images/pray-story.png")
         },
         {
             index: 3,
             title: 'A Verse for Every Day',
             subtitle: 'Receive an inspiring verse daily to start your day with light and wisdom. Let the words guide your path.',
-            imagePath: require("../../../assets/images/notif-story.png")
+            imagePath: require("../assets/images/notif-story.png")
         },
         {
             index: 4,
             title: 'Let Divine Guidance Choose for You',
             subtitle: 'Need inspiration? Pick a random verse and let divine wisdom find you when you need it the most.',
-            imagePath: require("../../../assets/images/select-story.png")
+            imagePath: require("../assets/images/select-story.png")
         },
     ]
 
@@ -66,7 +68,7 @@ const OnBoardScreen = ({ navigation }) => {
         if (currentIndex < contentList.length - 1) {
             setSelectedContent(contentList[ currentIndex + 1 ])
         }else {
-            navigation.navigate('menu')
+            router.push('./(home)')
         }
 
         progress.value = withSpring(1, { damping: 10, stiffness: 364 });
@@ -90,7 +92,7 @@ const OnBoardScreen = ({ navigation }) => {
 
     return (
         <ImageBackground
-            source={require("../../../assets/images/bg-white.png")}
+            source={require("../assets/images/bg-white.png")}
             style={styles.background}
             resizeMode="cover"
         >
@@ -98,7 +100,7 @@ const OnBoardScreen = ({ navigation }) => {
             {
                 selectedContent?.index < 4 &&
                 <View style={styles.btnSkip}>
-                    <Pressable onPress={() => navigation.navigate('menu')}>
+                    <Pressable onPress={() => router.push('./(home)')}>
                         <Text style={[styles.subtitle, { fontSize: 20 }]}>Skip</Text>
                     </Pressable>
                     <Icon name="navigate-next" color="'#343434'" size={25}/>
@@ -181,14 +183,14 @@ const styles = StyleSheet.create({
         height: 300,
       },
       title: {
-        fontFamily: 'Poppins_700Bold',
+        fontFamily: 'Poppins-Bold',
         color: '#343434',
         fontSize: 25,
         textAlign: 'center',
         marginBottom: 10,
       },
       subtitle: {
-        fontFamily: 'Poppins_400Regular',
+        fontFamily: 'Poppins-Regular',
         color: '#343434',
         fontSize: 15,
         textAlign: 'center',
