@@ -111,7 +111,7 @@ const ChapterScreen = () => {
                         }}
                     >
                         <LottieView 
-                            source={require('../../../assets/loader.json')} 
+                            source={require('../../../assets/animation/loader.json')} 
                             autoPlay 
                             loop 
                             style={styles.lottie}

@@ -8,6 +8,7 @@ export default function RenderLayout () {
             <Stack screenOptions={{ headerShown: false }}>
                 <Stack.Screen name='chapter' />
                 <Stack.Screen name='view-chapter' />
+                <Stack.Screen name='random' />
             </Stack>
         </View>
     )
