@@ -49,13 +49,15 @@ const ChapterScreen = () => {
         const chapter = selectedChapter
         const verse = data
         if (chapter && verse) {
-            setCurrentChapter({
-                chapter,
-                verse,
-            })
+            
+            const selectedIndex = chapters.findIndex((data) => data.chapter === chapter && data.verse === verse)
+
+            setCurrentChapter(selectedIndex)
+
             setTimeout(() => {
                 setLoading(false)
             }, 1000)
+
             router.push("/view-chapter")
         }
         

@@ -12,39 +12,34 @@ import { getChapter } from './Utils/getChapter';
 import { separ as chapterList } from './data/chapters'
 import { SkipForward, SkipBack, Undo2, Heart, Share2, ImageDown, Settings } from 'lucide-react-native';
 import ScreenShot from './(home)/screen-shot';
-import { useRouter } from 'expo-router';
+import { useRouter, useLocalSearchParams } from 'expo-router';
 import { SettingContext } from './context/SettingContext';
 
 
 const ViewChapter = () => {
 
     const router = useRouter()
+    const params = useLocalSearchParams()
 
     const { currentChapter, setCurrentChapter } = useContext(ChapterContext)
     const { objSetting } = useContext(SettingContext)
 
+    const selectedVerse = chapterList[currentChapter]
+
     const fontSize = objSetting.fontSize
 
-    type Verse = {
-        chapter: number;
-        verse: number;
-        content: string;
-    }
-
-    const [selectedVerse, setSelectedVerse] = useState<Verse | null>(null)
     const [currentIndexChapter, setCurrentIndexChapter] = useState<number | null>(null)
     const [isShowPreview, setIsShowPreview] = useState(false)
 
 
+  
     useEffect(() => {
-        const result = getChapter(currentChapter.chapter, currentChapter.verse)  
-        
-        if (result) {
-            setSelectedVerse(result.content)
-            setCurrentIndexChapter(result.index)
+        if (params.route) {
+            console.log(params.route)
         }
-       
-    },[currentChapter])
+
+        if (!selectedVerse) router.back()
+    },[])
 
     useEffect(() => {
         if (selectedVerse) {
@@ -67,6 +62,10 @@ const ViewChapter = () => {
         setIsShowPreview(true)
     }
 
+    const handleback = () => {
+        router.dismissTo('/(home)')
+    }
+
     return (
         
             <View style={styles.container}>  
@@ -85,7 +84,7 @@ const ViewChapter = () => {
                         <View style={styles.display}>
                             <View style={styles.header}>
                                 <TouchableOpacity
-                                    onPress={() => router.dismiss(1)}
+                                    onPress={() => handleback()}
                                 >
                                     <Undo2 color="#003092" size={25} />
                                 </TouchableOpacity>

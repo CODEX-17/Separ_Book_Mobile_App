@@ -12,6 +12,7 @@ import Animated, {
  } from 'react-native-reanimated';
 import { ChapterContext } from '@/app/context/ChapterContex';
 import { separ as versesList } from '@/app/data/chapters';
+import { useRouter } from 'expo-router';
 
 
 
@@ -22,7 +23,9 @@ const RandomPick = () => {
     const [btnTextContent, setBtnTextContent] = useState('')
     const [display, setDisplay] = useState('prayer')
 
-    const { setCurrentChapter } = useContext(ChapterContext)  
+    const router = useRouter()
+
+    const { currentChapter, setCurrentChapter } = useContext(ChapterContext)  
 
     ////Animation
 
@@ -70,6 +73,8 @@ const RandomPick = () => {
     //Animation useEffect
     useEffect(() => {
 
+        console.log(currentChapter)
+
         let count = 1
 
         prayerProgress.value = withSpring(1, { damping: 10, stiffness: 364 })
@@ -97,20 +102,35 @@ const RandomPick = () => {
 
 
     const handleReady = () => {
-        // Step 1: Hide prayer container
+
         prayerScale.value = withSpring(0, { damping: 10, stiffness: 364 });
-    
-        // Step 2: Delay state update to allow animation to complete
+
         setTimeout(() => {
             setDisplay('picking');
-    
-            // Step 3: Ensure React renders the new UI before animating
-            requestAnimationFrame(() => {
-                pickingProgress.value = withSpring(1, { damping: 10, stiffness: 364 });
-                pickingScale.value = withSpring(1, { damping: 10, stiffness: 364 });
-            });
-        }, 500); // Adjust delay if needed
-    };
+
+            setTimeout(() => {
+
+                pickingProgress.value = withSpring(1, { damping: 10, stiffness: 364 })
+                pickingScale.value = withSpring(1, { damping: 10, stiffness: 364 })
+
+                setTimeout(() => {
+
+                    pickingScale.value = withSpring(0, { damping: 10, stiffness: 364 })
+
+                    const ramdomIndex = Math.floor(Math.random() * versesList.length)
+        
+                    if (ramdomIndex) {
+                        setCurrentChapter(ramdomIndex)
+                        router.setParams({ route: 'random' })
+                        router.push('/view-chapter')
+                    }
+                }, 3000);
+            }, 50)
+            
+        }, 3000)
+        
+
+    }
 
     return (
         <View style={styles.container}>
