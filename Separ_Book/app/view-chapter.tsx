@@ -12,19 +12,19 @@ import { getChapter } from './Utils/getChapter';
 import { separ as chapterList } from './data/chapters'
 import { SkipForward, SkipBack, Undo2, Heart, Share2, ImageDown, Settings } from 'lucide-react-native';
 import ScreenShot from './(home)/screen-shot';
-import { useRouter, useLocalSearchParams } from 'expo-router';
+import { useRouter, useGlobalSearchParams } from 'expo-router';
 import { SettingContext } from './context/SettingContext';
 
 
 const ViewChapter = () => {
 
     const router = useRouter()
-    const params = useLocalSearchParams()
+    const params = useGlobalSearchParams()
 
     const { currentChapter, setCurrentChapter } = useContext(ChapterContext)
     const { objSetting } = useContext(SettingContext)
 
-    const selectedVerse = chapterList[currentChapter]
+    const [selectedVerse, setSelectedVerse] = useState(chapterList[currentChapter])
 
     const fontSize = objSetting.fontSize
 
@@ -34,12 +34,8 @@ const ViewChapter = () => {
 
   
     useEffect(() => {
-        if (params.route) {
-            console.log(params.route)
-        }
-
         if (!selectedVerse) router.back()
-    },[])
+    },[params])
 
     useEffect(() => {
         if (selectedVerse) {
@@ -51,10 +47,12 @@ const ViewChapter = () => {
 
     const handleSwitchVerse = (type: string) => {
 
-        const index = type === 'next' ? (currentIndexChapter ?? 0) + 1 : (currentIndexChapter ?? 0) - 1
+        const index = type === 'next' ? (currentChapter ?? 0) + 1 : (currentChapter ?? 0) - 1
+
         if (index < 0 || index >= chapterList.length - 1) return; 
         
         setCurrentIndexChapter(index)
+        setCurrentChapter(index)
         setSelectedVerse(chapterList[index])
     }
 
@@ -63,6 +61,10 @@ const ViewChapter = () => {
     }
 
     const handleback = () => {
+        if (params.route === 'random') { 
+            router.dismiss(2)
+        }
+        
         router.dismissTo('/(home)')
     }
 

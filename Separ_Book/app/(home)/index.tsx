@@ -6,6 +6,7 @@ import { BottomNavigationContext } from '../context/BottomNavigationContext';
 import ChapterScreen from './(renders)/chapter';
 import Navigation from './navigation';
 import RandomPick from './(renders)/random';
+import Search from './(renders)/search';
 
 const HomeLayout = () => {
 
@@ -16,6 +17,8 @@ const HomeLayout = () => {
             case 'Home':
             case 'Chapters':
                 return <ChapterScreen/>
+            case 'Search':
+                return <Search/>
             case 'Random':
                 return <RandomPick/>
             case 'Default':

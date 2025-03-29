@@ -9,6 +9,7 @@ export default function RenderLayout () {
                 <Stack.Screen name='chapter' />
                 <Stack.Screen name='view-chapter' />
                 <Stack.Screen name='random' />
+                <Stack.Screen name='search' />
             </Stack>
         </View>
     )

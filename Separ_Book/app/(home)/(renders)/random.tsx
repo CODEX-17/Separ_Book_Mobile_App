@@ -73,8 +73,6 @@ const RandomPick = () => {
     //Animation useEffect
     useEffect(() => {
 
-        console.log(currentChapter)
-
         let count = 1
 
         prayerProgress.value = withSpring(1, { damping: 10, stiffness: 364 })
@@ -121,8 +119,7 @@ const RandomPick = () => {
         
                     if (ramdomIndex) {
                         setCurrentChapter(ramdomIndex)
-                        router.setParams({ route: 'random' })
-                        router.push('/view-chapter')
+                        router.push({ pathname: "/view-chapter", params: { route: "random" } })
                     }
                 }, 3000);
             }, 50)
@@ -188,6 +185,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
+        backgroundColor: '#fff',
     },
     loadingContainer: {
         display: 'flex',
