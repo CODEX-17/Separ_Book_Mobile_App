@@ -1,11 +1,16 @@
 import React, { useContext, useState } from 'react';
 import { View, Pressable, Text, StyleSheet, Image, Platform } from 'react-native';
 import { BottomNavigationContext } from '../context/BottomNavigationContext';
+import { SettingContext } from '../context/SettingContext';
+import COLORS from '../constants/colors';
 
 const BottomNavigation = () => {
 
 
     const { bottomNavigation, setBottomNavigation }= useContext(BottomNavigationContext)
+    const { objSetting } = useContext(SettingContext) 
+
+    const themeColors = objSetting.theme === 'dark' ? COLORS.dark : COLORS.light;
 
     const buttonList = [
         {
@@ -36,13 +41,13 @@ const BottomNavigation = () => {
     }
 
     return (
-        <View style={styles.container}>
+        <View style={[styles.container, { backgroundColor: themeColors.background, shadowColor: themeColors.border }]}>
             <View style={styles.navList}>
                 {
                     buttonList.map((btn, index) => (
                         <Pressable 
                             style={({ pressed }) => [
-                                bottomNavigation === btn?.title ? styles.buttonActive : styles.button,
+                                bottomNavigation === btn?.title ? [styles.buttonActive, { backgroundColor: themeColors.card }] : styles.button,
                                 pressed && { opacity: 0.7, transform: [{ scale: 0.95 }] },
                             ]}
                             key={index}
@@ -50,9 +55,9 @@ const BottomNavigation = () => {
                         >
                             <Image 
                                 source={btn?.iconPath}
-                                style={{ width: 20, height: 20, tintColor: bottomNavigation === btn?.title ? '#0943AF': '#343434' }}
+                                style={{ width: 20, height: 20, tintColor: bottomNavigation === btn?.title ? themeColors.highlight : themeColors.secondaryText }}
                             />
-                            <Text style={[styles.buttonText, { color: bottomNavigation === btn?.title ? '#0943AF': '#343434' }]}>{btn?.title}</Text>
+                            <Text style={[styles.buttonText, { color: bottomNavigation === btn?.title ? themeColors.highlight: themeColors.secondaryText }]}>{btn?.title}</Text>
                         </Pressable>
                     ))
                 }
@@ -68,11 +73,9 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#fff',
         padding: 10,
         borderTopLeftRadius: 20,
         borderTopRightRadius: 20,
-
 
         // Shadow for iOS
         shadowColor: '#000',

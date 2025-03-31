@@ -1,10 +1,15 @@
-import React, { useEffect, useState } from 'react';
-import { View, Text, StyleSheet, TextInput, ScrollView } from 'react-native';
+import React, { useContext, useEffect, useState } from 'react';
+import { View, Text, StyleSheet, TextInput, ScrollView, TouchableOpacity } from 'react-native';
 import { Search } from 'lucide-react-native';
 import LottieView from 'lottie-react-native';
 import { shortenText } from '../../Utils/textUtils'
 import { separ as chapterList } from '@/app/data/chapters';
 import Fuse from 'fuse.js';
+import { ChapterContext } from '@/app/context/ChapterContex';
+import { useRouter } from 'expo-router';
+import { getChapter } from '@/app/Utils/getChapter';
+import { SettingContext } from '@/app/context/SettingContext';
+import COLORS from '@/app/constants/colors';
 
 const MyComponent = () => {
 
@@ -18,6 +23,13 @@ const MyComponent = () => {
     const [resultList, setResultList] = useState<Verse[] | []>([])
     const [loading, setLoading] = useState(false);
 
+    const { objSetting } = useContext(SettingContext)
+    const themeColors = objSetting.theme === 'dark' ? COLORS.dark : COLORS.light;
+    
+    const router = useRouter()
+
+    const { setCurrentChapter } = useContext(ChapterContext) 
+
     const fuseOptions = {
         // isCaseSensitive: false,
         includeScore: true,
@@ -27,17 +39,13 @@ const MyComponent = () => {
         findAllMatches: true,
         // minMatchCharLength: 1,
         // location: 0,
-        // threshold: 0.6,
+        threshold: 0.4,
         // distance: 100,
         // useExtendedSearch: false,
         // ignoreLocation: false,
         // ignoreFieldNorm: false,
         // fieldNormWeight: 1,
-        keys: [
-            "chapter",
-            "verse",
-            "content",
-        ]
+        keys: ["content"]
     }
 
     const fuse = new Fuse(chapterList, fuseOptions)
@@ -54,31 +62,51 @@ const MyComponent = () => {
        
     }
 
+    const handleSelectVerse = (chapter: number, verse: number) => {
+
+        const result = getChapter(chapter, verse)
+
+        if (result) {
+            setCurrentChapter(result.index)
+            router.push("/view-chapter")
+        } else {
+            console.error("Result is null")
+        }
+
+    }
+
     return (
         <View style={styles.container}>
-            <View style={styles.inputContainer}>
+            <View style={[styles.inputContainer, { backgroundColor: themeColors.card }]}>
                 <Search 
                     size={20}
-                    color="#0943AF"
+                    color={themeColors.primary}
                 />
                 <TextInput
-                    style={styles.input}
+                    style={[styles.input, { color: themeColors.primaryText }]}
                     onChangeText={handleSearch}
                     placeholder="Search"
                     placeholderTextColor="#ccc"
                     value={text}
                 />
             </View>
-            <Text style={styles.label}>Search Result:</Text>
+            <Text style={[styles.label, { color: themeColors.primaryText }]}>Search Result: {resultList.length}</Text>
             <ScrollView style={styles.cardList}>
                 {
                     resultList.length > 0 ? (
                         resultList.map((data, index) => (
-                            <View style={styles.card} key={index}>
-                                <Text style={styles.chapterText}>{`Chapter ${data.chapter}`}</Text>
-                                <Text style={styles.verseText}>{`Verse ${data.verse}`}</Text>
-                                <Text style={styles.verseContent}>{shortenText(data.content, 25)}</Text>
-                            </View>
+                            <TouchableOpacity
+                                onPress={() => handleSelectVerse(data.chapter, data.verse)}
+                            >
+                                <View 
+                                    style={[styles.card, { backgroundColor: themeColors.card, borderColor: themeColors.border }]} 
+                                    key={index}
+                                >
+                                    <Text style={[styles.chapterText, { color: themeColors.primaryText }]}>{`Chapter ${data.chapter}`}</Text>
+                                    <Text style={[styles.verseText, { color: themeColors.secondaryText }]}>{`Verse ${data.verse}`}</Text>
+                                    <Text style={[styles.verseContent, { color: themeColors.secondaryText }]}>{shortenText(data.content, 25)}</Text>
+                                </View>
+                            </TouchableOpacity>
                         ))
                     ) : (
                         loading ? (
@@ -92,7 +120,7 @@ const MyComponent = () => {
                             </View>
                         ) : (
                             <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-                                <Text style={styles.verseText}>No Result</Text>
+                                <Text style={[styles.verseText, { color: themeColors.primaryText }]}>No Result</Text>
                             </View>
                             
                         )
@@ -109,7 +137,7 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'flex-start',
-        backgroundColor: '#fff',
+        backgroundColor: 'transparent',
         padding: 40,
     },
     inputContainer: {

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Header from './header';
@@ -7,10 +7,16 @@ import ChapterScreen from './(renders)/chapter';
 import Navigation from './navigation';
 import RandomPick from './(renders)/random';
 import Search from './(renders)/search';
+import NewMoon from './(renders)/newmoon';
+import { SettingContext } from '../context/SettingContext';
+import COLORS from '../constants/colors';
+import Animated, { Easing, useAnimatedStyle, useSharedValue, withSpring, withTiming} from 'react-native-reanimated';
+
 
 const HomeLayout = () => {
 
     const { bottomNavigation } = useContext(BottomNavigationContext)
+    const { objSetting } = useContext(SettingContext)
 
     const renderTab = () => {
         switch (bottomNavigation) {
@@ -19,6 +25,8 @@ const HomeLayout = () => {
                 return <ChapterScreen/>
             case 'Search':
                 return <Search/>
+            case 'New Moon':
+                return <NewMoon/>
             case 'Random':
                 return <RandomPick/>
             case 'Default':
@@ -26,23 +34,37 @@ const HomeLayout = () => {
             default:
                 return <Text>No tab selected</Text>; // Fallback UI
         }
-    };
+    }
+
+    const themeColors = objSetting.theme === 'dark' ? COLORS.dark : COLORS.light;
+
+    const fadeAnim = useSharedValue(0);
+
+    // Animated style for background fade effect
+    const backgroundAnimation = useAnimatedStyle(() => ({
+        opacity: fadeAnim.value,
+        backgroundColor: themeColors.background,
+    }));
+
+    useEffect(() => {
+        fadeAnim.value = 0
+        fadeAnim.value = withTiming(1, { duration: 1000, easing: Easing.inOut(Easing.ease) });
+    },[objSetting.theme])
 
     return (
-        
-            <View style={styles.container}>
-                <SafeAreaView style={[styles.safeArea, { flex: 1 }]}>
-                    <View style={styles.header}>
-                        <Header/>
-                    </View>
-                    <View style={styles.content}>
-                        {renderTab()}
-                    </View>
-                    <View style={styles.bottonNavigation}>
-                        <Navigation/>
-                    </View>
-                </SafeAreaView>
-            </View>
+        <Animated.View style={[styles.container, backgroundAnimation]}>
+            <SafeAreaView style={[styles.safeArea, { flex: 1 }]}>
+                <View style={styles.header}>
+                    <Header/>
+                </View>
+                <View style={styles.content}>
+                    {renderTab()}
+                </View>
+                <View style={styles.bottonNavigation}>
+                    <Navigation/>
+                </View>
+            </SafeAreaView>
+        </Animated.View>
     );
 };
 
@@ -54,24 +76,24 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#fff',
     },
     safeArea: {
         height: '100%',
         width: '100%',
+        backgroundColor: 'transparent',
     },
     header: {
-        backgroundColor: 'green',
         height: '10%',
         width: '100%',
+        backgroundColor: 'transparent',
     },
     content: {
         width: '100%',
         height: '80%',
+        backgroundColor: 'transparent',
     },
     bottonNavigation: {
         flex: 1,
-        backgroundColor: '#fff',
         elevation: 10,
         borderTopLeftRadius: 20,
         borderTopRightRadius: 20,

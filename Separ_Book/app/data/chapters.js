@@ -9,7 +9,8 @@ export const separ = [
     {
         chapter: 1,
         verse: 2,
-        content: `Ipinakilala ko ang aking pangalan sa panahon paman ni Adan kay noach, kay Avraham, kay moshe, kay samual, kay aliyahu, kay ezra, kay nahemyahu, kay yob, kay dawud, kay yeshayahu, kay yeremhayahu, kay ezikiel, kay danail, kay amos, kay hosiyahu, kay yual, kay yonas, kay micas, kay obadyahu, kay nahum, kay habakuk, kay zepanyahu, kay hagagai, kay zecharayu, kay malakyahu sa ibang mga propeta at ipinakilala ni yahushua, at muling ipinakikilala ng aking sugo`
+        content: `Ipinakilala ko ang aking pangalan sa panahon paman ni Adan kay noach,kay Avraham,kay moshe,kay samual,kay aliyahu,kay ezra,kay nahemyahu, kay yob,kay dawud,kay yeshayahu,kay yeremhayahu ,kay ezikiel,
+        ,kay danail,kay amos,kay hosiyahu,kay yual,kay yonas,kay micas,kay obadyahu,kay nahum,kay habakuk, kay zepanyahu, kay hagagai,kay zecharayu,kay malakyahu,sa ibang mga proprta at ipinakilala ni yahushua, at muling ipinakikilala ng aking sugo`
     },
 
     {
@@ -1387,7 +1388,7 @@ export const separ = [
     {
         chapter: 2,
         verse: 42,
-        content: `Ang araw ay darating na ang sinomang bansa ang hindi makiisa sa pagdiriwang ng mga pistang ito ay hindi ko bibigyan ng ulan, bagkus padadalhan ko sila ng mga sunod-sunod na salot, at makikilala ng buong mundo na ako si YAHUWEH ang nag-iisang Makapangyarihan sa lahat ay nagbibigay ng biyaya at pagpapala sa aking mga pinili sa bansang yahsraal at sa lahat ng mga hentil na may takot sa akin na nagsisigawa ng aking mga salita.`
+        content: `Ang araw ay darating na ang sinomang bansa ang hindi makiisa sa pagdiriwang ng mga pistang ito ay hindi ko bibigyan ng ulan, bagkus padadalhan ko sila ng mga sunod-sunod na salot, at makikilala ng buong mundo na ako si YAHUWEH ang nag-iisang Makapangyarihan sa lahat ay nagbibigay ng biyaya at pagpapala sa aking mga pinili sa bansang yahsraal at sa lahat ng mga hentil na may takot sa akin na nagsisigawa ng aking mga salita.  `
     },
     {
         chapter: 2,
@@ -1833,7 +1834,7 @@ export const separ = [
     {
         chapter: 2,
         verse: 131,
-        content: `Huwag kang lalayo sa liwanag na ito bagkus ay magpatuloy ka na mamuhay dito, sapgkat ang mga tumalikod ay hindi ko kinalulugdan, oo ang mga nagtatakwil ng liwanag na ito ay hindi makakaiwas sa parusa sa impierno.`
+        content: `Huw2ag kang lalayo sa liwanag na ito bagkus ay magpatuloy ka na mamuhay dito, sapgkat ang mga tumalikod ay hindi ko kinalulugdan, oo ang mga nagtatakwil ng liwanag na ito ay hindi makakaiwas sa parusa sa impierno.`
     },
     {
         chapter: 2,
@@ -2360,7 +2361,7 @@ export const separ = [
         content: `Maging mabuting halimbawa kayo sa mga hindi mananampalataya, at laging maingat sa iyong mga kinikilos at inaasal bilang mga mananamba sa Akin, upang hindi mapintasan ang Aking Banal na Pangalan.`
     },
     {
-        chapter: 2,
+        chapter: 3,
         verse: 57,
         content: `Sikapin ninyong makaakay ng inyong kapwa sa kabutihan, ipangaral ninyo ang Aking Banal Na Pangalan, at turuan silang sumamba sa Akin, turuang sumunod sa lahat ng Aking ipinag-uutos. Ako si Yahuweh na Makapangyarihan sa lahat ay lagi ninyong kasama saan man kayo pumaroon.`
     },
@@ -2502,37 +2503,36 @@ export const separ = [
     {
         chapter: 3,
         verse: 85,
-        content: `Lakasan mo ang iyomng loob, at huwag mong iisipin na ikaw lamang ang nakakaranas ng ganyang pagsubok, marami din sa iyong mga kapatiran ang nakaranas ng katulad ng iyong situwasyon, ngunit nag-sitagumpay sila dahil sa kanilang lubos na pananampalataya sa Akin, at tunay na tinanggap nila ang pagpapala na Aking inilaan para sa kanila, at sila'y may pag-asa na makapasok sa buhay na walang hanggan.`
+        content: `Lakasan mo ang iyong loob, at huwag mong iisipin na ikaw lamang ang nakakaranas ng ganyang pagsubok, marami din sa iyong mga kapatiran ang nakaranas ng katulad ng iyong situwasyon, ngunit nag-sitagumpay sila dahil sa kanilang lubos na pananampalataya sa Akin, at tunay na tinanggap nila ang pagpapala na Aking inilaan para sa kanila, at sila'y may pag-asa na makapasok sa buhay na walang hanggan.`},
+    {
+        chapter: 3,
+        verse: 86,
+        content: `Ikaw ay Aking pinili upang sumamba sa akin, kaya't gawin mo ang iyong tungkulin araw at gabi ay dapat nag-aalay ka ng pagsamba sa aking pangalan, at pagdating ng araw ng Shabbat ay pupunta ka sa banal na pagtitipon ng iyong mga kapatid sa pananampaltaya upang makiisa sa pangkalahatang pag sama sa Akin.`
     },
     {
         chapter: 3,
-        verse: 83,
-        content: ``
+        verse: 87,
+        content: `Ang lahat ng mga bagay na ginawa ko ay may layunin, at uapang ang tao ay nakapag-isip-isip, at matanto ang kadakilaan at kabutihan na Aking ginawa sa kaniya, at sa gayon ay sambahin at papurihan niya Ako.`
     },
     {
         chapter: 3,
-        verse: 83,
-        content: ``
+        verse: 88,
+        content: `Sapagkat ito ang layunin ng pagkalikha ko sa tao upang ako'y kaniyang sambahin sa tamang pamamaraan ng pagsamba. tularan mo ang pagsamba na ginawa ng Aking mga propeta at mga anghel upang maging kaayaaya sa aking paningin ang iyong pagsamba sa akin.`
     },
     {
         chapter: 3,
-        verse: 83,
-        content: ``
+        verse: 89,
+        content: `Labanan mo ang pa-aalinlangan, huwag mong hayaan na manaig sa iyo ang pakanang masamang espiritu, itaklwil mo ang masamang kaisipan, manampalataya ka sa liwanag na ito at ikaw ay Aking kalulugdan at pagpapalain.`
     },
     {
         chapter: 3,
-        verse: 83,
-        content: ``
+        verse: 90,
+        content: `Di ba't sinabi ko na noong una pa, na Ako'y gagawa ng isang bagong bagay, na hindi ninyo aakalain, at ngayon ay naririto ang isang bagay na Aking ginawa sa pamamagitan ng Aking Sugo, isang bagong bagay na magpapatunay sa anomang katotohanan na meron sa mga naunang kasulatan. Narito ang liwanag para sa mga taong maya pananampalataya sa Akin at sumasamba sa Aking Banal na Pangalan.`
     },
     {
         chapter: 3,
-        verse: 83,
-        content: ``
-    },
-    {
-        chapter: 3,
-        verse: 83,
-        content: ``
+        verse: 91,
+        content: `Walang kabuluhan ang pagsamba na gianawa ng mga relihiyon, sapagkat hindi naayon sa mga pamamaraan ng aking mga propeta, at hindi sa pangalan ko ginawa ang kanilang pagamba. Kaya't walang saysay kahit gaano man kaganda at maayos ang mga mang-aawit nila, at kahit malalaki ang kanilang panambahan ay tunay na walang halaga sa Aking paningin ang kanilang mga ginawa.`
     },
 
 ]

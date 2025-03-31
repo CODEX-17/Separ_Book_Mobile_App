@@ -10,10 +10,19 @@ import * as MediaLibrary from 'expo-media-library';
 import { Undo2, Share2, ImageDown } from 'lucide-react-native';
 import * as Sharing from 'expo-sharing';
 
-const ScreenShot = ({ selectedVerse, setIsShowPreview }) => {
+interface ScreenShotProps {
+    selectedVerse: {
+        chapter: number;
+        verse: number;
+        content: string;
+    };
+    setIsShowPreview: (value: boolean) => void;
+}
+
+const ScreenShot: React.FC<ScreenShotProps> = ({ selectedVerse, setIsShowPreview }) => {
 
     const imageRef = useRef(null)
-    const [imageUri, setImageUri] = useState(null)
+    const [imageUri, setImageUri] = useState<string | null>(null)
     const [status, requestPermission] = MediaLibrary.usePermissions()
 
     if (status === null) {
@@ -53,7 +62,11 @@ const ScreenShot = ({ selectedVerse, setIsShowPreview }) => {
 
     const onSaveImageAsync = async () => {
         try {
-            await MediaLibrary.saveToLibraryAsync(imageUri)
+            if (imageUri) {
+                await MediaLibrary.saveToLibraryAsync(imageUri);
+            } else {
+                alert("No image available to save.");
+            }
             alert('Saved!')
         } catch (e) {
             console.log(e);
@@ -62,7 +75,6 @@ const ScreenShot = ({ selectedVerse, setIsShowPreview }) => {
 
     const handleShare = async () => {
         
-
         if (!imageUri) {
             alert("No image available to share.");
             return
@@ -180,7 +192,6 @@ const styles = StyleSheet.create({
         height: '10%',
         width: '100%',
         display: 'flex',
-        flexDirection: 'row',
         alignItems: 'flex-start',
         justifyContent: 'space-around',
         paddingLeft: 30,

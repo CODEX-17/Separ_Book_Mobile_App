@@ -1,4 +1,4 @@
-import React, { useState, useContext, useRef } from 'react';
+import React, { useState, useContext, useRef, useEffect } from 'react';
 import { 
     View, 
     Text, 
@@ -11,10 +11,15 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import LottieView from 'lottie-react-native';
 import { ChapterContext } from '../../context/ChapterContex';
 import { useRouter } from 'expo-router';
+import { SettingContext } from '@/app/context/SettingContext';
+import COLORS from '@/app/constants/colors';
+import Animated, { useAnimatedStyle, useSharedValue, withSpring } from 'react-native-reanimated';
 
 const ChapterScreen = () => {
 
     const router = useRouter()
+    const { objSetting } = useContext(SettingContext)
+    const themeColors = objSetting.theme === 'dark' ? COLORS.dark : COLORS.light;
 
     const scrollViewRef = useRef<ScrollView>(null);
 
@@ -23,9 +28,29 @@ const ChapterScreen = () => {
     const [selectedChapter, setSelectedChapter] = useState<number | null>(null)
     const [verseList, setVerseList] = useState<number[] | null>(null) 
 
-    const [loading, setLoading] = useState(false)
 
-    console.log(chapterList)
+    // Create a ref to store animation values
+    const animationsRef = useRef(chapterList.map(() => useSharedValue(0)));
+
+    useEffect(() => {        
+
+        animationsRef.current.forEach((anim, index) => {
+            setTimeout(() => {
+                anim.value = withSpring(1, { stiffness: 150, damping: 10 });
+            }, index * 100); // Delayed animation
+        })
+
+    }, [])
+
+    // Generate animated styles only once and store them
+    const animatedStyles = animationsRef.current.map((anim) =>
+        useAnimatedStyle(() => ({
+            transform: [{ scale: anim.value }],
+        }))
+    )
+
+
+    const [loading, setLoading] = useState(false)
 
     const handleSelect = (data: number) => {
         console.log(data)
@@ -66,13 +91,13 @@ const ChapterScreen = () => {
 
     const scrollToBottom = () => {
         scrollViewRef.current?.scrollToEnd({ animated: true });
-    };
+    }
 
     return (
         <View style={styles.container}>
             <View style={styles.header}>
-                <Text style={styles.title}>{selectedChapter ? 'Select Verse': 'Select Chapter'}</Text>
-                <Text style={styles.subtitle}>
+                <Text style={[styles.title, {color: themeColors.primaryText }]}>{selectedChapter ? 'Select Verse': 'Select Chapter'}</Text>
+                <Text style={[styles.subtitle, {color: themeColors.secondaryText }]}>
                     {
                         selectedChapter ? `Chapter ${selectedChapter}` : 'Easily navigate through the sacred writings. Browse and select chapters to explore divine wisdom at your own pace.'
                     }
@@ -89,15 +114,15 @@ const ChapterScreen = () => {
                         style={{ flexDirection: 'row', gap: 5 }}
                         onPress={() => {setVerseList(null), setSelectedChapter(null)}}
                     >
-                        <AntDesign name="back" color="#003092" size={20}/>
-                        <Text style={{ fontSize: 15 }}>{`Back`}</Text>
+                        <AntDesign name="back" color={themeColors.primary} size={20}/>
+                        <Text style={{ fontSize: 15, color: themeColors.primaryText }}>{`Back`}</Text>
                     </TouchableOpacity>
                     <TouchableOpacity 
                         style={{ flexDirection: 'row', gap: 5 }}
                         onPress={scrollToBottom}
                     >
-                        <Text style={{ fontSize: 15 }}>{`Scroll to End`}</Text>
-                        <AntDesign name="down" color="#003092" size={20}/>
+                        <Text style={{ fontSize: 15, color: themeColors.primaryText }}>{`Scroll to End`}</Text>
+                        <AntDesign name="down" color={themeColors.primary} size={20}/>
                     </TouchableOpacity>
                 </View>
             </View>
@@ -122,30 +147,16 @@ const ChapterScreen = () => {
                     :
                     <ScrollView ref={scrollViewRef}>
                         <View style={styles.scroll}>
-                        {
-                            verseList ?
-                                verseList.map((data, index) => (
-                                    <TouchableOpacity
-                                        style={styles.btn}
-                                        key={index}
-                                        onPress={() => handleSelectVerse(data)}
-                                    >   
-                                        <Text style={styles.btnTitle}>{selectedChapter ? 'Verse': 'Chapter'}</Text>
-                                        <Text style={styles.btnNumber}>{data}</Text>
-                                    </TouchableOpacity>
-                                )) 
-                            : 
-                                chapterList.map((data, index) => (
-                                    <TouchableOpacity
-                                        style={styles.btn}
-                                        key={index}
-                                        onPress={() => handleSelect(data)}
-                                    >   
-                                        <Text style={styles.btnTitle}>{selectedChapter ? 'Verse': 'Chapter'}</Text>
-                                        <Text style={styles.btnNumber}>{data}</Text>
-                                    </TouchableOpacity>
-                                ))
-                        }
+                        {(verseList || chapterList).map((data, index) => (
+                            <Animated.View style={[styles.btn, animatedStyles[index]]} key={index}>
+                                <TouchableOpacity onPress={() => (verseList ? handleSelectVerse(data) : handleSelect(data))}>   
+                                    <Text style={[styles.btnTitle, { color: themeColors.background }]}>
+                                        {selectedChapter ? 'Verse' : 'Chapter'}
+                                    </Text>
+                                    <Text style={[styles.btnNumber, { color: themeColors.background }]}>{data}</Text>
+                                </TouchableOpacity>
+                            </Animated.View>
+                        ))}
                         </View>
                     </ScrollView>
                 }
@@ -160,7 +171,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         padding: 20,
-        backgroundColor: '#fff',
+        backgroundColor: 'trasparent',
     },
     title: {
         fontFamily: 'Poppins-Bold',

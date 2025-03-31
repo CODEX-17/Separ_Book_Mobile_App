@@ -8,21 +8,37 @@ import {
     SafeAreaView,
 } from 'react-native';
 import { ChapterContext } from './context/ChapterContex';
-import { getChapter } from './Utils/getChapter';
 import { separ as chapterList } from './data/chapters'
-import { SkipForward, SkipBack, Undo2, Heart, Share2, ImageDown, Settings } from 'lucide-react-native';
+import { SkipForward,
+     SkipBack,
+     Undo2,
+     Heart,
+     AArrowDown,
+     AArrowUp,
+     ImageDown,
+     Settings,
+     Moon,
+     Sun 
+} from 'lucide-react-native';
 import ScreenShot from './(home)/screen-shot';
 import { useRouter, useGlobalSearchParams } from 'expo-router';
 import { SettingContext } from './context/SettingContext';
+import COLORS from './constants/colors';
+import { addFavorite, getFavorites, removerFavorite } from './data/favoritesData';
+
 
 
 const ViewChapter = () => {
+
+
+    
 
     const router = useRouter()
     const params = useGlobalSearchParams()
 
     const { currentChapter, setCurrentChapter } = useContext(ChapterContext)
-    const { objSetting } = useContext(SettingContext)
+    const { objSetting, handleChangeSetting } = useContext(SettingContext)
+    const themeColors = objSetting.theme === 'dark' ? COLORS.dark : COLORS.light;
 
     const [selectedVerse, setSelectedVerse] = useState(chapterList[currentChapter])
 
@@ -31,19 +47,48 @@ const ViewChapter = () => {
     const [currentIndexChapter, setCurrentIndexChapter] = useState<number | null>(null)
     const [isShowPreview, setIsShowPreview] = useState(false)
 
+    const [favoriteList, setFavoriteList] = useState<number[]>([])
+    const [isFavorite, setIsFavorite] = useState(false)
+
+    const menuList = [
+        { name: 'prev', function: () => handleSwitchVerse('prev'), icon: <SkipBack color={themeColors.primary} size={25} /> },
+        { name: 'next', function: () => handleSwitchVerse('next'), icon: <SkipForward color={themeColors.primary} size={25} /> },
+        { name: 'heart', function: () => handleFavorite(currentChapter), icon: <Heart color={ isFavorite ? COLORS.red : themeColors.primary } size={25} /> },
+        { name: 'addFontSize', function: () => handleAddFontSize('add'), icon: <AArrowUp color={themeColors.primary} size={25} /> },
+        { name: 'minusFontSize', function: () => handleAddFontSize('minus'), icon: <AArrowDown color={themeColors.primary} size={25} /> },
+        { 
+            name: 'theme', 
+            function: () => handleTheme(), 
+            icon: objSetting.theme === 'dark' ? <Sun color={themeColors.primary} size={25} /> : <Moon color={themeColors.primary} size={25} />
+        },  
+        { name: 'download', function: () => handleSave(), icon: <ImageDown color={themeColors.primary} size={25} /> },
+    ]
+
+    useEffect(() => {
+
+        const getAllFavorites = async () => {
+            const favorites = await getFavorites()
+            setFavoriteList(favorites)
+
+            if (favorites) {
+                const isFav = favorites.find((item: number) => item === currentChapter)
+                setIsFavorite(isFav ? true : false)
+            }
+        }
+
+        getAllFavorites()
+       
+    },[favoriteList])
 
   
     useEffect(() => {
         if (!selectedVerse) router.back()
     },[params])
 
-    useEffect(() => {
-        if (selectedVerse) {
-            console.log(selectedVerse?.content.length)
-            console.log(fontSize)
-        }
-        
-    },[selectedVerse])
+    const handleAddFontSize = (type: string) => {
+        const changeSetting = { ...objSetting, fontSize: type === 'add' ? fontSize + 1 : fontSize - 1 }
+        handleChangeSetting(changeSetting)
+    }
 
     const handleSwitchVerse = (type: string) => {
 
@@ -68,9 +113,32 @@ const ViewChapter = () => {
         router.dismissTo('/(home)')
     }
 
+    const handleTheme = () => {
+        const newTheme = {...objSetting, theme: objSetting.theme === 'dark' ? 'light' : 'dark' }
+        handleChangeSetting(newTheme)
+    };
+
+    const handleFavorite = async (index: number) => {
+        try {
+            const prevData = await getFavorites()
+
+            let newData: any = []
+
+            if (isFavorite) {
+                newData = prevData.filter((item: number) => item !== index)
+            }else {
+                newData = prevData ? [...prevData, index] : index;
+            }
+
+            await addFavorite(newData)
+        } catch (e) {
+            alert('Error adding favorite');
+        }
+    };
+
     return (
         
-            <View style={styles.container}>  
+            <View style={[styles.container, { backgroundColor: themeColors.background }]}>  
                 {
                     isShowPreview &&
                     <View style={styles.modal}>
@@ -88,16 +156,16 @@ const ViewChapter = () => {
                                 <TouchableOpacity
                                     onPress={() => handleback()}
                                 >
-                                    <Undo2 color="#003092" size={25} />
+                                    <Undo2 color={themeColors.primary} size={25} />
                                 </TouchableOpacity>
                                 <View style={{ flexDirection: 'column' }}>
-                                    <Text style={styles.chapter}>{`Chapter ${selectedVerse?.chapter}`}</Text>
-                                    <Text style={styles.verse}>{`Verse ${selectedVerse?.verse}`}</Text>
+                                    <Text style={[styles.chapter, { color: themeColors.primaryText }]}>{`Chapter ${selectedVerse?.chapter}`}</Text>
+                                    <Text style={[styles.verse, { color: themeColors.secondaryText }]}>{`Verse ${selectedVerse?.verse}`}</Text>
                                 </View>
                                 <TouchableOpacity
                                     onPress={() => router.push('/setting')}
                                 >
-                                    <Settings color="#003092" size={25} />
+                                    <Settings color={themeColors.primary} size={25} />
                                 </TouchableOpacity>
                             </View>
                             <View style={styles.displayContent}>
@@ -105,35 +173,24 @@ const ViewChapter = () => {
                                     selectedVerse && 
                                     selectedVerse.content.length > 400 ?
                                         <ScrollView style={{ padding: 10 }}> 
-                                            <Text style={[styles.contentText, { fontSize: objSetting.fontSize }]}>{selectedVerse?.content}</Text>
+                                            <Text style={[styles.contentText, { fontSize: objSetting.fontSize, color: themeColors.primaryText }]}>{selectedVerse?.content}</Text>
                                         </ScrollView> 
                                     :
-                                        <Text style={[styles.contentText, { fontSize: objSetting.fontSize }]}>{selectedVerse?.content}</Text>
+                                        <Text style={[styles.contentText, { fontSize: objSetting.fontSize, color: themeColors.primaryText }]}>{selectedVerse?.content}</Text>
                                 }
                             </View>
                         </View>
                         <View style={styles.menu}>
-                            
-                            <TouchableOpacity
-                                onPress={() => handleSwitchVerse('prev')}
-                            >
-                                <SkipBack color="#003092" size={25} />
-                            </TouchableOpacity>
-                            <TouchableOpacity
-                                onPress={() => handleSwitchVerse('next')}
-                            >
-                                <SkipForward color="#003092" size={25} />
-                            </TouchableOpacity>
-                            <TouchableOpacity
-                                onPress={() => handleSwitchVerse('next')}
-                            >
-                                <Heart color="#003092" size={25} />
-                            </TouchableOpacity>
-                            <TouchableOpacity
-                                onPress={handleSave}
-                            >
-                                <ImageDown color="#003092" size={25} />
-                            </TouchableOpacity>
+                            {
+                                menuList.map((item, index) => (
+                                <TouchableOpacity
+                                    key={index}
+                                    onPress={() => item.function()}
+                                >
+                                    {item.icon}
+                                </TouchableOpacity>
+                                ))
+                            }
                         </View>
                     </View>  
                 </SafeAreaView>
@@ -144,7 +201,6 @@ const ViewChapter = () => {
     )
 }
 
-
 const styles = StyleSheet.create({
     container: {
         display: 'flex',
@@ -153,7 +209,7 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#fff',
+        backgroundColor: 'transparent',
         padding: 10,
         position: 'relative'
     },
@@ -163,7 +219,6 @@ const styles = StyleSheet.create({
         height: '100%',
         width: '100%',
         padding: 20,
-        backgroundColor: '#fff'
     },
     display: { 
         height: '95%', 
@@ -174,7 +229,6 @@ const styles = StyleSheet.create({
         paddingTop: 20, 
         height: 100, 
         width: '100%',
-        backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'space-between',
 
@@ -183,7 +237,6 @@ const styles = StyleSheet.create({
         height: '79%',
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#fff',
     },
     menu: {
         flexDirection: 'row',
@@ -221,3 +274,7 @@ const styles = StyleSheet.create({
 });
 
 export default ViewChapter;
+function addfavorite(type: string, index: number) {
+    throw new Error('Function not implemented.');
+}
+

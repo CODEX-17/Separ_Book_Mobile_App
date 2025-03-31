@@ -5,7 +5,7 @@ export const SettingContext = createContext()
 
 export const SettingContextProvider = ({ children }) => {
 
-    const [objSetting, setObjSetting] = useState({ fontSize: 30, backgroundColor: '#fff' })
+    const [objSetting, setObjSetting] = useState({ fontSize: 30, backgroundColor: '#fff', theme: 'light' })
 
      // Load stored settings when the component mounts
          useEffect(() => {

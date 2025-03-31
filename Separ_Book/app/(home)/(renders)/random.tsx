@@ -13,6 +13,7 @@ import Animated, {
 import { ChapterContext } from '@/app/context/ChapterContex';
 import { separ as versesList } from '@/app/data/chapters';
 import { useRouter } from 'expo-router';
+import { SettingContext } from '@/app/context/SettingContext';
 
 
 
@@ -22,6 +23,9 @@ const RandomPick = () => {
 
     const [btnTextContent, setBtnTextContent] = useState('')
     const [display, setDisplay] = useState('prayer')
+
+    const { objSetting } = useContext(SettingContext)
+    const themeColors = objSetting.theme === 'dark' ? COLORS.dark : COLORS.light;
 
     const router = useRouter()
 
@@ -63,10 +67,10 @@ const RandomPick = () => {
     }))
 
     const pickingContainerAnimation = useAnimatedStyle(() => ({
-        opacity: pickingProgress.value,
+        opacity: 1,
         transform: [
-            { scale: pickingScale.value },
-            { translateY: pickingPositionY.value }
+            { scale: 1 },
+            { translateY: 0 }
         ],
     }))
 
@@ -102,6 +106,8 @@ const RandomPick = () => {
     const handleReady = () => {
 
         prayerScale.value = withSpring(0, { damping: 10, stiffness: 364 });
+        pickingProgress.value = 0
+        pickingScale.value = 0
 
         setTimeout(() => {
             setDisplay('picking');
@@ -135,14 +141,14 @@ const RandomPick = () => {
             {
                 display === 'prayer' &&
                 <Animated.View style={[styles.prayContainer, prayerContainerAnimation]}>
-                    <Text style={styles.titlePray}>PRAY FIRST</Text>
+                    <Text style={[styles.titlePray, { color: themeColors.primary }]}>PRAY FIRST</Text>
                     <LottieView 
                         source={require('../../../assets/animation/pray-animation.json')} 
                         autoPlay 
                         loop 
                         style={styles.prayLottie}
                     />     
-                    <Text style={styles.subtitlePray}>
+                    <Text style={[styles.subtitlePray, { color: themeColors.primaryText }]}>
                         Remember to pray to Alyon YHWH, seeking His guidance to reveal the perfect message or verse for you.
                     </Text>
                     <Animated.View style={[styles.btn, btnColorAnimation]}>
@@ -165,15 +171,10 @@ const RandomPick = () => {
                         loop 
                         style={styles.bookLottie}
                     />
-                    <Text style={styles.loadingText}>Waiting for a Divinely Chosen Verse...</Text>
+                    <Text style={[styles.loadingText, { color: themeColors.primaryText }]}>Waiting for a Divinely Chosen Verse...</Text>
                 </View>
             }
             
-            
-
-            
-            
-          
             
         </View>
     );
@@ -185,7 +186,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#fff',
+        backgroundColor: 'trasparent',
     },
     loadingContainer: {
         display: 'flex',
