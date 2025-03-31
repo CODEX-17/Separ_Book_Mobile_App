@@ -1,13 +1,32 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import { View, Image, StyleSheet, Text, ImageBackground } from 'react-native';
 import CustomizeButton from './components/CustomizeButton';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { useRouter } from 'expo-router';
+import Animated, { Easing, useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
+import { SettingContext } from './context/SettingContext';
+import COLORS from './constants/colors';
 
 
 const WelcomeScreen = () => {
 
   const router = useRouter()
+
+  const { objSetting } = useContext(SettingContext)
+  const themeColors = objSetting.theme === 'dark' ? COLORS.dark : COLORS.light;
+
+  const fadeAnim = useSharedValue(0);
+
+  // Animated style for background fade effect
+  const backgroundAnimation = useAnimatedStyle(() => ({
+      opacity: fadeAnim.value,
+      backgroundColor: themeColors.background,
+  }));
+
+  useEffect(() => {
+      fadeAnim.value = 0
+      fadeAnim.value = withTiming(1, { duration: 1000, easing: Easing.inOut(Easing.ease) });
+  },[objSetting.theme])
 
   return (
     <ImageBackground 
@@ -15,8 +34,7 @@ const WelcomeScreen = () => {
       style={styles.background}
       resizeMode="cover"
     >
-      
-      <View style={styles.container}>
+      <Animated.View style={[styles.container, backgroundAnimation]}>
         <View style={styles.content}>
           <Image
             style={styles.image}
@@ -37,7 +55,7 @@ const WelcomeScreen = () => {
           <Text style={styles.text}>@All Right Reserved 2025</Text>
         </View>
 
-      </View>
+      </Animated.View>
     </ImageBackground>
   );
 };

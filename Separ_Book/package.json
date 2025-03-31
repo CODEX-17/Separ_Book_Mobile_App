@@ -19,7 +19,8 @@
       "reactNativeDirectoryCheck": {
         "exclude": [
           "lucide-react-native"
-        ]
+        ],
+        "listUnknownPackages": false
       }
     }
   },

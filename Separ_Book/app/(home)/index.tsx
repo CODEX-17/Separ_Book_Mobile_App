@@ -11,7 +11,7 @@ import NewMoon from './(renders)/newmoon';
 import { SettingContext } from '../context/SettingContext';
 import COLORS from '../constants/colors';
 import Animated, { Easing, useAnimatedStyle, useSharedValue, withSpring, withTiming} from 'react-native-reanimated';
-
+import Feast from './(renders)/feast'
 
 const HomeLayout = () => {
 
@@ -21,6 +21,7 @@ const HomeLayout = () => {
     const renderTab = () => {
         switch (bottomNavigation) {
             case 'Home':
+                return <Feast/>
             case 'Chapters':
                 return <ChapterScreen/>
             case 'Search':

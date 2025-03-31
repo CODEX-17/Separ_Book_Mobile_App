@@ -103,7 +103,8 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         backgroundColor: '#E9F0FF',
         borderRadius: 10,
-        height: 60,
+        height: 65,
+        width: 80,
         gap: 5,
     },
     button: {
@@ -113,7 +114,8 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         borderRadius: 10,
-        height: 60,
+        height: 80,
+        width: 80,
         gap: 5,
     },
     buttonText: {

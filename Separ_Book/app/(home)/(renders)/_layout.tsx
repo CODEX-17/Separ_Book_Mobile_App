@@ -12,6 +12,7 @@ export default function RenderLayout () {
                 <Stack.Screen name='random' />
                 <Stack.Screen name='search' />
                 <Stack.Screen name='newmoon'/>
+                <Stack.Screen name='feast'/>
             </Stack>
         </View>
     )

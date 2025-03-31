@@ -15,7 +15,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.codex17.Separ_Book"
     },
     "web": {
       "bundler": "metro",
@@ -46,6 +47,14 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "966ce442-85c2-4619-8045-d9bc55a5337f"
+      }
     }
   }
 }
