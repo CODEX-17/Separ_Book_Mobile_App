@@ -28,9 +28,10 @@ export default function RootLayout() {
     <BottomNavigationProvider>
       <SettingContextProvider>
         <ChapterContextProvider>
-          <Stack screenOptions={{ headerShown: false }}>
+          <Stack screenOptions={{ headerShown: false, keyboardHandlingEnabled: true }}>
             <Stack.Screen name="index"/>
             <Stack.Screen name="onboard"/>
+            <Stack.Screen name="ask-name"/>
             <Stack.Screen name="(home)"/>
             <Stack.Screen name="view-chapter"/>
             <Stack.Screen name="setting"/>

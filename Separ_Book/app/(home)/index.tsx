@@ -10,8 +10,7 @@ import Search from './(renders)/search';
 import { SettingContext } from '../context/SettingContext';
 import COLORS from '../constants/colors';
 import Animated, { Easing, useAnimatedStyle, useSharedValue, withSpring, withTiming} from 'react-native-reanimated';
-import Calendar from './(renders)/(calendar)';
-import Feast from './(renders)/(calendar)/feast'
+import Calendar from './(renders)/(calendar)/newmoon';
 
 const HomeLayout = () => {
 
@@ -21,7 +20,7 @@ const HomeLayout = () => {
     const renderTab = () => {
         switch (bottomNavigation) {
             case 'Home':
-                return <Feast/>
+                return <ChapterScreen/>
             case 'Chapters':
                 return <ChapterScreen/>
             case 'Search':

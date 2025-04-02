@@ -68,7 +68,7 @@ const OnBoardScreen = () => {
         if (currentIndex < contentList.length - 1) {
             setSelectedContent(contentList[ currentIndex + 1 ])
         }else {
-            router.push('./(home)')
+            router.push('/ask-name')
         }
 
         progress.value = withSpring(1, { damping: 10, stiffness: 364 });
@@ -100,7 +100,7 @@ const OnBoardScreen = () => {
             {
                 selectedContent?.index < 4 &&
                 <View style={styles.btnSkip}>
-                    <Pressable onPress={() => router.push('./(home)')}>
+                    <Pressable onPress={() => router.push('/ask-name')}>
                         <Text style={[styles.subtitle, { fontSize: 20 }]}>Skip</Text>
                     </Pressable>
                     <Icon name="navigate-next" color="'#343434'" size={25}/>
