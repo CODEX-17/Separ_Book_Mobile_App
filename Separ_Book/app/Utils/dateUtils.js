@@ -1,5 +1,8 @@
 
 export const convertDateFormatIntoString = (date) => {
+
+    if (!date) return
+
     const finalDate = date.substring(0,10)
   
     if (finalDate) {
@@ -56,5 +59,8 @@ export const formatTime = timeString => {
     hour = hour % 12 || 12; // Convert 24-hour to 12-hour format
     return `${hour}:${minute.toString().padStart(2, '0')}${period}`;
 }
+
+
+
 
   

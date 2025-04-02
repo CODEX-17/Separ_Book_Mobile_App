@@ -1,9 +1,11 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { View, Text, StyleSheet, ScrollView } from 'react-native'
-import { newMoon } from '../../Utils/newMoonCalculation'
+import { newMoon } from '../../../Utils/newMoonCalculation'
 import COLORS from '@/app/constants/colors'
 import LottieView from 'lottie-react-native';
 import { SettingContext } from '@/app/context/SettingContext';
+import { feast as feastlList } from '../../../data/feastDateList'
+import { convertDateFormatIntoString } from '../../../Utils/dateUtils'
 
 const NewMoon = () => {
 
@@ -34,7 +36,7 @@ const NewMoon = () => {
                     isLoading ?
                         <View style={{ height: '80%', alignItems: 'center', justifyContent: 'center' }}>
                             <LottieView 
-                                source={require('../../../assets/animation/loading-list-animation.json')} 
+                                source={require('../../../../assets/animation/loading-list-animation.json')} 
                                 autoPlay 
                                 loop 
                                 style={styles.loading}

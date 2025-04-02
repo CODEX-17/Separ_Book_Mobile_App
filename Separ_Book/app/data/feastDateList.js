@@ -1,4 +1,4 @@
-const year = 2029
+const year = new Date().getFullYear()
 
 const getFeastOfHarvest = () => {
 
@@ -73,8 +73,6 @@ export const feast = [
     dateSting: banalNaPagtitipon(),
   },
 ]
-
-export default feast;
 
 // Feast of passover Jan 14
 // Jan 14 + 1day = feast of unleavened

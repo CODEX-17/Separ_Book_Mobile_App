@@ -34,6 +34,7 @@ export default function RootLayout() {
             <Stack.Screen name="(home)"/>
             <Stack.Screen name="view-chapter"/>
             <Stack.Screen name="setting"/>
+            <Stack.Screen name="(home)/(renders)/feast"/>
           </Stack>
         </ChapterContextProvider>
       </SettingContextProvider>

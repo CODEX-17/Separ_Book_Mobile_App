@@ -7,11 +7,11 @@ import ChapterScreen from './(renders)/chapter';
 import Navigation from './navigation';
 import RandomPick from './(renders)/random';
 import Search from './(renders)/search';
-import NewMoon from './(renders)/newmoon';
 import { SettingContext } from '../context/SettingContext';
 import COLORS from '../constants/colors';
 import Animated, { Easing, useAnimatedStyle, useSharedValue, withSpring, withTiming} from 'react-native-reanimated';
-import Feast from './(renders)/feast'
+import Calendar from './(renders)/(calendar)';
+import Feast from './(renders)/(calendar)/feast'
 
 const HomeLayout = () => {
 
@@ -26,8 +26,8 @@ const HomeLayout = () => {
                 return <ChapterScreen/>
             case 'Search':
                 return <Search/>
-            case 'New Moon':
-                return <NewMoon/>
+            case 'Calendar':
+                return <Calendar/>
             case 'Random':
                 return <RandomPick/>
             case 'Default':
@@ -91,14 +91,12 @@ const styles = StyleSheet.create({
     content: {
         width: '100%',
         height: '80%',
-        backgroundColor: 'transparent',
     },
     bottonNavigation: {
         flex: 1,
         elevation: 10,
         borderTopLeftRadius: 20,
         borderTopRightRadius: 20,
-
     }
 });
 

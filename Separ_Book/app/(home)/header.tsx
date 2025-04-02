@@ -1,7 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { BottomNavigationContext } from '../context/BottomNavigationContext';
-import Icon from 'react-native-vector-icons/Ionicons';
 import Entypo from 'react-native-vector-icons/Entypo';
 import Animated, { 
     useSharedValue,
@@ -12,6 +11,7 @@ import Animated, {
 import { Moon, Sun } from 'lucide-react-native';
 import { SettingContext } from '../context/SettingContext';
 import COLORS from '../constants/colors';
+import { ChevronLeft } from 'lucide-react-native';
 
 
 
@@ -63,8 +63,7 @@ const Header = () => {
     return (
         <View style={styles.container}>
             <Animated.View style={translateXAnimation}>
-                <Entypo 
-                    name="menu" 
+                <ChevronLeft  
                     color={themeColors.secondaryText}
                     size={25}
                 />

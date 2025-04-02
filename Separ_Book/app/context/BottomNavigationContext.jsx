@@ -13,3 +13,4 @@ export const BottomNavigationProvider = ({ children }) => {
         </BottomNavigationContext.Provider>
     )
 }
+

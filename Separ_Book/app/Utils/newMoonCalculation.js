@@ -1,8 +1,9 @@
 export const newMoon = () => {
-
-
     
     const convertDateFormatIntoString = (date) => {
+
+        if (!date) return
+
         const finalDate = date.substring(0,10)
     
         if (finalDate) {
@@ -99,4 +100,5 @@ export const newMoon = () => {
     }
 
     return finalOutput;
-};
+}
+

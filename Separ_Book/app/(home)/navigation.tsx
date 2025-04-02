@@ -3,6 +3,7 @@ import { View, Pressable, Text, StyleSheet, Image, Platform } from 'react-native
 import { BottomNavigationContext } from '../context/BottomNavigationContext';
 import { SettingContext } from '../context/SettingContext';
 import COLORS from '../constants/colors';
+import { House, Book, Search, CalendarDays, Dices } from 'lucide-react-native';
 
 const BottomNavigation = () => {
 
@@ -15,25 +16,24 @@ const BottomNavigation = () => {
     const buttonList = [
         {
             title: 'Home',
-            iconPath: require('../../assets/images/icons/home.png'),
+            icon: (isActive: boolean) => <House color={isActive ? themeColors.highlight : themeColors.secondaryText} size={25} />,
         },
         {
             title: 'Chapters',
-            iconPath: require('../../assets/images/icons/book.png'),
+            icon: (isActive: boolean) => <Book color={isActive ? themeColors.highlight : themeColors.secondaryText} size={25} />,
         },
         {
             title: 'Search',
-            iconPath: require('../../assets/images/icons/search.png'),
+            icon: (isActive: boolean) => <Search color={isActive ? themeColors.highlight : themeColors.secondaryText} size={25} />,
         },
         {
-            title: 'New Moon',
-            iconPath: require('../../assets/images/icons/moon.png'),
+            title: 'Calendar',
+            icon: (isActive: boolean) => <CalendarDays color={isActive ? themeColors.highlight : themeColors.secondaryText} size={25} />,
         },
         {
             title: 'Random',
-            iconPath: require('../../assets/images/icons/random.png'),
+            icon: (isActive: boolean) => <Dices color={isActive ? themeColors.highlight : themeColors.secondaryText} size={25} />,
         },
-
     ]
 
     const handleNavigation = (title: string) => {
@@ -43,25 +43,26 @@ const BottomNavigation = () => {
     return (
         <View style={[styles.container, { backgroundColor: themeColors.background, shadowColor: themeColors.border }]}>
             <View style={styles.navList}>
-                {
-                    buttonList.map((btn, index) => (
+            {
+                buttonList.map((btn, index) => {
+                    const isActive = bottomNavigation === btn.title;
+                    return (
                         <Pressable 
                             style={({ pressed }) => [
-                                bottomNavigation === btn?.title ? [styles.buttonActive, { backgroundColor: themeColors.card }] : styles.button,
+                                isActive ? [styles.buttonActive, { backgroundColor: themeColors.card }] : styles.button,
                                 pressed && { opacity: 0.7, transform: [{ scale: 0.95 }] },
                             ]}
                             key={index}
-                            onPress={() => handleNavigation(btn?.title)}
+                            onPress={() => handleNavigation(btn.title)}
                         >
-                            <Image 
-                                source={btn?.iconPath}
-                                style={{ width: 20, height: 20, tintColor: bottomNavigation === btn?.title ? themeColors.highlight : themeColors.secondaryText }}
-                            />
-                            <Text style={[styles.buttonText, { color: bottomNavigation === btn?.title ? themeColors.highlight: themeColors.secondaryText }]}>{btn?.title}</Text>
+                            {btn.icon(isActive)}  {/* Pass isActive state here */}
+                            <Text style={[styles.buttonText, { color: isActive ? themeColors.highlight : themeColors.secondaryText }]}>
+                                {btn.title}
+                            </Text>
                         </Pressable>
-                    ))
-                }
-                
+                    );
+                })
+            }   
             </View>
         </View>
     );
@@ -73,7 +74,8 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        padding: 10,
+        // paddingTop: 20,
+        // paddingBottom: 20,
         borderTopLeftRadius: 20,
         borderTopRightRadius: 20,
 
@@ -89,37 +91,36 @@ const styles = StyleSheet.create({
     navList: {
         borderTopLeftRadius: 20,
         borderTopRightRadius: 20,
-        flex: 1,
         display: 'flex',
+        flex: 1,
+        width: '100%',
         flexDirection: 'row',
         alignItems: 'center',
-        justifyContent: 'space-between'
+        justifyContent: 'space-around',
     },
     buttonActive: {
-        padding: 10,
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: '#E9F0FF',
         borderRadius: 10,
-        height: 65,
-        width: 80,
-        gap: 5,
+        height: 60,
+        width: 60,
+        
     },
     button: {
-        padding: 10,
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
         borderRadius: 10,
-        height: 80,
-        width: 80,
-        gap: 5,
+        height: 60,
+        width: 60,
+        
     },
     buttonText: {
-        fontSize: 13,
+        fontSize: 10,
         textAlign: 'center',
         padding: 0,
         margin: 0,

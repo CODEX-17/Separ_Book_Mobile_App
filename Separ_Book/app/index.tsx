@@ -29,34 +29,33 @@ const WelcomeScreen = () => {
   },[objSetting.theme])
 
   return (
-    <ImageBackground 
-      source={require("../assets/images/bg-blue.jpg")}
-      style={styles.background}
-      resizeMode="cover"
-    >
-      <Animated.View style={[styles.container, backgroundAnimation]}>
-        <View style={styles.content}>
-          <Image
-            style={styles.image}
-            source={require('../assets/images/react-logo.png')}
-          />
+    <Animated.View style={[styles.container, backgroundAnimation]}>
+      <ImageBackground 
+        source={require("../assets/images/bg-blue.jpg")}
+        style={styles.background}
+        resizeMode="cover"
+      >
+          <View style={styles.content}>
+            <Image
+              style={styles.image}
+              source={require('../assets/images/react-logo.png')}
+            />
 
-          <CustomizeButton 
-            title={'Explore'} 
-            icons={<Icon name="navigate-next" color="#003092" size={25}/>}
-            onPress={() => router.push('/onboard')}
-            width={250}
-            styleButton={[{ borderRadius: 50, backgroundColor: '#fff' }]}
-            styleText={{ color: '#003092' }}
-          />
-        </View>
-        
-        <View style={styles.footer}>
-          <Text style={styles.text}>@All Right Reserved 2025</Text>
-        </View>
-
-      </Animated.View>
-    </ImageBackground>
+            <CustomizeButton 
+              title={'Explore'} 
+              icons={<Icon name="navigate-next" color="#003092" size={25}/>}
+              onPress={() => router.push('/onboard')}
+              width={250}
+              styleButton={[{ borderRadius: 50, backgroundColor: '#fff' }]}
+              styleText={{ color: '#003092' }}
+            />
+          </View>
+          
+          <View style={styles.footer}>
+            <Text style={styles.text}>@All Right Reserved 2025</Text>
+          </View>
+      </ImageBackground>
+    </Animated.View>
   );
 };
 
