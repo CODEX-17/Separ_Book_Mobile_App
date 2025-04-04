@@ -4,12 +4,12 @@ import {
     Text,
     StyleSheet,
     TextInput,
-    TouchableOpacity 
+    TouchableOpacity,
 } from 'react-native';
 import { FONTS } from './constants/fontStyle'
 import COLORS from './constants/colors';
 import { CircleArrowRight, Scale } from 'lucide-react-native';
-import Animated, { useAnimatedStyle, useSharedValue, withDelay, withRepeat, withSpring, withTiming } from 'react-native-reanimated';
+import Animated, { Easing, useAnimatedStyle, useSharedValue, withDelay, withRepeat, withSpring, withTiming } from 'react-native-reanimated';
 import { useRouter } from 'expo-router';
 
 
@@ -21,6 +21,22 @@ const AskName = () => {
 
 
     const handleSearch = (text: string) => {
+        if (userName) {
+            setTimeout(() => {
+                buttonProgress.value = withTiming('flex', { duration: 1000, easing: Easing.ease})
+                buttonPosition.value = withSpring(0, { damping: 10, stiffness: 50 });
+                buttonPosition.value = withRepeat(
+                            withTiming(0, { duration: 800 }), // Fade in/out in 1s
+                            -1, // Infinite loop
+                            true // Reverse animation (fades in and out)
+                )
+            }, 1000)
+
+        }else {
+            buttonProgress.value = withTiming('none', { duration: 1000, easing: Easing.ease})
+            buttonPosition.value = 20
+        }
+        
         setUsername(text)
     }
 
@@ -75,7 +91,6 @@ const AskName = () => {
         
     }
 
-
     useEffect(() => {
         textProgress.value = withSpring('flex', { damping: 10, stiffness: 364 })
         textScale.value = withSpring(1, { damping: 10, stiffness: 364 })
@@ -83,23 +98,23 @@ const AskName = () => {
         inputPosition.value = withSpring(0, { damping: 10, stiffness: 364 })
     },[])
 
-    useEffect(() => {
-        if (userName) {
-            setTimeout(() => {
-                buttonProgress.value = withSpring('flex', { damping: 10, stiffness: 364 });
-                buttonPosition.value = withSpring(0, { damping: 10, stiffness: 50 });
-                buttonPosition.value = withRepeat(
-                            withTiming(0, { duration: 800 }), // Fade in/out in 1s
-                            -1, // Infinite loop
-                            true // Reverse animation (fades in and out)
-                )
-            }, 1000)
+    // useEffect(() => {
+    //     if (userName) {
+    //         setTimeout(() => {
+    //             buttonProgress.value = withTiming('flex', { duration: 1000, easing: Easing.ease})
+    //             buttonPosition.value = withSpring(0, { damping: 10, stiffness: 50 });
+    //             buttonPosition.value = withRepeat(
+    //                         withTiming(0, { duration: 800 }), // Fade in/out in 1s
+    //                         -1, // Infinite loop
+    //                         true // Reverse animation (fades in and out)
+    //             )
+    //         }, 1000)
 
-        }else {
-            buttonProgress.value = 'none'
-            buttonPosition.value = 20
-        }
-    }, [userName]);
+    //     }else {
+    //         buttonProgress.value = withTiming('none', { duration: 1000, easing: Easing.ease})
+    //         buttonPosition.value = 20
+    //     }
+    // }, [userName]);
 
 
     return (

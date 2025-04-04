@@ -24,14 +24,10 @@ import ScreenShot from './(home)/screen-shot';
 import { useRouter, useGlobalSearchParams } from 'expo-router';
 import { SettingContext } from './context/SettingContext';
 import COLORS from './constants/colors';
-import { addFavorite, getFavorites, removerFavorite } from './data/favoritesData';
-
+import { getStoreData, storeData, removeStorageData } from './Utils/storage';
 
 
 const ViewChapter = () => {
-
-
-    
 
     const router = useRouter()
     const params = useGlobalSearchParams()
@@ -66,12 +62,15 @@ const ViewChapter = () => {
 
     useEffect(() => {
 
-        const getAllFavorites = async () => {
-            const favorites = await getFavorites()
-            setFavoriteList(favorites)
+        //removeStorageData('FAVORITE')
 
+
+        const getAllFavorites = async () => {
+            const favorites: any = await getStoreData('FAVORITE')
+            setFavoriteList(favorites.verseIndex)
+            
             if (favorites) {
-                const isFav = favorites.find((item: number) => item === currentChapter)
+                const isFav = favorites.verseIndex.find((item: number) => item === currentChapter)
                 setIsFavorite(isFav ? true : false)
             }
         }
@@ -79,6 +78,16 @@ const ViewChapter = () => {
         getAllFavorites()
        
     },[favoriteList])
+
+    useEffect(() => {
+        const getData = async () => {
+            const result = await getStoreData('SETTING')
+            console.log('result', result)
+        }
+
+        getData()
+        
+    },[handleChangeSetting])
 
   
     useEffect(() => {
@@ -115,26 +124,39 @@ const ViewChapter = () => {
 
     const handleTheme = () => {
         const newTheme = {...objSetting, theme: objSetting.theme === 'dark' ? 'light' : 'dark' }
+        console.log(newTheme)
         handleChangeSetting(newTheme)
-    };
+    }
 
-    const handleFavorite = async (index: number) => {
+    const handleFavorite = async (verseNumber: number) => {
+
         try {
-            const prevData = await getFavorites()
+            const prevData = await getStoreData('FAVORITE')
+           
+            let newData: number[] = []
 
-            let newData: any = []
-
-            if (isFavorite) {
-                newData = prevData.filter((item: number) => item !== index)
-            }else {
-                newData = prevData ? [...prevData, index] : index;
+            if (!prevData) {
+                newData.push(verseNumber)
+                setFavoriteList((old) => [...old, verseNumber])
+                storeData('FAVORITE', { verseIndex: newData })
+                return
             }
 
-            await addFavorite(newData)
+            if (isFavorite) {
+                newData = prevData.verseIndex.filter((item: number) => item !== verseNumber)
+            }else {
+                newData = [...prevData.verseIndex, verseNumber]
+            }
+
+            const updatedData = [...new Set(newData)]
+
+            setFavoriteList((old) => [...old, verseNumber])
+            await storeData('FAVORITE', { verseIndex: updatedData })
+
         } catch (e) {
             alert('Error adding favorite');
         }
-    };
+    }
 
     return (
         
