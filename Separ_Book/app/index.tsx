@@ -38,7 +38,7 @@ const WelcomeScreen = () => {
           <View style={styles.content}>
             <Image
               style={styles.image}
-              source={require('../assets/images/react-logo.png')}
+              source={require('../assets/images/white-logo-icon.png')}
             />
 
             <CustomizeButton 
@@ -87,8 +87,8 @@ const styles = StyleSheet.create({
     height: 40,
   },
   image: {
-    width: 100,
-    height: 100,
+    width: 200,
+    height: 200,
   }
 });
 
