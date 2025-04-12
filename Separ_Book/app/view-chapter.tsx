@@ -25,6 +25,7 @@ import { useRouter, useGlobalSearchParams } from 'expo-router';
 import { SettingContext } from './context/SettingContext';
 import COLORS from './constants/colors';
 import { getStoreData, storeData, removeStorageData } from './Utils/storage';
+import { Setting, Verse } from './types/interfaces';
 
 
 const ViewChapter = () => {
@@ -32,11 +33,21 @@ const ViewChapter = () => {
     const router = useRouter()
     const params = useGlobalSearchParams()
 
-    const { currentChapter, setCurrentChapter } = useContext(ChapterContext)
-    const { objSetting, handleChangeSetting } = useContext(SettingContext)
+    const settingContext = useContext(SettingContext)
+    const chapterContext = useContext(ChapterContext)
+    
+    if (!chapterContext || !settingContext) {
+        return false
+    }
+
+    const { currentChapter, setCurrentChapter } = chapterContext
+    const { objSetting, handleChangeSetting } = settingContext
+
+    if (!currentChapter) return null
+
     const themeColors = objSetting.theme === 'dark' ? COLORS.dark : COLORS.light;
 
-    const [selectedVerse, setSelectedVerse] = useState(chapterList[currentChapter])
+    const [selectedVerse, setSelectedVerse] = useState<Verse | null>(chapterList[currentChapter])
 
     const fontSize = objSetting.fontSize
 
@@ -123,8 +134,7 @@ const ViewChapter = () => {
     }
 
     const handleTheme = () => {
-        const newTheme = {...objSetting, theme: objSetting.theme === 'dark' ? 'light' : 'dark' }
-        console.log(newTheme)
+        const newTheme: Setting = {...objSetting, theme: objSetting.theme === 'dark' ? 'light' : 'dark' }
         handleChangeSetting(newTheme)
     }
 

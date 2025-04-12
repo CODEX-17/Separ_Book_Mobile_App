@@ -9,13 +9,10 @@ import { captureRef } from 'react-native-view-shot';
 import * as MediaLibrary from 'expo-media-library';
 import { Undo2, Share2, ImageDown } from 'lucide-react-native';
 import * as Sharing from 'expo-sharing';
+import { Verse } from '../types/interfaces';
 
 interface ScreenShotProps {
-    selectedVerse: {
-        chapter: number;
-        verse: number;
-        content: string;
-    };
+    selectedVerse: Verse | null
     setIsShowPreview: (value: boolean) => void;
 }
 
@@ -103,15 +100,6 @@ const ScreenShot: React.FC<ScreenShotProps> = ({ selectedVerse, setIsShowPreview
                 </View>
                 
                 <Text style={styles.contentText}>{selectedVerse?.content}</Text>
-
-                    {/* {
-                        selectedVerse?.content.length  > 400 ?
-                            <ScrollView style={{ padding: 10 }}> 
-                                <Text style={[styles.contentText, { fontSize: 30 }]}>{selectedVerse?.content}</Text>
-                            </ScrollView> 
-                        :
-                            
-                    } */}
 
             </View>
             <View style={styles.menu}>

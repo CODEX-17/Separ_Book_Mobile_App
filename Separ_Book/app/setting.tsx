@@ -9,8 +9,11 @@ import { SettingContext } from './context/SettingContext';
 const Setting = () => {
 
     const router = useRouter()
-
-    const { objSetting, handleChangeSetting } = useContext(SettingContext)
+    const settingContext = useContext(SettingContext)
+        
+    if (!settingContext) return false
+        
+    const { objSetting, handleChangeSetting } = settingContext
 
     const handleChangeFontSize = (value: number) => {
         

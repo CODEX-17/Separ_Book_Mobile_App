@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from 'react';
-import { View, Image, StyleSheet, Text, ImageBackground } from 'react-native';
+import { View, Image, StyleSheet, Text, ImageBackground} from 'react-native';
+
 import CustomizeButton from './components/CustomizeButton';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { useRouter } from 'expo-router';
@@ -12,7 +13,14 @@ const WelcomeScreen = () => {
 
   const router = useRouter()
 
-  const { objSetting } = useContext(SettingContext)
+  const settingContext = useContext(SettingContext)
+
+  if (!settingContext) {
+      return null
+  }
+
+  const { objSetting } = settingContext
+  
   const themeColors = objSetting.theme === 'dark' ? COLORS.dark : COLORS.light;
 
   const fadeAnim = useSharedValue(0);
@@ -30,6 +38,7 @@ const WelcomeScreen = () => {
 
   return (
     <Animated.View style={[styles.container, backgroundAnimation]}>
+      
       <ImageBackground 
         source={require("../assets/images/bg-blue.jpg")}
         style={styles.background}

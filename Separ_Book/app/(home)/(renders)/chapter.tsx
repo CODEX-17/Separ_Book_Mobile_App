@@ -18,14 +18,24 @@ import Animated, { useAnimatedStyle, useSharedValue, withSpring } from 'react-na
 const ChapterScreen = () => {
 
     const router = useRouter()
-    const { objSetting } = useContext(SettingContext)
-    const themeColors = objSetting.theme === 'dark' ? COLORS.dark : COLORS.light;
 
-    const scrollViewRef = useRef<ScrollView>(null);
+    const settingContext = useContext(SettingContext)
+    const chapterContext = useContext(ChapterContext)
 
-    const { currentChapter, setCurrentChapter } = useContext(ChapterContext)
-    const chapterList = [...new Set(chapters.map(data => data.chapter))]
+    if (!settingContext || !chapterContext) {
+        return null
+    }
+
+    const { objSetting } = settingContext
+    const { currentChapter, setCurrentChapter } = chapterContext
+    
+    const themeColors = objSetting.theme === 'dark' ? COLORS.dark : COLORS.light
+
+    const scrollViewRef = useRef<any>(null)
+
     const [selectedChapter, setSelectedChapter] = useState<number | null>(null)
+
+    const chapterList: number[] = [...new Set(chapters.map(data => data.chapter))]
     const [verseList, setVerseList] = useState<number[] | null>(null) 
 
 
@@ -53,7 +63,7 @@ const ChapterScreen = () => {
     const [loading, setLoading] = useState(false)
 
     const handleSelect = (data: number) => {
-        console.log(data)
+
         setLoading(true)
         setSelectedChapter(data)
        

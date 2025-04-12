@@ -25,11 +25,12 @@ export default function RootLayout() {
     "Poppins-Regular": require("../assets/fonts/Poppins-Regular.ttf"),
   });
 
+  type NotificationScheduleName = 'daily-verse-dayTime' | 'daily-verse-nightTime'
   interface NotificationSchedule {
-    name: ('daily-verse-dayTime' | 'daily-verse-nightTime')[];
+    name: NotificationScheduleName[];
   }
 
-  type NotificationScheduleName = 'daily-verse-dayTime' | 'daily-verse-nightTime'
+  
 
 
   //Schedule notification for daily verse
@@ -109,7 +110,13 @@ export default function RootLayout() {
             <Stack.Screen name="(home)"/>
             <Stack.Screen name="view-chapter"/>
             <Stack.Screen name="setting"/>
-            <Stack.Screen name="(home)/(renders)/feast"/>
+            <Stack.Screen 
+              name="(home)/modal.tsx"
+              options={{
+                headerShown: true,
+                presentation: 'modal'
+              }}
+            />
           </Stack>
         </ChapterContextProvider>
       </SettingContextProvider>

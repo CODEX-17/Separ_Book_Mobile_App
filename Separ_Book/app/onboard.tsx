@@ -7,6 +7,7 @@ import {
     Image, 
     Pressable,
     SafeAreaView,
+
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import CustomizeButton from './components/CustomizeButton';
@@ -20,7 +21,8 @@ import { useRouter } from 'expo-router';
 
 const OnBoardScreen = () => {
 
-    const router = useRouter()
+
+    const router = useRouter();
 
     const contentList = [
         {
@@ -68,7 +70,7 @@ const OnBoardScreen = () => {
         if (currentIndex < contentList.length - 1) {
             setSelectedContent(contentList[ currentIndex + 1 ])
         }else {
-            router.push('/ask-name')
+            router.push('/(home)')
         }
 
         progress.value = withSpring(1, { damping: 10, stiffness: 364 });
@@ -100,7 +102,7 @@ const OnBoardScreen = () => {
             {
                 selectedContent?.index < 4 &&
                 <View style={styles.btnSkip}>
-                    <Pressable onPress={() => router.push('/ask-name')}>
+                    <Pressable onPress={() => router.push('/(home)')}>
                         <Text style={[styles.subtitle, { fontSize: 20 }]}>Skip</Text>
                     </Pressable>
                     <Icon name="navigate-next" color="'#343434'" size={25}/>

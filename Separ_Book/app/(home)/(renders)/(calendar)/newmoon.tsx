@@ -12,7 +12,14 @@ const NewMoon = () => {
     const dateList = newMoon()
     const currentDate = new Date().getMonth()
 
-    const { objSetting } = useContext(SettingContext)
+
+    const settingContext = useContext(SettingContext)
+
+    if (!settingContext) {
+        return null
+    }
+
+    const { objSetting } = settingContext
     const themeColors = objSetting.theme === 'dark' ? COLORS.dark : COLORS.light;
 
     const [isLoading, setIsLoading] = useState(true)

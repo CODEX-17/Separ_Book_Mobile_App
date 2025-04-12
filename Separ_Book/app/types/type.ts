@@ -1,0 +1,1 @@
+export type TabsRoutes = 'Home' | 'Chapters' | 'Search' | 'Calendar' | 'Random' 

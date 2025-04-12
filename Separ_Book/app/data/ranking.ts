@@ -1,0 +1,23 @@
+export const ranks = [
+    { title: "Newcomer", min: 0, icon: "star-outline" },
+    { title: "Seeker", min: 5, icon: "search" },
+    { title: "Listener", min: 10, icon: "headset" },
+    { title: "Learner", min: 20, icon: "book-outline" },
+    { title: "Reader", min: 35, icon: "book" },
+    { title: "Follower", min: 50, icon: "walk" },
+    { title: "Disciple", min: 75, icon: "school-outline" },
+    { title: "Messenger", min: 100, icon: "mail-outline" },
+    { title: "Scribe", min: 150, icon: "create-outline" },
+    { title: "Believer", min: 200, icon: "heart-outline" },
+    { title: "Preacher", min: 300, icon: "megaphone-outline" },
+    { title: "Elder", min: 400, icon: "people-outline" },
+    { title: "Shepherd", min: 500, icon: "leaf-outline" },
+    { title: "Guardian", min: 650, icon: "shield-outline" },
+    { title: "Wisdom Bearer", min: 800, icon: "bulb-outline" },
+    { title: "Master of the Word", min: 1000, icon: "bookmarks-outline" },
+    { title: "Light Bringer", min: 1250, icon: "flash-outline" },
+    { title: "Covenant Keeper", min: 1500, icon: "key-outline" },
+    { title: "Divine Scholar", min: 1750, icon: "medal-outline" },
+    { title: "Heaven’s Herald", min: 2000, icon: "cloud-outline" },
+  ];
+  

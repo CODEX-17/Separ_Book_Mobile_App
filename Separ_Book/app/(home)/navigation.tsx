@@ -4,16 +4,29 @@ import { BottomNavigationContext } from '../context/BottomNavigationContext';
 import { SettingContext } from '../context/SettingContext';
 import COLORS from '../constants/colors';
 import { House, Book, Search, CalendarDays, Dices } from 'lucide-react-native';
+import { TabsRoutes } from '../types/type';
 
 const BottomNavigation = () => {
 
 
-    const { bottomNavigation, setBottomNavigation }= useContext(BottomNavigationContext)
-    const { objSetting } = useContext(SettingContext) 
+    const bottomNavigationContext = useContext(BottomNavigationContext)
+    const settingContext = useContext(SettingContext)
+    
+    if (!bottomNavigationContext || !settingContext) {
+        return false
+    }
+
+    const { bottomNavigation, setBottomNavigation } = bottomNavigationContext
+    const { objSetting } = settingContext
 
     const themeColors = objSetting.theme === 'dark' ? COLORS.dark : COLORS.light;
 
-    const buttonList = [
+    interface ButtonListType {
+        title: TabsRoutes
+        icon: (isActive: boolean) => JSX.Element
+    }
+
+    const buttonList: ButtonListType[] = [
         {
             title: 'Home',
             icon: (isActive: boolean) => <House color={isActive ? themeColors.highlight : themeColors.secondaryText} size={25} />,
@@ -36,9 +49,6 @@ const BottomNavigation = () => {
         },
     ]
 
-    const handleNavigation = (title: string) => {
-        setBottomNavigation(title)
-    }
 
     return (
         <View style={[styles.container, { backgroundColor: themeColors.background, shadowColor: themeColors.border }]}>
@@ -53,7 +63,7 @@ const BottomNavigation = () => {
                                 pressed && { opacity: 0.7, transform: [{ scale: 0.95 }] },
                             ]}
                             key={index}
-                            onPress={() => handleNavigation(btn.title)}
+                            onPress={() => setBottomNavigation(btn.title)}
                         >
                             {btn.icon(isActive)}  {/* Pass isActive state here */}
                             <Text style={[styles.buttonText, { color: isActive ? themeColors.highlight : themeColors.secondaryText }]}>

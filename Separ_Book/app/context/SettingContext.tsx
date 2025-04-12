@@ -1,12 +1,22 @@
-import { createContext, useState, useEffect } from "react";
+import React, { createContext, useState, useEffect } from "react";
 import { storeData, getStoreData }  from "../Utils/storage";
+import { Setting } from "../types/interfaces";
+import { ReactNode } from "react";
 
+export interface SettingContextType {
+    objSetting: Setting
+    handleChangeSetting: (value: Setting) => void
+}
 
-export const SettingContext = createContext()
+interface SettingProviderType {
+    children: ReactNode
+}
 
-export const SettingContextProvider = ({ children }) => {
+export const SettingContext = createContext<SettingContextType| null>(null)
 
-    const [objSetting, setObjSetting] = useState(
+export const SettingContextProvider: React.FC<SettingProviderType> = ({ children }) => {
+
+    const [objSetting, setObjSetting] = useState<Setting>(
         { 
             fontSize: 30, 
             theme: 'light' 
@@ -24,7 +34,7 @@ export const SettingContextProvider = ({ children }) => {
                 loadSettings()
         }, [])
     
-        const handleChangeSetting = (value) => {
+        const handleChangeSetting = (value: Setting) => {
             if (!value) return
             setObjSetting(value)
             storeData('SETTING', value)

@@ -1,5 +1,6 @@
+import { Verse } from "../types/interfaces";
 
-export const separ = [
+export const separ: Verse[] = [
     {
         chapter: 1,
         verse: 1,

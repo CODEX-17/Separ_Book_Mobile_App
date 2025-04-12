@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { FC, useContext, useEffect } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { BottomNavigationContext } from '../context/BottomNavigationContext';
 import Entypo from 'react-native-vector-icons/Entypo';
@@ -11,14 +11,28 @@ import Animated, {
 import { Moon, Sun } from 'lucide-react-native';
 import { SettingContext } from '../context/SettingContext';
 import COLORS from '../constants/colors';
-import { ChevronLeft } from 'lucide-react-native';
+import { ChevronLeft, Music4  } from 'lucide-react-native';
+import { Setting } from '../types/interfaces';
+import { useRouter } from 'expo-router';
 
+// Define the type for the props
+interface HeaderProps {
+    setModalVisible: (visible: boolean) => void;
+}
 
+const Header: FC<HeaderProps> = ({ setModalVisible }) => {
 
-const Header = () => {
+    const router = useRouter()
 
-    const { bottomNavigation, setBottomNavigation } = useContext(BottomNavigationContext)
-    const { objSetting, handleChangeSetting } = useContext(SettingContext)
+    const bottomNavigationContext = useContext(BottomNavigationContext)
+    const settingContext = useContext(SettingContext)
+    
+    if (!bottomNavigationContext || !settingContext) {
+        return false
+    }
+
+    const { bottomNavigation, setBottomNavigation } = bottomNavigationContext
+    const { objSetting, handleChangeSetting } = settingContext
 
     const themeColors = objSetting.theme === 'dark' ? COLORS.dark : COLORS.light;
 
@@ -51,7 +65,7 @@ const Header = () => {
     }
 
     const handleTheme = () => {
-        const newTheme = {...objSetting, theme: objSetting.theme === 'dark' ? 'light' : 'dark' }
+        const newTheme: Setting = {...objSetting, theme: objSetting.theme === 'dark' ? 'light' : 'dark' }
         handleChangeSetting(newTheme)
     };
 
@@ -69,17 +83,28 @@ const Header = () => {
                 />
              </Animated.View>
             <Text style={[styles.text, { color: themeColors.primary }]}>{bottomNavigation}</Text>
-            <Animated.View style={[rotateStyleAnimation]}>
+            <View style={{ flexDirection: 'row', gap: 10 }}>
                 <TouchableOpacity
-                    onPress={handleTheme}
-                >
-                    {
-                        objSetting.theme === 'dark' ? 
-                            <Sun color={themeColors.secondaryText} size={25} /> :
-                            <Moon color={themeColors.secondaryText} size={25} />
-                    }
-                </TouchableOpacity>
-             </Animated.View>
+                        onPress={() => setModalVisible(true)}
+                    >
+                            
+                        <Music4 color={themeColors.secondaryText} size={25} /> :
+            
+                    </TouchableOpacity>
+                <Animated.View style={[rotateStyleAnimation]}>
+                    <TouchableOpacity
+                        onPress={handleTheme}
+                    >
+                        {
+                            objSetting.theme === 'dark' ? 
+                                <Sun color={themeColors.secondaryText} size={25} /> :
+                                <Moon color={themeColors.secondaryText} size={25} />
+                        }
+                    </TouchableOpacity>
+                    
+                </Animated.View>
+            </View>
+             
              
         </View>
     );

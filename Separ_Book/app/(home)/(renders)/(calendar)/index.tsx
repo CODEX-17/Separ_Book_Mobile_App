@@ -13,7 +13,14 @@ const Calendar = () => {
     const dateList = newMoon()
     const currentDate = new Date().getMonth()
 
-    const { objSetting } = useContext(SettingContext)
+    const settingContext = useContext(SettingContext)
+
+    if (!settingContext) {
+        return null
+    }
+
+    const { objSetting } = settingContext
+
     const themeColors = objSetting.theme === 'dark' ? COLORS.dark : COLORS.light;
 
     const [isLoading, setIsLoading] = useState<boolean>(true)
@@ -33,7 +40,7 @@ const Calendar = () => {
         { 
             name: 'New Moon', 
             icon: (isActive: boolean) => <Eclipse  color={isActive ? COLORS.white : themeColors.primaryText} size={20}/>,
-            description: `View monthly new moon dates to easily determine the exact time for observing the New Moon Sabbath.`
+            description: `1View monthly new moon dates to easily determine the exact time for observing the New Moon Sabbath.`
         },
         { 
             name: 'Feast', 
@@ -53,7 +60,6 @@ const Calendar = () => {
     return (
         <View style={styles.container}>
             <View style={{ width: '100%', alignItems: 'center', marginBottom: 10 }}>
-                <Text style={[styles.title, { color: themeColors.primaryText }]}>Select Calendar</Text>
                 <View style={{ width: '100%', flexDirection: 'row', justifyContent: 'center', gap: 20,  marginTop: 10 }}>
                     {
                         menuList.map((item, index) => {
@@ -173,29 +179,28 @@ const styles = StyleSheet.create({
     },
     card: {
         width: '100%',
-        height: 100,
         flexDirection: 'column',
         justifyContent: 'center',
         borderRadius: 10,
-        padding: 20,
+        padding: 15,
         shadowColor: '#000',
         borderWidth: 1,
         marginBottom: 10,
     },
     textDate: {
-        fontSize: 20,
+        fontSize: 15,
         fontFamily: 'Poppins-Bold',
     },
     textTime: {
-        fontSize: 16,
+        fontSize: 13,
         fontFamily: 'Poppins-Regular',
     },
     title: {
-        fontSize: 20,
+        fontSize: 15,
         fontFamily: 'Poppins-Bold',
     },
     subtitle: {
-        fontSize: 16,
+        fontSize: 13,
         fontFamily: 'Poppins-Regular',
         textAlign: 'center',
     },

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Header from './header';
@@ -10,12 +10,20 @@ import Search from './(renders)/search';
 import { SettingContext } from '../context/SettingContext';
 import COLORS from '../constants/colors';
 import Animated, { Easing, useAnimatedStyle, useSharedValue, withSpring, withTiming} from 'react-native-reanimated';
-import Calendar from './(renders)/(calendar)/newmoon';
+import Calendar from './(renders)/(calendar)/index';
+import { StatusBar } from 'expo-status-bar';
 
 const HomeLayout = () => {
 
-    const { bottomNavigation } = useContext(BottomNavigationContext)
-    const { objSetting } = useContext(SettingContext)
+    const bottomNavigationContext= useContext(BottomNavigationContext)
+    const settingContext = useContext(SettingContext)
+
+    if (!settingContext || !bottomNavigationContext) {
+        return null
+    }
+
+    const { objSetting } = settingContext
+    const { bottomNavigation } = bottomNavigationContext
 
     const renderTab = () => {
         switch (bottomNavigation) {
@@ -29,8 +37,6 @@ const HomeLayout = () => {
                 return <Calendar/>
             case 'Random':
                 return <RandomPick/>
-            case 'Default':
-                return <ChapterScreen/>;
             default:
                 return <Text>No tab selected</Text>; // Fallback UI
         }
@@ -51,11 +57,19 @@ const HomeLayout = () => {
         fadeAnim.value = withTiming(1, { duration: 1000, easing: Easing.inOut(Easing.ease) });
     },[objSetting.theme])
 
+    const [modalVisible, setModalVisible] = useState<boolean>(false);
+
     return (
         <Animated.View style={[styles.container, backgroundAnimation]}>
+            <StatusBar
+                animated={true}
+                backgroundColor={themeColors.background}
+                hidden={false}
+                style={objSetting.theme === 'dark'? 'light' : 'dark'}
+            />
             <SafeAreaView style={[styles.safeArea, { flex: 1 }]}>
                 <View style={styles.header}>
-                    <Header/>
+                    <Header setModalVisible={setModalVisible}/>
                 </View>
                 <View style={styles.content}>
                     {renderTab()}
@@ -81,15 +95,17 @@ const styles = StyleSheet.create({
         height: '100%',
         width: '100%',
         backgroundColor: 'transparent',
+        position: 'relative',
     },
     header: {
-        height: '10%',
+        height: 50,
         width: '100%',
         backgroundColor: 'transparent',
     },
     content: {
         width: '100%',
         height: '80%',
+        position: 'relative'
     },
     bottonNavigation: {
         flex: 1,
