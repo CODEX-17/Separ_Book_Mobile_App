@@ -1,23 +1,18 @@
 import { BottomNavigationProvider } from './context/BottomNavigationContext';
-import { ChapterContextProvider } from './context/ChapterContex';
+import { ChapterContext, ChapterContextProvider } from './context/ChapterContex';
 import { SettingContextProvider } from './context/SettingContext'
 import * as SplashScreen from 'expo-splash-screen';
 import { useFonts } from 'expo-font';
-import { useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 import { Stack } from 'expo-router';
 import { getStoreData, storeData } from './Utils/storage';
-import { listenForNotificationResponse, scheduleNotificationDaily } from './Utils/notification';
+import { cancelAllNotification,  listenForNotificationResponse,  NotifDailyTypeProps,  scheduleNotificationDaily } from './Utils/notification';
+import { separ as verseList } from './data/chapters';
+import { Minus } from 'lucide-react-native';
 
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
-
-  const today = new Date(); 
-  const morningTime = new Date(today.setHours(7, 0, 0, 0)).toLocaleTimeString() // Set time to 7:00 AM
-  const eveningTime = new Date(today.setHours(19, 0, 0, 0)).toLocaleTimeString() // Set time to 7:00 PM
-
-  const morningTimeStringSched = '7:00:00 AM'
-  const eveningTimeStringSched = '7:00:00 PM'
 
   let [loaded, error] = useFonts({
     "Poppins-Bold": require('../assets/fonts/Poppins-Bold.ttf'),
@@ -25,69 +20,77 @@ export default function RootLayout() {
     "Poppins-Regular": require("../assets/fonts/Poppins-Regular.ttf"),
   });
 
-  type NotificationScheduleName = 'daily-verse-dayTime' | 'daily-verse-nightTime'
-  interface NotificationSchedule {
-    name: NotificationScheduleName[];
+  const chapterContext = useContext(ChapterContext)
+
+  if (!chapterContext) {
+    return null
   }
 
-  
-
-
   //Schedule notification for daily verse
-  const scheduleNotification = async(name: NotificationScheduleName) => {
-    try {
-      scheduleNotificationDaily(
-        name, 
-        { 
-          title: 'Daily Verse', 
-          body: 'Time to read your daily verse', 
-        }, 
-        { 
-          hour: 7, 
-          minute: 0 
-        },
-        name
-      )
-
-      //Insert schedule data to AsyncStorage
-      const scheduleData: NotificationSchedule = { 
-        name: [name]
-      }
-
-      await storeData('NOTIFICATION', scheduleData)
-
-    } catch (error) {
-      console.error('Error scheduling notification:', error);
-    }
+  const randomVersePick = () => {
+    return Math.floor(Math.random() * verseList.length)
   }
 
   useEffect(() => {
 
-    const getSheduleData = async () => {
+    // listenForNotificationResponse()
 
-      listenForNotificationResponse()
+    // const sheduleNotifications = async () => {
 
-      const schedule = await getStoreData('NOTIFICATION')
+    //   const ramdomIndexDayTime = randomVersePick()
+    //   const ramdomIndexNightTime = randomVersePick()
+
+    //   const currentVerseDayTime = verseList[ramdomIndexDayTime]
+    //   const currentVerseNightTime = verseList[ramdomIndexNightTime]
+
+    //   const dayTimedata: NotifDailyTypeProps = {
+    //     name: 'daily-verse-dayTime',
+    //     content: {
+    //       title: 'Daily Verse Day Time',
+    //       body: `
+    //         Chapter: ${currentVerseDayTime.chapter} verse: ${currentVerseDayTime.verse}
+    //         ${currentVerseDayTime.content}
+    //       `,
+    //       data: {
+    //         screen: 'view-chapter',
+    //         verseID: ramdomIndexDayTime
+    //       }
+    //     },
+    //     trigger: {
+    //       hour: 7,
+    //       minute: 0,
+    //     },
+    //     identifier: 'daily-verse-dayTime',
+    //   }
+
+    //   const nightTimedata: NotifDailyTypeProps = {
+    //     name: 'daily-verse-nightTime',
+    //     content: {
+    //       title: 'Daily Verse Night Time',
+    //       body: `
+    //         Chapter: ${currentVerseNightTime.chapter} verse: ${currentVerseNightTime.verse}
+    //         ${currentVerseNightTime.content}
+    //       `,
+    //       data: {
+    //         screen: 'view-chapter',
+    //         verseID: ramdomIndexNightTime
+    //       }
+    //     },
+    //     trigger: {
+    //       hour: 22,
+    //       minute: 46,
+    //     },
+    //     identifier: 'daily-verse-nightTime',
+    //   }
       
-      if (!schedule) {
-        scheduleNotification('daily-verse-dayTime')
-        scheduleNotification('daily-verse-nightTime')
-        return
-      }
+    //   await cancelAllNotification()
 
-      // Check if the schedule for daily verse notifications for dayTime is already set
-      if (!schedule.name.includes('daily-verse-dayTime')) {
-        scheduleNotification('daily-verse-dayTime')
-      }
+    //   scheduleNotificationDaily(dayTimedata)
+    //   scheduleNotificationDaily(nightTimedata)
+     
+    // }
 
-       // Check if the schedule for daily verse notifications for nightTime is already set
-      if (!schedule.name.includes('daily-verse-nightTime')) {
-        scheduleNotification('daily-verse-nightTime')
-      }
-
-    }
-
-    getSheduleData()
+    // sheduleNotifications()
 
   },[])
 

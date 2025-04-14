@@ -1,6 +1,8 @@
 import * as Notifications from 'expo-notifications';
 import { Platform } from 'react-native'
 import { getStoreData, storeData } from './storage';
+import { NotificationStoreDataType, TabsRoutes } from '../types/type';
+import { navigateToViewChapter } from '../lib/navigation';
 
 Notifications.setNotificationHandler({
     handleNotification: async () => ({
@@ -10,23 +12,53 @@ Notifications.setNotificationHandler({
     }),
 });
 
+export type DataParams = {
+  screen: string,
+  verseID: number,
+}
+
 type Content = {
   title: string,
   body: string,
+  data: DataParams,
 }
 
 type TriggerDaily = {
   hour: number,
-  minute: number,
+  minute: number
 }
 
-type Identifier = 'daily-verse-dayTime' | 'daily-verse-nightTime'
+export interface NotifDailyTypeProps {
+  name: string,
+  content: Content,
+  trigger: TriggerDaily,
+  identifier: string,
+}
 
-export const scheduleNotificationDaily = async (name: string, content: Content, value: TriggerDaily, identifier: Identifier) => {
+export const cancelAllNotification = async (): Promise<void> => {
+  await Notifications.cancelAllScheduledNotificationsAsync()
+}
+
+
+export const scheduleNotificationDaily = async (notifData: NotifDailyTypeProps) => {
+
+    console.log(notifData)
+
+    const schedule: NotificationStoreDataType  = await getStoreData('NOTIFICATION')
+
+    const updatedSchedule = schedule ?? []
+
+    if (!schedule) {
+      updatedSchedule.push(notifData.identifier)
+    }else {
+      updatedSchedule.push(notifData.identifier)
+    }
+
+    await storeData('NOTIFICATION', updatedSchedule)
     
     if (Platform.OS === 'android') {
-      await Notifications.setNotificationChannelAsync(name, {
-        name,
+      await Notifications.setNotificationChannelAsync(notifData.name, {
+        name: notifData.name,
         importance: Notifications.AndroidImportance.HIGH,
         vibrationPattern: [0, 250, 250, 250],
         lightColor: '#FF231F7C',
@@ -34,82 +66,62 @@ export const scheduleNotificationDaily = async (name: string, content: Content, 
     }
   
     await Notifications.scheduleNotificationAsync({
-      content,
+      content: notifData.content,
       trigger: {
         type:  Notifications.SchedulableTriggerInputTypes.DAILY,
-        hour: value.hour,
-        minute: value.minute,
+        hour: notifData.trigger.hour,
+        minute: notifData.trigger.minute,
       },
     });
 
 }
 
-export const scheduleNotificationDate = async (name: string, content: Content, date: Date) => {
+// export const scheduleNotificationDate = async (name: string, content: Content, date: Date) => {
     
-  if (Platform.OS === 'android') {
-    await Notifications.setNotificationChannelAsync(name, {
-      name,
-      importance: Notifications.AndroidImportance.HIGH,
-      vibrationPattern: [0, 250, 250, 250],
-      lightColor: '#FF231F7C',
-    });
-  }
+//   if (Platform.OS === 'android') {
+//     await Notifications.setNotificationChannelAsync(name, {
+//       name,
+//       importance: Notifications.AndroidImportance.HIGH,
+//       vibrationPattern: [0, 250, 250, 250],
+//       lightColor: '#FF231F7C',
+//     });
+//   }
 
-  await Notifications.scheduleNotificationAsync({
-    content,
-    trigger: {
-      type:  Notifications.SchedulableTriggerInputTypes.DATE,
-      date,
-    },
-  });
+//   await Notifications.scheduleNotificationAsync({
+//     content,
+//     trigger: {
+//       type:  Notifications.SchedulableTriggerInputTypes.DATE,
+//       date,
+//     },
+//   });
 
-}
+// }
 
 // Function to listen for notification responses and remove scheduled time from AsyncStorage
+
 export const listenForNotificationResponse = async () => {
 
- try {
+  const schedule: NotificationStoreDataType = await getStoreData('NOTIFICATION')
 
-  interface NotificationSchedule {
-    name: ('daily-verse-dayTime' | 'daily-verse-nightTime')[];
+  if (!schedule) {
+    return null
   }
-
-  const schedule = await getStoreData('NOTIFICATION')
   
   Notifications.addNotificationResponseReceivedListener(async (response) => {
-    console.log('Notification received:', response)
 
-    // Check which notification was triggered using the identifier
-    if (response.notification.request.identifier === 'daily-verse-dayTime') {
-      console.log('7:00 AM notification triggered')
+    const data = response.notification.request.content.data
 
-     const result = schedule?.name.filter((item) => item !== 'daily-verse-dayTime')
+    console.log('Tapped data:', data);
 
-      console.log('Filtered schedule:', result)
-
-      // Update AsyncStorage with the filtered schedule
-      await storeData('NOTIFICATION', { name: result || [] })
-
+    if (data?.screen === 'view-chapter' && data.verseID) {
+      navigateToViewChapter(data.verseID);
     }
+
+    const updatedSchedule = schedule.filter((item) => item !== response.notification.request.identifier)
     
-    if (response.notification.request.identifier === 'daily-verse-nightTime') {
-     
-      const result = schedule?.name.filter((item) => item !== 'daily-verse-nightTime')
-
-      console.log('Filtered schedule:', result)
-
-      // Update AsyncStorage with the filtered schedule
-      await storeData('NOTIFICATION', { name: result || [] })
-
-    }
+    await storeData('NOTIFICATION', updatedSchedule);
 
   })
-
- } catch (error) {
-    console.error('Error listening for notification response:', error)
-    return 
- }
-
 
  
 }

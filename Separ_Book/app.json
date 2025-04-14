@@ -1,10 +1,10 @@
 {
   "expo": {
-    "name": "Separ_Book",
+    "name": "Separ Book V.2.0.0",
     "slug": "Separ_Book",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/logo-icon.png",
+    "icon": "./assets/images/icon.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
@@ -25,7 +25,7 @@
     },
     "plugins": [
       "expo-router",
-      [
+       [
         "expo-splash-screen",
         {
           "image": "./assets/images/logo-icon.png",
@@ -42,6 +42,15 @@
             "./assets/fonts/Poppins-Light.ttf",
             "./assets/fonts/Poppins-Regular.ttf"
           ]
+        }
+      ],
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/images/icons",
+          "color": "#ffffff",
+          "defaultChannel": "default",
+          "enableBackgroundRemoteNotifications": false
         }
       ]
     ],

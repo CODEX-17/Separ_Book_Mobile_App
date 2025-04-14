@@ -1,20 +1,15 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Favorite, Profile, Setting } from '../types/interfaces';
+import { NotificationStoreDataType } from '../types/type';
 
 
 type AllowedKeys = 'SETTING' | 'PROFILE' | 'FAVORITE' | 'NOTIFICATION'
-
-
-
-interface NotificationSchedule {
-    name: ('daily-verse-dayTime' | 'daily-verse-nightTime')[];
-}
 
 type KeyValueMap = {
     SETTING: Setting
     PROFILE: Profile
     FAVORITE: Favorite
-    NOTIFICATION: NotificationSchedule
+    NOTIFICATION: NotificationStoreDataType
 }
 
 export const storeData = async <K extends AllowedKeys>( 
