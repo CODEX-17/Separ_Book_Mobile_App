@@ -23,12 +23,19 @@ const MyComponent = () => {
     const [resultList, setResultList] = useState<Verse[] | []>([])
     const [loading, setLoading] = useState(false);
 
-    const { objSetting } = useContext(SettingContext)
+    const settingContext = useContext(SettingContext)
+    const chapterContext = useContext(ChapterContext)
+
+    if (!settingContext || !chapterContext) {
+        return null
+    }
+    const { objSetting } = settingContext
+    const { currentChapter, setCurrentChapter } = chapterContext
+
     const themeColors = objSetting.theme === 'dark' ? COLORS.dark : COLORS.light;
     
     const router = useRouter()
 
-    const { setCurrentChapter } = useContext(ChapterContext) 
 
     const fuseOptions = {
         // isCaseSensitive: false,

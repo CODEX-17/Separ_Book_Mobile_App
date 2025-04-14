@@ -24,12 +24,20 @@ const RandomPick = () => {
     const [btnTextContent, setBtnTextContent] = useState('')
     const [display, setDisplay] = useState('prayer')
 
-    const { objSetting } = useContext(SettingContext)
+    const settingContext = useContext(SettingContext)
+    const chapterContext = useContext(ChapterContext)
+
+    if (!settingContext || !chapterContext) {
+        return null
+    }
+
+    const { objSetting } = settingContext
+    const { currentChapter, setCurrentChapter } = chapterContext
     const themeColors = objSetting.theme === 'dark' ? COLORS.dark : COLORS.light;
 
     const router = useRouter()
 
-    const { currentChapter, setCurrentChapter } = useContext(ChapterContext)  
+    
 
     ////Animation
 
