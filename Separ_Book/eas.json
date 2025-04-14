@@ -10,7 +10,8 @@
       "workingDirectory": "./separ_book"
     },
     "preview": {
-      "distribution": "internal"
+      "distribution": "internal",
+      "workingDirectory": "./separ_book"
     },
     "production": {
       "autoIncrement": true
