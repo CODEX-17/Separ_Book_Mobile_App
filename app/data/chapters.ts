@@ -2535,6 +2535,192 @@ export const separ: Verse[] = [
         verse: 91,
         content: `Walang kabuluhan ang pagsamba na gianawa ng mga relihiyon, sapagkat hindi naayon sa mga pamamaraan ng aking mga propeta, at hindi sa pangalan ko ginawa ang kanilang pagamba. Kaya't walang saysay kahit gaano man kaganda at maayos ang mga mang-aawit nila, at kahit malalaki ang kanilang panambahan ay tunay na walang halaga sa Aking paningin ang kanilang mga ginawa.`
     },
+    {
+        chapter: 3,
+        verse: 92,
+        content: `Kaya’t manatili ka sa ministeryong ito ng liwanag sapagkat nalulugod Ako sa kanilang ginagawang pagsamba, sapagkat ito’y naaayon sa mga pamamaraan at mga aral ng Aking mga propeta.`
+    },
+    {
+        chapter: 3,
+        verse: 93,
+        content: `Ingatan mo ang iyong pag-ibig sa Akin. Huwag mong hayaan na ito’y manlamig.`
+    },
+    {
+        chapter: 3,
+        verse: 94,
+        content: `Panatilihin mo ang alab nito, huwag hayaang maibaling sa mga bagay na material, huwag papigil sa takot, at huwag hayaang dapuan ng karamdamang espiritual.`
+    },
+    {
+        chapter: 3,
+        verse: 95,
+        content: `Manalangin kang lagi, at huwag kang makalimot sa pagsamba sa Akin.`
+    },
+    {
+        chapter: 3,
+        verse: 96,
+        content: `Gawin mo ang iyong tungkulin ng may katapatan at maalab na pag-ibig sa Akin, at ikaw ay Aking pagpapalain.`
+    },
+    {
+        chapter: 3,
+        verse: 97,
+        content: `Magtapat ka, huwag kang mawalan ng pag-asa sapagkat Ako ang nakakaalam kung ano ang makabubuti para sa iyo.`
+    },
+    {
+        chapter: 3,
+        verse: 98,
+        content: `Sa lahat nang mga bagay at pangyayari, ay may layunin Ako. Magtiwala ka sa Akin at makikita mo sa bandang huli ay mananaig parin ang katuwiran at katarungan. Ako si YAHUWEH ang Alyon ang may kontrolado sa lahat ng mga bagay.`
+    },
+    {
+        chapter: 3,
+        verse: 99,
+        content: `Ang lahat ng mga bagay ay may kanya-kanyang nakatakdang panahon, kayat alamin mo at hintayin mo ang tamang panahon. At habang ikaw ay naghihintay ay huwag kang maging tamad at pabaya, maging masikap ka, gawin mo ang iyong makakaya upang umunlad ang iyong pamumuhay. Tandaan mo Ako’y kasama mo, aalalayan kita at gagabayan. Kaya’t huwag kanmakalimot sa iyong tungkulin sa Akin at ikaw ay Aking pagpapalain.`
+    },
+    {
+        chapter: 3,
+        verse: 100,
+        content: `Gawin mong gabay itong Aking mga Salita at ikaw ay hindi maliligaw. Sapagkat ang Aking mga Salita ay tunay na liwanag, at ito ang sa iyo’y magdadala sa buhay na walang hanggan.`
+    },
+    {
+        chapter: 3,
+        verse: 101,
+        content: `Itakwil mo ang mga aral na sumasalungat sa Aking mga Salita upang hindi ka maligaw ng landas.`
+    },
+    {
+        chapter: 3,
+        verse: 102,
+        content: `Ang mga Salita ko’y tunay na dalisay at maaasahan sa lahat ng panahon, ito’y Aking binabantayan at tinitiyak na maisasakatuparan.`
+    },
+    {
+        chapter: 3,
+        verse: 103,
+        content: `Ang Aking mga Salita ay hindi mabibigo, maglalaho ang lahat ng mga bagay ngunit ang Aking mga Salita kailanmay hindi kukupas.`
+    },
+    {
+        chapter: 3,
+        verse: 104,
+        content: `Mapalad ang tao na lubos na nanampalataya sa Aking mga Salita, sapagkat siya ay magkakaroon ng tunay na kapayapaan. Panatag ang kanyang kalooban kahit na siya’y dumaan sa bagyo ng mga pagsubok. Ang katulad niya’y agila na lumilipad sa ibabaw ng mga ulap.`
+    },
+    {
+        chapter: 3,
+        verse: 105,
+        content: `Huwag kang mag-alala, ikaw ay Aking gagantimpalaan ayon sa iyong mga matuwid na gawa.`
+    },
+    {
+        chapter: 3,
+        verse: 106,
+        content: `Ako si YAHUWEH ang Makapangyarihan sa lahat, mula sa langit ay nagmamasid Ako at tini-tingnan ko at binabantayan ko ang mga taong gumagawa ng mabuti, at pagpapalain ko sila ayon sa kanilang mga ginawa.`
+    },
+    {
+        chapter: 3,
+        verse: 107,
+        content: `Ako si YAHUWEH ang Makapangyarihan sa lahat, Ako ang iyong kakampi, gawin mo lang ang tama, at manindigan ka sa katotohanan, at ipagtatanggol kita, parurusahan ko ang mga umuusig sa iyo at makikita nila na ikaw ay Aking pinapatnubayan.`
+    },
+    {
+        chapter: 3,
+        verse: 108,
+        content: `Ang mga tapat sa Akin, ay Aking pagpapalain, at ipagtatanggol ko sila sa mga taong naninira at gumagawa ng masama sa kanila.`
+    },
+    {
+        chapter: 3,
+        verse: 109,
+        content: `Ang totoong umiibig sa Akin ay yaong mga tumutupad ng Aking mga utos. At ang mga sumusunod sa Aking mga utos ay makakapasok sa paraiso ng langit.`
+    },
+    {
+        chapter: 3,
+        verse: 110,
+        content: `Kung mahal mo Ako ay nakahanda kang magtiis at magtiyaga sa pagsunod sa Aking mga utos, kapag ginawa mo ito ay pagpapalain kita, at Ako ang mag-aayos ng iyong mga problema`
+    },
+    {
+        chapter: 3,
+        verse: 111,
+        content: `Huwag mong sasayangin ang bawat pagkakataon na Aking ibinigay sa iyo, sapagkat maiksi lamang ang buhay ng tao sa mundo, at ang lahat ng mga bagay na pinaghirapan ng tao ay hindi niya mapapakinabangan sa araw ng kanyang pagpanaw. Magsikap ka na matupad mo ang iyong tungkulin sa Akin, at gumawa ka ng mga bagay bilang patunay ng iyong paglilingkod sa Akin bago mo iwanan ang buhay na ito.`
+    },
+    {
+        chapter: 3,
+        verse: 112,
+        content: `Mapalad ang mga taong naglilingkod sa Akin sapagkat ang kanilang mga gawa ay hindi masasayang, bagkus ito’y Aking alalahanin sa araw ng pagbibigay gantimpala sa mga tapat, at Akin silang pararangalan sa araw na iyon sapagkat sila ang mga tunay na bayani sa Aking harapan.`
+    },
+    {
+        chapter: 3,
+        verse: 113,
+        content: `Pahalagahan mo ang kalusugan, at huwag mong aabusuhin ang iyong katawan, sapagkat hindi Ako nalulugod sa mga taong walang disiplina sa kanilang sarili.`
+    },
+    {
+        chapter: 3,
+        verse: 114,
+        content: `Alagaan niyo ang inyong katawan upang sa inyong paglilingkod sa Akin ay walang maging hadlang, ang sinomang sumisira ng kanyang katawan sa pamamagitan ng mga bisyo, at ng labis na pagpapahirap nito ay mananagot sa Akin, at mapaparusahan ng mabigat sa araw ng paghuhukom.`
+    },
+    {
+        chapter: 3,
+        verse: 115,
+        content: `Mag-alay kayo ng mga awit ng papuri at pagsamba sa Aking Banal Na Pangalan, sapagkat ito ang dahilan kung bakit ko kayo pinili.`
+    },
+    {
+        chapter: 3,
+        verse: 116,
+        content: `Ako’y nalulugod sa mga taong hindi nakakalimot na umawit para sa Akin, sila’y Aking pagpapalain sapagkat ang kanilang mga awit na mula sa kanilang puso ay tunay na isang mainam na handog sa Aking harapan.`
+    },
+    {
+        chapter: 3,
+        verse: 117,
+        content: `Ang anomang ministeryo, ang anomang pagsamba na sinasabing para sa Akin, ngunit sumasambit sa pangalan ng mga idolo, ang kanilang pagsamba ay walang kabuluhan at hindi ko tatanggapin.`
+    },
+    {
+        chapter: 3,
+        verse: 118,
+        content: `Kaya’t huwag mong babalikan ang mga pagsambang walang kabuluhan, manatili ka sa samahang ito ng mga mananamba sa Akin lamang, sapagkat ito ang tunay na paglilingkod at tunay na pagsambang Aking tinatanggap.`
+    },
+    {
+        chapter: 3,
+        verse: 119,
+        content: `Mapalad ang mga hindi nag-aalinlangan sa ministeryong ito ng mga tunay na mananamba sa Akin, mapalad silang nakikiisa at sumusuporta sa gawaing ito sapagkat sila’y gagantimpalaan ko.`
+    },
+    {
+        chapter: 3,
+        verse: 120,
+        content: `Gawin mo ang mga bagay na nakalulugod sa Aking paningin, iwasan mo ang mga samahang gumagawa ng mga bagay na Aking kinamumunhian. Magsikap ka na mamuhay ng ayon sa Aking kalooban at ikaw ay Aking pagpapalain.`
+    },
+    {
+        chapter: 3,
+        verse: 121,
+        content: `Ako’y laging nakatingin sa iyo kaya’t matakot ka na gumawa ng masama, mamuhay ka ng may pag-ibig sa kabanalan at katotohanan at iyong mararating ang paraisong banal na Aking inihanda para sa lahat ng umiibig sa Akin.`
+    },
+    {
+        chapter: 3,
+        verse: 122,
+        content: `Tanggapin mo ang mga puna at pagsaway sa iyo sapagkat ito’y makakabuti sa iyo, at pag-aralan mo kung ito ay totoo o hindi, at pag nasumpungan mo ang mga dapat na baguhin sa buhay mo, ay gawin mo agad.`
+    },
+    {
+        chapter: 3,
+        verse: 123,
+        content: `Huwag ka agad magagalit kung may narinig kang paninira tungkol sa iyo, huminahon ka, kung ito’y walang katotohanan ay huwag kang paapekto, hayaan mo ang tamang panahon ang maghahayag nito. Subalit magpatuloy ka sa paggawa ng iyong tungkulin sa Akin, at kapag ito’y iyong ginawa ay pagpapalain kita.`
+    },
+    {
+        chapter: 3,
+        verse: 124,
+        content: `Huwag mong kaligtaang basahin ang Aklat na ito, pahalagahan mo ito ng higit pa sa ibang mga kasulatan, sikapin mong masunod ang lahat ng Aking iniutos na nakasulat sa Aklat na ito, upang maging matagumpay ka at makamtam mo ang buhay na walang hanggan.`
+    },
+    {
+        chapter: 3,
+        verse: 125,
+        content: `Ito ang Aklat na magbibigay sa iyo ng linaw at pagkaunawa sa Aking Banal na kalooban, ang bawat Salita ko ay katotohanan, at ito ang sa iyo’y magpapalaya at magpapabanal.`
+    },
+    {
+        chapter: 3,
+        verse: 126,
+        content: `Mapalad ang taong nakikipagkaibigan sa Akin, ngunit sa aba ng mga nakikipag-away sa Akin,`
+    },
+    {
+        chapter: 3,
+        verse: 127,
+        content: `Silang mga naniniwala at nagsisikap na sumunod sa Aking mga Salita ay Aking mga kaibigan, ngunit silang mga tumanggi at nagsitalikod sa Aking mga Salita ay ituturing kong mga kaaway, at pagdating ng araw sila’y itatapon sa dagat-dagatang apoy.`
+    },
+    {
+        chapter: 3,
+        verse: 128,
+        content: `Ang may pandinig ay dapat makinig sa Aking mga Salita, ang mga may paningin ay dapat magbasa ng Aking mga Salita. Sapagkat sa araw ng paghuhukom ang lahat ng mga nabigyan ng pagkakataon na makarinig at makabasa ng Aking mga Salita ay magsusulit sa Aking harapan. Ako ang Dakilang Hukom na ang Pangalan ay YAHUWEH.`
+    }
+    
 
 ]
 
