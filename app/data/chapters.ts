@@ -2719,7 +2719,596 @@ export const separ: Verse[] = [
         chapter: 3,
         verse: 128,
         content: `Ang may pandinig ay dapat makinig sa Aking mga Salita, ang mga may paningin ay dapat magbasa ng Aking mga Salita. Sapagkat sa araw ng paghuhukom ang lahat ng mga nabigyan ng pagkakataon na makarinig at makabasa ng Aking mga Salita ay magsusulit sa Aking harapan. Ako ang Dakilang Hukom na ang Pangalan ay YAHUWEH.`
-    }
+    },
+    {
+        chapter: 4,
+        verse: 1,
+        content: `Manampalataya ka sa Aking Banal na Pangalang YAHUWEH at huwag kang mag-alinlangan sapagkat ang sinomang tumatawag sa Aking Pangalang YAHUWEH ay maliligtas, ngunit ang mga may pagdududa ay hindi maliligtas.`
+    },
+    {
+        chapter: 4,
+        verse: 2,
+        content: `Ngunit ang sinomang tumatawag sa Aking Banal na Pangalang YAHUWEH ng may tunay na pananampalataya ay makakapasok sa kaharian ng langit.`
+    },
+    {
+        chapter: 4,
+        verse: 3,
+        content: `Ang nagpapahalaga at gumagalang sa Aking Banal na Pangalang YAHUWEH ay Aking iingatan saan man siya pupunta, papatnubayan at ililigtas ko siya at ipadarama ko sa kanya ang Aking pag-ibig.`
+    },
+    {
+        chapter: 4,
+        verse: 4,
+        content: `Hindi tama sa isang mananamba sa Akin na makitang nagsusugal, nakikipag-inuman, o naninigarilyo man; kailangan layuan ninyo ang gayong tao, ngunit bigyan ninyo siya nang pagkakataon at babala, sa isa hanggang sa ika-pitong babala kung hindi siya makikinig at walang pagbabago, ay itakwil na ninyo siya sa inyong samahan.`
+    },
+    {
+        chapter: 4,
+        verse: 5,
+        content: `Pairalin ninyo ang pagbabagong buhay, sapagkat kayo ay pinili ko upang maging Aking bansa na magdadala ng Aking liwanag sa mga tao.`
+    },
+    {
+        chapter: 4,
+        verse: 6,
+        content: `Maging magalang kayo sa mga tao, ang inyong mga kababaihan ay hindi dapat manamit ng may kalaswaan, bagkus ay magpakahinhin at maayos sa pananamit, upang hindi maging sanhi ng pagkakasala sa mga kalalakihan.`
+    },
+    {
+        chapter: 4,
+        verse: 7,
+        content: `Ang mga kalalakihan naman ay dapat ding manamit ng maayos at pormal, maging magalang sa mga kababaihan, at maging matulungin sa mga tao.`
+    },
+    {
+        chapter: 4,
+        verse: 8,
+        content: `Ipinagbabawal ko ang mga bakla at tomboy sa inyong samahan, maliban na lamang kung sila'y handang magbago, at nangangailangan ng inyong tulong upang maituwid ang kanilang pananalita at pagkilos.`
+    },
+    {
+        chapter: 4,
+        verse: 9,
+        content: `Bigyan sila ng tatlong buwan na maging ganap na mabago sa kanilang pananalita at pagkilos, ngunit kung sila’y walang pagsisikap ay kailangan sila’y tanggalin sa inyong samahan. Sapagkat ang nais na maligtas ay dapat magsikap na mabago ang kaniyang buhay.`
+    },
+    {
+        chapter: 4,
+        verse: 10,
+        content: `Maghintay ka sa tamang panahon, at huwag kang magmadali. Habang ikaw ay naghihintay ay gumawa ka ng mabuti, at maging mapanalanginin. Huwag kang maging tamad sapagkat ang mga tamad ay hindi ko kinalulugdan.`
+    },
+    {
+        chapter: 4,
+        verse: 11,
+        content: `Anumang mangyari, sa kabiguan man o sa tagumpay ay huwag mong hayaan na maapektuhan ang iyong pananampalataya sa Akin.`
+    },
+    {
+        chapter: 4,
+        verse: 12,
+        content: `Manatili kang tapat at manindigan para sa Akin sapagkat ang tunay mong buhay ay hindi sa mundong ito kundi sa kabilang buhay sa paraiso ng langit.`
+    },
+    {
+        chapter: 4,
+        verse: 13,
+        content: `Huwag kang patay-sindi sa iyong pagsamba sa Akin, kung ganyan ka ay hindi kita pagpapalain. Huwag kang pabago-bago sa iyong paglilingkod sa Akin upang hindi ka masumpungang hindi handa kapag dumating ang kamatayan.`
+    },
+    {
+        chapter: 4,
+        verse: 14,
+        content: `Pag-alabin mo ang iyong pag-ibig sa Akin at ikaw ay Aking pagpapalain. Huwag mong hayaan na lumamig ang iyong pag-ibig sa Akin, sapagkat ang panlalamig ay hahantong sa panunumbalik sa kasamaan.`
+    },
+    {
+        chapter: 4,
+        verse: 15,
+        content: `Ugaliin mong sumamba sa Akin araw-araw, at pagdating ng Shabbath ay dadalo ka sa pangkalahatang pagsamba, at makiisa ka sa iyong mga kapatid sa pananampalataya.`
+    },
+    {
+        chapter: 4,
+        verse: 16,
+        content: `Makiisa ka sa kanilang pagsamba sa Akin, at hangarin mong makasama ka sa mga babasbasan na gagawin ng Aking mga pari; sikapin mong makamtan ang berkat kohanin.`
+    },
+    {
+        chapter: 4,
+        verse: 17,
+        content: `Magkaisa kayo sa paglilingkod sa Akin, at iwasan ninyong magtalotalo sa harap ng mga hindi mananampalataya. Itaguyod ninyo ang pagpapalago sa Aking gawain, sikapin ninyong matayo at mapaganda ang templo para sa Aking Banal na Pangalan.`
+    },
+    {
+        chapter: 4,
+        verse: 18,
+        content: `Ang sinomang namanatang maglingkod sa Akin sa pamamagitan ng pagtulong sa ikatatatag at ikalalago ng Aking gawain, ay magkakaroon ng malaking gantimpala sa kaharian ng langit, at sila’y pararangalang mga bayani sa harap ng mga anghel at ng lahat ng mga saksi.`
+    },
+    {
+        chapter: 4,
+        verse: 19,
+        content: `Ikaw ba ay may kakayahang tumulong sa Aking gawain? Ibigay mo sa Akin ang pinaka-mainam mo na paglilingkod.`
+    },
+    {
+        chapter: 4,
+        verse: 20,
+        content: `Mapalad ang taong nag-alay ng kanyang buhay sa paghahanap ng salapi upang maitatag at mapalago ang Aking gawain. Ang buhay ng tao ay pangsamantala lamang, ngunit ang mga sakripisyo ng paglilingkod sa Akin ay magbubunga ng buhay na walang hanggan.`
+    },
+    {
+        chapter: 4,
+        verse: 21,
+        content: `Mapalad sila na hindi nagkait ng anumang mga bagay bilang handog at sa paglilingkod sa Akin. Mapalad ang mga matulungin sa Aking ministeryo sapagkat sila’y nag-iipon ng kanilang tunay na kayamanan sa paraiso ng langit.`
+    },
+    {
+        chapter: 4,
+        verse: 22,
+        content: `Huwag ninyong ibigay ang mga aral ng Aklat na ito sa mga taong may asal baboy at aso, sapagkat ito’y kanilang pagtatawanan at lalaitin lamang. Layuan ninyo ang gayong mga tao, at ipaubaya na lamang ninyo sila sa Aking mga Sugo. Ngunit manghawak ka sa Aking mga Salita upang hindi ka maligaw, lumakad ka dito at iyong mararating ang buhay na walang hanggan.`
+    },
+    {
+        chapter: 4,
+        verse: 23,
+        content: `Huwag kayong manlupaypay kung kayo ay inuusig dahil sa mga aral ng Aking mga Salita, mapalad kayo sapagkat malaki ang inyong magiging gantimpala sa kaharian ng langit. Manindigan ka anumang mangyari sapagkat ang pagiging tapat sa Aking mga Salita ay katiyakan ng kaligtasan.`
+    },
+    {
+        chapter: 4,
+        verse: 24,
+        content: `Ang sinomang lumalait at nagsasalita ng laban sa inyong pananampalataya sa Akin ay padadalhan ko ng parusa, upang makita ng lahat na Ako si YAHUWEH ay sumasainyo ang Makapangyarihan sa lahat. Aking ipapahiya ang mga nagsasalita ng masama sa inyo.`
+    },
+    {
+        chapter: 4,
+        verse: 25,
+        content: `Paghariin mo sa iyong puso ang tunay na pag-ibig, at alisin ang anumang galit, puot, at sama ng loob, upang hindi ka maisahan ng kaaway. Matuto kang magpatawad, sapagkat ang hindi nagpapatawad ay hindi rin patatawarin.`
+    },
+    {
+        chapter: 4,
+        verse: 26,
+        content: `Huwag mong hayaan na matutulog kang may galit at sama ng loob sa iyong kapwa, ipanatag mo muna ang iyong sarili at turuan mo ang iyong isip na maging mahinahon, sapagkat ang kalagayan ng utak ng tao ay nakakaapekto sa buo niyang katawan. Manalangin at sumamba ka muna sa Akin bago ka matulog.`
+    },
+    {
+        chapter: 4,
+        verse: 27,
+        content: `Mag-iingat kayo na huwag magdadala ng anumang imaheng rebulto ng mga idolo sa inyong mga tahanan, huwag din kayong bibili ng mga bagay na may tatak ng dragon at may tatak ng halimaw, sapagkat ang mga ito’y magiging silo sa inyo na magiging dahilan ng kapahamakan.`
+    },
+    {
+        chapter: 4,
+        verse: 28,
+        content: `Huwag kayong maglalagay ng inyong sariling larawan sa mga dingding ng inyong tahanan, bagkus ang ilalagay ninyo ay ang mga sitas ng Aking mga Salita upang inyong laging maalala ang Aking mga pangako at matupad ang Aking mga kalooban.`
+    },
+    {
+        chapter: 4,
+        verse: 29,
+        content: `Kayong mga sumasamba sa Aking Banal na Pangalan ay Aking bansa, mga taong nasa liwanag at hindi ng kadiliman; hindi dapat marinig ni makita sa inyo ang panonood ng mga malalaswang palabas, mga palabas tungkol sa mga multo, aswang, pangkukulam at mahika, ang mga ito’y makapagpaparumi ng inyong isip at pamumuhay. Kailangan mamuhay kayo ng may kabanalan sapagkat Akong si YAHUWEH ay Banal.`
+    },
+    {
+        chapter: 4,
+        verse: 30,
+        content: `Huwag kayong magsasayaw ng mga sayaw ng sanlibutan at iwasan ninyong makinig ng mga awiting makasanlibutan, bagkus ang inyong kahiligan ay ang mga bagay na pang-espiritual. Kailangang mag-ingat kayo kung paano kayo mamuhay upang hindi kayo maagaw ng kaaway.`
+    },
+    {
+        chapter: 4,
+        verse: 31,
+        content: `Bagamat kayo ay nasa sanlibutan pa, kayo'y mga mamamayan na ng langit, at ang pamumuhay ninyo sa kabanalan at katuwiran ay isang pag-eensayo ng inyong magiging tunay na buhay sa banal na Paraiso.`
+    },
+    {
+        chapter: 4,
+        verse: 32,
+        content: `Pakinggan mong maigi ang Aking mga aral at pagbulaybulayin mo ito upang lubos mong maunawaan ang Aking banal na kalooban.`
+    },
+    {
+        chapter: 4,
+        verse: 33,
+        content: `Ano mang aral ang naiiba sa Aking mga aral ay itakwil ninyo; huwag pakinggan upang maingatan ninyo ang inyong isip at pananampalataya sa kapayapaan at kabanalan.`
+    },
+    {
+        chapter: 4,
+        verse: 34,
+        content: `Kaya nga Aking bayan, maging handa kayo sa lahat ng panahon, mag-ingat lagi sapagkat pasama ng pasama ang takbo ng panahon. Layuan at itapon ninyo ang mga huwad na aral ng mga bulaang mangangaral at manatili kayo sa Aking mga aral upang hindi kayo maligaw ng sinoman. Gawin ninyong ilaw ang Aking mga Salita at inyong mararating ang buhay na walang hanggan.`
+    },
+    {
+        chapter: 4,
+        verse: 35,
+        content: `Ang panalangin mo ay Aking narinig, maghintay ka lamang sa tamang panahon ay ipagkakaloob ito sa iyo. Ngunit huwag kang magpabaya sa iyong tungkulin sa Akin upang ang iyong panalangin ay hindi mahadlangan.`
+    },
+    {
+        chapter: 4,
+        verse: 36,
+        content: `Mapalad ang mga naghihintay sa Akin, sapagkat hindi mabibigo ang kanilang pag-asa.`
+    },
+    {
+        chapter: 4,
+        verse: 37,
+        content: `Maging mapanalanginin ka, sapagkat kung magkukulang ka sa pakikipagniig sa Akin ay hindi mo makakayanan ang mga pagsubok sa buhay. Ngayon nga ay magsisi ka at muli mong gawin ang iyong mga tungkulin sa Akin upang iyong mapagtagumpayan ang mga pagsubok na dumarating.`
+    },
+    {
+        chapter: 4,
+        verse: 38,
+        content: `Ako ang iyong kalakasan, Ako ang Alyon YAHUWEH na nagmamahal sa iyo.`
+    },
+    {
+        chapter: 4,
+        verse: 39,
+        content: `Magtiwala ka sa Akin, at ikaw ay Aking tutulungan.`
+    },
+    {
+        chapter: 4,
+        verse: 40,
+        content: `Huwag kang magmataas, aminin mo ang iyong pagkakamali at ipakita mo ang pagpapakumbaba upang Ako ay malugod sa iyo.`
+    },
+    {
+        chapter: 4,
+        verse: 41,
+        content: `Ako si YAHUWEH ang Makapangyarihan sa lahat ang nakakaalam ng puso ng isang tao.`
+    },
+    {
+        chapter: 4,
+        verse: 42,
+        content: `Kung minsan may akala ang tao sa kanyang sarili na siya ay tama, ngunit di niya alam na siya’y nadaya ng kanyang puso. Kaya’t matuto kang magpakumbaba, at lagi kang manalangin para ikaw ay gabayan.`
+    },
+    {
+        chapter: 4,
+        verse: 43,
+        content: `Mapalad ang mga taong mapagpakumbaba, mapalad silang laging handang matuto, mapalad sila na nagsisikap sa pagbabago. Sapagkat sila’y bibigyan ng karapatang makapasok sa paraiso ng langit.`
+    },
+    {
+        chapter: 4,
+        verse: 44,
+        content: `Huwag kang manghina sa mga kahirapan na iyong nararanasan, sapagkat iyan ay mga kasangkapan sa paghubog sa iyong pananampalataya.`
+    },
+    {
+        chapter: 4,
+        verse: 45,
+        content: `Kailangan magtagumpay ka at umasa kang may gantimpala at pagpapalang nakalaan para sa iyo. Mapalad ang mga tapat sapagkat sila’y tatanggap ng buhay na walang hanggan sa kabilang buhay.`
+    },
+    {
+        chapter: 4,
+        verse: 46,
+        content: `Tumingin ka sa langit at tingnan mo ang mga kabundukan, at ang karagatan. Ang lahat nang nakikita mo ay Ako na mag-isa ang lumikha, kaya’t huwag mong limitahan ang Aking kapangyarihan at karunungan. Ako si YAHUWEH ang nag-iisang Makapangyarihan sa lahat, at ang tanging makapagliligtas sa iyo.`
+    },
+    {
+        chapter: 4,
+        verse: 47,
+        content: `Manampalataya ka sa Akin, Ako si YAHUWEH ang Dakila sa lahat, ang Walang hanggan, Ako ang Makapangyarihan sa lahat, at Ako lamang ang Dakilang Tagapagligtas. Kung ikaw ay maniniwala sa Akin at manalig sa Akin, ay gagabayan kita at dadalhin kita sa paraiso ng Aking kaharian.`
+    },
+    {
+        chapter: 4,
+        verse: 48,
+        content: `Ugaliin mong umawit para sa Akin, sapagkat Ako’y tunay na nalulugod sa mga taong nag-aalay ng ganitong handog. Pagpapalain ko ang mga taong laging umaawit at nagpapatugtog ng mga papuri at pagsamba para sa Akin.`
+    },
+    {
+        chapter: 4,
+        verse: 49,
+        content: `Mapalad ang mga taong umaawit ng awit para sa Akin, mapalad silang laging nagbibigay sa Akin ng kasiyahan, sapagkat sila’y karapat-dapat sa kaharian ng langit.`
+    },
+    {
+        chapter: 4,
+        verse: 50,
+        content: "Ang taong walang relasyon sa Akin ay walang kasiyahan sa buhay na ito, kahit meron siya ng lahat ng mga bagay ay basyo parin ang kaniyang pakiramdam, at hindi niya alam na ang kaniyang kaluluwa ay patungong impierno, siya’y laging may takot sa kamatayan."
+    },
+    {
+        chapter: 4,
+        verse: 51,
+        content: "Kung Ako’y tuloy-tuloy na hahanapin ng tao, Ako’y kanyang matatagpuan, at kung siya’y tatawag sa Akin ay ibibigay ko sa kanya ang tunay na kapahingahan ng kanyang kaluluwa; at kung susunod siya sa Aking kalooban, ay bibigyan ko ng buhay na walang hanggan. Ako si YAHUWEH ang Alyon, Ako lamang ang makapangyayari na ikaw ay maging kompleto."
+    },
+    {
+        chapter: 4,
+        verse: 52,
+        content: "Lahat ng tao ay nakakaranas ng mga problema o pagsubok, ito ay pinahintulot upang ang tao ay bigyan ng aral, ituwid at imulat sa katotohanan, upang kanyang maunawaan na kailangan niya Ako. Kung hahanapin niya Ako, at masumpunggan niya Ako, ay tatawag siya sa Aking Pangalan, at kung siya’y susunod sa Aking mga Salita, ay magiging ganap ang kanyang buhay."
+    },
+    {
+        chapter: 4,
+        verse: 53,
+        content: "Ako’y malulugod na pagpalain kayo kung kayo’y nagsasama-samang bilang iisang pamilya at isang bansa, at nagkakaisa ng diwa at damdamin."
+    },
+    {
+        chapter: 4,
+        verse: 54,
+        content: "Ang kaaway ninyo ay nagsisikap at gumagawa ng mga pamamaraan upang mawasak at mag-away-away kayo, ngunit huwag ninyong pahintulutan na mangyari ito, agad ninyong agapan kung may namumuong problema upang hindi kayo maisahan ng kaaway. Maging handa kayo, maging mapagbantay, panatilihin ang pagkakaisa ng pagkakapatiran."
+    },
+    {
+        chapter: 4,
+        verse: 55,
+        content: "Samantalahin mo ang bawat pagkakataon na ikaw ay makapaglingkod sa Akin, sapagkat ang buhay ng tao sa mundo ay pansamantala at panandalian lamang."
+    },
+    {
+        chapter: 4,
+        verse: 56,
+        content: "Mapalad ang mga nag-alay ng kanilang buhay upang Ako’y kanilang paglingkuran hanggang sa katapusan ng kanilang buhay. Tunay na hindi mabibigo ang kanilang pag-asa, sapagkat Ako ang magbibigay ng gantimpala sa kanila, Ako ang Alyon YAHUWEH."
+    },
+    {
+        chapter: 4,
+        verse: 57,
+        content: "Katotohanan, katotohanang sinasabi ko sa inyo na ang mga namatay na naglilingkod sa Akin ay malaki ang kanilang magiging gantimpala sa kaharian ng langit, at sila ay Aking paparangalan sa harap ng maraming mga anghel."
+    },
+    {
+        chapter: 4,
+        verse: 58,
+        content: "Kayong mga gumagawa ng tamang pamamaraan ng pagsamba sa Akin, ay katuparan ng mga propesiya ni propeta Yeshayahu at ni Malakyahu. Kaya’t magpakatatag kayo, at magtulungan upang makilala at maitagayod ninyo ang dakilang misyon na Aking iniatang sa inyo. Kayo ang kasalukuyang relihiyon ng mga propeta at kayo ay tatawaging Ataryahu (Yahwism), sapagkat kayo ay Aking mga mananamba."
+      },
+      {
+        chapter: 4,
+        verse: 59,
+        content: "Kaya’t magkaisa kayo sa layunin at ipanalangin ninyo ang bawat isa upang ang inyong misyon ay magkaroon ng tagumpay."
+      },
+      {
+        chapter: 4,
+        verse: 60,
+        content: "Ang sinomang hindi makiisa sa inyo bagkus ay nagiging sanhi ng pagkakabaha-bahagi, sila’y mga instrumento ng kaaway, at tiyak na sila ay parurusahan ko sa tamang panahon. At ang sinomang lumalaban sa inyo, ay Ako ang kanilang kinakalaban, at silang lahat ay mapapahiya."
+      },
+      {
+        chapter: 4,
+        verse: 61,
+        content: "Magtapat ka sa Akin at huwag kang mainggit sa mga makasalanan, yumaman man sila ng yumaman ay hindi rin nila ito madadala sa kabilang buhay. Maging kontento ka at tiisin mo ang kahirapan sapagkat ikaw ay gagantimpalaan sa kabilang buhay."
+      },
+      {
+        chapter: 4,
+        verse: 62,
+        content: "Ang kaluluwa ng mga makasalanan ay itatapon sa impierno upang parusahan hanggang sa malusaw ito pagkaraan ng mahabang panahon. Ngunit ang Aking mga mananamba ay papasok sa kaharian ng langit, na doon ay maraming gintong daanan, at mga mahalangang brilyante ay nasa tabi ng ilog na buhay, sila’y bibigyan ng karapatan na makakain ng bunga ng punong kahoy ng buhay at iinum ng tubig mula sa ilog ng buhay."
+      },
+      {
+        chapter: 4,
+        verse: 63,
+        content: "Kaya’t huwag kang mangarap na yumaman ng labis sa mundong ito sapagkat ang lahat ng mga bagay ay walang kabuluhan sa araw ng kamatayan."
+      },
+      {
+        chapter: 4,
+        verse: 64,
+        content: "Makiisa ka na sumagana ang Aking ministeryo, sa mga pinaghirapan mo ay maglaan para sa Aking gawain upang magamit sa pag-aakay ng mga tao sa pagbabalik loob sa Akin, at sa gayon ay malaki ang iyong magiging gantimpala sa paraiso ng langit. Ito ang buhay na may kabuluhan ang makibahagi sa ikauunlad ng Aking gawain. Ito ay isang mataas na paglilingkod sa Akin."
+      },
+      {
+        chapter: 4,
+        verse: 65,
+        content: "Ingatan mo ang iyong kalusugan, at huwag mong abusuhin ang iyong katawan, upang sa iyong paglilingkod sa Akin ay walang anumang magiging hadlang. Ang mga umaabuso at walang disiplina sa kanilang katawan ay nagkakasala, sapagkat kanilang nilabag ang batas ng kalusugan. Kaya’t dapat mo’ng turuan ang iyong sarili na iwasan ang anumang bawal sa iyong kalusugan."
+      },
+      {
+        chapter: 4,
+        verse: 66,
+        content: "Umiwas ka sa sobrang mamantika, sobrang matatamis, sobrang maaalat, sobrang maaasim, sobrang pagod, sobrang tulog, sobrang kemikal, at sobrang pag-iisip. Ang lahat ng ito ay hindi makakabuti sa inyong kalusugan."
+      },
+      {
+        chapter: 4,
+        verse: 67,
+        content: "Tuklasin ninyo at pag-aralan ang ibat-ibang natural na panggagamot, sapagkat ang kalikasan ay sadyang ginawa ko para sa kabutihan ng tao, upang ang tao ay matutong magpasalamat sa Akin."
+      },
+      {
+        chapter: 4,
+        verse: 68,
+        content: "Ang inyong katawan ay hindi talagang inyo kundi iyan ay sa Akin, ipinagkakatiwala ko lamang sa inyo ang katawang iyan, kaya kung sinomang tao ang sumisira ng kanyang katawan ay Aking paparusahan sa araw ng paghuhukom. Pananagutan ng bawat isa kung anuman ang kanyang ginawa sa kanyang sariling katawan, kaya’t ingatan ninyo ang inyong kalusugan at umiwas kayo sa mga bagay na makakasira dito."
+      },
+      {
+        chapter: 4,
+        verse: 69,
+        content: "Ang lahat ng mga bagay ay may hangganan, ngunit kung magbabalik na sa lupa ang iyong katawan sikapin mo na bago mangyari ito ay napakinabangan na sa paglilingkod sa Aking Pangalan. Sapagkat ito ang iyong pagpapatunay na mahal mo Ako ng iyong buong lakas."
+      },
+      {
+        chapter: 4,
+        verse: 70,
+        content: "Magtapasakop kayo sa Aking Propeta at sa mga kohen at sa mga elder, sapagkat ang sinomang lumalaban sa kanila ay parurusahan ko. Ang mga kalooban ko ay kanilang ipaliliwanag at ipatutupad sa inyong ikabubuti. Ang gumagalang sa Aking mga sinugo ay gumagalang din sa Akin."
+      },
+      {
+        chapter: 4,
+        verse: 71,
+        content: "Ako ang humirang at nagsugo ng Aking Sugo, upang sapamamagitan niya ay magsusugo Ako ng ilan pa sa inyo."
+      },
+      {
+        chapter: 4,
+        verse: 72,
+        content: "Kaya’t mag-ingat ang sinoman na huwag lumaban sa pamunuang Aking itinatag."
+      },
+      {
+        chapter: 4,
+        verse: 73,
+        content: "Mapalad ang mga may pagpapakumbabang loob, mapalad ang mga nagpapasakop at sumusunod na hindi nagrereklamo at hindi nag-aalinlangan, sapagkat tatanggapin nila ang Aking mga pagpapala, hindi lamang sa buhay na ito kundi maging sa kabilang buhay."
+      },
+      {
+        chapter: 4,
+        verse: 74,
+        content: "Ngunit sa mga naghihimagsik at nagiging sanhi ng pagkakawatak-watak ng Aking Banal na gawain ay parurusahan ko, at makapitong ulit ang nagbabagang apoy at asupre ang parusang naghihintay sa kanya sa impierno. Kaya’t magpasakop ka sa Aking Propeta at sa mga sugo at huwag tularan ang mga mapagmataas."
+      },
+      {
+        chapter: 4,
+        verse: 75,
+        content: "Magtapat ka, at magpatuloy ka sa paglilingkod sa Akin, huwag kang magpaapekto sa mga pagsubok ng buhay, sapagkat mayroon Akong inilaang pagpapala pagkatapos na mapagtagumpayan mo ang mga pagsubok. Huwag kang mag-alala at huwag kang matakot sapagkat Ako’y sumasaiyo."
+      },
+      {
+        chapter: 4,
+        verse: 76,
+        content: "Mapalad ang mga nagtagumpay sa mga pagsubok at mga tukso sapagkat sila ay kikilalanin na mga tunay na nagmamahal sa Akin."
+      },
+      {
+        chapter: 4,
+        verse: 77,
+        content: "At ang mga tunay na nagmamahal sa Akin, ay Akin ding mamahalin at bibigyan ng buhay na walang hanggan."
+      },
+      {
+        chapter: 4,
+        verse: 78,
+        content: "Magbigay ka ng matimyas na pagmamahal sa Aking Banal na Pangalan, sapagkat ang sinomang hindi gumagalang at hindi nagmahal nito na pagkatapos niyang makilala ay kaniyang binali wala ito, ay tiyak na Aking mapaparusahan. Ngunit sila na gumagalang sa Aking Banal na Pangalan ay Aking pagpapalain at makakapasok sa buhay na walang hanggan."
+      },
+      {
+        chapter: 4,
+        verse: 79,
+        content: "Pagpapalain ko ang sinomang nagpaparangal ng Aking Banal Na Pangalan, ngunit susumpain ko ang mga lumalapastangan at nagtatakwil sa Aking Banal na Pangalan. Mahalin mo ang Aking Pangalan ng higit pa sa ibang pangalan."
+      },
+      {
+        chapter: 4,
+        verse: 80,
+        content: "Matagal ng panahon na ika’y naalipin at nalinlang ng kaaway, ngunit ngayon ay nakita at nakilala mo ang katotohanan, kaya’t manatili ka sa katotohanan at huwag kang babalik sa kalabuan at kadiliman."
+      },
+      {
+        chapter: 4,
+        verse: 81,
+        content: "Gamitin ninyo ang talino sa pakikipag-usap sa mga hindi mananampalataya, at mag-ingat kayo sa lahat ng panahon, maging handang ipaglaban at ipagtanggol ang inyong pananampalataya."
+      },
+      {
+        chapter: 4,
+        verse: 82,
+        content: "Ang mga panahon ay lalong sumasama, at maraming mga masasama na magpapanggap at papasok sa inyo, at gagawa ng hindi maganda sa inyo. Kaya’t maging maingat kayo, magbantay, subukin ninyo ang mga kahinahinala, at huwag ninyong bibigyan ng pagkakataon sila."
+      },
+      {
+        chapter: 4,
+        verse: 83,
+        content: "Ako ang kataastaasan sa lahat, ito ang Aking pamagat at walang sinomang makakaangkin nito. YAHUWEH ang Aking Pangalan. Ito ang Aking Banal na Pangalan na magbibigay sa iyo ng kaligtasan, kaya nga itakwil mo ang mga huwad na pangalan sapagkat ang mga yao’y isang kasinungaling."
+      },
+      {
+        chapter: 4,
+        verse: 84,
+        content: "Walang katulad ko, Ako lamang mag-isa ang Alyon, mapalad ang mga taong may paggalang at pagkatakot sa Akin, mapalad sila na Ako lamang ang kanilang kinikilalang Kataastaasan at Dakila sa lahat."
+      },
+      {
+        chapter: 4,
+        verse: 85,
+        content: "Ugaliin mong umawit para sa Akin, sapagkat Ako ay tunay na nalulugod sa mga taong nag-aalay ng ganitong handog."
+      },
+      {
+        chapter: 4,
+        verse: 86,
+        content: "Araw at gabi ay awitan mo Ako, at ikaw ay Aking pagpapalain, pagagalingin kita at ang mga problema mo ay Aking aayusin."
+      },
+      {
+        chapter: 4,
+        verse: 87,
+        content: "Ipadadala ko ang Aking anghel na magbabantay sa iyo, at siya ang inatasan ko na kumilos upang isagawa ang kalooban ko sa inyong buhay. Magtapat ka sa Akin at ikaw ay aakayin niya sa paraiso ng langit."
+      },
+      {
+        chapter: 4,
+        verse: 88,
+        content: "Huwag kang mag-aalala, ipagkatiwala mo sa Akin ang lahat ng mga bagay, at tutulungan kita. Ako si YAHUWEH ang nag-iisang Makapangyarihan sa lahat."
+      },
+      {
+        chapter: 4,
+        verse: 89,
+        content: "Sa araw at gabi at gabi ay sambahin mo Ako, sapagkat ito ang layunin sa pagkalikha ko sa tao, huwag kang magsasawa, huwag kang manghihina sapagkat sa paggawa mo ng Aking kalooban ay pagpapalain kita, at sa iyong mga karamdaman ay pagagalingin kita."
+      },
+      {
+        chapter: 4,
+        verse: 90,
+        content: "Bago mo gawin ang ibang mga bagay ay unahin mo muna Ako, kapag masaya sa puso mo ang paggawa nito ay madadagdagan ang iyong gantimpala sa kaharian ng langit."
+      },
+      {
+        chapter: 4,
+        verse: 91,
+        content: "Huwag kang makalimot sa panalangin, ugaliin mo ito saan ka man pumunta at anuman ang iyong ginagawa. Tandaan mo Ako’y laging nakatingin sa iyo."
+      },
+      {
+        chapter: 4,
+        verse: 92,
+        content: "Ang nakakalimot sa panalangin ay nagkakasala, ngunit ang hindi nakakalimot at masigasig na tumutupad ng Aking mga Salita ay Aking pagpapalain."
+      },
+      {
+        chapter: 4,
+        verse: 93,
+        content: "Patuloy kitang papatnubayan, at bibigyan kita ng tagumpay kung patuloy mong susundin ang Aking mga Salita."
+      },
+      {
+        chapter: 4,
+        verse: 94,
+        content: "Ang sinomang Aking papatnubayan ay walang sinomang makapagliligaw, ngunit ang sinomang hindi ko papatnubayan ay tiyak na maliligaw."
+      },
+      {
+        chapter: 4,
+        verse: 95,
+        content: "Lahat ng iyong ginagawa ay nalalaman ko, at hindi lingid sa Akin ang anumang iyong iniisip. Matakot ka sa Akin at itakwil mo ang anumang masasamang pag-iisip."
+      },
+      {
+        chapter: 4,
+        verse: 96,
+        content: "Manampalataya ka at huwag kang mag-alinlangan, Ako ay nagsasalita sa iyo sa mga oras na ito sapamamagitan ng Aklat na ito."
+      },
+      {
+        chapter: 4,
+        verse: 97,
+        content: "Magpagamit ka para sa Aking kapurihan, ipahayag mo sa mga tao na ang kanilang buhay ay tulad lamang ng bulaklak at damo sa parang, panandalian at pansamantala lamang, kaya’t dapat nilang bigyan ng maraming panahon ang Aking mga Salita at paglilingkod sa Akin."
+      },
+      {
+        chapter: 4,
+        verse: 98,
+        content: "Tunay na kumukupas ang ganda ng bulaklak at nalalanta ang mga damo sa parang, ngunit ang Aking mga Salita ay mananatili magpakailanman. Ang taong namumuhay sa Aking mga Salita ay magkakaroon ng buhay na walang hanggan."
+      },
+      {
+        chapter: 4,
+        verse: 99,
+        content: "Ako si YAHUWEH ito ang Aking Banal Na Pangalan, Ako ang kataastaasan sa lahat, ang Makapangyarihan sa lahat, at ang walang hanggan, walang katulad ko."
+      },
+      {
+        chapter: 4,
+        verse: 100,
+        content: "Matakot ka sa Akin at sumunod ka sa lahat ng Aking mga utos, at ikaw ay Aking kalulugdan. Ang mga sumusunod sa Aking mga kautusan ay makakapasok sa Aking kaharian."
+      },
+      {
+        chapter: 4,
+        verse: 101,
+        content: "Kung ikaw ay manampalataya sa Akin at susunod sa Aking mga Salita, ikaw ay pagpapalain ko at iingatan saan ka man pumaroon, at ang iyong huling hantungan ay ang Banal na paraiso, na siyang tirahan dako ng mga Banal."
+      },
+      {
+        chapter: 4,
+        verse: 102,
+        content: "Sikapin ninyong panatilihin ang kalinisan, kaayusan, at kabanalan sa inyong mga pagsamba. Sapagkat Ako’y hindi nalulugod sa karumihan, kaguluhan, at sa walang paggalang sa pagsamba."
+      },
+      {
+        chapter: 4,
+        verse: 103,
+        content: "Ako si YAHUWEH ang kataastaasan sa lahat, Ako ay Banal kaya’t dapat kayong mamuhay sa Banal na pamumuhay, dapat ninyong ipangilin ang Banal na Sabbath, dapat ninyong isagawa ang Banal na pagsamba, ituturo ninyo ang Aking mga Banal na aral, at iyong dadakilain ang Aking Banal na Pangalan."
+      },
+      {
+        chapter: 4,
+        verse: 104,
+        content: "Ang lahat sa inyo na may unawa ay dadalo sa mga pagtitipon, at iyong papakinggan at pag-aaralan ang Aking mga Salita, at sa inyong pag-uwi sa inyong mga tahanan ay inyong ituturo sa inyong mga anak."
+      },
+      {
+        chapter: 4,
+        verse: 105,
+        content: "Ang mga kalalakihan ay dapat manguna sa pagdalo sa mga pagtitipon, upang sila’y maging matatag sa pananampalataya at makapagbibigay ng magandang halimbawa sa kanilang mga pamilya."
+      },
+      {
+        chapter: 4,
+        verse: 106,
+        content: "Sikapin ninyong maisagawa ang mga ito, at matiyagang paalalahanan ang mga nagpapabaya. Palakasin ninyo ang mga nanghihina, at hanapin ninyo ang mga nawawala, ibalik ninyo sila sa Akin sapagkat Ako ay mahabagin sa lahat, at nagpapatawad ng mga kasalanan."
+      },
+      {
+        chapter: 4,
+        verse: 107,
+        content: "Magpakumbaba ka lagi at sikapin mong makuha ang loob ng marami upang sapamamagitan nito ay maiparating mo sa kanila ang mga katotohanan."
+      },
+      {
+        chapter: 4,
+        verse: 108,
+        content: "Mag-iingat ka lagi sa iyong mga pagkilos, pananalita, at pag-uugali upang sa iyong pagbabahagi ng mga katotohanan sa mga tao ay hindi ka mapintasan."
+      },
+      {
+        chapter: 4,
+        verse: 109,
+        content: "Huwag kang manghina sa iyong pagdalo sa Aking Banal na gawain, magpatuloy ka at sikapin mong maging tapat, upang iyong makamtan ang pagpapala at gantimpala na Aking inihanda."
+      },
+      {
+        chapter: 4,
+        verse: 110,
+        content: "Mapalad ang mga nagsisikap na makasunod sa Aking kalooban, kahit na sila’y dumaranas ng mabigat na pagsubok ay nagpapatuloy parin sila sa paglilingkod sa Akin. Tunay na sila ay Aking gagantimpalaan, at pagkatos ng mga pagsubok ay tatanggapin nila ang mga pagpapala na Aking inilaan."
+      },
+      {
+        chapter: 4,
+        verse: 111,
+        content: "Ibigay mo sa Akin ang para sa Akin, at ibigay mo sa tao ang para sa tao. Mapalad ang mga tapat sapagkat sila’y makakaasa ng Aking katapatan."
+      },
+      {
+        chapter: 4,
+        verse: 112,
+        content: "Ang tapat sa mga maliliit na bagay ay maasahan sa mga malalaking bagay, ngunit ang hindi tapat sa mga maliliit na bagay ay hindi rin maasahan sa mga malalaking bagay. Kayat magtapat ka sa lahat ng mga bagay at ikaw ay Aking pagpapalain."
+      },
+      {
+        chapter: 4,
+        verse: 113,
+        content: "Magtapat ka upang ikaw ay umunlad at magtatagumpay ka saan ka man pumaroon. At tiyak ito ang mga pagpapala na iyong tatanggapin kapayapaan ng pag-iisip, magandang kalusugan, mga pag-iingat, mga kagalingan, araw at gabi na pagkain, kalakasang espiritwal, magandang relasyon, kapatawaran sa kasalanan, bagong buhay at iba pa na ayon sa Aking kalooban."
+      },
+      {
+        chapter: 4,
+        verse: 114,
+        content: "Pag-aralan mo ang maging mahinahon sa anumang pangyayari sa iyong buhay, ipakita mo ang pagiging pasensyoso at kalmanti, huwag basta-bastang magagalit at huwag pabigla-bigla ng pagsasalita. Kung sakali man ay nabigla ka at nagalit ay ingatan mo ang iyong sarili na hindi ka magkasala, at huwag mong hayaan ang galit na manatili sa iyong puso bago ka matulog."
+      },
+      {
+        chapter: 4,
+        verse: 115,
+        content: "Kung iyong makita ang iyong pagkakamali ay agad mo itong aminin at tanggapin, kailangan matutunan mo ang pagpapakumbaba sa mga ganitong pangyayari. At kung gagawin mo ito; ay malulugod Ako sa iyo, at pagpapalain kita. Mapalad ang mga nagpapakumbaba sapagkat sila'y Aking itataas, ngunit ang mga mapagmataas ay ibabagsak."
+      },
+      {
+        chapter: 4,
+        verse: 116,
+        content: "Ako si YAHUWEH ang Dakila sa lahat, mapalad ang taong mayroong malaking paggalang sa Aking harapan, na hindi niya Ako ipinapantay sa kalagayan ng tao o anghel man, bagkus tinatawag niya Ako sa mga titulo na walang sinomang makaaangkin kundi Ako lamang."
+      },
+      {
+        chapter: 4,
+        verse: 117,
+        content: "Huwag ninyo Akong tatawagin sa mga titulo na kapantay sa mga titulo ng tao lamang, at huwag ninyo Ako itutulad sa tao, ni sa anumang bagay na nasa mundong ito, sapagkat Ako ay walang katulad at walang kapantay. Ako si YAHUWEH ang Makapangyarihan sa lahat ni Abraham, Isaac at ni Jacob."
+      }
+      
+      
+      
+    
     
 
 ]
