@@ -4,4 +4,6 @@ export type TabsRoutes =
   | "Menu"
   | "Calendar"
   | "Random"
+  | "Music"
+  | "Settings"
   | "Search";

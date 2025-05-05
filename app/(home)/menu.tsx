@@ -15,7 +15,8 @@ import {
   Search,
   CalendarDays,
   Dices,
-  Menu,
+  Settings,
+  ListMusic,
 } from "lucide-react-native";
 import { TabsRoutes } from "../types/type";
 import { BottomNavigationContext } from "../context/BottomNavigationContext";
@@ -66,8 +67,12 @@ const Menus = () => {
       icon: (isActive: boolean) => <Dices color={COLORS.white} size={25} />,
     },
     {
-      title: "Menu",
-      icon: (isActive: boolean) => <Menu color={COLORS.white} size={25} />,
+      title: "Music",
+      icon: (isActive: boolean) => <ListMusic color={COLORS.white} size={25} />,
+    },
+    {
+      title: "Settings",
+      icon: (isActive: boolean) => <Settings color={COLORS.white} size={25} />,
     },
   ];
 
@@ -107,6 +112,7 @@ const styles = StyleSheet.create({
     color: "white",
     fontSize: 20,
     fontFamily: "Poppins-Bold",
+    marginBottom: 20,
   },
   menuList: {
     width: "100%",
@@ -122,6 +128,7 @@ const styles = StyleSheet.create({
     paddingBottom: 20,
     paddingLeft: 20,
     paddingRight: 20,
+    gap: 10,
   },
   btn: {
     backgroundColor: "#0943AF",
@@ -133,7 +140,6 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    margin: 10,
   },
   text: {
     color: "white",

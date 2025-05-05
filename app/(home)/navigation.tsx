@@ -21,6 +21,8 @@ import {
 import { TabsRoutes } from "../types/type";
 
 const BottomNavigation = () => {
+  const MenuButtons: TabsRoutes[] = ["Search", "Settings", "Music"];
+
   const bottomNavigationContext = useContext(BottomNavigationContext);
   const settingContext = useContext(SettingContext);
 
@@ -98,8 +100,6 @@ const BottomNavigation = () => {
     >
       <View style={styles.navList}>
         {buttonList.map((btn, index) => {
-          const MenuButtons: TabsRoutes[] = ["Search"];
-
           const isActive = () => {
             if (bottomNavigation === btn.title) {
               return true;

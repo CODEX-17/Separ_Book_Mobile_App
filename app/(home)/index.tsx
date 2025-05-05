@@ -20,6 +20,8 @@ import Calendar from "./(renders)/(calendar)/index";
 import { StatusBar } from "expo-status-bar";
 import { Sidebar } from "lucide-react-native";
 import Menu from "./menu";
+import OnProgress from "./(renders)/on-progress";
+import Setting from "../setting";
 
 const HomeLayout = () => {
   const bottomNavigationContext = useContext(BottomNavigationContext);
@@ -42,6 +44,10 @@ const HomeLayout = () => {
         return <Menu />;
       case "Search":
         return <Search />;
+      case "Music":
+        return <OnProgress />;
+      case "Settings":
+        return <Setting />;
       case "Calendar":
         return <Calendar />;
       case "Random":
