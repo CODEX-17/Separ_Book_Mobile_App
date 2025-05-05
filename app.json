@@ -43,7 +43,8 @@
             "./assets/fonts/Poppins-Regular.ttf"
           ]
         }
-      ]
+      ],
+      "expo-web-browser"
     ],
     "experiments": {
       "typedRoutes": true
