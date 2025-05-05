@@ -6231,4 +6231,849 @@ export const separ: Verse[] = [
     content:
       "Marami ang magbibigay ng malinis na handog para sa Aking Banal na Pangalan YAHUWEH sapagkat tunay na ang Aking Banal na Pangalan ay dadakilain ng Aking mga Tunay na mananamba, at paghahandugan ng insenso sa ibat-ibang dako at ng dalisay na handog, At ito ang Aking Pangalan magpakaylanman YAHUWEH.",
   },
+  {
+    chapter: 9,
+    verse: 1,
+    content:
+      "Ako si YAHUWEH ang nag-iisang Lumikha ng buong kalangitan at ng buong lupa, walang sinomang makapapantay sa Aking kapangyarihan, walang nakahihigit sa Akin at walang papalit sa Aking pamamahala. Ako lamang ang Dakilang Tagapagligtas at wala ng iba pa.",
+  },
+  {
+    chapter: 9,
+    verse: 2,
+    content:
+      "Mapalad ang mga naglilingkod sa Akin, mapalad silang nagtitiis na makasunod sa Aking kalooban, sapagkat sila’y tunay na magkakaroon ng Buhay na walang hanggan pagkatapos ng kanilang buhay sa mundo, ngunit ang mga walang paninindigan, ang mga umalis sa Liwanag na ito ay mapaparusahan ng walang hanggang kamatayan pagkatapos ng kanilang buhay sa mundo.",
+  },
+  {
+    chapter: 9,
+    verse: 3,
+    content:
+      "Mapalad ang Aking mga Tunay na Mananamba, sapagkat Ako ang kanilang Tagapagligtas ay tunay na hindi magpapabaya sa kanila, kung sila man ay dumanas ng mabigat na pagsubok sapagkat ito’y Aking pinahintulot upang dalisayin pa ang kanilang panampalataya.",
+  },
+  {
+    chapter: 9,
+    verse: 4,
+    content:
+      "Ang mga pagsubok ay naka-akibat na sa buhay ng bawat tao na isinilang sa mundo, bawat isa ay may kanya kanyang kwento ng buhay, bawat isa ay hinayaan Ko na makipagbaka sa sarili nilang kakayahan, ngunit ang iba ay Aking kinahaban dahil sa matuwid nilang pamumuhay bagamat hindi pa nila Ako nakikilala, at ang Aking mga pinili naman sa iba’t-ibang panig ng mundo ay simula’t silamula pa lamang ng kanilang pagsilang ay tinutulungan ko na, na makaahon at malampasan ang kanilang mga pagsubok sa buhay.",
+  },
+  {
+    chapter: 9,
+    verse: 5,
+    content:
+      "Mapalad kayo na Aking mga Tunay na Mananamba, mapalad kayo na nagpapasakop sa Aking Banal na kalooban sapagkat may naghihintay sa inyo na malaking gantimpala pagkatapos ng inyong pakikibaka sa mundong ito ay tiyak na inyong makakamtan.",
+  },
+  {
+    chapter: 9,
+    verse: 6,
+    content:
+      "Sabihin ninyo sa mga nanghihina na huwag manlupaypay, huwag mag-alinlangan, huwag sumuko, huwag padaig sa takot kahit na sa harap ng kamatayan ay huwag matakot, sapagkat ang buhay sa mundo ay tunay na may hangganan, walang tao sa mundo ang hindi mamamatay, lahat ay dadanas ng kamatayan, ngunit mapalad ang mga namatay na may katapatan sa kanilang panampalataya sa Akin, sapagkat sila’y makapapasok sa Buhay na walang hanggan sa Paraiso ng langit.",
+  },
+  {
+    chapter: 9,
+    verse: 7,
+    content:
+      "Magtapat ka sa Akin at huwag kang makakalimot sa Aking mga pangako, huwag mong kalilimutan na ang buhay sa mundo ay maiksi lamang, at may mga bagay na hindi mo maiwasan na mangyayari ngunit kailangan mong tanggapin.",
+  },
+  {
+    chapter: 9,
+    verse: 8,
+    content:
+      "Gawin mo lamang ang Aking kalooban at hindi kita pababayaan, tutulungan kita sa lahat ng mga pagsubok na iyong hinaharap.",
+  },
+  {
+    chapter: 9,
+    verse: 9,
+    content:
+      "Ako si YAHUWEH ang Makapangyarihan sa lahat na may hawak ng bawat pangyayari sa daigdig na ito.",
+  },
+  {
+    chapter: 9,
+    verse: 10,
+    content:
+      "Magtulungan kayo na Aking mga Mananamba, iwasan ninyo ang pag-aaway away, tampuhan at inggitan.",
+  },
+  {
+    chapter: 9,
+    verse: 11,
+    content:
+      "Ang inggit ay isang mapanganib na kasalanan, na kung ito’y manaig sa isip at puso ng tao ay magtutulak sa tao na maging taksil, maninirang puri, magnakaw, at pumatay.",
+  },
+  {
+    chapter: 9,
+    verse: 12,
+    content:
+      "Kaya’t huwag kang mainggit sa anomang meron sa inyong kapwa na wala sa iyo. Matuto kang makontento sa buhay na ito sa anomang sitwasyon at sa anomang meron ka, sapagkat ang buhay sa mundo ay pansamantala lamang, at ang tunay mong buhay ay ang buhay sa kabilang buhay, sa Paraiso ng Langit.",
+  },
+  {
+    chapter: 9,
+    verse: 13,
+    content:
+      "Inyong alalahanin ang mga kapistahan na Aking ibinigay sa Yahsraal sapamamagitan ni Propeta Moshe, inyong gaganapin ito sa tamang kapanahunan at sa mga bagong buwan na itinakda.",
+  },
+  {
+    chapter: 9,
+    verse: 14,
+    content:
+      "Huwag ninyong kalilimutan na sa bawat kapistahan ay may mahalagang bagay na lubos kong kinalulugdan, kaya’t kung ito’y inyong gagawin ay ibubuhos ko sa inyo ang masaganang pagpapala.",
+  },
+  {
+    chapter: 9,
+    verse: 15,
+    content:
+      "Magmula sa langit ay nagmamasid Ako sa inyo, at naghihintay sa inyong mga mga handog, tunay na isang mabangong handog sa Akin ang bawat malinis na hayop o ibon na inalay at sinunog sa Aking Banal na Pangalan.",
+  },
+  {
+    chapter: 9,
+    verse: 16,
+    content:
+      "Sa bawat pagsunod ninyo sa Aking kalooban ay nakaakibat na ang mga pagsubok, kaya’t huwag na ninyong pagtakhan sa kung anoman ang mga nangyayari, sapagkat sa bawat pangyayari ay may layunin Ako.",
+  },
+  {
+    chapter: 9,
+    verse: 17,
+    content:
+      "Kaya’t manatili kayong kalmante at nakahanda, gamitin ang karunungan at kaalaman, sapagkat ang bawat pagsubok ay may katapat na sulosyon, kailangan lamang na matuto kayong gumawa, kumilos at manindigan sa panampalataya.",
+  },
+  {
+    chapter: 9,
+    verse: 18,
+    content:
+      "Ako si YAHUWEH ang Dakilang Maylikha ang sa inyo’y hindi magpapabaya.",
+  },
+  {
+    chapter: 9,
+    verse: 19,
+    content:
+      "Gamitin ninyo ang karunungan at kaalaman na kayo ay umunlad at maging matatag na Samahan, magtulungan kayo sa isat-isa at huwag maging makasarili bagkus ay sikapin may ginagawan kabahagi ang bawat isa upang walang sinumang ang maiwan sa inyong paglalakbay sa spiritual.",
+  },
+  {
+    chapter: 9,
+    verse: 20,
+    content:
+      "Ipadama ninyo sa isat-isa ang tunay na kapatiran, ang pagmamahal at ang pagmamalasakit.",
+  },
+  {
+    chapter: 9,
+    verse: 21,
+    content:
+      "Suportahan ninyo ang mga misyon ng inyong punong Sugo, at huwag kayong magbigay sa kanya ng sama ng loob, unawain ninyo na siya din ay tao lamang, huwag kayong mag-isip ng masama sa kanya, igalang ninyo siya sapagkat siya ay isang parang Ama ninyong lahat, at lahat kayo ay kanyang mga anak at mga apo sa panampalataya.",
+  },
+  {
+    chapter: 9,
+    verse: 22,
+    content:
+      "Ang kanyang mga katuwang sa ministerio ay inyo din naman igagalang, sapagkat silay mga inatasan din naman na mangalaga sa inyong buhay spiritual, kaya’t dapat din kayong magtulungan na masuportahan ang kanilang mga pangangailangan.",
+  },
+  {
+    chapter: 9,
+    verse: 23,
+    content:
+      "Huwag na ninyong pigilan ang mga kapatiran ninyo na nais umalis sa inyo, sapagkat sa kanilang gigagawa ay pinakikita lamang nila na silay hindi karapatdapat sa kaharian ng langit, ang mga tulad sa kanila ay mga hayop na pagkatapos paliguan ay babalik parin sa putikan, katotohanan katotohanan silay hindi makakatakas sa mabigat na parusa na naghihintay sa kanila sa empierno.",
+  },
+  {
+    chapter: 9,
+    verse: 24,
+    content:
+      "Kung sila man ay magtatatag o paroroon sa ibang ministeryo ay hindi ko sila pakikingan kung sila man ay manalangin, hindi ko tatanggapin ang kanilang mga awit at pagsamba at hindi ko sila patatawarin, bagkus ay pagbabayarin ko sila sa kanilang kataksilan na ginawa sa Aking Gawain na itinatag.",
+  },
+  {
+    chapter: 9,
+    verse: 25,
+    content:
+      "Sa kanilang pag-alis ay lilibakin nila kayo, at sa hindi nila namamalayan na sila ay unti-unting maliligaw ng landas, ngingiti at tatawa sila ngayon ngunit ang araw ay darating sa kanila na sila ay tatangis at sisigaw sa pagmamakaawa upang silay iligtas sa init at mabahong amoy sa impierno, ngunit walang darating sa kanila na saklolo o pag-asa man.",
+  },
+  {
+    chapter: 9,
+    verse: 26,
+    content:
+      "Kaya’t magtapat ka sa Aking Banal na kalooban na manatili ka sa ministeryong ito na siyang Aking itinatag sa pamamagitan ng inyong Punong Sugo. Magpatuloy ka sa Gawaing ito ng Ataryahu (Yahwism) sapagkat ang nananatiling tapat hanggang sa wakas ay siya lamang maliligtas.",
+  },
+  {
+    chapter: 9,
+    verse: 27,
+    content:
+      "Ako si YAHUWEH ang inyong Dakilang Maylikha at tanging Tagapagligtas, at kayo ang Aking Bayan na Aking mga Tunay na mananamba, sapagkat inyong sinusunod ang Aking Banal na Salita at nagpapatuloy, nagsasakripisyo, nagmamahal sa Akin, ay tunay na kayo ay may Karapatan na makapasok sa Kaharian ng Langit.",
+  },
+  {
+    chapter: 9,
+    verse: 28,
+    content:
+      "Magkaisa kayo at huwag ninyong hayaan na magkasiraan o magkagulo kayo, ang mga tsesmusa at mga palaaway, ang mga mainitin ang ulo, ang mga bastos, at ang mga ayaw magbago ay huwag ninyong patirahin sa inyong Kampo, dapat silang tumira sa labas o sa malayo upang mapanatili ang inyong kaayusan at kapayapaan sa inyong nasasakupan.",
+  },
+  {
+    chapter: 9,
+    verse: 29,
+    content:
+      "Magkaisa kayo sa pagtatanim ng mga gulay at mga puno, lahat kayo: mga bata at mga matatanda ay kailangan magmalasakit at gumawa upang mabilis ang pag-unlad at pagsagana ng inyong lupain, paalalahanan ninyo ang tamad, kung siya’y hindi magbabago ay ilabas ninyo siya sa inyong lugar, sapagkat siyay makakasira lamang sa inyong Samahan.",
+  },
+  {
+    chapter: 9,
+    verse: 30,
+    content:
+      "Magkaisa kayo sa paghahanda sa posibleng mangyayari sa mga darating na panahon, huwag kayong maging kampante, bagkus ay pag-aralan at gawin ninyo ang mga pamamaraan na kayo ay maging ligtas kung sakali mang may paparating na malakas na bagyo, malakas na lindol at digmaang pandaigdig at iba pa, kalooban ko na kayoy maging mga pantas.",
+  },
+  {
+    chapter: 9,
+    verse: 31,
+    content:
+      "Magkaisa kayo sa aral na ibinigay sa inyo ng inyong Datu ang Punong Sugo, at huwag kayong gumawa ng sariling interpretasyon, o doktrina na iba sa itinuturo ng inyong Punong Sugo, huwag magmalaki ang mga may pinag-aralan at ang mga ang tingin sa sarili ay napaka-galing sa biblia, dapat silang magpakumbaba upang silay hindi maging sanhi ng kalituan at kaguluhan sa inyong samahan.",
+  },
+  {
+    chapter: 9,
+    verse: 32,
+    content:
+      "Kung kanilang ipipilit ang kanilang paniniwala ay dapat silang paalisin at huwag ng papapasukin sa inyong lugar, huwag ninyo silang panghinayangan kahit na silay may kaya sa buhay o may katungkulan sa pamahalaan o mataas ang pinag-aralan, sapagkat silay parang mga basura lamang sa Aking paningin.",
+  },
+  {
+    chapter: 9,
+    verse: 33,
+    content:
+      "Igalang ninyo ang inyong Konseho, anumang mga plano, disesyon at gagawin ay ipaalam niyo sa kanila, upang maiwasan ang kaguluhan. ang hindi nagpapasakop at hindi gumagalang o hindi kumikilala sa kanilang pamumuno ay dapat paalisin sa inyong lugar, sapagkat ang pagpapasakop sa inyong Konseho ay pagpapasakop sa inyong Punong Sugo, at ang pagpapasakop sa inyong Datu ang Punong Sugo ay pagpapasakop sa Akin.",
+  },
+  {
+    chapter: 9,
+    verse: 34,
+    content:
+      "Panatilihin ninyo ang pagkakaisa, kaayusan at kapayapaan sa inyong Tribo upang kayo’y makapag-akay ng mga tao, upang kayo’y makapag bigay sa Akin ng kasiyahan.",
+  },
+  {
+    chapter: 9,
+    verse: 35,
+    content:
+      "Sa inyong pag-mimisyon ay huwag ninyong kalimutan ang mga Aeta, tulungan ninyo sila sa abot ng inyong makakaya, at inyo silang turuang sumamba sa Aking Banal na Pangalan, ituro ninyo sa kanila ang Aking Mensahe sapagkat silay binibigyan ko ng pagkakataong maligtas at makapasok sa Paraiso ng langit.",
+  },
+  {
+    chapter: 9,
+    verse: 36,
+    content:
+      "Kung sakali man sa inyong paghayo ay makapanayam kayo ng mga taong nagtatago sa batas ay huwag kayong matakot sa kanila, ipanatag ninyo ang inyong kalooban, hindi lahat sa kanila ay likas na masasama, kundi mayroon din namang mga mabubuti at kumikila sa karapatang pangtao, ipaliwanag ninyo sa kanila ang inyong paniniwala sa maayos at mahinahon na pamamaraan, kung ang ilan sa kanila ay may sugat o karamdaman ay gamutin ninyo, kung nagugutom at nauuhaw ay pakanin at painumin ninyo.",
+  },
+  {
+    chapter: 9,
+    verse: 37,
+    content:
+      "Sapagkat ang pagpapakita ng pag-ibig sa kapwa ay walang dapat na kinikilingan, ang may karamdaman ay gamutin ninyo, ang nagugutom ay pakainin ninyo, ang mga nauuhaw ay painumin ninyo, gawin ninyo sa inyong kapwa ang gusto ninyong gawin nila sa inyo.",
+  },
+  {
+    chapter: 9,
+    verse: 38,
+    content:
+      "Iparating ninyo sa lahat ang Aking kabutihan at Mensahe, huwag kayong maging makasarili kundi magmalasakit din naman kayo sa inyong kapwa, magmalasakit din kayo sa katahimikan ng inyong bayan, ngunit huwag kayong makiisa sa programa ng United Nations tungkol sa kalusugan, sapagkat silay may masamang lihim na ginagawa, gamitin ninyo ang karunungan upang hindi kayo maisahan nila, ang mga krisis na nagaganap ay kagagawan nila, at ito’y tumatagal at pabalikbalik dahil sa mga taong nasa pamahaan na nalinlang nila at mga gahaman sa salapi, kaya’t magpakatalino kayo sa inyong pamumuhay.",
+  },
+  {
+    chapter: 9,
+    verse: 39,
+    content:
+      "Ang mga nangyayari sa inyong Samahan ay Aking pinahintulot upang kapulutan ninyo ng mga aral, nang sagayon ay magkaroon kayo ng karunungan, kaya’t huwag ninyong pagtakhan ang mga pangyayari, bagkus ay alamin ninyo ang mga dahilan upang kayo ay matuto.",
+  },
+  {
+    chapter: 9,
+    verse: 40,
+    content:
+      "May mga tao na darating at aanib sa inyong Tribo, ngunit pagdating ng panahon ay magdudulot sila ng kasiraan, kayat maging mapagbantay kayo at magiingat, subukan muna ninyo sila saloob ng anim na buwan bago ninyo sila patirahin na kasama ninyo, at huwag basta-basta bigyan ng katungkulan, sapagkat marami ang mga nagpapanggap at hindi tama ang motibo, kayat gamitin ninyo ang karunungan at kaalaman.",
+  },
+  {
+    chapter: 9,
+    verse: 41,
+    content:
+      "Kung sakali man mangyari ang mga ito ay agad ninyong alisin ang mga taong gumawa ng kasiraan sa Aking Gawain, huwag ninyo silang katakutan at huwag ninyo silang panghinayangan, Ako ang magpaparusa sa kanila sa tamang panahon. Kung sakali man na sila’y bumalik at magsisi ay patawarin ninyo, ngunit huwag na kayong magtiwala sapagkat ang unang ginawa nila ay maaring maulit muli.",
+  },
+  {
+    chapter: 9,
+    verse: 42,
+    content:
+      "Kaya’t magpakapantas kayo at huwag magmadali sa pagpasya, laging idulog muna sa panalangin ang lahat ng mga bagay at pangyayari.",
+  },
+  {
+    chapter: 9,
+    verse: 43,
+    content:
+      "Sikapin ninyo na maging organisado ang inyong Samahan, magpasakop ang bawat isa sa Konseho at sa Punong Sugo, sapagkat ito ang Aking kalooban at ito ang kaayusan na Aking itinatag.",
+  },
+  {
+    chapter: 9,
+    verse: 44,
+    content:
+      "Ang nagpapasakop ay Aking pagpapalain, ngunit ang mga matigas ang ulo, ang mga lumalaban sa kaayusan na Aking itinatag ay Aking parurusahan at aalisin sa inyo.",
+  },
+  {
+    chapter: 9,
+    verse: 45,
+    content:
+      "Mapalad ang mga mabait, mapalad ang mga may pagpapakumbaba, mapalad ang mga nagpapasakop sa Aking kalooban sapagkat silay magkakaroon ng karapatang makapasok sa kaharian ng langit.",
+  },
+  {
+    chapter: 9,
+    verse: 46,
+    content:
+      "Magtulungan kayo bilang iisang Tribo, at huwag kayong maging makasarili, sikaping ipadama at ipakita ng bawat isa ang tunay na pagmamalasakit, kapag ginawa ninyo ang mga ito ay tunay Ako’y inyong binibigyan ng kasiyahan, at kayo ay Aking pagpapalain",
+  },
+  {
+    chapter: 9,
+    verse: 47,
+    content:
+      "Ako si YAHUWEH ang Makapangyarihan sa lahat, Ako ang inyong Tagapagligtas, Ako rin ang magbibigay ng gantimpala sa bawat isa na masunurin sa Aking kalooban.",
+  },
+  {
+    chapter: 9,
+    verse: 48,
+    content:
+      "Huwag hayaang makapanaig ang anumang pagdududa sa iyong isip, alisin mo agad ito at labanan sapagkat itoy isang tulad sa kagat ng ahas na kung hindi maagapan ay ikamamatay.",
+  },
+  {
+    chapter: 9,
+    verse: 49,
+    content:
+      "Ano man ang iyong katanungan na hindi mo kayang sagutin, o anumang paliwanag na hindi mo maintindihan ay ipagkatiwala mo sa Akin ang lahat, at hintayin mo ang tamang panahon, gawin mo lamang ang tama sa Aking paninggin, ang magpasakop sa mga namumuno sa iyo at ang pagiging tapat na mananamba sa Akin.",
+  },
+  {
+    chapter: 9,
+    verse: 50,
+    content:
+      "Maiksi lamang ang buhay ng tao sa mundo, kaya’t huwag ninyong sasayangin ang bawat pagkakataon na makagawa sa Aking kalooban, magsikap ang bawat isa at matutong magtiis, tanggapin ng maluwag sa kung anumang ang nangyari o sa kung anuman ang naging kalagayan dahil sa pagsunod sa Aking kalooban. Ako si YAHUWEH ang nakakaalam ng lahat, at ang may akda ng bawat pangyayari sa inyong buhay.",
+  },
+  {
+    chapter: 9,
+    verse: 51,
+    content:
+      "Magtiwala kayo sa Aking karunungan at kapangyarihan, Ako’y hindi nagbabago, Ako ang kahapon, Ako ang ngayon, Ako ang bukas, at Ako ang Magpakaylanman, Ako si YAHUWEH",
+  },
+  {
+    chapter: 10,
+    verse: 1,
+    content:
+      "Makinig kayo Aking mga mananamba, pakinggan ninyo ang Aking mga Salita na nasa Aklat na ito, sapagkat tunay Ako’y nagsasalita hindi lamang noong unang panahon, kundi maging sa mga panahong ito.",
+  },
+  {
+    chapter: 10,
+    verse: 2,
+    content:
+      "Sapagkat Ako’y hindi nagbabago, Ako’y patuloy na nagpapahayag ng Aking kalooban sa Aking mga pinili sa bawat panahon.",
+  },
+  {
+    chapter: 10,
+    verse: 3,
+    content:
+      "Kaya’t pakinngan ninyo ang Aking mga Salita, kayo na Aking mga pinili sa panahong ito. Ako si YAHUWEH ang inyong tanging Tagapagligtas.",
+  },
+  {
+    chapter: 10,
+    verse: 4,
+    content:
+      "Mapalad kayo na Aking mga Tunay na Mananamba, sapagkat inyong nalaman ang Aking ganap na kalooban, mapalad kayo na ang Aklat na ito ay sa inyo ibinigay, mapalad kayo sapagkat nasa inyo ang tunay na Liwanag na magdadala sa tao sa buhay na walang hanggan.",
+  },
+  {
+    chapter: 10,
+    verse: 5,
+    content:
+      "Kaya’t magkaisa kayo bilang iisang pamilya, magtulungan, magdamayan, magpatawaran at magsamasama kayo sa iisang lugar na Aking pinili para sa inyo, upang makapamuhay kayo ng may kabanalan at kapayapaan.",
+  },
+  {
+    chapter: 10,
+    verse: 6,
+    content:
+      "Maging pantay pantay ang pagtingin ninyo sa bawat isa, ang mga may kaya sa buhay ay dapat magbigay ng tulong sa pamilyang mahirap, ang sinong tumutulong sa mahihirap ay Aking pagpapalain at gagantimpalaan pagdating ng panahon.",
+  },
+  {
+    chapter: 10,
+    verse: 7,
+    content:
+      "Huwag ipagkait ang tulong sa iyong kapwa mananamba kung nakita mo na kailangan niya ng tulong. Gawin mo ang tama, ang mabuti at ang matuwid sa Aking paninggin at ikaw ay Aking pagpapalain.",
+  },
+  {
+    chapter: 10,
+    verse: 8,
+    content:
+      "Ako si YAHUWEH ang Dakilang Maylikha na sa inyo ay laging nagmamasid, Ako’y nalulugod sa tao na gumagawa ng mabuti sa kanyang kapwa, tunay Ako ang nakakaalam ng mga mabubuting bagay na Aking inilaan para sa kanya.",
+  },
+  {
+    chapter: 10,
+    verse: 9,
+    content:
+      "Asikasuhin ninyo ng maayos ang mga bumibisita sa inyo, sikapin na makuha ninyo ang kanilang loob, kailangan maayos, malinis ang kapaligiran ninyo upang hindi kayo mapintasan nila.",
+  },
+  {
+    chapter: 10,
+    verse: 10,
+    content:
+      "Ang mga kababaihan ninyo ay dapat magsuot ng may kahinhinan, ipinagbabawal ang anomang kasuutan na makikitaan ng kalaswaan, upang mapanatili nila ang respeto ng mga kalalakihan sa kanila.",
+  },
+  {
+    chapter: 10,
+    verse: 11,
+    content:
+      "Ang mga lalaki naman ay dapat din mag-ayos at manamit ng pormal sa harap ng mga bisita upang maiwasan ang pagkakaroon ng masamang hinala ang inyong mga panauhin.",
+  },
+  {
+    chapter: 10,
+    verse: 12,
+    content:
+      "Sabihin sa mga kalalakihan na ayusin at pagandahin ang gupit ng kanilang buhok at balbas, nasabi ko sa ibang pagkakataon na hindi dapat ahitin ang kanilang balbas, ngunit ang utos na ito ay naka-depende sa mga sitwasyon, gamitin ninyo ang karunungan sa inyong pakikipag-usap sa mga taong may pagdududa at naninira sa inyo.",
+  },
+  {
+    chapter: 10,
+    verse: 13,
+    content:
+      "May mga panahon at pagkakataon na Ako’y nagpapahintulot subalit yaon ay pansamantala lamang, ngunit kung ang isang sitwasyon ay maayos na, ay Aking inaasahan na magawa ninyo ang Aking ganap na kalooban.",
+  },
+  {
+    chapter: 10,
+    verse: 14,
+    content:
+      "Ako ang Dakilang Maylikha ang nakakaunawa sa bawat isa at sa bawat sitwasyon ng inyong buhay.",
+  },
+  {
+    chapter: 10,
+    verse: 15,
+    content:
+      "Huwag ninyong pagtakhan ang nangyaring paghihimagsik ng ilan sa mga kapatiran ninyo, ito’y hindi na bago sapagkat hindi paman naganap ang anumang paghihimagsik dito sa lupa ay may na una na nagkaroon ng paghihimagsik sa kaharian ng langit, at maging sa panahon ng mga Propeta ay may nangyari din na paghihimagsik, ang lahat ay Aking pinahintulutan sapagkat Ako’y maroong plano.",
+  },
+  {
+    chapter: 10,
+    verse: 16,
+    content:
+      "Subalit mapalad ang mga hindi umanib sa mga naghihimagsik, sapagkat sila ay makatitiyak na silay hindi maliligaw, at tunay na silay nananatili sa daan ng kaligtasan patungo sa buhay na walang hanggan.",
+  },
+  {
+    chapter: 10,
+    verse: 17,
+    content:
+      "Subalit kawawa ang mga umanib sa mga naghihimagsik, sapagkat darating ang araw na silang lahat ay mapapahiya, masisindak sa kapahamakan na kanilang mararanasan.",
+  },
+  {
+    chapter: 10,
+    verse: 18,
+    content:
+      "Huwag din kayong magtataka kung bakit sila ay umuunlad sa kabuhayan, sapagkat ang Kaaway na nag-udyok at gumamit sa kanila na maghimagsik ay binigyan din sila ng gantimpala, subalit sa huli ay sisingilin din sila nito.",
+  },
+  {
+    chapter: 10,
+    verse: 19,
+    content:
+      "Kung sila man ay nagtayo ng kahawig na Ministeryo na meron kayo, ngunit alam nila sa sarili nila na hindi sila ang orihinal, ngunit nalalaman ninyo ito, kaya’t lakasan ninyo ang iyong panampalataya, at huwag kayong matitinag, huwag kayong padadala sa kanilang mga matatamis na salita, sapagkat ang mga umanib sa kanila ay mapaparusahan din ng mabigat na parusa.",
+  },
+  {
+    chapter: 10,
+    verse: 20,
+    content:
+      "Subalit mapalad ang mga tapat sa gawaing ito na Aking itinatag sa pamamamagitan ng Aking Sugo, mapalad kayo na nanatili sa Liwanag ng Aking mga Salita, mapalad kayo sapagkat malaki ang iyong magiging gantimpala sa kaharian ng langit.",
+  },
+  {
+    chapter: 10,
+    verse: 21,
+    content:
+      "Ang tungkol naman sa mga usaping pag-aasawa, ay dapat ninyong tatandaan na ang kasal na ginawa sa mga paganong panampalataya ay hindi ko kinikilala, sapagkat ito’y karumaldumal sa Aking paningin.",
+  },
+  {
+    chapter: 10,
+    verse: 22,
+    content:
+      "Kung kaya’t ang sinumang umanib sa inyo na kasal sa paganismong panampalataya ay dapat makasal sa Banal kong Pangalan, ito ang kasal na Aking kinikila at tinakda mula pa sa panahon ng mga tunay na Propeta.",
+  },
+  {
+    chapter: 10,
+    verse: 23,
+    content:
+      "Ang sinomang hiwalay na sa asawa sa paganismo at mag-asawa muli ng isang taong mananamba sa Aking Pangalan ay tunay na sila ang Aking babasbasan at kikilalanin na tunay na mag-asawa.",
+  },
+  {
+    chapter: 10,
+    verse: 24,
+    content:
+      "Ako si ang Malaking Bato ng Tangulan ng mga Tunay na Propeta, walang katulad ko sa taglay kung Kapangayarihan at Karunungan.",
+  },
+  {
+    chapter: 10,
+    verse: 25,
+    content:
+      "Ako lamang ang Bato ng Kaligtasan, wala ng iba pa. ang sumampalataya at sumunod sa Akin ay tiyak na maliligtas.",
+  },
+  {
+    chapter: 10,
+    verse: 26,
+    content:
+      "Ngunit ang mga nagtatakwil sa Akin at hindi sumusunod sa Aking mga Salita ay tiyak na mapapahamak.",
+  },
+  {
+    chapter: 10,
+    verse: 27,
+    content:
+      "Mamuhay ka sa Aking mga Salita at iyong makakamtan ang buhay na walang hanggan.",
+  },
+  {
+    chapter: 10,
+    verse: 28,
+    content:
+      "Ang mga salita ng tao ay madalas nabibigo, kaya’t huwag kang magtiwala ng labis sa mga salita ng mga tao.",
+  },
+  {
+    chapter: 10,
+    verse: 29,
+    content:
+      "Anomang salita na sumasalungat sa Aking mga Salita ay itakwil ninyo, upang maingatan ang inyong paglilingkod at panampalataya sa Akin.",
+  },
+  {
+    chapter: 10,
+    verse: 30,
+    content:
+      "Mapald ang mga nanghahawak at gumaganap sa Aking mga Salita sapagkat sila’y bibigyan ng karapatang makapasok sa Paraiso ng langit.",
+  },
+  {
+    chapter: 10,
+    verse: 31,
+    content:
+      "Ngunit ang mga nangahahawak sa mga doktrina ng tao ay tiyak na maliligaw at mapapahamak sa impierno.",
+  },
+  {
+    chapter: 10,
+    verse: 32,
+    content:
+      "Pahalagahan ninyo ang Aking mga Salita ng higit pa sa mga salita ng tao, huwag kayong agad-agad na maniniwala o makikinig sa mga aral ng mga huwad na relihiyon, upang maingatan ang inyong dalisay na panampalataya sa Akin.",
+  },
+  {
+    chapter: 10,
+    verse: 33,
+    content:
+      "Mapalad ang mga nanatili at naninindigan sa Aking mga Salita, sapagkat darating ang araw na sila’y Aking ipagmamalaki at gagantimpalaan.",
+  },
+  {
+    chapter: 10,
+    verse: 34,
+    content:
+      "Ngunit kawawa ang mga nagsitakwil sa Aking mga Salita na nasa Aklat na ito, sapagkat sila’y hindi makakatakas sa darating na parusa sa kanilang kaluluwa sa impierno.",
+  },
+  {
+    chapter: 10,
+    verse: 35,
+    content:
+      "Silang mga dati ninyong mga kapatiran na nakasaksi at nakarinig ng Aking mga Salita sa Aklat na ito, ngunit dumating ang panahon na sila’y umalis sa inyong Samahan at itinakwil ang Aklat na ito at nagsalita ng paninira sa Aklat na ito ay hindi makakatakas sa mabigat na parusa sa kanilang kaluluwa sa impierno.",
+  },
+  {
+    chapter: 10,
+    verse: 36,
+    content:
+      "Sabihin mo sa mga nalabi, na huwag silang gumaya sa mga taksil at naghimagsik sa Aking Sugo upang hindi sila maagaw ng Kaaway.",
+  },
+  {
+    chapter: 10,
+    verse: 37,
+    content:
+      "Ang mga nagtaksil at naghimagsik ay hindi makakatakas sa mabigat na parusa sa impierno pagkatapos ng kamatayan.",
+  },
+  {
+    chapter: 10,
+    verse: 38,
+    content:
+      "Sumagana man sila sa kabuhayan, subalit hindi naman nila madadala ang mga ito sa araw ng kanilang kamatayan.",
+  },
+  {
+    chapter: 10,
+    verse: 39,
+    content:
+      "Ngunit mapalad kayo na mga naninindigan sa Aking mga Salita na nasa Aklat na ito.",
+  },
+  {
+    chapter: 10,
+    verse: 40,
+    content:
+      "Kapagka kayo ay tinanong ng mga mangmang na kung bakit kayo ay may mga Pari samantalang sa Torah ang pagka-pari ay dapat manggagaling lamang sa lahi ng mga Levita? Ay ganito ang inyong sasabihin: Ang paghirang at pagkatawag ng Aking mga Pari ay hindi nag-umpisa sa mga Levita o kay Aaron, kundi sa panahon pa ni Seth na kung saan nagpasimulang tumawag sa Aking Banal na Pangalan YAHUWEH ang mga anak ni Adan, at nagpatuloy ito hanggan kay Melchezedek, hanggang kay Jethro, hanggang kay Yahushua at hanggang sa mga Hentil sa malayong silanggan. Ito ang isa sa mga hiwaga na hindi makita at hindi maunawaan ng maraming nagbabasa ng Tanak.",
+  },
+  {
+    chapter: 10,
+    verse: 41,
+    content:
+      "Kayo na Aking mga tunay na mananamba sa lahi ng mga Hentil ay mayroong pagka-pari na iba sa pagka-pari ng mga Levita.",
+  },
+  {
+    chapter: 10,
+    verse: 42,
+    content:
+      "Ang pinaka-punong Sugo sa inyo ang siyang inatasan Ko na magbuhos ng banal na langis sa ulo ng sinumang tawagin ko na magiging Aking pari na maglilingkod at mangangasiwa sa mga paghahandog at pag-aalay ng banal na insenso sa Aking Banal na Pangalan.",
+  },
+  {
+    chapter: 10,
+    verse: 43,
+    content:
+      "Mapalad ang mga tumutulong at sumusuporta sa mga pangangailangan ng Aking mga pari, sapagkat tunay na sila ay Aking pagpapalain at malaki ang kanilang magiging gantimpala sa kaharian ng langit.",
+  },
+  {
+    chapter: 10,
+    verse: 44,
+    content:
+      "Ang bawat isa sa inyo ay Aking pinili upang maging Aking mananamba, at kayo’y tinipon ko sa isang dako sa lupain na ang hugis ay hawig sa bansang Yahsraal, ngunit ngayon ay dinala Ko kayo sa isang malayong lupain, sa lupain na naroon ang hugis ng Aking Banal na Pangalan.",
+  },
+  {
+    chapter: 10,
+    verse: 45,
+    content:
+      "Manatili kayo sa lupaing iyan, at sikapin ninyo na makuha ang loob ng mga tagariyan upang maibahagi ninyo ang Aking Banal na Pangalan at turoan silang sumunod sa Aking kalooban.",
+  },
+  {
+    chapter: 10,
+    verse: 46,
+    content:
+      "May mga pagsubok din kayong mararanasan subalit lakasan ninyo ang inyong loob sapagkat Ako’y kasama ninyo, hindi Ko kayo pababayaan.",
+  },
+  {
+    chapter: 10,
+    verse: 47,
+    content:
+      "Manatili kayo sa lupain na Aking ibinigay sa inyo, sikapin ninyong sumaga sa mga puno, mga halaman, at sa mga gulay ang inyong nasasakupan.",
+  },
+  {
+    chapter: 10,
+    verse: 48,
+    content:
+      "Magkaisa kayo at magtulungan na mapanatili ang kasaganaan at kalinisan sa inyong nasasakupan, huwag kayong maging makasarili, kundi magmalasakit din kayo sa kabuohan ng inyong nasasakupan.",
+  },
+  {
+    chapter: 10,
+    verse: 49,
+    content:
+      "May mga pagtitiis at pagsasakripisyo kayong mararanasan, subalit magpakatatag kayo sapagkat ang inyong pagtitiis at pagsasakripisyo ay hindi masasayang.",
+  },
+  {
+    chapter: 10,
+    verse: 50,
+    content:
+      "Tandan ninyo lagi, na ang buhay nang bawat tao sa mundo ay maiksi lamang, subalit mapalad ang buhay na natapos, na may ginawang pagtitiis at pagsakripisyo dahil sa pagsunod sa Aking banal na Kalooban.",
+  },
+  {
+    chapter: 10,
+    verse: 51,
+    content:
+      "Sila na nagtiis at nagsakripisyo sa pagsunod sa Aking banal na kalooban ay makakapasok sa Paraiso ng langit na Aking inihanda para sa lahat ng mga tunay at tapat sa Akin.",
+  },
+  {
+    chapter: 10,
+    verse: 52,
+    content:
+      "Mapalad ang mga may paninindigan sa kanilang pagsunod sa Aking kalooban. Subalit ang mga hindi nagtagal, ang mga nagduda, ang mga nagtaksil, ang mga ayaw makaranas ng pagtitis, at sa mga lumayo dahil sa paghahangad ng mas maginhawang buhay materyal, silang lahat sa huli ay magsisisi, sapagkat kapahamakan at darating sa kanila at hindi sila makakatakas sa parusa sa impierno.",
+  },
+  {
+    chapter: 10,
+    verse: 53,
+    content:
+      "Ang katapatan na Aking hinahanap sa tao ay katapatan sa pagsunod sa lahat ng Aking kalooban.",
+  },
+  {
+    chapter: 10,
+    verse: 54,
+    content:
+      "Hindi sapat sa Akin na maniwala ka lamang o mananalangin kalamang sa Akin Pangalan, kung hindi mo susundin ng buong-buo ang Aking kalooban ay wala kang kwenta sa Aking harapan, at lahat ng panalangin mo ay hindi ko didinggin, at sa araw ng kamatayan ay walang kang maaasahan na kaligtasan ng iyong kaluluwa.",
+  },
+  {
+    chapter: 10,
+    verse: 55,
+    content:
+      "Kaya’t manatili ka sa liwanag na ito at huwag kang lalayo upang hindi ka maagaw ng kaaway. Ako si YAHUWEH ang Alyon ang tangi mong Pag-asa.",
+  },
+  {
+    chapter: 10,
+    verse: 56,
+    content:
+      "Habang kayo ay nagsusumikap sa inyong mga hanap buhay ay huwag ninyong kalilimutan ang pag-aakay ng mga tao sa pagiging mananamba sa Aking Banal na Pangalan, gawin ninyo ito sapagkat isa ito sa mga matataas na uri ng paglilingkod sa Akin.",
+  },
+  {
+    chapter: 10,
+    verse: 57,
+    content:
+      "Mapalad ang mga nagsusumikap na makaakay ng mga tao sa pagiging mananamba sa Aking Banal na Pangalan, sapagkat malaki ang kanyang magiging gantimpala sa kaharian ng langit.",
+  },
+  {
+    chapter: 10,
+    verse: 58,
+    content:
+      "Ang bawat sakripisyo na ginawa mo sa Aking Banal na Pangalan ay hindi masasayang, sapagkat ikaw ay Aking gagantimpalaan pagdating ng araw.",
+  },
+  {
+    chapter: 10,
+    verse: 59,
+    content:
+      "Kaya’t huwag kang panghinaan ng loob, bagkus ay ipagpatuloy mo ang paglilingkod sa Akin ng may pagsisikap, pagtitiis at pagsasakripisyo.",
+  },
+  {
+    chapter: 10,
+    verse: 60,
+    content:
+      "Mapalad ang mga nanatiling tapat sa kanilang panampalataya at paglilingkod sa Akin hanggan sa katapusan ng kanilang buhay, sapagkat tunay na, silay makakapasok sa Paraiso ng langit.",
+  },
+  {
+    chapter: 10,
+    verse: 61,
+    content:
+      "Kaya’t kung may nauna man sa inyo na pumanaw ay huwag kayong labis na magluksa, bugkus ay ingatan din naman ninyo ang inyong kalusugan, at maluwag ninyong tanggapin ang katotohanan sa mga pangyayari.",
+  },
+  {
+    chapter: 10,
+    verse: 62,
+    content:
+      "Kung may pumanaw man sa inyo ay huwag ninyong gagayahin ang mga ginagawa ng mga pagano, na kanilang iniimbalsa o sinusunog ang kanilang patay, bugkas ay paliliguan lamang ninyo ng maligamgam na tubig, at patutuyuin at pagkatapos ay babalutan ng puting tela o kumot, kung ang ikinamatay ay dahil sa nakakahawang sakit ay dapat ilibing agad sa lupa, kung hindi naman ay maaring kinabukasan pa, ngunit huwag lamang papaabutin ng apat na araw.",
+  },
+  {
+    chapter: 10,
+    verse: 63,
+    content:
+      "Ang mga Kohen o Elder ninyo ay magbibigay ng paalaala sa pamilya ng namatay at sa mga nakikiramay, at ang mga Kohen ay magbabasbas ng Banal na Tubig sa mga tao at sa sarili upang silay linisin sa karumihan.",
+  },
+  {
+    chapter: 10,
+    verse: 64,
+    content:
+      "Mapalad ang mga nanatiling tapat sa kanilang panampalataya at paglilingkod sa Akin hanggang sa katapusan ng buhay, sapagkat ang kanilang kaluluwa ay papasok sa kaharian ng langit, at kanilang matatanggap ang buhay na walang hanggan.",
+  },
+  {
+    chapter: 10,
+    verse: 65,
+    content:
+      "Ang naglilingkod sa Akin na walang hinahangad na kapalit na salapi ay ituturi kong isang Bayani, ang kanilang mga pagtitiis at pagsasakripisyo ay hindi masasayang, sapagkat magbubunga ito ng tunay na kagalakan pagdating ng panahon.",
+  },
+  {
+    chapter: 10,
+    verse: 66,
+    content:
+      "Ako si YAHUWEH ang Alyon na nagsasabi na hindi Ko pababayaan ang lahat ng mga tunay na nagmamahal sa Akin.",
+  },
+  {
+    chapter: 10,
+    verse: 67,
+    content:
+      "Kayo na Aking mananamba ay dapat magkaisa at magturingan bilang iisang pamilya, magdamayan kayo at magtulungan sa mga problema ng bawat isa.",
+  },
+  {
+    chapter: 10,
+    verse: 68,
+    content:
+      "Sapagkat kayo ay Aking pinili mula sa karamihan ng mga tao, ay niloob ko na kayo’y makarating sa Aking Gawain upang sapamamagitan ninyo ay makikita ng mga tao ang Tunay na Liwanag na magbibigay sa tao ng Tunay na pag-asa.",
+  },
+  {
+    chapter: 10,
+    verse: 69,
+    content:
+      "Kayo ang Aking bayan na noon pay nakatakda na at naihula na ng Aking mga Propeta, at tunay sa panahong ito, kayo ang Aking mga Pinili na mga Tunay kong Mananamba.",
+  },
+  {
+    chapter: 10,
+    verse: 70,
+    content:
+      "At sa bawat pagtaas ng banal na Tungkod ng inyong Punong Sugo ay pagtatagumpayin ko kayo saan man kayo makarating at ano man ang inyong ginagawa na ayon sa Aking kalooban.",
+  },
+  {
+    chapter: 10,
+    verse: 71,
+    content:
+      "At sa bawat wisik ng banal na tubig sapamamagitan ng mga Kohen na naitalaga ng Aking Sugo, ay tunay kayo ay lilinisin Ko mula sa inyong mga kasalanan, at kayo nga ay magiging malinis at magiging banal sa Aking paningin.",
+  },
+  {
+    chapter: 10,
+    verse: 72,
+    content:
+      "Ang banal na tubig na iniwisik sa inyo ay sumasagisag sa banal na dugo ng Messiah Yahushua.",
+  },
+  {
+    chapter: 10,
+    verse: 73,
+    content:
+      "Kaya’t mapalad ang bawat isa na mawisikan ng banal na tubig na ito.",
+  },
+  {
+    chapter: 10,
+    verse: 74,
+    content:
+      "Mapalad din ang mga nakasama sa bawat paghahandog ng Banal na Insenso at ang mga nakatanggap ng basbas mula sa Aking mga Kohen, sapagkat tunay silang lahat ay Aking pagpapalain.",
+  },
+  {
+    chapter: 10,
+    verse: 75,
+    content:
+      "Mapalad ang mga lubos na namampalataya sa Aking Kapangyarihan at nagpapasakop sa Aking kalooban.",
+  },
+  {
+    chapter: 10,
+    verse: 76,
+    content:
+      "Mapalad ang mga nagtitiis dahil sa kanilang panata sa Akin, tunay na hindi ko sila bibiguin, bagkus silay bibigyan ko ng karapan na makapasok sa Paraiso ng langit.",
+  },
+  {
+    chapter: 10,
+    verse: 77,
+    content:
+      "Ako si YAHUWEH ang nag-iisang Makapangayarihan sa lahat, Ako’y hindi nagbabago, sapabawat panahon, at sa bawat henerasyon ay patuloy Ako’ng pumipili at tumatawag ng mga tao upang maging Aking mga mananamba.",
+  },
+  {
+    chapter: 10,
+    verse: 78,
+    content:
+      "At tunay na ang Aking mga mananamba ay magtatayo ng Banal na Templo para sa Aking Banal na Pangalan. Kung papaano noong unang mga panahon: ang Templo sa panahon ni Melkezedek, ang Tabernakulo sa Shilo, ang Templo sa Jerusalem, ang Templo sa Samaria, gayon din sa panahong ito ay magtatayo kayo ng Templo para sa Aking Banal na Pangalan saan man kayo makarating sa pangunguna ng inyong Punong Sugo.",
+  },
+  {
+    chapter: 10,
+    verse: 79,
+    content:
+      "Sa inyong paghayo at kung kayo ay magtatayo ng lugar ng panambahan para sa Aking Banal na Pangalan, ay huwag ninyong kalilimutan ang pagsasagawa ng Banal na Insenso upang lagi ninyong maalaala na kayo ang katuparan ng propesiya ni Propeta Malakyahu.",
+  },
+  {
+    chapter: 10,
+    verse: 80,
+    content:
+      "Tunay na kayo ang Aking mga mananamba sa Aking Banal na Pangalan, at kayo ay Aking inatasan na magkaisa sa pag-aakay ng mga tao sa pagiging mananamba sa Aking Banal na Pangalan, at turuan silang sumunod sa lahat ng Aking mga kautusan.",
+  },
+  {
+    chapter: 10,
+    verse: 81,
+    content:
+      "Ano mang pamamaraan sa pag-aakay na iminumungkahe at ginagawa ng inyong Punong Sugo ay supportahan ninyo, kapag ginawa ninyo ito ay pagpapalain ko kayo.",
+  },
+  {
+    chapter: 10,
+    verse: 82,
+    content:
+      "Patuloy Akong nagpapahayag ng Aking mga kalooban sa Aking mga mananamba, sa iba’t ibang kaparaanan ay pinapaunawa Ko ito sa kanila.",
+  },
+  {
+    chapter: 10,
+    verse: 83,
+    content:
+      "Tunay na kanilang nabatid ang Aking mga kalooban sapag-aaral nila ng Tanak, subalit ang liwanag na nakita nila sa kanilang pag-aaral sa Tanak ay hindi pa ganap, ngunit ito ang unang hakbang upang unti-unti nilang makikita ang pinaka-Liwanag ng Aking Banal na Kalooban.",
+  },
+  {
+    chapter: 10,
+    verse: 84,
+    content:
+      "At narito ang kabuohan ng Aking Kalooban, na Aking ipihayag sa Aklat na ito, mapalad kayo na mga inabutan sa mga panahong ito na nakatanggap ng Aklat na ito, sapagkat narito ang pinaka-maliwanag na Liwanag na magdadala sa inyo sa ganap na katiyakan ng kaligtasan ng inyong mga kaluluwa.",
+  },
+  {
+    chapter: 10,
+    verse: 85,
+    content:
+      "Narito ang tunay na patnubay upang kayo na Aking mga mananamba ay makapamuhay ng ganap na pamumuhay ayon sa kabanalan at katuwiran.",
+  },
+  {
+    chapter: 10,
+    verse: 86,
+    content:
+      "Narito ang tunay na pagpapakabanal ang pamumuhay sa Aking mga Salita sa Banal na Separ na ito, narito ang tunay na daan patungo sa Paraiso ng langit.",
+  },
+  {
+    chapter: 10,
+    verse: 87,
+    content:
+      "Narito ang kaganapan at kasiyahan ng buhay, narito ang pinaka-maliwanag na Liwanag na magbibigay sa inyo ng tunay na karunungan at kaalaman.",
+  },
+  {
+    chapter: 10,
+    verse: 88,
+    content:
+      "Narito ang Banal na Hagdanan, patungo sa Buhay na walang hanggan.",
+  },
+  {
+    chapter: 10,
+    verse: 89,
+    content:
+      "Narito ang Aking Separ na Aking ipinasulat sa Aking Sugong Propeta para sa inyo na gumugunita, nagmamahal at sumasamba sa Aking Banal na Pangalan.",
+  },
+  {
+    chapter: 10,
+    verse: 90,
+    content: "Narito Ako, Ako si YAHUWEH.",
+  },
 ];
