@@ -1,0 +1,145 @@
+import React, { Component, useContext } from "react";
+import {
+  View,
+  Text,
+  StyleSheet,
+  ScrollView,
+  TouchableOpacity,
+} from "react-native";
+import COLORS from "../constants/colors";
+import { SettingContext } from "../context/SettingContext";
+import { useAnimatedStyle, useSharedValue } from "react-native-reanimated";
+import {
+  House,
+  Book,
+  Search,
+  CalendarDays,
+  Dices,
+  Menu,
+} from "lucide-react-native";
+import { TabsRoutes } from "../types/type";
+import { BottomNavigationContext } from "../context/BottomNavigationContext";
+
+const Menus = () => {
+  const bottomNavigationContext = useContext(BottomNavigationContext);
+  const settingContext = useContext(SettingContext);
+
+  if (!settingContext || !bottomNavigationContext) {
+    return null;
+  }
+
+  const { objSetting } = settingContext;
+  const { bottomNavigation, setBottomNavigation } = bottomNavigationContext;
+
+  const fadeAnim = useSharedValue(0);
+
+  const themeColors = objSetting.theme === "dark" ? COLORS.dark : COLORS.light;
+
+  // Animated style for background fade effect
+  const backgroundAnimation = useAnimatedStyle(() => ({
+    opacity: fadeAnim.value,
+    backgroundColor: themeColors.background,
+  }));
+
+  interface ButtonListType {
+    title: TabsRoutes;
+    icon: (isActive: boolean) => JSX.Element;
+  }
+
+  const buttonList: ButtonListType[] = [
+    {
+      title: "Search",
+      icon: (isActive: boolean) => <Search color={COLORS.white} size={25} />,
+    },
+    {
+      title: "Calendar",
+      icon: (isActive: boolean) => (
+        <CalendarDays color={COLORS.white} size={25} />
+      ),
+    },
+    {
+      title: "Chapters",
+      icon: (isActive: boolean) => <Book color={COLORS.white} size={25} />,
+    },
+    {
+      title: "Random",
+      icon: (isActive: boolean) => <Dices color={COLORS.white} size={25} />,
+    },
+    {
+      title: "Menu",
+      icon: (isActive: boolean) => <Menu color={COLORS.white} size={25} />,
+    },
+  ];
+
+  return (
+    <View style={[styles.container, backgroundAnimation]}>
+      <Text style={[styles.title, { color: themeColors.primary }]}>
+        Other Menu
+      </Text>
+      <View style={styles.menuList}>
+        <ScrollView>
+          <View style={styles.scroll}>
+            {buttonList.map((item, index) => (
+              <TouchableOpacity
+                onPress={() => setBottomNavigation(item.title)}
+                key={index}
+              >
+                <View key={index} style={styles.btn}>
+                  {item.icon(true)}
+                  <Text style={styles.text}>{item.title}</Text>
+                </View>
+              </TouchableOpacity>
+            ))}
+          </View>
+        </ScrollView>
+      </View>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  title: {
+    color: "white",
+    fontSize: 20,
+    fontFamily: "Poppins-Bold",
+  },
+  menuList: {
+    width: "100%",
+    height: "80%",
+  },
+  scroll: {
+    width: "100%",
+    height: "100%",
+    // justifyContent: 'center',
+    flexDirection: "row",
+    flexWrap: "wrap", // Wrap items to next row
+    justifyContent: "space-between",
+    paddingBottom: 20,
+    paddingLeft: 20,
+    paddingRight: 20,
+  },
+  btn: {
+    backgroundColor: "#0943AF",
+    width: "30%", // 3 columns
+    aspectRatio: 1, // Keep it square
+    height: 80,
+    borderRadius: 15,
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    margin: 10,
+  },
+  text: {
+    color: "white",
+    fontSize: 10,
+    fontFamily: "Poppins-Bold",
+  },
+});
+
+export default Menus;
