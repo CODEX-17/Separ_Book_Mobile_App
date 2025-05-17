@@ -22,6 +22,7 @@ import Menu from "./menu";
 import OnProgress from "./(renders)/on-progress";
 import Setting from "../setting";
 import UpdateNotification from "../updated-notification";
+import Favorites from "./(renders)/favorites";
 
 const HomeLayout = () => {
   const bottomNavigationContext = useContext(BottomNavigationContext);
@@ -44,7 +45,11 @@ const HomeLayout = () => {
         return <Menu />;
       case "Search":
         return <Search />;
+      case "Favorites":
+        return <Favorites />;
       case "Music":
+        return <OnProgress />;
+      case "Developer":
         return <OnProgress />;
       case "Settings":
         return <Setting />;
@@ -53,7 +58,7 @@ const HomeLayout = () => {
       case "Random":
         return <RandomPick />;
       default:
-        return <Text>No tab selected</Text>; // Fallback UI
+        return <OnProgress />; // Fallback UI
     }
   };
 

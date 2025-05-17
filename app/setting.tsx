@@ -11,6 +11,7 @@ import { useRouter } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { SettingContext } from "./context/SettingContext";
 import Icon from "react-native-vector-icons/Feather";
+import COLORS from "./constants/colors";
 
 const Setting = () => {
   const router = useRouter();
@@ -19,6 +20,8 @@ const Setting = () => {
   if (!settingContext) return false;
 
   const { objSetting, handleChangeSetting } = settingContext;
+
+  const themeColors = objSetting.theme === "dark" ? COLORS.dark : COLORS.light;
 
   const handleChangeFontSize = (value: number) => {
     if (isNaN(value) || value < 10 || value > 100) return;
@@ -29,38 +32,54 @@ const Setting = () => {
 
   return (
     <View style={styles.container}>
-      <SafeAreaView
-        style={{ flex: 1, paddingTop: Platform.OS === "android" ? 25 : 0 }}
-      >
-        <View style={styles.header}>
-          <Text style={styles.title}>Setting</Text>
+      <View style={styles.header}>
+        <Text
+          style={[
+            styles.title,
+            { fontSize: 20, color: themeColors.primaryText },
+          ]}
+        >
+          General Setting
+        </Text>
+      </View>
+      <View style={styles.content}>
+        <View style={{ flexDirection: "row", alignItems: "center", gap: 10 }}>
+          <Text
+            style={[
+              styles.title,
+              { fontSize: 18, color: themeColors.primaryText },
+            ]}
+          >
+            Font Size
+          </Text>
+          <TouchableOpacity
+            onPress={() => handleChangeFontSize(objSetting.fontSize + 1)}
+          >
+            <Icon name="plus" color="#003092" size={25} />
+          </TouchableOpacity>
+          <TextInput
+            style={[
+              styles.input,
+              {
+                backgroundColor: themeColors.card,
+                color: themeColors.primaryText,
+              },
+            ]}
+            onChangeText={(text) => {
+              if (text === "") return handleChangeFontSize(10);
+              const parsedValue = parseInt(text, 10);
+              if (!isNaN(parsedValue)) handleChangeFontSize(parsedValue);
+            }}
+            value={objSetting.fontSize.toString()}
+            keyboardType="numeric"
+          />
+          <TouchableOpacity
+            onPress={() => handleChangeFontSize(objSetting.fontSize - 1)}
+          >
+            <Icon name="minus" color="#003092" size={25} />
+          </TouchableOpacity>
         </View>
-        <View style={styles.content}>
-          <View style={{ flexDirection: "row", alignItems: "center", gap: 10 }}>
-            <Text style={[styles.title, { fontSize: 20 }]}>Font Size</Text>
-            <TouchableOpacity
-              onPress={() => handleChangeFontSize(objSetting.fontSize + 1)}
-            >
-              <Icon name="plus" color="#003092" size={25} />
-            </TouchableOpacity>
-            <TextInput
-              style={styles.input}
-              onChangeText={(text) => {
-                if (text === "") return handleChangeFontSize(10);
-                const parsedValue = parseInt(text, 10);
-                if (!isNaN(parsedValue)) handleChangeFontSize(parsedValue);
-              }}
-              value={objSetting.fontSize.toString()}
-              keyboardType="numeric"
-            />
-            <TouchableOpacity
-              onPress={() => handleChangeFontSize(objSetting.fontSize - 1)}
-            >
-              <Icon name="minus" color="#003092" size={25} />
-            </TouchableOpacity>
-          </View>
-        </View>
-      </SafeAreaView>
+      </View>
     </View>
   );
 };
@@ -68,22 +87,12 @@ const Setting = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
-    borderRadius: 20,
-    paddingRight: 40,
-    paddingLeft: 40,
-
-    // Shadow for iOS
-    shadowColor: "#000",
-    shadowOffset: { width: 2, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-
-    // Shadow for Android
-    elevation: 1,
+    backgroundColor: "transparent",
+    padding: 20,
   },
   content: {
     flex: 1,
+    alignItems: "center",
   },
   header: {
     width: "100%",

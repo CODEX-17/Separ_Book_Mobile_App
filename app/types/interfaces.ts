@@ -1,20 +1,22 @@
+import { RankingTypes } from "./type";
+
 export interface Verse {
-    chapter: number,
-    verse: number,
-    content: string,
+  chapter: number;
+  verse: number;
+  content: string;
 }
 
 export interface Setting {
-    fontSize: number,
-    theme: 'light' | 'dark'
+  fontSize: number;
+  theme: "light" | "dark";
 }
 
 export interface Profile {
-    name: string
-    rank: string
-    level: number
+  name: string;
+  rank: RankingTypes;
+  level: number;
 }
 
 export interface Favorite {
-    verseIndex: number[]
+  verseIndex: number[];
 }

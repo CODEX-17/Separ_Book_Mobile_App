@@ -19,6 +19,7 @@ import Animated, {
 } from "react-native-reanimated";
 import { useRouter } from "expo-router";
 import Icon from "react-native-vector-icons/Feather";
+import { getStoreData, storeData } from "./Utils/storage";
 
 const AskName = () => {
   const [userName, setUsername] = useState<string | null>(null);
@@ -88,6 +89,10 @@ const AskName = () => {
     buttonProgress.value = "none";
     setTextLabel(userName ?? "");
 
+    if (!userName) return;
+
+    storeData("PROFILE", { name: userName, rank: "Newcomer", level: 1 });
+
     setTimeout(() => {
       textProgress.value = "flex";
       textScale.value = withSpring(1, { damping: 10, stiffness: 100 });
@@ -98,7 +103,7 @@ const AskName = () => {
       );
 
       setTimeout(() => {
-        router.push("/(home)");
+        router.push("/onboard");
       }, 2000);
     }, 1000);
   };
@@ -131,7 +136,7 @@ const AskName = () => {
   return (
     <View style={styles.container}>
       <Animated.View style={[styles.labelContainer, textAnimation]}>
-        <Text style={styles.questionText}>Hi!</Text>
+        <Text style={styles.questionText}>Shalom!</Text>
         <Text style={styles.questionTextRegular}>{textLabel}</Text>
       </Animated.View>
       <Animated.View style={inputAnimation}>

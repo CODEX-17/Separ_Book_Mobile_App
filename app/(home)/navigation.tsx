@@ -15,7 +15,14 @@ import Icon1 from "react-native-vector-icons/FontAwesome";
 import { TabsRoutes } from "../types/type";
 
 const BottomNavigation = () => {
-  const MenuButtons: TabsRoutes[] = ["Search", "Settings", "Music"];
+  const MenuButtons: TabsRoutes[] = [
+    "Search",
+    "Settings",
+    "Music",
+    "Favorites",
+    "Developer",
+    "Room",
+  ];
 
   const bottomNavigationContext = useContext(BottomNavigationContext);
   const settingContext = useContext(SettingContext);

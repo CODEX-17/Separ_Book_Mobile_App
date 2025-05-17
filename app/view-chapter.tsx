@@ -14,9 +14,10 @@ import { useRouter, useGlobalSearchParams } from "expo-router";
 import { SettingContext } from "./context/SettingContext";
 import COLORS from "./constants/colors";
 import { getStoreData, storeData, removeStorageData } from "./Utils/storage";
-import { Setting, Verse } from "./types/interfaces";
+import { Profile, Setting, Verse } from "./types/interfaces";
 import Icon from "react-native-vector-icons/Feather";
 import Icon1 from "react-native-vector-icons/MaterialCommunityIcons";
+import { useLevelTimer } from "./Utils/useLevelTimer";
 
 const ViewChapter = () => {
   const router = useRouter();
@@ -49,6 +50,8 @@ const ViewChapter = () => {
 
   const [favoriteList, setFavoriteList] = useState<number[]>([]);
   const [isFavorite, setIsFavorite] = useState(false);
+
+  const [profile, setProfile] = useState<Profile>();
 
   const menuList = [
     {
@@ -110,6 +113,20 @@ const ViewChapter = () => {
       icon: <Icon name="share" color={themeColors.primary} size={25} />,
     },
   ];
+
+  useEffect(() => {
+    const getData = async () => {
+      const profileData = await getStoreData("PROFILE");
+
+      if (profileData) {
+        setProfile(profileData);
+      } else {
+        return null;
+      }
+    };
+
+    getData();
+  }, []);
 
   useEffect(() => {
     //removeStorageData('FAVORITE')
@@ -209,6 +226,25 @@ const ViewChapter = () => {
       alert("Error adding favorite");
     }
   };
+
+  const level = useLevelTimer(30000);
+
+  if (!profile) return null;
+
+  if (level === 1 && profile) {
+    setProfile((oldData) => {
+      if (!oldData) return oldData;
+      return {
+        ...oldData,
+        level: oldData.level + 1,
+        name: oldData.name,
+        rank: oldData.rank,
+      };
+    });
+
+    console.log(profile);
+    storeData("PROFILE", profile);
+  }
 
   return (
     <View

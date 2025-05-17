@@ -13,6 +13,7 @@ import { TabsRoutes } from "../types/type";
 import { BottomNavigationContext } from "../context/BottomNavigationContext";
 import Icon from "react-native-vector-icons/Feather";
 import Icon1 from "react-native-vector-icons/FontAwesome";
+import Icon2 from "react-native-vector-icons/FontAwesome6";
 
 const Menus = () => {
   const bottomNavigationContext = useContext(BottomNavigationContext);
@@ -60,6 +61,12 @@ const Menus = () => {
       ),
     },
     {
+      title: "Room",
+      icon: (isActive: boolean) => (
+        <Icon2 name="person-praying" color={COLORS.white} size={25} />
+      ),
+    },
+    {
       title: "Random",
       icon: (isActive: boolean) => (
         <Icon1 name="random" color={COLORS.white} size={25} />
@@ -72,9 +79,21 @@ const Menus = () => {
       ),
     },
     {
+      title: "Favorites",
+      icon: (isActive: boolean) => (
+        <Icon name="heart" color={COLORS.white} size={25} />
+      ),
+    },
+    {
       title: "Settings",
       icon: (isActive: boolean) => (
         <Icon name="settings" color={COLORS.white} size={25} />
+      ),
+    },
+    {
+      title: "Developer",
+      icon: (isActive: boolean) => (
+        <Icon2 name="code" color={COLORS.white} size={25} />
       ),
     },
   ];
