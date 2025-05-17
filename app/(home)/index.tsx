@@ -22,6 +22,7 @@ import { Sidebar } from "lucide-react-native";
 import Menu from "./menu";
 import OnProgress from "./(renders)/on-progress";
 import Setting from "../setting";
+import UpdateNotification from "../updated-notification";
 
 const HomeLayout = () => {
   const bottomNavigationContext = useContext(BottomNavigationContext);
@@ -37,7 +38,7 @@ const HomeLayout = () => {
   const renderTab = () => {
     switch (bottomNavigation) {
       case "Home":
-        return <ChapterScreen />;
+        return <UpdateNotification />;
       case "Chapters":
         return <ChapterScreen />;
       case "Menu":

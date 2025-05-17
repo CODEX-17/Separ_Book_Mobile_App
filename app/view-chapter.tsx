@@ -111,6 +111,16 @@ const ViewChapter = () => {
   useEffect(() => {
     //removeStorageData('FAVORITE')
 
+    //Notification Verse
+    if (params.verseIndex) {
+      const verseIndexStr = Array.isArray(params.verseIndex)
+        ? params.verseIndex[0]
+        : params.verseIndex;
+      const index = parseInt(verseIndexStr);
+      console.log(chapterList[index]);
+      setSelectedVerse(chapterList[index]);
+    }
+
     const getAllFavorites = async () => {
       const favorites: any = await getStoreData("FAVORITE");
       setFavoriteList(favorites.verseIndex);
@@ -230,10 +240,10 @@ const ViewChapter = () => {
               <View style={{ flexDirection: "column" }}>
                 <Text
                   style={[styles.chapter, { color: themeColors.primaryText }]}
-                >{`Chapter ${selectedVerse?.chapter}`}</Text>
+                >{`Chapter ${selectedVerse && selectedVerse?.chapter}`}</Text>
                 <Text
                   style={[styles.verse, { color: themeColors.secondaryText }]}
-                >{`Verse ${selectedVerse?.verse}`}</Text>
+                >{`Verse ${selectedVerse && selectedVerse?.verse}`}</Text>
               </View>
               <TouchableOpacity onPress={() => router.push("/setting")}>
                 <Settings color={themeColors.primary} size={25} />
