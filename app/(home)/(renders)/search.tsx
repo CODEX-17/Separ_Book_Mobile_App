@@ -7,7 +7,6 @@ import {
   ScrollView,
   TouchableOpacity,
 } from "react-native";
-import { Search } from "lucide-react-native";
 import LottieView from "lottie-react-native";
 import { shortenText } from "../../Utils/textUtils";
 import { separ as chapterList } from "@/app/data/chapters";
@@ -17,6 +16,7 @@ import { useRouter } from "expo-router";
 import { getChapter } from "@/app/Utils/getChapter";
 import { SettingContext } from "@/app/context/SettingContext";
 import COLORS from "@/app/constants/colors";
+import Icon from "react-native-vector-icons/Feather";
 
 const MyComponent = () => {
   type Verse = {
@@ -89,7 +89,7 @@ const MyComponent = () => {
       <View
         style={[styles.inputContainer, { backgroundColor: themeColors.card }]}
       >
-        <Search size={20} color={themeColors.primary} />
+        <Icon name="search" size={20} color={themeColors.primary} />
         <TextInput
           style={[styles.input, { color: themeColors.primaryText }]}
           onChangeText={handleSearch}

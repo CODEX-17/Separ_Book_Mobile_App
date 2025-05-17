@@ -114,7 +114,7 @@ async function schedulePushNotification() {
     content: {
       title: "Daily Verse",
       body: `Chapter: ${verseList[ramdomIndex].chapter} Verse: ${verseList[ramdomIndex].verse}
-            \n${verseList[ramdomIndex].content}
+            ${verseList[ramdomIndex].content}
       `,
       data: { data: "goes here", test: { test1: "more data" } },
     },

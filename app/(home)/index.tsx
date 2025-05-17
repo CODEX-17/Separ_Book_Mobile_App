@@ -18,7 +18,6 @@ import Animated, {
 } from "react-native-reanimated";
 import Calendar from "./(renders)/(calendar)/index";
 import { StatusBar } from "expo-status-bar";
-import { Sidebar } from "lucide-react-native";
 import Menu from "./menu";
 import OnProgress from "./(renders)/on-progress";
 import Setting from "../setting";

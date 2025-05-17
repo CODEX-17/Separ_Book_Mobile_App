@@ -9,24 +9,14 @@ import {
 } from "react-native";
 import { ChapterContext } from "./context/ChapterContex";
 import { separ as chapterList } from "./data/chapters";
-import {
-  SkipForward,
-  SkipBack,
-  Undo2,
-  Heart,
-  AArrowDown,
-  AArrowUp,
-  ImageDown,
-  Settings,
-  Moon,
-  Sun,
-} from "lucide-react-native";
 import ScreenShot from "./(home)/screen-shot";
 import { useRouter, useGlobalSearchParams } from "expo-router";
 import { SettingContext } from "./context/SettingContext";
 import COLORS from "./constants/colors";
 import { getStoreData, storeData, removeStorageData } from "./Utils/storage";
 import { Setting, Verse } from "./types/interfaces";
+import Icon from "react-native-vector-icons/Feather";
+import Icon1 from "react-native-vector-icons/MaterialCommunityIcons";
 
 const ViewChapter = () => {
   const router = useRouter();
@@ -64,18 +54,19 @@ const ViewChapter = () => {
     {
       name: "prev",
       function: () => handleSwitchVerse("prev"),
-      icon: <SkipBack color={themeColors.primary} size={25} />,
+      icon: <Icon name="skip-back" color={themeColors.primary} size={25} />,
     },
     {
       name: "next",
       function: () => handleSwitchVerse("next"),
-      icon: <SkipForward color={themeColors.primary} size={25} />,
+      icon: <Icon name="skip-forward" color={themeColors.primary} size={25} />,
     },
     {
       name: "heart",
       function: () => handleFavorite(currentChapter),
       icon: (
-        <Heart
+        <Icon
+          name="heart"
           color={isFavorite ? COLORS.red : themeColors.primary}
           size={25}
         />
@@ -84,42 +75,44 @@ const ViewChapter = () => {
     {
       name: "addFontSize",
       function: () => handleAddFontSize("add"),
-      icon: <AArrowUp color={themeColors.primary} size={25} />,
+      icon: (
+        <Icon1
+          name="format-font-size-increase"
+          color={themeColors.primary}
+          size={25}
+        />
+      ),
     },
     {
       name: "minusFontSize",
       function: () => handleAddFontSize("minus"),
-      icon: <AArrowDown color={themeColors.primary} size={25} />,
+      icon: (
+        <Icon1
+          name="format-font-size-decrease"
+          color={themeColors.primary}
+          size={25}
+        />
+      ),
     },
     {
       name: "theme",
       function: () => handleTheme(),
       icon:
         objSetting.theme === "dark" ? (
-          <Sun color={themeColors.primary} size={25} />
+          <Icon name="sun" color={themeColors.primary} size={25} />
         ) : (
-          <Moon color={themeColors.primary} size={25} />
+          <Icon name="moon" color={themeColors.primary} size={25} />
         ),
     },
     {
       name: "download",
       function: () => handleSave(),
-      icon: <ImageDown color={themeColors.primary} size={25} />,
+      icon: <Icon name="share" color={themeColors.primary} size={25} />,
     },
   ];
 
   useEffect(() => {
     //removeStorageData('FAVORITE')
-
-    //Notification Verse
-    if (params.verseIndex) {
-      const verseIndexStr = Array.isArray(params.verseIndex)
-        ? params.verseIndex[0]
-        : params.verseIndex;
-      const index = parseInt(verseIndexStr);
-      console.log(chapterList[index]);
-      setSelectedVerse(chapterList[index]);
-    }
 
     const getAllFavorites = async () => {
       const favorites: any = await getStoreData("FAVORITE");
@@ -235,7 +228,11 @@ const ViewChapter = () => {
           <View style={styles.display}>
             <View style={styles.header}>
               <TouchableOpacity onPress={() => handleback()}>
-                <Undo2 color={themeColors.primary} size={25} />
+                <Icon
+                  name="chevron-left"
+                  color={themeColors.primary}
+                  size={25}
+                />
               </TouchableOpacity>
               <View style={{ flexDirection: "column" }}>
                 <Text
@@ -246,7 +243,7 @@ const ViewChapter = () => {
                 >{`Verse ${selectedVerse && selectedVerse?.verse}`}</Text>
               </View>
               <TouchableOpacity onPress={() => router.push("/setting")}>
-                <Settings color={themeColors.primary} size={25} />
+                <Icon name="settings" color={themeColors.primary} size={25} />
               </TouchableOpacity>
             </View>
             <View style={styles.displayContent}>

@@ -10,14 +10,8 @@ import {
 import { BottomNavigationContext } from "../context/BottomNavigationContext";
 import { SettingContext } from "../context/SettingContext";
 import COLORS from "../constants/colors";
-import {
-  House,
-  Book,
-  Search,
-  CalendarDays,
-  Dices,
-  Menu,
-} from "lucide-react-native";
+import Icon from "react-native-vector-icons/Feather";
+import Icon1 from "react-native-vector-icons/FontAwesome";
 import { TabsRoutes } from "../types/type";
 
 const BottomNavigation = () => {
@@ -44,7 +38,8 @@ const BottomNavigation = () => {
     {
       title: "Home",
       icon: (isActive: boolean) => (
-        <House
+        <Icon
+          name="home"
           color={isActive ? themeColors.highlight : themeColors.secondaryText}
           size={25}
         />
@@ -53,7 +48,8 @@ const BottomNavigation = () => {
     {
       title: "Calendar",
       icon: (isActive: boolean) => (
-        <CalendarDays
+        <Icon
+          name="calendar"
           color={isActive ? themeColors.highlight : themeColors.secondaryText}
           size={25}
         />
@@ -62,7 +58,8 @@ const BottomNavigation = () => {
     {
       title: "Chapters",
       icon: (isActive: boolean) => (
-        <Book
+        <Icon
+          name="book"
           color={isActive ? themeColors.highlight : themeColors.secondaryText}
           size={25}
         />
@@ -71,7 +68,8 @@ const BottomNavigation = () => {
     {
       title: "Random",
       icon: (isActive: boolean) => (
-        <Dices
+        <Icon1
+          name="random"
           color={isActive ? themeColors.highlight : themeColors.secondaryText}
           size={25}
         />
@@ -80,7 +78,8 @@ const BottomNavigation = () => {
     {
       title: "Menu",
       icon: (isActive: boolean) => (
-        <Menu
+        <Icon
+          name="menu"
           color={isActive ? themeColors.highlight : themeColors.secondaryText}
           size={25}
         />

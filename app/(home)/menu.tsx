@@ -9,17 +9,10 @@ import {
 import COLORS from "../constants/colors";
 import { SettingContext } from "../context/SettingContext";
 import { useAnimatedStyle, useSharedValue } from "react-native-reanimated";
-import {
-  House,
-  Book,
-  Search,
-  CalendarDays,
-  Dices,
-  Settings,
-  ListMusic,
-} from "lucide-react-native";
 import { TabsRoutes } from "../types/type";
 import { BottomNavigationContext } from "../context/BottomNavigationContext";
+import Icon from "react-native-vector-icons/Feather";
+import Icon1 from "react-native-vector-icons/FontAwesome";
 
 const Menus = () => {
   const bottomNavigationContext = useContext(BottomNavigationContext);
@@ -50,29 +43,39 @@ const Menus = () => {
   const buttonList: ButtonListType[] = [
     {
       title: "Search",
-      icon: (isActive: boolean) => <Search color={COLORS.white} size={25} />,
+      icon: (isActive: boolean) => (
+        <Icon name="search" color={COLORS.white} size={25} />
+      ),
     },
     {
       title: "Calendar",
       icon: (isActive: boolean) => (
-        <CalendarDays color={COLORS.white} size={25} />
+        <Icon name="calendar" color={COLORS.white} size={25} />
       ),
     },
     {
       title: "Chapters",
-      icon: (isActive: boolean) => <Book color={COLORS.white} size={25} />,
+      icon: (isActive: boolean) => (
+        <Icon name="book" color={COLORS.white} size={25} />
+      ),
     },
     {
       title: "Random",
-      icon: (isActive: boolean) => <Dices color={COLORS.white} size={25} />,
+      icon: (isActive: boolean) => (
+        <Icon1 name="random" color={COLORS.white} size={25} />
+      ),
     },
     {
       title: "Music",
-      icon: (isActive: boolean) => <ListMusic color={COLORS.white} size={25} />,
+      icon: (isActive: boolean) => (
+        <Icon name="music" color={COLORS.white} size={25} />
+      ),
     },
     {
       title: "Settings",
-      icon: (isActive: boolean) => <Settings color={COLORS.white} size={25} />,
+      icon: (isActive: boolean) => (
+        <Icon name="settings" color={COLORS.white} size={25} />
+      ),
     },
   ];
 
