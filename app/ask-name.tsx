@@ -87,6 +87,9 @@ const AskName = () => {
     textScale.value = 0;
     inputProgress.value = "none";
     buttonProgress.value = "none";
+
+    console.log("User Name:", userName);
+
     setTextLabel(userName ?? "");
 
     if (!userName) return;
@@ -114,24 +117,6 @@ const AskName = () => {
     inputProgress.value = withSpring("flex", { damping: 10, stiffness: 364 });
     inputPosition.value = withSpring(0, { damping: 10, stiffness: 364 });
   }, []);
-
-  // useEffect(() => {
-  //     if (userName) {
-  //         setTimeout(() => {
-  //             buttonProgress.value = withTiming('flex', { duration: 1000, easing: Easing.ease})
-  //             buttonPosition.value = withSpring(0, { damping: 10, stiffness: 50 });
-  //             buttonPosition.value = withRepeat(
-  //                         withTiming(0, { duration: 800 }), // Fade in/out in 1s
-  //                         -1, // Infinite loop
-  //                         true // Reverse animation (fades in and out)
-  //             )
-  //         }, 1000)
-
-  //     }else {
-  //         buttonProgress.value = withTiming('none', { duration: 1000, easing: Easing.ease})
-  //         buttonPosition.value = 20
-  //     }
-  // }, [userName]);
 
   return (
     <View style={styles.container}>

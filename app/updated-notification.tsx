@@ -6,6 +6,7 @@ import Constants from "expo-constants";
 import { separ as verseList } from "./data/chapters";
 import { useRouter } from "expo-router";
 import { ChapterContext } from "./context/ChapterContex";
+import { getStoreData } from "./Utils/storage";
 
 Notifications.setNotificationHandler({
   handleNotification: async () => ({
@@ -39,6 +40,20 @@ export default function UpdateNotification() {
     null
   );
   const responseListener = useRef<Notifications.EventSubscription | null>(null);
+
+  useEffect(() => {
+    const getData = async () => {
+      const profileData = await getStoreData("PROFILE");
+
+      if (profileData) {
+        console.log(profileData.name);
+      } else {
+        return null;
+      }
+    };
+
+    getData();
+  }, []);
 
   useEffect(() => {
     setCurrentChapter(ramdomIndex);

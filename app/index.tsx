@@ -67,9 +67,9 @@ const WelcomeScreen = () => {
   const handleStart = () => {
     if (profile) {
       router.push("/(home)");
+    } else {
+      router.push("/ask-name");
     }
-
-    router.push("/ask-name");
   };
 
   return (
