@@ -93,6 +93,7 @@ const WelcomeScreen = () => {
             styleButton={[{ borderRadius: 50, backgroundColor: "#fff" }]}
             styleText={{ color: "#003092" }}
           />
+          <Text style={[styles.text, { fontSize: 15 }]}>Version 1.0.0</Text>
         </View>
 
         <View style={styles.footer}>

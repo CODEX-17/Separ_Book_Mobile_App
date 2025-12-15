@@ -11,6 +11,7 @@ export default function RenderLayout() {
         <Stack.Screen name="random" />
         <Stack.Screen name="search" />
         <Stack.Screen name="feast" />
+        <Stack.Screen name="developer" />
         <Stack.Screen name="(calendar)" />
       </Stack>
     </View>

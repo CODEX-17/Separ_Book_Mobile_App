@@ -77,7 +77,13 @@ const Header: FC<HeaderProps> = ({ setModalVisible }) => {
   return (
     <View style={styles.container}>
       <Animated.View style={translateXAnimation}>
-        <Icon name="chevron-left" color={themeColors.secondaryText} size={25} />
+        <TouchableOpacity onPress={() => router.back()}>
+          <Icon
+            name="chevron-left"
+            color={themeColors.secondaryText}
+            size={25}
+          />
+        </TouchableOpacity>
       </Animated.View>
       <Text style={[styles.text, { color: themeColors.primary }]}>
         {bottomNavigation}

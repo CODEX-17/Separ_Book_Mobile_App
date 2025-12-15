@@ -120,17 +120,20 @@ const ChapterScreen = () => {
             marginTop: 20,
           }}
         >
-          <TouchableOpacity
-            style={{ flexDirection: "row", gap: 5 }}
-            onPress={() => {
-              setVerseList(null), setSelectedChapter(null);
-            }}
-          >
-            <AntDesign name="back" color={themeColors.primary} size={20} />
-            <Text
-              style={{ fontSize: 15, color: themeColors.primaryText }}
-            >{`Back`}</Text>
-          </TouchableOpacity>
+          {selectedChapter && (
+            <TouchableOpacity
+              style={{ flexDirection: "row", gap: 5 }}
+              onPress={() => {
+                setVerseList(null), setSelectedChapter(null);
+              }}
+            >
+              <AntDesign name="back" color={themeColors.primary} size={20} />
+              <Text
+                style={{ fontSize: 15, color: themeColors.primaryText }}
+              >{`Back`}</Text>
+            </TouchableOpacity>
+          )}
+
           <TouchableOpacity
             style={{ flexDirection: "row", gap: 5 }}
             onPress={scrollToBottom}

@@ -8,7 +8,6 @@ import {
   Platform,
 } from "react-native";
 import { useRouter } from "expo-router";
-import { SafeAreaView } from "react-native-safe-area-context";
 import { SettingContext } from "./context/SettingContext";
 import Icon from "react-native-vector-icons/Feather";
 import COLORS from "./constants/colors";

@@ -23,6 +23,8 @@ import OnProgress from "./(renders)/on-progress";
 import Setting from "../setting";
 import UpdateNotification from "../updated-notification";
 import Favorites from "./(renders)/favorites";
+import Home from "../home";
+import Developer from "./(renders)/developer";
 
 const HomeLayout = () => {
   const bottomNavigationContext = useContext(BottomNavigationContext);
@@ -38,7 +40,7 @@ const HomeLayout = () => {
   const renderTab = () => {
     switch (bottomNavigation) {
       case "Home":
-        return <UpdateNotification />;
+        return <Home />;
       case "Chapters":
         return <ChapterScreen />;
       case "Menu":
@@ -50,7 +52,7 @@ const HomeLayout = () => {
       case "Music":
         return <OnProgress />;
       case "Developer":
-        return <OnProgress />;
+        return <Developer />;
       case "Settings":
         return <Setting />;
       case "Calendar":

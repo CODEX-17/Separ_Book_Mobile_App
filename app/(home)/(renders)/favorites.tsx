@@ -77,7 +77,7 @@ const Favorites = () => {
   return (
     <View style={styles.container}>
       <Text style={{ ...stylesList.title, color: themeColors.primaryText }}>
-        Favorites Verse List
+        Favorite Verse List
       </Text>
 
       {!isLoading ? (
