@@ -33,7 +33,7 @@ const Developer = () => {
       <Image style={styles.image} source={imageSource} />
       <Text
         allowFontScaling={false}
-        style={[styles.title, { fontSize: 20, color: themeColors.primaryText }]}
+        style={[styles.title, { fontSize: 16, color: themeColors.primaryText }]}
       >
         The Developer (C0D3X)
       </Text>
@@ -41,9 +41,9 @@ const Developer = () => {
         allowFontScaling={false}
         style={{
           color: themeColors.primaryText,
-          fontSize: 16,
+          fontSize: 12,
           textAlign: "center",
-          marginTop: 20,
+          marginTop: 10,
           fontFamily: FONTS.regular,
         }}
       >
@@ -195,13 +195,13 @@ const styles = StyleSheet.create({
   },
   boldText: {
     fontWeight: "bold",
-    fontSize: 16,
+    fontSize: 14,
     fontFamily: FONTS.bold,
   },
   title: {
     fontFamily: FONTS.bold,
     color: "#343434",
-    fontSize: 30,
+    fontSize: 20,
     textAlign: "center",
   },
 });
