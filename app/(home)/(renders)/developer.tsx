@@ -32,11 +32,13 @@ const Developer = () => {
     >
       <Image style={styles.image} source={imageSource} />
       <Text
+        allowFontScaling={false}
         style={[styles.title, { fontSize: 20, color: themeColors.primaryText }]}
       >
         The Developer (C0D3X)
       </Text>
       <Text
+        allowFontScaling={false}
         style={{
           color: themeColors.primaryText,
           fontSize: 16,
@@ -46,6 +48,7 @@ const Developer = () => {
         }}
       >
         <Text
+          allowFontScaling={false}
           style={[
             styles.boldText,
             {
@@ -60,6 +63,7 @@ const Developer = () => {
         was carefully developed exclusively for the members of the Ataryahu
         Tribe. Its purpose is to provide a digitalized version of{" "}
         <Text
+          allowFontScaling={false}
           style={[
             styles.boldText,
             {
@@ -76,6 +80,7 @@ const Developer = () => {
       </Text>
 
       <Text
+        allowFontScaling={false}
         style={[
           styles.title,
           { fontSize: 15, color: themeColors.primaryText, marginTop: 20 },
@@ -96,6 +101,7 @@ const Developer = () => {
               size={25}
             />
             <Text
+              allowFontScaling={false}
               style={[
                 styles.boldText,
                 {
@@ -121,6 +127,7 @@ const Developer = () => {
               size={25}
             />
             <Text
+              allowFontScaling={false}
               style={[
                 styles.boldText,
                 {
@@ -148,6 +155,7 @@ const Developer = () => {
               size={25}
             />
             <Text
+              allowFontScaling={false}
               style={[
                 styles.boldText,
                 {

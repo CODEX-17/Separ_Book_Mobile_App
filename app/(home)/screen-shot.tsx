@@ -86,12 +86,18 @@ const ScreenShot: React.FC<ScreenShotProps> = ({
       <View style={styles.display} ref={imageRef} collapsable={false}>
         <View style={{ flexDirection: "column" }}>
           <Text
+            allowFontScaling={false}
             style={styles.chapter}
           >{`Chapter ${selectedVerse?.chapter}`}</Text>
-          <Text style={styles.verse}>{`Verse ${selectedVerse?.verse}`}</Text>
+          <Text
+            allowFontScaling={false}
+            style={styles.verse}
+          >{`Verse ${selectedVerse?.verse}`}</Text>
         </View>
 
-        <Text style={styles.contentText}>{selectedVerse?.content}</Text>
+        <Text allowFontScaling={false} style={styles.contentText}>
+          {selectedVerse?.content}
+        </Text>
       </View>
       <View style={styles.menu}>
         <TouchableOpacity onPress={() => setIsShowPreview(false)}>

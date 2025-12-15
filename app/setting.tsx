@@ -33,6 +33,7 @@ const Setting = () => {
     <View style={styles.container}>
       <View style={styles.header}>
         <Text
+          allowFontScaling={false}
           style={[
             styles.title,
             { fontSize: 20, color: themeColors.primaryText },
@@ -44,6 +45,7 @@ const Setting = () => {
       <View style={styles.content}>
         <View style={{ flexDirection: "row", alignItems: "center", gap: 10 }}>
           <Text
+            allowFontScaling={false}
             style={[
               styles.title,
               { fontSize: 18, color: themeColors.primaryText },
@@ -57,6 +59,7 @@ const Setting = () => {
             <Icon name="plus" color="#003092" size={25} />
           </TouchableOpacity>
           <TextInput
+            allowFontScaling={false}
             style={[
               styles.input,
               {

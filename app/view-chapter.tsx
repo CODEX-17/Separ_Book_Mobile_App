@@ -272,9 +272,11 @@ const ViewChapter = () => {
               </TouchableOpacity>
               <View style={{ flexDirection: "column" }}>
                 <Text
+                  allowFontScaling={false}
                   style={[styles.chapter, { color: themeColors.primaryText }]}
                 >{`Chapter ${selectedVerse && selectedVerse?.chapter}`}</Text>
                 <Text
+                  allowFontScaling={false}
                   style={[styles.verse, { color: themeColors.secondaryText }]}
                 >{`Verse ${selectedVerse && selectedVerse?.verse}`}</Text>
               </View>
@@ -286,6 +288,7 @@ const ViewChapter = () => {
               {selectedVerse && selectedVerse.content.length > 400 ? (
                 <ScrollView style={{ padding: 10 }}>
                   <Text
+                    allowFontScaling={false}
                     style={[
                       styles.contentText,
                       {
@@ -299,6 +302,7 @@ const ViewChapter = () => {
                 </ScrollView>
               ) : (
                 <Text
+                  allowFontScaling={false}
                   style={[
                     styles.contentText,
                     {
@@ -372,13 +376,13 @@ const styles = StyleSheet.create({
   chapter: {
     fontFamily: "Poppins-Bold",
     color: "#343434",
-    fontSize: 40,
+    fontSize: 20,
     textAlign: "center",
   },
   verse: {
     fontFamily: "Poppins-Regular",
     color: "#343434",
-    fontSize: 20,
+    fontSize: 15,
     textAlign: "center",
   },
   contentText: {

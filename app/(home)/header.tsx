@@ -85,7 +85,10 @@ const Header: FC<HeaderProps> = ({ setModalVisible }) => {
           />
         </TouchableOpacity>
       </Animated.View>
-      <Text style={[styles.text, { color: themeColors.primary }]}>
+      <Text
+        allowFontScaling={false}
+        style={[styles.text, { color: themeColors.primary }]}
+      >
         {bottomNavigation}
       </Text>
       <View style={{ flexDirection: "row", gap: 10 }}>

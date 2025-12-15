@@ -100,7 +100,10 @@ const Menus = () => {
 
   return (
     <View style={[styles.container, backgroundAnimation]}>
-      <Text style={[styles.title, { color: themeColors.primary }]}>
+      <Text
+        allowFontScaling={false}
+        style={[styles.title, { color: themeColors.primary }]}
+      >
         Other Menu
       </Text>
       <View style={styles.menuList}>
@@ -113,7 +116,9 @@ const Menus = () => {
               >
                 <View key={index} style={styles.btn}>
                   {item.icon(true)}
-                  <Text style={styles.text}>{item.title}</Text>
+                  <Text allowFontScaling={false} style={styles.text}>
+                    {item.title}
+                  </Text>
                 </View>
               </TouchableOpacity>
             ))}

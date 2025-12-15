@@ -91,16 +91,23 @@ const WelcomeScreen = () => {
             onPress={handleStart}
             width={250}
             styleButton={[{ borderRadius: 50, backgroundColor: "#fff" }]}
-            styleText={{ color: "#003092" }}
+            styleText={{ color: "#003092", allowFontScaling: false }}
           />
-          <Text style={[styles.text, { fontSize: 15 }]}>Version 1.0.0</Text>
+          <Text
+            style={[styles.text, { fontSize: 15 }]}
+            allowFontScaling={false}
+          >
+            Version 1.0.0
+          </Text>
         </View>
 
         <View style={styles.footer}>
-          <Text style={[styles.text, { fontSize: 9 }]}>
+          <Text style={[styles.text, { fontSize: 9 }]} allowFontScaling={false}>
             Develop by Rumar Pamparo
           </Text>
-          <Text style={styles.text}>@All Right Reserved 2025</Text>
+          <Text style={[styles.text]} allowFontScaling={false}>
+            @All Right Reserved 2025
+          </Text>
         </View>
       </ImageBackground>
     </Animated.View>

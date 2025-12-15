@@ -16,10 +16,16 @@ const OnProgress = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={[styles.title, { color: themeColors.primary }]}>
+      <Text
+        allowFontScaling={false}
+        style={[styles.title, { color: themeColors.primary }]}
+      >
         This tab is still cooking...
       </Text>
-      <Text style={[styles.subtitle, { color: themeColors.primary }]}>
+      <Text
+        allowFontScaling={false}
+        style={[styles.subtitle, { color: themeColors.primary }]}
+      >
         Please check back later
       </Text>
       <LottieView

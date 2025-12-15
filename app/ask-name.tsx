@@ -121,11 +121,16 @@ const AskName = () => {
   return (
     <View style={styles.container}>
       <Animated.View style={[styles.labelContainer, textAnimation]}>
-        <Text style={styles.questionText}>Shalom!</Text>
-        <Text style={styles.questionTextRegular}>{textLabel}</Text>
+        <Text allowFontScaling={false} style={styles.questionText}>
+          Shalom!
+        </Text>
+        <Text allowFontScaling={false} style={styles.questionTextRegular}>
+          {textLabel}
+        </Text>
       </Animated.View>
       <Animated.View style={inputAnimation}>
         <TextInput
+          allowFontScaling={false}
           style={[styles.input]}
           onChangeText={handleSearch}
           placeholder="ex. Salem"

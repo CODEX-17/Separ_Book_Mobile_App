@@ -5,7 +5,7 @@ import * as SplashScreen from "expo-splash-screen";
 import { useFonts } from "expo-font";
 import { useEffect } from "react";
 import { Stack } from "expo-router";
-import { getStoreData, storeData } from "./Utils/storage";
+import { Text, TextInput } from "react-native";
 import {
   listenForNotificationResponse,
   scheduleNotificationDaily,
@@ -13,6 +13,12 @@ import {
 } from "./Utils/notification";
 
 SplashScreen.preventAutoHideAsync();
+
+(Text as any).defaultProps ??= {};
+(Text as any).defaultProps.allowFontScaling = false;
+
+(TextInput as any).defaultProps ??= {};
+(TextInput as any).defaultProps.allowFontScaling = false;
 
 export default function RootLayout() {
   const today = new Date();

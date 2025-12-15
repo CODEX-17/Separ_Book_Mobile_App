@@ -132,6 +132,7 @@ const BottomNavigation = () => {
             >
               {btn.icon(isActive())}
               <Text
+                allowFontScaling={false}
                 style={[
                   styles.buttonText,
                   {

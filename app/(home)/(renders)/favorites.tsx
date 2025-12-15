@@ -76,7 +76,10 @@ const Favorites = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={{ ...stylesList.title, color: themeColors.primaryText }}>
+      <Text
+        allowFontScaling={false}
+        style={{ ...stylesList.title, color: themeColors.primaryText }}
+      >
         Favorite Verse List
       </Text>
 
@@ -106,6 +109,7 @@ const Favorites = () => {
                     key={index}
                   >
                     <Text
+                      allowFontScaling={false}
                       style={{
                         ...stylesList.title,
                         color: themeColors.primaryText,
@@ -115,6 +119,7 @@ const Favorites = () => {
                       Chapter {currentVerse.chapter}
                     </Text>
                     <Text
+                      allowFontScaling={false}
                       style={{
                         ...stylesList.subtitle,
                         color: themeColors.primaryText,
@@ -124,6 +129,7 @@ const Favorites = () => {
                       Verse {currentVerse.verse}
                     </Text>
                     <Text
+                      allowFontScaling={false}
                       style={{
                         ...stylesList.subtitle,
                         color: themeColors.primaryText,
@@ -161,7 +167,7 @@ const Favorites = () => {
           </View>
         ) : (
           <View>
-            <Text>No data.</Text>
+            <Text allowFontScaling={false}>No data.</Text>
           </View>
         ))
       ) : (

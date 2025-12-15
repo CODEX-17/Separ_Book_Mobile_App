@@ -100,7 +100,12 @@ const OnBoardScreen = () => {
         {selectedContent?.index < 4 && (
           <View style={styles.btnSkip}>
             <Pressable onPress={() => router.push("/(home)")}>
-              <Text style={[styles.subtitle, { fontSize: 20 }]}>Skip</Text>
+              <Text
+                allowFontScaling={false}
+                style={[styles.subtitle, { fontSize: 20 }]}
+              >
+                Skip
+              </Text>
             </Pressable>
             <Icon name="navigate-next" color="'#343434'" size={25} />
           </View>
@@ -112,8 +117,12 @@ const OnBoardScreen = () => {
           </Animated.View>
 
           <Animated.View style={[popAnimation, { marginBottom: 20 }]}>
-            <Text style={styles.title}>{selectedContent?.title}</Text>
-            <Text style={styles.subtitle}>{selectedContent?.subtitle}</Text>
+            <Text allowFontScaling={false} style={styles.title}>
+              {selectedContent?.title}
+            </Text>
+            <Text allowFontScaling={false} style={styles.subtitle}>
+              {selectedContent?.subtitle}
+            </Text>
           </Animated.View>
 
           <View style={{ gap: 15 }}>

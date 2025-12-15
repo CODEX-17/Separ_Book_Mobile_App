@@ -103,6 +103,7 @@ const Calendar = () => {
                 >
                   {item.icon(isActive)}
                   <Text
+                    allowFontScaling={false}
                     style={[
                       styles.title,
                       {
@@ -121,10 +122,16 @@ const Calendar = () => {
         </View>
       </View>
       <View style={{ width: "100%", marginBottom: 20, alignItems: "center" }}>
-        <Text style={[styles.title, { color: themeColors.primaryText }]}>
+        <Text
+          allowFontScaling={false}
+          style={[styles.title, { color: themeColors.primaryText }]}
+        >
           {selectedMenu} Date List
         </Text>
-        <Text style={[styles.subtitle, { color: themeColors.secondaryText }]}>
+        <Text
+          allowFontScaling={false}
+          style={[styles.subtitle, { color: themeColors.secondaryText }]}
+        >
           {menuList[selectedMenu === "New Moon" ? 0 : 1].description}
         </Text>
       </View>
@@ -177,6 +184,7 @@ const Calendar = () => {
                     ]}
                   >
                     <Text
+                      allowFontScaling={false}
                       style={[
                         styles.textDate,
                         { color: themeColors.primaryText },
@@ -185,6 +193,7 @@ const Calendar = () => {
                       {item.name}
                     </Text>
                     <Text
+                      allowFontScaling={false}
                       style={[
                         styles.textTime,
                         { color: themeColors.primaryText },
@@ -200,6 +209,7 @@ const Calendar = () => {
                     </Text>
                     {isCurrentFeast && (
                       <Text
+                        allowFontScaling={false}
                         style={[
                           styles.textTime,
                           { color: themeColors.secondaryText },
@@ -227,6 +237,7 @@ const Calendar = () => {
                   ]}
                 >
                   <Text
+                    allowFontScaling={false}
                     style={[
                       styles.textDate,
                       { color: themeColors.primaryText },
@@ -235,6 +246,7 @@ const Calendar = () => {
                     {moon.date}
                   </Text>
                   <Text
+                    allowFontScaling={false}
                     style={[
                       styles.textTime,
                       { color: themeColors.secondaryText },
@@ -244,6 +256,7 @@ const Calendar = () => {
                   </Text>
                   {index === currentDate && (
                     <Text
+                      allowFontScaling={false}
                       style={[
                         styles.textTime,
                         { color: themeColors.secondaryText },

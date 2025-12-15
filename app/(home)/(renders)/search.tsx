@@ -91,6 +91,7 @@ const MyComponent = () => {
       >
         <Icon name="search" size={20} color={themeColors.primary} />
         <TextInput
+          allowFontScaling={false}
           style={[styles.input, { color: themeColors.primaryText }]}
           onChangeText={handleSearch}
           placeholder="Search"
@@ -98,7 +99,10 @@ const MyComponent = () => {
           value={text}
         />
       </View>
-      <Text style={[styles.label, { color: themeColors.primaryText }]}>
+      <Text
+        allowFontScaling={false}
+        style={[styles.label, { color: themeColors.primaryText }]}
+      >
         Search Result: {resultList.length}
       </Text>
       <ScrollView style={styles.cardList}>
@@ -118,18 +122,21 @@ const MyComponent = () => {
                 key={index}
               >
                 <Text
+                  allowFontScaling={false}
                   style={[
                     styles.chapterText,
                     { color: themeColors.primaryText },
                   ]}
                 >{`Chapter ${data.chapter}`}</Text>
                 <Text
+                  allowFontScaling={false}
                   style={[
                     styles.verseText,
                     { color: themeColors.secondaryText },
                   ]}
                 >{`Verse ${data.verse}`}</Text>
                 <Text
+                  allowFontScaling={false}
                   style={[
                     styles.verseContent,
                     { color: themeColors.secondaryText },
@@ -156,6 +163,7 @@ const MyComponent = () => {
             style={{ flex: 1, alignItems: "center", justifyContent: "center" }}
           >
             <Text
+              allowFontScaling={false}
               style={[styles.verseText, { color: themeColors.primaryText }]}
             >
               No Result

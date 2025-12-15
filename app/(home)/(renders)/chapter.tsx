@@ -104,10 +104,16 @@ const ChapterScreen = () => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text style={[styles.title, { color: themeColors.primaryText }]}>
+        <Text
+          allowFontScaling={false}
+          style={[styles.title, { color: themeColors.primaryText }]}
+        >
           {selectedChapter ? "Select Verse" : "Select Chapter"}
         </Text>
-        <Text style={[styles.subtitle, { color: themeColors.secondaryText }]}>
+        <Text
+          allowFontScaling={false}
+          style={[styles.subtitle, { color: themeColors.secondaryText }]}
+        >
           {selectedChapter
             ? `Chapter ${selectedChapter}`
             : "Easily navigate through the sacred writings. Browse and select chapters to explore divine wisdom at your own pace."}
@@ -129,6 +135,7 @@ const ChapterScreen = () => {
             >
               <AntDesign name="back" color={themeColors.primary} size={20} />
               <Text
+                allowFontScaling={false}
                 style={{ fontSize: 15, color: themeColors.primaryText }}
               >{`Back`}</Text>
             </TouchableOpacity>
@@ -139,6 +146,7 @@ const ChapterScreen = () => {
             onPress={scrollToBottom}
           >
             <Text
+              allowFontScaling={false}
               style={{ fontSize: 15, color: themeColors.primaryText }}
             >{`Scroll to End`}</Text>
             <AntDesign name="down" color={themeColors.primary} size={20} />
@@ -176,6 +184,7 @@ const ChapterScreen = () => {
                     }
                   >
                     <Text
+                      allowFontScaling={false}
                       style={[
                         styles.btnTitle,
                         { color: themeColors.background },
@@ -184,6 +193,7 @@ const ChapterScreen = () => {
                       {selectedChapter ? "Verse" : "Chapter"}
                     </Text>
                     <Text
+                      allowFontScaling={false}
                       style={[
                         styles.btnNumber,
                         { color: themeColors.background },

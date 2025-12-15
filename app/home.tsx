@@ -36,26 +36,29 @@ const Home = () => {
   return (
     <View style={styles.container}>
       <Text
+        allowFontScaling={false}
         style={{
           color: themeColors.primaryText,
-          fontSize: 20,
+          fontSize: 16,
         }}
       >
         {day === 6 ? "Shabbat Shalom!" : "Shalom!"}
       </Text>
       <Text
+        allowFontScaling={false}
         style={{
           color: themeColors.primaryText,
-          fontSize: 50,
+          fontSize: 40,
           fontWeight: "bold",
         }}
       >
         {userName}
       </Text>
       <Text
+        allowFontScaling={false}
         style={{
           color: themeColors.secondaryText,
-          fontSize: 15,
+          fontSize: 13,
         }}
       >
         {today.toDateString()}

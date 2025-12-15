@@ -135,7 +135,10 @@ const RandomPick = () => {
     <View style={styles.container}>
       {(display === "prayer" && (
         <Animated.View style={[styles.prayContainer, prayerContainerAnimation]}>
-          <Text style={[styles.titlePray, { color: themeColors.primary }]}>
+          <Text
+            allowFontScaling={false}
+            style={[styles.titlePray, { color: themeColors.primary }]}
+          >
             PRAY FIRST
           </Text>
           <LottieView
@@ -145,6 +148,7 @@ const RandomPick = () => {
             style={styles.prayLottie}
           />
           <Text
+            allowFontScaling={false}
             style={[styles.subtitlePray, { color: themeColors.primaryText }]}
           >
             Remember to pray to Alyon YHWH, seeking His guidance to reveal the
@@ -155,7 +159,10 @@ const RandomPick = () => {
               disabled={btnTextContent === "Im Ready!" ? false : true}
               onPress={() => handleReady()}
             >
-              <Animated.Text style={[styles.btnText, btnTextAnimation]}>
+              <Animated.Text
+                allowFontScaling={false}
+                style={[styles.btnText, btnTextAnimation]}
+              >
                 {btnTextContent}
               </Animated.Text>
             </TouchableOpacity>
@@ -171,6 +178,7 @@ const RandomPick = () => {
               style={styles.bookLottie}
             />
             <Text
+              allowFontScaling={false}
               style={[styles.loadingText, { color: themeColors.primaryText }]}
             >
               Waiting for a Divinely Chosen Verse...
