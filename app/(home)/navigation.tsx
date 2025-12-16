@@ -157,8 +157,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    // paddingTop: 20,
-    // paddingBottom: 20,
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
 
@@ -174,7 +172,6 @@ const styles = StyleSheet.create({
   navList: {
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
-    display: "flex",
     flex: 1,
     width: "100%",
     flexDirection: "row",
@@ -182,7 +179,6 @@ const styles = StyleSheet.create({
     justifyContent: "space-around",
   },
   buttonActive: {
-    display: "flex",
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
@@ -192,7 +188,6 @@ const styles = StyleSheet.create({
     width: 60,
   },
   button: {
-    display: "flex",
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",

@@ -84,21 +84,22 @@ const WelcomeScreen = () => {
             style={styles.image}
             source={require("../assets/images/white-logo-icon.png")}
           />
-
-          <CustomizeButton
-            title={"Explore"}
-            icons={<Icon name="navigate-next" color="#003092" size={25} />}
-            onPress={handleStart}
-            width={250}
-            styleButton={[{ borderRadius: 50, backgroundColor: "#fff" }]}
-            styleText={{ color: "#003092", allowFontScaling: false }}
-          />
-          <Text
-            style={[styles.text, { fontSize: 15 }]}
-            allowFontScaling={false}
-          >
-            Version 1.0.0
-          </Text>
+          <View style={{ alignItems: "center", gap: 10 }}>
+            <CustomizeButton
+              title={"Explore"}
+              icons={<Icon name="navigate-next" color="#003092" size={25} />}
+              onPress={handleStart}
+              width={250}
+              styleButton={[{ borderRadius: 50, backgroundColor: "#fff" }]}
+              styleText={{ color: "#003092", allowFontScaling: false }}
+            />
+            <Text
+              style={[styles.text, { fontSize: 15 }]}
+              allowFontScaling={false}
+            >
+              Version 1.0.0
+            </Text>
+          </View>
         </View>
 
         <View style={styles.footer}>
@@ -128,7 +129,6 @@ const styles = StyleSheet.create({
     height: "100%",
   },
   content: {
-    display: "flex",
     alignItems: "center",
     justifyContent: "center",
     height: "90%",
@@ -140,11 +140,12 @@ const styles = StyleSheet.create({
   },
   footer: {
     alignItems: "center",
-    height: 40,
+    height: 90,
+    width: "100%",
   },
   image: {
-    width: 200,
-    height: 200,
+    width: 250,
+    height: 250,
   },
 });
 

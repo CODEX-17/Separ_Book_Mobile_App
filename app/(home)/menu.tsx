@@ -163,7 +163,6 @@ const styles = StyleSheet.create({
     aspectRatio: 1, // Keep it square
     height: 80,
     borderRadius: 15,
-    display: "flex",
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",

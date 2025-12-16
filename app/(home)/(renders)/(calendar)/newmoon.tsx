@@ -4,8 +4,6 @@ import { newMoon } from "../../../Utils/newMoonCalculation";
 import COLORS from "@/app/constants/colors";
 import LottieView from "lottie-react-native";
 import { SettingContext } from "@/app/context/SettingContext";
-import { feast as feastlList } from "../../../data/feastDateList";
-import { convertDateFormatIntoString } from "../../../Utils/dateUtils";
 
 const NewMoon = () => {
   const dateList = newMoon();

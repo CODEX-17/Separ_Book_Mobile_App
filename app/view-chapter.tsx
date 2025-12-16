@@ -12,6 +12,7 @@ import { separ as chapterList } from "./data/chapters";
 import ScreenShot from "./(home)/screen-shot";
 import { useRouter, useGlobalSearchParams } from "expo-router";
 import { SettingContext } from "./context/SettingContext";
+import { BottomNavigationContext } from "./context/BottomNavigationContext";
 import COLORS from "./constants/colors";
 import { getStoreData, storeData, removeStorageData } from "./Utils/storage";
 import { Profile, Setting, Verse } from "./types/interfaces";
@@ -25,33 +26,123 @@ const ViewChapter = () => {
 
   const settingContext = useContext(SettingContext);
   const chapterContext = useContext(ChapterContext);
+  const bottomNavigationContext = useContext(BottomNavigationContext);
 
-  if (!chapterContext || !settingContext) {
-    return false;
-  }
+  if (!chapterContext || !settingContext || !bottomNavigationContext)
+    return null;
 
   const { currentChapter, setCurrentChapter } = chapterContext;
   const { objSetting, handleChangeSetting } = settingContext;
-
-  if (!currentChapter) return null;
+  const { bottomNavigation, setBottomNavigation } = bottomNavigationContext;
 
   const themeColors = objSetting.theme === "dark" ? COLORS.dark : COLORS.light;
-
-  const [selectedVerse, setSelectedVerse] = useState<Verse | null>(
-    chapterList[currentChapter]
-  );
-
   const fontSize = objSetting.fontSize;
 
-  const [currentIndexChapter, setCurrentIndexChapter] = useState<number | null>(
-    null
-  );
+  const [selectedVerse, setSelectedVerse] = useState<Verse | null>(null);
   const [isShowPreview, setIsShowPreview] = useState(false);
-
   const [favoriteList, setFavoriteList] = useState<number[]>([]);
   const [isFavorite, setIsFavorite] = useState(false);
-
   const [profile, setProfile] = useState<Profile>();
+
+  const level = useLevelTimer(30000);
+
+  // Sync selectedVerse whenever currentChapter changes
+  useEffect(() => {
+    if (currentChapter !== null && currentChapter !== undefined) {
+      setSelectedVerse(chapterList[currentChapter]);
+    }
+  }, [currentChapter]);
+
+  // Load profile on mount
+  useEffect(() => {
+    (async () => {
+      const profileData = await getStoreData("PROFILE");
+      if (profileData) setProfile(profileData);
+    })();
+  }, []);
+
+  // Load favorite list whenever currentChapter changes
+  useEffect(() => {
+    const getAllFavorites = async () => {
+      const favorites: any = await getStoreData("FAVORITE");
+      if (!favorites) return;
+
+      if (
+        JSON.stringify(favoriteList) !== JSON.stringify(favorites.verseIndex)
+      ) {
+        setFavoriteList(favorites.verseIndex);
+      }
+
+      const isFav = favorites.verseIndex.includes(currentChapter ?? -1);
+      if (isFav !== isFavorite) setIsFavorite(isFav);
+    };
+
+    getAllFavorites();
+  }, [currentChapter]);
+
+  // Update profile level safely
+  useEffect(() => {
+    if (level === 1 && profile) {
+      setProfile((prevProfile) => {
+        if (!prevProfile) return prevProfile;
+        const updatedProfile = { ...prevProfile, level: prevProfile.level + 1 };
+        storeData("PROFILE", updatedProfile);
+        return updatedProfile;
+      });
+    }
+  }, [level]);
+
+  if (!currentChapter || !selectedVerse || !profile) return null;
+
+  const handleAddFontSize = (type: "add" | "minus") => {
+    handleChangeSetting({
+      ...objSetting,
+      fontSize: type === "add" ? fontSize + 1 : fontSize - 1,
+    });
+  };
+
+  const handleSwitchVerse = (direction: "next" | "prev") => {
+    const index =
+      direction === "next" ? currentChapter + 1 : currentChapter - 1;
+    if (index < 0 || index >= chapterList.length) return;
+    setCurrentChapter(index);
+  };
+
+  const handleFavorite = async (verseNumber: number) => {
+    try {
+      const prevData: any = await getStoreData("FAVORITE");
+      let newData: number[] = prevData?.verseIndex ?? [];
+
+      if (isFavorite) {
+        newData = newData.filter((v) => v !== verseNumber);
+      } else {
+        newData.push(verseNumber);
+      }
+
+      setFavoriteList(newData);
+      setIsFavorite(!isFavorite);
+      await storeData("FAVORITE", { verseIndex: [...new Set(newData)] });
+    } catch (e) {
+      alert("Error updating favorites");
+    }
+  };
+
+  const handleTheme = () => {
+    handleChangeSetting({
+      ...objSetting,
+      theme: objSetting.theme === "dark" ? "light" : "dark",
+    });
+  };
+
+  const handleSave = () => setIsShowPreview(true);
+
+  const handleBack = () => {
+    if (params.route === "random") {
+      router.dismiss(2);
+    } else {
+      router.dismissTo("/(home)");
+    }
+  };
 
   const menuList = [
     {
@@ -99,7 +190,7 @@ const ViewChapter = () => {
     },
     {
       name: "theme",
-      function: () => handleTheme(),
+      function: handleTheme,
       icon:
         objSetting.theme === "dark" ? (
           <Icon name="sun" color={themeColors.primary} size={25} />
@@ -109,142 +200,10 @@ const ViewChapter = () => {
     },
     {
       name: "download",
-      function: () => handleSave(),
+      function: handleSave,
       icon: <Icon name="share" color={themeColors.primary} size={25} />,
     },
   ];
-
-  useEffect(() => {
-    const getData = async () => {
-      const profileData = await getStoreData("PROFILE");
-
-      if (profileData) {
-        setProfile(profileData);
-      } else {
-        return null;
-      }
-    };
-
-    getData();
-  }, []);
-
-  useEffect(() => {
-    //removeStorageData('FAVORITE')
-
-    const getAllFavorites = async () => {
-      const favorites: any = await getStoreData("FAVORITE");
-      setFavoriteList(favorites.verseIndex);
-
-      if (favorites) {
-        const isFav = favorites.verseIndex.find(
-          (item: number) => item === currentChapter
-        );
-        setIsFavorite(isFav ? true : false);
-      }
-    };
-
-    getAllFavorites();
-  }, [favoriteList]);
-
-  useEffect(() => {
-    const getData = async () => {
-      const result = await getStoreData("SETTING");
-    };
-
-    getData();
-  }, [handleChangeSetting]);
-
-  useEffect(() => {
-    if (!selectedVerse) router.back();
-  }, [params]);
-
-  const handleAddFontSize = (type: string) => {
-    const changeSetting = {
-      ...objSetting,
-      fontSize: type === "add" ? fontSize + 1 : fontSize - 1,
-    };
-    handleChangeSetting(changeSetting);
-  };
-
-  const handleSwitchVerse = (type: string) => {
-    const index =
-      type === "next" ? (currentChapter ?? 0) + 1 : (currentChapter ?? 0) - 1;
-
-    if (index < 0 || index >= chapterList.length - 1) return;
-
-    setCurrentIndexChapter(index);
-    setCurrentChapter(index);
-    setSelectedVerse(chapterList[index]);
-  };
-
-  const handleSave = () => {
-    setIsShowPreview(true);
-  };
-
-  const handleback = () => {
-    if (params.route === "random") {
-      router.dismiss(2);
-    }
-
-    router.dismissTo("/(home)");
-  };
-
-  const handleTheme = () => {
-    const newTheme: Setting = {
-      ...objSetting,
-      theme: objSetting.theme === "dark" ? "light" : "dark",
-    };
-    handleChangeSetting(newTheme);
-  };
-
-  const handleFavorite = async (verseNumber: number) => {
-    try {
-      const prevData = await getStoreData("FAVORITE");
-
-      let newData: number[] = [];
-
-      if (!prevData) {
-        newData.push(verseNumber);
-        setFavoriteList((old) => [...old, verseNumber]);
-        storeData("FAVORITE", { verseIndex: newData });
-        return;
-      }
-
-      if (isFavorite) {
-        newData = prevData.verseIndex.filter(
-          (item: number) => item !== verseNumber
-        );
-      } else {
-        newData = [...prevData.verseIndex, verseNumber];
-      }
-
-      const updatedData = [...new Set(newData)];
-
-      setFavoriteList((old) => [...old, verseNumber]);
-      await storeData("FAVORITE", { verseIndex: updatedData });
-    } catch (e) {
-      alert("Error adding favorite");
-    }
-  };
-
-  const level = useLevelTimer(30000);
-
-  if (!profile) return null;
-
-  if (level === 1 && profile) {
-    setProfile((oldData) => {
-      if (!oldData) return oldData;
-      return {
-        ...oldData,
-        level: oldData.level + 1,
-        name: oldData.name,
-        rank: oldData.rank,
-      };
-    });
-
-    console.log(profile);
-    storeData("PROFILE", profile);
-  }
 
   return (
     <View
@@ -258,12 +217,11 @@ const ViewChapter = () => {
           />
         </View>
       )}
-
       <SafeAreaView>
         <View style={styles.content}>
           <View style={styles.display}>
             <View style={styles.header}>
-              <TouchableOpacity onPress={() => handleback()}>
+              <TouchableOpacity onPress={handleBack}>
                 <Icon
                   name="chevron-left"
                   color={themeColors.primary}
@@ -274,33 +232,26 @@ const ViewChapter = () => {
                 <Text
                   allowFontScaling={false}
                   style={[styles.chapter, { color: themeColors.primaryText }]}
-                >{`Chapter ${selectedVerse && selectedVerse?.chapter}`}</Text>
+                >
+                  {`Chapter ${selectedVerse.chapter}`}
+                </Text>
                 <Text
                   allowFontScaling={false}
                   style={[styles.verse, { color: themeColors.secondaryText }]}
-                >{`Verse ${selectedVerse && selectedVerse?.verse}`}</Text>
+                >
+                  {`Verse ${selectedVerse.verse}`}
+                </Text>
               </View>
-              <TouchableOpacity onPress={() => router.push("/setting")}>
+              <TouchableOpacity
+                onPress={() => {
+                  setBottomNavigation("Settings"), router.push("/(home)");
+                }}
+              >
                 <Icon name="settings" color={themeColors.primary} size={25} />
               </TouchableOpacity>
             </View>
             <View style={styles.displayContent}>
-              {selectedVerse && selectedVerse.content.length > 400 ? (
-                <ScrollView style={{ padding: 10 }}>
-                  <Text
-                    allowFontScaling={false}
-                    style={[
-                      styles.contentText,
-                      {
-                        fontSize: objSetting.fontSize,
-                        color: themeColors.primaryText,
-                      },
-                    ]}
-                  >
-                    {selectedVerse?.content}
-                  </Text>
-                </ScrollView>
-              ) : (
+              <ScrollView style={{ padding: 10 }}>
                 <Text
                   allowFontScaling={false}
                   style={[
@@ -311,14 +262,14 @@ const ViewChapter = () => {
                     },
                   ]}
                 >
-                  {selectedVerse?.content}
+                  {selectedVerse.content}
                 </Text>
-              )}
+              </ScrollView>
             </View>
           </View>
           <View style={styles.menu}>
-            {menuList.map((item, index) => (
-              <TouchableOpacity key={index} onPress={() => item.function()}>
+            {menuList.map((item, idx) => (
+              <TouchableOpacity key={idx} onPress={item.function}>
                 {item.icon}
               </TouchableOpacity>
             ))}
@@ -331,7 +282,6 @@ const ViewChapter = () => {
 
 const styles = StyleSheet.create({
   container: {
-    display: "flex",
     width: "100%",
     height: "100%",
     flexDirection: "column",
@@ -342,14 +292,12 @@ const styles = StyleSheet.create({
     position: "relative",
   },
   content: {
-    display: "flex",
     flexDirection: "column",
     height: "100%",
     width: "100%",
-    padding: 20,
   },
   display: {
-    height: "95%",
+    height: "90%",
     alignItems: "center",
   },
   header: {
@@ -361,15 +309,18 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   displayContent: {
+    flex: 1,
+    flexDirection: "row",
     height: "79%",
     alignItems: "center",
     justifyContent: "center",
   },
   menu: {
+    flex: 1,
     flexDirection: "row",
-    height: "10%",
+    height: 100,
     width: "100%",
-    display: "flex",
+    padding: 20,
     alignItems: "flex-start",
     justifyContent: "space-around",
   },
@@ -390,6 +341,7 @@ const styles = StyleSheet.create({
     color: "#343434",
     fontSize: 30,
     textAlign: "center",
+    margin: 10,
   },
   modal: {
     width: "80%",

@@ -1,10 +1,18 @@
-import React, { useEffect, useRef, useState } from "react";
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import React, { useContext, useEffect, useRef, useState } from "react";
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  ToastAndroid,
+} from "react-native";
 import { captureRef } from "react-native-view-shot";
 import * as MediaLibrary from "expo-media-library";
 import * as Sharing from "expo-sharing";
 import { Verse } from "../types/interfaces";
 import Icon from "react-native-vector-icons/Feather";
+import { SettingContext } from "../context/SettingContext";
+import COLORS from "../constants/colors";
 
 interface ScreenShotProps {
   selectedVerse: Verse | null;
@@ -19,20 +27,29 @@ const ScreenShot: React.FC<ScreenShotProps> = ({
   const [imageUri, setImageUri] = useState<string | null>(null);
   const [status, requestPermission] = MediaLibrary.usePermissions();
 
+  const settingContext = useContext(SettingContext);
+
+  if (!settingContext) {
+    return null;
+  }
+
+  const { objSetting } = settingContext;
+  const themeColors = objSetting.theme === "dark" ? COLORS.dark : COLORS.light;
+
   if (status === null) {
     requestPermission();
   }
 
+  if (!selectedVerse) return null;
+
   useEffect(() => {
+    let isMounted = true;
+
     const convertingVerseIntoImage = async () => {
       try {
-        // Wait for the view to render completely
         await new Promise((resolve) => setTimeout(resolve, 500));
 
-        if (!imageRef.current) {
-          console.log("imageRef is not yet available");
-          return;
-        }
+        if (!imageRef.current || !isMounted) return;
 
         const localUri = await captureRef(imageRef, {
           height: 440,
@@ -40,9 +57,9 @@ const ScreenShot: React.FC<ScreenShotProps> = ({
           format: "png",
         });
 
-        if (localUri) {
+        if (localUri && isMounted) {
           setImageUri(localUri);
-          alert("Image captured successfully!");
+          console.log("Image captured successfully!");
         }
       } catch (error) {
         console.error("Error capturing image:", error);
@@ -50,16 +67,28 @@ const ScreenShot: React.FC<ScreenShotProps> = ({
     };
 
     convertingVerseIntoImage();
+
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   const onSaveImageAsync = async () => {
     try {
-      if (imageUri) {
-        await MediaLibrary.saveToLibraryAsync(imageUri);
-      } else {
-        alert("No image available to save.");
+      const { status } = await MediaLibrary.requestPermissionsAsync();
+
+      if (status !== "granted") {
+        alert("Permission denied");
+        return;
       }
-      alert("Saved!");
+
+      if (!imageUri) {
+        alert("No image available to save.");
+        return;
+      }
+
+      await MediaLibrary.saveToLibraryAsync(imageUri);
+      ToastAndroid.show("Saved!", ToastAndroid.SHORT);
     } catch (e) {
       console.log(e);
     }
@@ -68,6 +97,11 @@ const ScreenShot: React.FC<ScreenShotProps> = ({
   const handleShare = async () => {
     if (!imageUri) {
       alert("No image available to share.");
+      return;
+    }
+
+    if (!(await Sharing.isAvailableAsync())) {
+      alert("Sharing not available");
       return;
     }
 
@@ -82,32 +116,50 @@ const ScreenShot: React.FC<ScreenShotProps> = ({
   };
 
   return (
-    <View style={styles.container}>
+    <View
+      style={[
+        styles.container,
+        {
+          backgroundColor: themeColors.background,
+          boxShadow:
+            objSetting.theme === "dark"
+              ? "0 4px 8px rgba(235, 235, 235, 0.2)"
+              : "0 4px 8px rgba(0, 0, 0, 0.2)",
+        },
+      ]}
+    >
       <View style={styles.display} ref={imageRef} collapsable={false}>
         <View style={{ flexDirection: "column" }}>
           <Text
             allowFontScaling={false}
-            style={styles.chapter}
+            style={[styles.chapter, { color: themeColors.primaryText }]}
           >{`Chapter ${selectedVerse?.chapter}`}</Text>
           <Text
             allowFontScaling={false}
-            style={styles.verse}
+            style={[styles.verse, { color: themeColors.secondaryText }]}
           >{`Verse ${selectedVerse?.verse}`}</Text>
         </View>
 
-        <Text allowFontScaling={false} style={styles.contentText}>
+        <Text
+          allowFontScaling={false}
+          style={[styles.contentText, { color: themeColors.primaryText }]}
+        >
           {selectedVerse?.content}
         </Text>
       </View>
       <View style={styles.menu}>
         <TouchableOpacity onPress={() => setIsShowPreview(false)}>
-          <Icon name="chevron-left" color="#003092" size={25} />
+          <Icon name="chevron-left" color={themeColors.primaryText} size={25} />
         </TouchableOpacity>
         <TouchableOpacity onPress={onSaveImageAsync}>
-          <Icon name="download" color="#003092" size={25} />
+          <Icon name="download" color={themeColors.primaryText} size={25} />
         </TouchableOpacity>
         <TouchableOpacity onPress={handleShare}>
-          <Icon name="external-link" color="#003092" size={25} />
+          <Icon
+            name="external-link"
+            color={themeColors.primaryText}
+            size={25}
+          />
         </TouchableOpacity>
       </View>
     </View>
@@ -130,6 +182,7 @@ const styles = StyleSheet.create({
 
     // Shadow for Android
     elevation: 1,
+    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
   },
   chapter: {
     fontFamily: "Poppins-Bold",
@@ -153,23 +206,21 @@ const styles = StyleSheet.create({
     height: "79%",
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "#fff",
+    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
   },
   display: {
-    height: "90%",
+    flex: 9,
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
     gap: 20,
-    backgroundColor: "#fff",
     paddingLeft: 30,
     paddingRight: 30,
   },
   menu: {
     flexDirection: "row",
-    height: "10%",
+    flex: 1,
     width: "100%",
-    display: "flex",
     alignItems: "flex-start",
     justifyContent: "space-around",
     paddingLeft: 30,

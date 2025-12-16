@@ -158,7 +158,7 @@ const ChapterScreen = () => {
           <View
             style={{
               flex: 1,
-              display: "flex",
+              opacity: 1,
               alignItems: "center",
               justifyContent: "center",
             }}
@@ -254,7 +254,6 @@ const styles = StyleSheet.create({
     aspectRatio: 1, // Keep it square
     height: 80,
     borderRadius: 15,
-    display: "flex",
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",

@@ -197,7 +197,6 @@ const styles = StyleSheet.create({
     backgroundColor: "trasparent",
   },
   loadingContainer: {
-    display: "flex",
     alignItems: "center",
     justifyContent: "center",
   },
@@ -213,7 +212,6 @@ const styles = StyleSheet.create({
   },
   prayContainer: {
     width: "80%",
-    display: "flex",
     alignItems: "center",
     justifyContent: "center",
   },

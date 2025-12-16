@@ -49,7 +49,7 @@ const Calendar = () => {
           size={20}
         />
       ),
-      description: `1View monthly new moon dates to easily determine the exact time for observing the New Moon Sabbath.`,
+      description: `View monthly new moon dates to easily determine the exact time for observing the New Moon Sabbath.`,
     },
     {
       name: "Feast",
@@ -285,7 +285,6 @@ const styles = StyleSheet.create({
     width: 150,
     height: 40,
     borderRadius: 100,
-    display: "flex",
     alignItems: "center",
     justifyContent: "center",
     flexDirection: "row",

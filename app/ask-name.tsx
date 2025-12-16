@@ -28,8 +28,8 @@ const AskName = () => {
 
   const handleSearch = (text: string) => {
     if (userName) {
-      setTimeout(() => {
-        buttonProgress.value = withTiming("flex", {
+      const timeout = setTimeout(() => {
+        buttonProgress.value = withTiming(1, {
           duration: 1000,
           easing: Easing.ease,
         });
@@ -40,8 +40,10 @@ const AskName = () => {
           true // Reverse animation (fades in and out)
         );
       }, 1000);
+
+      return () => clearTimeout(timeout);
     } else {
-      buttonProgress.value = withTiming("none", {
+      buttonProgress.value = withTiming(0, {
         duration: 1000,
         easing: Easing.ease,
       });
@@ -52,41 +54,41 @@ const AskName = () => {
   };
 
   //Animation
-  const textProgress = useSharedValue<"none" | "flex">("none");
+  const textProgress = useSharedValue(0);
   const textScale = useSharedValue(0);
   const textGap = useSharedValue(0);
   const textFlexDirection = useSharedValue<
     "column" | "row" | "row-reverse" | "column-reverse"
   >("column");
 
-  const inputProgress = useSharedValue<"none" | "flex">("none");
+  const inputProgress = useSharedValue(0);
   const inputPosition = useSharedValue(-1000);
 
-  const buttonProgress = useSharedValue<"none" | "flex">("none");
+  const buttonProgress = useSharedValue(0);
   const buttonPosition = useSharedValue(20);
 
   const textAnimation = useAnimatedStyle(() => ({
-    display: textProgress.value,
+    opacity: textProgress.value,
     transform: [{ scale: textScale.value }],
     flexDirection: textFlexDirection.value,
     gap: textGap.value,
   }));
 
   const inputAnimation = useAnimatedStyle(() => ({
-    display: inputProgress.value,
+    opacity: inputProgress.value,
     translateX: inputPosition.value,
   }));
 
   const buttonAnimation = useAnimatedStyle(() => ({
-    display: buttonProgress.value,
+    opacity: buttonProgress.value,
     translateY: buttonPosition.value,
   }));
 
   const handleSubmit = () => {
-    textProgress.value = "none";
+    textProgress.value = 0;
     textScale.value = 0;
-    inputProgress.value = "none";
-    buttonProgress.value = "none";
+    inputProgress.value = 0;
+    buttonProgress.value = 0;
 
     console.log("User Name:", userName);
 
@@ -96,25 +98,31 @@ const AskName = () => {
 
     storeData("PROFILE", { name: userName, rank: "Newcomer", level: 1 });
 
-    setTimeout(() => {
-      textProgress.value = "flex";
-      textScale.value = withSpring(1, { damping: 10, stiffness: 100 });
-      textFlexDirection.value = "row";
-      textGap.value = withDelay(
-        1000,
-        withSpring(10, { damping: 10, stiffness: 100 })
-      );
+    useEffect(() => {
+      const firstTimeout = setTimeout(() => {
+        textProgress.value = 1;
+        textScale.value = withSpring(1, { damping: 10, stiffness: 100 });
+        textFlexDirection.value = "row";
+        textGap.value = withDelay(
+          1000,
+          withSpring(10, { damping: 10, stiffness: 100 })
+        );
 
-      setTimeout(() => {
-        router.push("/onboard");
-      }, 2000);
-    }, 1000);
+        const secondTimeout = setTimeout(() => {
+          router.push("/onboard");
+        }, 2000);
+
+        return () => clearTimeout(secondTimeout);
+      }, 1000);
+
+      return () => clearTimeout(firstTimeout);
+    }, []);
   };
 
   useEffect(() => {
-    textProgress.value = withSpring("flex", { damping: 10, stiffness: 364 });
+    textProgress.value = withSpring(1, { damping: 10, stiffness: 364 });
     textScale.value = withSpring(1, { damping: 10, stiffness: 364 });
-    inputProgress.value = withSpring("flex", { damping: 10, stiffness: 364 });
+    inputProgress.value = withSpring(1, { damping: 10, stiffness: 364 });
     inputPosition.value = withSpring(0, { damping: 10, stiffness: 364 });
   }, []);
 
@@ -157,7 +165,6 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   labelContainer: {
-    display: "flex",
     alignItems: "center",
     justifyContent: "center",
     gap: 0,

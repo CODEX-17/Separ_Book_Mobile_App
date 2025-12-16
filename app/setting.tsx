@@ -6,15 +6,18 @@ import {
   TouchableOpacity,
   TextInput,
   Platform,
+  SafeAreaView,
 } from "react-native";
 import { useRouter } from "expo-router";
 import { SettingContext } from "./context/SettingContext";
 import Icon from "react-native-vector-icons/Feather";
 import COLORS from "./constants/colors";
+import Header from "./(home)/header";
 
 const Setting = () => {
   const router = useRouter();
   const settingContext = useContext(SettingContext);
+  const [modalVisible, setModalVisible] = useState<boolean>(false);
 
   if (!settingContext) return false;
 
@@ -30,76 +33,94 @@ const Setting = () => {
   };
 
   return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <Text
-          allowFontScaling={false}
-          style={[
-            styles.title,
-            { fontSize: 20, color: themeColors.primaryText },
-          ]}
-        >
-          General Setting
-        </Text>
-      </View>
-      <View style={styles.content}>
-        <View style={{ flexDirection: "row", alignItems: "center", gap: 10 }}>
-          <Text
-            allowFontScaling={false}
-            style={[
-              styles.title,
-              { fontSize: 18, color: themeColors.primaryText },
-            ]}
-          >
-            Font Size
-          </Text>
-          <TouchableOpacity
-            onPress={() => handleChangeFontSize(objSetting.fontSize + 1)}
-          >
-            <Icon name="plus" color="#003092" size={25} />
-          </TouchableOpacity>
-          <TextInput
-            allowFontScaling={false}
-            style={[
-              styles.input,
-              {
-                backgroundColor: themeColors.card,
-                color: themeColors.primaryText,
-              },
-            ]}
-            onChangeText={(text) => {
-              if (text === "") return handleChangeFontSize(10);
-              const parsedValue = parseInt(text, 10);
-              if (!isNaN(parsedValue)) handleChangeFontSize(parsedValue);
-            }}
-            value={objSetting.fontSize.toString()}
-            keyboardType="numeric"
-          />
-          <TouchableOpacity
-            onPress={() => handleChangeFontSize(objSetting.fontSize - 1)}
-          >
-            <Icon name="minus" color="#003092" size={25} />
-          </TouchableOpacity>
+    <View
+      style={[styles.container, { backgroundColor: themeColors.background }]}
+    >
+      <Header setModalVisible={setModalVisible} />
+      <SafeAreaView>
+        <View style={styles.content}>
+          <View style={styles.display}>
+            <View style={styles.header}>
+              <Text
+                allowFontScaling={false}
+                style={[
+                  styles.title,
+                  { fontSize: 20, color: themeColors.primaryText },
+                ]}
+              >
+                General Setting
+              </Text>
+            </View>
+            <View
+              style={{ flexDirection: "row", alignItems: "center", gap: 10 }}
+            >
+              <Text
+                allowFontScaling={false}
+                style={[
+                  styles.title,
+                  { fontSize: 18, color: themeColors.primaryText },
+                ]}
+              >
+                Font Size
+              </Text>
+              <TouchableOpacity
+                onPress={() => handleChangeFontSize(objSetting.fontSize + 1)}
+              >
+                <Icon name="plus" color="#003092" size={25} />
+              </TouchableOpacity>
+              <TextInput
+                allowFontScaling={false}
+                style={[
+                  styles.input,
+                  {
+                    backgroundColor: themeColors.card,
+                    color: themeColors.primaryText,
+                  },
+                ]}
+                onChangeText={(text) => {
+                  if (text === "") return handleChangeFontSize(10);
+                  const parsedValue = parseInt(text, 10);
+                  if (!isNaN(parsedValue)) handleChangeFontSize(parsedValue);
+                }}
+                value={objSetting.fontSize.toString()}
+                keyboardType="numeric"
+              />
+              <TouchableOpacity
+                onPress={() => handleChangeFontSize(objSetting.fontSize - 1)}
+              >
+                <Icon name="minus" color="#003092" size={25} />
+              </TouchableOpacity>
+            </View>
+          </View>
         </View>
-      </View>
+      </SafeAreaView>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    width: "100%",
+    height: "100%",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
     backgroundColor: "transparent",
-    padding: 20,
+    position: "relative",
   },
   content: {
-    flex: 1,
-    alignItems: "center",
+    flexDirection: "column",
+    height: "100%",
+    width: "100%",
   },
   header: {
     width: "100%",
     flexDirection: "row",
     justifyContent: "space-between",
+  },
+  display: {
+    height: "90%",
+    alignItems: "center",
   },
   input: {
     height: 40,

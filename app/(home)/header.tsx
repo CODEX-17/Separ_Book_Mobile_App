@@ -93,7 +93,7 @@ const Header: FC<HeaderProps> = ({ setModalVisible }) => {
       </Text>
       <View style={{ flexDirection: "row", gap: 10 }}>
         <TouchableOpacity onPress={() => setModalVisible(true)}>
-          <Icon name="music" color={themeColors.secondaryText} size={25} /> :
+          <Icon name="music" color={themeColors.secondaryText} size={25} />
         </TouchableOpacity>
         <Animated.View style={[rotateStyleAnimation]}>
           <TouchableOpacity onPress={handleTheme}>
@@ -112,7 +112,6 @@ const Header: FC<HeaderProps> = ({ setModalVisible }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",

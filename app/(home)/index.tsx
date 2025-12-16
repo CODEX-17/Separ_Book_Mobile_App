@@ -88,7 +88,6 @@ const HomeLayout = () => {
     <Animated.View style={[styles.container, backgroundAnimation]}>
       <StatusBar
         animated={true}
-        backgroundColor={themeColors.background}
         hidden={false}
         style={objSetting.theme === "dark" ? "light" : "dark"}
       />
@@ -108,7 +107,6 @@ const HomeLayout = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    display: "flex",
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
