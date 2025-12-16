@@ -28,7 +28,7 @@ const AskName = () => {
 
   const handleSearch = (text: string) => {
     if (userName) {
-      const timeout = setTimeout(() => {
+      setTimeout(() => {
         buttonProgress.value = withTiming(1, {
           duration: 1000,
           easing: Easing.ease,
@@ -40,8 +40,6 @@ const AskName = () => {
           true // Reverse animation (fades in and out)
         );
       }, 1000);
-
-      return () => clearTimeout(timeout);
     } else {
       buttonProgress.value = withTiming(0, {
         duration: 1000,
@@ -98,25 +96,19 @@ const AskName = () => {
 
     storeData("PROFILE", { name: userName, rank: "Newcomer", level: 1 });
 
-    useEffect(() => {
-      const firstTimeout = setTimeout(() => {
-        textProgress.value = 1;
-        textScale.value = withSpring(1, { damping: 10, stiffness: 100 });
-        textFlexDirection.value = "row";
-        textGap.value = withDelay(
-          1000,
-          withSpring(10, { damping: 10, stiffness: 100 })
-        );
+    setTimeout(() => {
+      textProgress.value = 1;
+      textScale.value = withSpring(1, { damping: 10, stiffness: 100 });
+      textFlexDirection.value = "row";
+      textGap.value = withDelay(
+        1000,
+        withSpring(10, { damping: 10, stiffness: 100 })
+      );
 
-        const secondTimeout = setTimeout(() => {
-          router.push("/onboard");
-        }, 2000);
-
-        return () => clearTimeout(secondTimeout);
-      }, 1000);
-
-      return () => clearTimeout(firstTimeout);
-    }, []);
+      setTimeout(() => {
+        router.push("/onboard");
+      }, 2000);
+    }, 1000);
   };
 
   useEffect(() => {

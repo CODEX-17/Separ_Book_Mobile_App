@@ -6,6 +6,7 @@ import { useFonts } from "expo-font";
 import { useEffect } from "react";
 import { Stack } from "expo-router";
 import { Text, TextInput } from "react-native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import {
   listenForNotificationResponse,
   scheduleNotificationDaily,
@@ -58,6 +59,11 @@ export default function RootLayout() {
       SplashScreen.hideAsync();
     }
   }, [loaded, error]);
+
+  //Clear all storage Data
+  useEffect(() => {
+    AsyncStorage.multiRemove(["PROFILE", "SETTINGS", "SESSION"]);
+  }, []);
 
   if (!loaded && !error) return null;
 
