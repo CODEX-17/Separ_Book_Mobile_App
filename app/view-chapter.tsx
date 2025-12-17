@@ -48,8 +48,17 @@ const ViewChapter = () => {
 
   // Sync selectedVerse whenever currentChapter changes
   useEffect(() => {
-    if (currentChapter !== null && currentChapter !== undefined) {
+    console.log("verse 1:", chapterList[0]);
+    console.log("Current Chapter changed:", currentChapter);
+
+    if (
+      (currentChapter !== null && currentChapter !== undefined) ||
+      currentChapter === 0
+    ) {
+      console.log("yes");
       setSelectedVerse(chapterList[currentChapter]);
+    } else {
+      console.log("no");
     }
   }, [currentChapter]);
 
@@ -92,7 +101,13 @@ const ViewChapter = () => {
     }
   }, [level]);
 
-  if (!currentChapter || !selectedVerse || !profile) return null;
+  if (
+    currentChapter === null ||
+    currentChapter === undefined ||
+    !selectedVerse ||
+    !profile
+  )
+    return null;
 
   const handleAddFontSize = (type: "add" | "minus") => {
     handleChangeSetting({

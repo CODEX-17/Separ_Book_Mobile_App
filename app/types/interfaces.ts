@@ -7,8 +7,10 @@ export interface Verse {
 }
 
 export interface Setting {
-  fontSize: number;
-  theme: "light" | "dark";
+  theme: "dark" | "light";
+  fontScale?: number;
+  notificationsEnabled?: boolean;
+  [key: string]: any;
 }
 
 export interface Profile {
@@ -20,3 +22,16 @@ export interface Profile {
 export interface Favorite {
   verseIndex: number[];
 }
+
+export interface NotificationSchedule {
+  name: string;
+  content?: string;
+  value?: any;
+  time?: string;
+}
+
+export type ScheduleNotificationDailyType = {
+  name: string;
+  content: string;
+  value?: any;
+};

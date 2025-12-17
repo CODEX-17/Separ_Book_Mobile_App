@@ -13,7 +13,6 @@ import Animated, {
   Easing,
   useAnimatedStyle,
   useSharedValue,
-  withSpring,
   withTiming,
 } from "react-native-reanimated";
 import Calendar from "./(renders)/(calendar)/index";
@@ -22,6 +21,7 @@ import Menu from "./menu";
 import OnProgress from "./(renders)/on-progress";
 import Setting from "../setting";
 import UpdateNotification from "../updated-notification";
+import Toast from "react-native-toast-message";
 import Favorites from "./(renders)/favorites";
 import Home from "../home";
 import Developer from "./(renders)/developer";
@@ -92,6 +92,19 @@ const HomeLayout = () => {
         style={objSetting.theme === "dark" ? "light" : "dark"}
       />
       <SafeAreaView style={[styles.safeArea, { flex: 1 }]}>
+        {/* Toast */}
+        <View
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            zIndex: 10,
+          }}
+        >
+          <Toast />
+        </View>
+
         <View style={styles.header}>
           <Header setModalVisible={setModalVisible} />
         </View>

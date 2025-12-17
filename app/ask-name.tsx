@@ -88,8 +88,6 @@ const AskName = () => {
     inputProgress.value = 0;
     buttonProgress.value = 0;
 
-    console.log("User Name:", userName);
-
     setTextLabel(userName ?? "");
 
     if (!userName) return;
