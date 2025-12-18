@@ -5,14 +5,17 @@ import {
   StyleSheet,
   TouchableOpacity,
   ToastAndroid,
+  Image,
 } from "react-native";
 import { captureRef } from "react-native-view-shot";
 import * as MediaLibrary from "expo-media-library";
 import * as Sharing from "expo-sharing";
-import { Verse } from "../types/interfaces";
+import { Profile, Verse } from "../types/interfaces";
 import Icon from "react-native-vector-icons/Feather";
 import { SettingContext } from "../context/SettingContext";
 import COLORS from "../constants/colors";
+import { showToast } from "../Utils/toast";
+import { getStoreData } from "../Utils/storage";
 
 interface ScreenShotProps {
   selectedVerse: Verse | null;
@@ -26,6 +29,7 @@ const ScreenShot: React.FC<ScreenShotProps> = ({
   const imageRef = useRef(null);
   const [imageUri, setImageUri] = useState<string | null>(null);
   const [status, requestPermission] = MediaLibrary.usePermissions();
+  const [profile, setProfile] = useState<Profile | null>(null);
 
   const settingContext = useContext(SettingContext);
 
@@ -36,11 +40,33 @@ const ScreenShot: React.FC<ScreenShotProps> = ({
   const { objSetting } = settingContext;
   const themeColors = objSetting.theme === "dark" ? COLORS.dark : COLORS.light;
 
+  const ImagePath =
+    objSetting.theme === "dark"
+      ? require("../../assets/images/white-logo-icon.png")
+      : require("../../assets/images/logo-icon.png");
+
   if (status === null) {
     requestPermission();
   }
 
   if (!selectedVerse) return null;
+
+  useEffect(() => {
+    const getProfileData = async () => {
+      try {
+        const result = await getStoreData("PROFILE");
+
+        if (result) {
+          setProfile(result);
+        }
+      } catch (error) {
+        console.log(error);
+        return null;
+      }
+    };
+
+    getProfileData();
+  }, []);
 
   useEffect(() => {
     let isMounted = true;
@@ -88,6 +114,11 @@ const ScreenShot: React.FC<ScreenShotProps> = ({
       }
 
       await MediaLibrary.saveToLibraryAsync(imageUri);
+      showToast({
+        type: "success",
+        title: "Image Saved",
+        message: "The verse image has been saved to your gallery.",
+      });
       ToastAndroid.show("Saved!", ToastAndroid.SHORT);
     } catch (e) {
       console.log(e);
@@ -128,7 +159,11 @@ const ScreenShot: React.FC<ScreenShotProps> = ({
         },
       ]}
     >
-      <View style={styles.display} ref={imageRef} collapsable={false}>
+      <View
+        style={[styles.display, { backgroundColor: themeColors.background }]}
+        ref={imageRef}
+        collapsable={false}
+      >
         <View style={{ flexDirection: "column" }}>
           <Text
             allowFontScaling={false}
@@ -146,6 +181,29 @@ const ScreenShot: React.FC<ScreenShotProps> = ({
         >
           {selectedVerse?.content}
         </Text>
+        <View style={{ width: "100%" }}>
+          <Image
+            source={ImagePath}
+            style={{
+              width: 100,
+              height: 60,
+              resizeMode: "contain",
+            }}
+          />
+          <Text
+            allowFontScaling={false}
+            style={[
+              styles.contentText,
+              {
+                color: themeColors.primaryText,
+                fontSize: 8,
+                fontFamily: "Poppins-Bold",
+              },
+            ]}
+          >
+            {profile ? `Captured by: ${profile.name}` : "- Anonymous"}
+          </Text>
+        </View>
       </View>
       <View style={styles.menu}>
         <TouchableOpacity onPress={() => setIsShowPreview(false)}>
