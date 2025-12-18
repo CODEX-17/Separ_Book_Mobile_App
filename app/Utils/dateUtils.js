@@ -52,3 +52,18 @@ export const formatTime = (timeString) => {
   hour = hour % 12 || 12; // Convert 24-hour to 12-hour format
   return `${hour}:${minute.toString().padStart(2, "0")}${period}`;
 };
+
+export const getSaturdayDay = () => {
+  //✅ Returns the date of the next Saturday
+  //✅ If today is Saturday, it returns today
+
+  const today = new Date();
+  const day = today.getDay(); // 0 = Sunday, 6 = Saturday
+
+  const daysUntilSaturday = (6 - day + 7) % 7;
+
+  const saturday = new Date(today);
+  saturday.setDate(today.getDate() + daysUntilSaturday);
+
+  return saturday.getDate(); // ✅ single number
+};

@@ -2,16 +2,6 @@ import * as Notifications from "expo-notifications";
 import { Platform } from "react-native";
 import { getStoreData, storeData } from "./storage";
 
-Notifications.setNotificationHandler({
-  handleNotification: async () => ({
-    shouldShowAlert: true,
-    shouldPlaySound: true,
-    shouldSetBadge: true,
-    shouldShowBanner: true,
-    shouldShowList: true,
-  }),
-});
-
 type Content = {
   title: string;
   body: string;
@@ -22,10 +12,42 @@ type TriggerDaily = {
   minute: number;
 };
 
+Notifications.setNotificationHandler({
+  handleNotification: async () => ({
+    shouldShowAlert: true,
+    shouldPlaySound: true,
+    shouldSetBadge: true,
+    shouldShowBanner: true,
+    shouldShowList: true,
+  }),
+});
+
+//request permission to send notifications
+export async function requestNotificationPermission() {
+  const { status } = await Notifications.getPermissionsAsync();
+
+  if (status !== "granted") {
+    await Notifications.requestPermissionsAsync();
+  }
+
+  if (Platform.OS === "android") {
+    await Notifications.setNotificationChannelAsync("default", {
+      name: "default",
+      importance: Notifications.AndroidImportance.MAX,
+    });
+  }
+}
+
 export interface ScheduleNotificationDailyType {
   name: string;
   content: Content;
   value: TriggerDaily;
+}
+
+export interface ScheduleNotificationDateType {
+  name: string;
+  content: Content;
+  date: Date;
 }
 
 export const scheduleNotificationDaily = async ({
@@ -52,11 +74,11 @@ export const scheduleNotificationDaily = async ({
   });
 };
 
-export const scheduleNotificationDate = async (
-  name: string,
-  content: Content,
-  date: Date
-) => {
+export const scheduleNotificationDate = async ({
+  name,
+  content,
+  date,
+}: ScheduleNotificationDateType) => {
   if (Platform.OS === "android") {
     await Notifications.setNotificationChannelAsync(name, {
       name,

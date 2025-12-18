@@ -3,6 +3,7 @@ import { View, Text, StyleSheet } from "react-native";
 import { getStoreData } from "./Utils/storage";
 import { SettingContext } from "./context/SettingContext";
 import COLORS from "./constants/colors";
+import isTefillahTime from "./Utils/tifillahTime";
 
 const Home = () => {
   const [userName, setUserName] = useState<string>("");
@@ -63,6 +64,27 @@ const Home = () => {
       >
         {today.toDateString()}
       </Text>
+
+      {/* Tifillah Time Reminder Card */}
+      {isTefillahTime() && (
+        <View style={[styles.reminderCard, { marginTop: 40 }]}>
+          <Text
+            allowFontScaling={false}
+            style={{
+              color: themeColors.primaryText,
+              fontFamily: "Poppins-Bold",
+            }}
+          >
+            Reminders
+          </Text>
+          <Text
+            allowFontScaling={false}
+            style={{ color: themeColors.secondaryText }}
+          >
+            Shalom! {userName}, Tefillah Time na po!
+          </Text>
+        </View>
+      )}
     </View>
   );
 };
@@ -77,6 +99,12 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     fontFamily: "Poppins-Bold",
     color: "#343434",
+  },
+  reminderCard: {
+    width: "100%",
+    padding: 15,
+    backgroundColor: "#F5F5F5",
+    borderRadius: 10,
   },
 });
 

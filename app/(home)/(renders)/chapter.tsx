@@ -49,7 +49,7 @@ const ChapterScreen = () => {
   useEffect(() => {
     animationsRef.current.forEach((anim, index) => {
       setTimeout(() => {
-        anim.value = withSpring(1, { stiffness: 150, damping: 10 });
+        anim.value = withSpring(1, { stiffness: 150, damping: 20 });
       }, index * 100); // Delayed animation
     });
   }, []);
@@ -133,7 +133,11 @@ const ChapterScreen = () => {
                 setVerseList(null), setSelectedChapter(null);
               }}
             >
-              <AntDesign name="back" color={themeColors.primary} size={20} />
+              <AntDesign
+                name="rollback"
+                color={themeColors.primary}
+                size={20}
+              />
               <Text
                 allowFontScaling={false}
                 style={{ fontSize: 15, color: themeColors.primaryText }}
