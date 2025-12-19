@@ -5,7 +5,6 @@ import {
   StyleSheet,
   TouchableOpacity,
   TextInput,
-  SafeAreaView,
 } from "react-native";
 import { useRouter } from "expo-router";
 import { SettingContext } from "./context/SettingContext";
@@ -16,6 +15,7 @@ import { getStoreData, storeData } from "./Utils/storage";
 import { Profile } from "./types/interfaces";
 import { RankingTypes } from "./types/type";
 import { showToast } from "./Utils/toast";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const Setting = () => {
   const router = useRouter();

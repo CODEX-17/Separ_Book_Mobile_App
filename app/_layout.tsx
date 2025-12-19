@@ -15,6 +15,8 @@ import {
 import { separ as chapterList } from "./data/chapters";
 import { getSaturdayDay } from "./Utils/dateUtils";
 import { feast as feastList } from "./data/feastDateList";
+import { newMoon } from "./Utils/newMoonCalculation";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -103,6 +105,8 @@ export default function RootLayout() {
   useEffect(() => {
     if (!feastList) return;
 
+    //console.log("newMoon:", newMoon());
+
     const feastNotifications: Notification[] = feastList
       .map((element) => {
         return {
@@ -171,6 +175,15 @@ export default function RootLayout() {
     }
   }, [loaded, error]);
 
+  //Clear Data
+  useEffect(() => {
+    const clearData = async () => {
+      await AsyncStorage.clear();
+    };
+
+    clearData();
+  }, []);
+
   if (!loaded && !error) return null;
 
   return (
@@ -185,6 +198,7 @@ export default function RootLayout() {
           >
             <Stack.Screen name="index" />
             <Stack.Screen name="update-notification" />
+            <Stack.Screen name="preface" />
             <Stack.Screen name="onboard" />
             <Stack.Screen name="ask-name" />
             <Stack.Screen name="(home)" />

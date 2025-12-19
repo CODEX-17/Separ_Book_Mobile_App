@@ -96,24 +96,24 @@ const AskName = () => {
 
     setTimeout(() => {
       textProgress.value = 1;
-      textScale.value = withSpring(1, { damping: 10, stiffness: 100 });
+      textScale.value = withSpring(1, { damping: 30, stiffness: 200 });
       textFlexDirection.value = "row";
       textGap.value = withDelay(
         1000,
-        withSpring(10, { damping: 10, stiffness: 100 })
+        withSpring(10, { damping: 30, stiffness: 200 })
       );
 
       setTimeout(() => {
-        router.push("/onboard");
+        router.push("/preface");
       }, 2000);
     }, 1000);
   };
 
   useEffect(() => {
-    textProgress.value = withSpring(1, { damping: 10, stiffness: 364 });
-    textScale.value = withSpring(1, { damping: 10, stiffness: 364 });
-    inputProgress.value = withSpring(1, { damping: 10, stiffness: 364 });
-    inputPosition.value = withSpring(0, { damping: 10, stiffness: 364 });
+    textProgress.value = withSpring(1, { damping: 30, stiffness: 200 });
+    textScale.value = withSpring(1, { damping: 30, stiffness: 200 });
+    inputProgress.value = withSpring(1, { damping: 30, stiffness: 200 });
+    inputPosition.value = withSpring(0, { damping: 30, stiffness: 200 });
   }, []);
 
   return (
@@ -162,11 +162,13 @@ const styles = StyleSheet.create({
   questionText: {
     fontSize: 25,
     fontFamily: FONTS.bold,
+    color: "2A3335",
   },
   questionTextRegular: {
     fontSize: 25,
     fontFamily: FONTS.regular,
     marginTop: 0,
+    color: "2A3335",
   },
   input: {
     width: 200,
@@ -177,6 +179,7 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.light.card,
     borderRadius: 100,
     marginTop: 20,
+    color: "2A3335",
   },
 });
 

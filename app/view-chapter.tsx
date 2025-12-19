@@ -5,7 +5,6 @@ import {
   StyleSheet,
   TouchableOpacity,
   ScrollView,
-  SafeAreaView,
 } from "react-native";
 import { ChapterContext } from "./context/ChapterContex";
 import { separ as chapterList } from "./data/chapters";
@@ -19,6 +18,7 @@ import { Profile, Setting, Verse } from "./types/interfaces";
 import Icon from "react-native-vector-icons/Feather";
 import Icon1 from "react-native-vector-icons/MaterialCommunityIcons";
 import { useLevelTimer } from "./Utils/useLevelTimer";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const ViewChapter = () => {
   const router = useRouter();

@@ -20,7 +20,6 @@ import { StatusBar } from "expo-status-bar";
 import Menu from "./menu";
 import OnProgress from "./(renders)/on-progress";
 import Setting from "../setting";
-import UpdateNotification from "../updated-notification";
 import Toast from "react-native-toast-message";
 import Favorites from "./(renders)/favorites";
 import Home from "../home";

@@ -6,7 +6,6 @@ import {
   ImageBackground,
   Image,
   Pressable,
-  SafeAreaView,
   TouchableOpacity,
 } from "react-native";
 import Icon from "react-native-vector-icons/MaterialIcons";
@@ -17,6 +16,7 @@ import Animated, {
   withSpring,
 } from "react-native-reanimated";
 import { useRouter } from "expo-router";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const contentList = [
   {
@@ -71,8 +71,8 @@ const OnBoardScreen = () => {
 
   // Trigger animation on content change
   useEffect(() => {
-    progress.value = withSpring(1, { damping: 10, stiffness: 364 });
-    scale.value = withSpring(1, { damping: 10, stiffness: 364 });
+    progress.value = withSpring(1, { damping: 30, stiffness: 200 });
+    scale.value = withSpring(1, { damping: 30, stiffness: 200 });
   }, [selectedContent]);
 
   const handleNextContent = () => {
