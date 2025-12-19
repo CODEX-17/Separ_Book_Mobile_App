@@ -257,8 +257,10 @@ const WelcomeScreen = () => {
           if (data.route) {
             if (data?.contentIndex) {
               setCurrentChapter(data?.contentIndex);
+              router.push("/view-chapter");
+            } else {
+              router.push("/(home)");
             }
-            router.push("/view-chapter");
           }
         }
       );
