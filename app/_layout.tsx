@@ -4,20 +4,33 @@ import { SettingContextProvider } from "./context/SettingContext";
 import * as SplashScreen from "expo-splash-screen";
 import * as Notifications from "expo-notifications";
 import { useFonts } from "expo-font";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Stack } from "expo-router";
 import { Text, TextInput } from "react-native";
 import {
-  listenForNotificationResponse,
   requestNotificationPermission,
   scheduleNotificationDaily,
-  ScheduleNotificationDailyType,
   scheduleNotificationDate,
 } from "./Utils/notification";
 import { separ as chapterList } from "./data/chapters";
 import { getSaturdayDay } from "./Utils/dateUtils";
+import { feast as feastList } from "./data/feastDateList";
 
 SplashScreen.preventAutoHideAsync();
+
+type Notification =
+  | {
+      type: "date";
+      name: string;
+      content: { title: string; body: string };
+      date: Date;
+    }
+  | {
+      type: "time";
+      name: string;
+      content: { title: string; body: string };
+      value: { hour: number; minute: number };
+    };
 
 (Text as any).defaultProps ??= {};
 (Text as any).defaultProps.allowFontScaling = false;
@@ -37,7 +50,8 @@ export default function RootLayout() {
   const eveningSeparVerse =
     chapterList[Math.floor(Math.random() * chapterList.length)]; // Random verse for evening
 
-  const notificationList = [
+  // Initial notificationList
+  const [notificationList, setNotificationList] = useState<Notification[]>([
     {
       type: "date",
       name: "shabbath-reminder",
@@ -83,20 +97,49 @@ export default function RootLayout() {
       },
       value: { hour: 19, minute: 0 },
     },
-  ];
+  ]);
+
+  // Initializing and pushing the feastList into NotificationList
+  useEffect(() => {
+    if (!feastList) return;
+
+    const feastNotifications: Notification[] = feastList
+      .map((element) => {
+        return {
+          type: "date",
+          name: `feast-reminder-${element.name
+            .toLowerCase()
+            .replace(/ /g, "-")}`,
+          content: {
+            title: element.name,
+            body: `${element.name} is today. Remember to observe the feast! Make this day special.`,
+          },
+          date: element.date,
+        };
+      })
+      .filter(
+        (
+          item
+        ): item is {
+          type: "date";
+          name: string;
+          content: { title: string; body: string };
+          date: Date;
+        } => item.date !== undefined
+      );
+
+    // Append to existing notifications
+    setNotificationList((prev) => [...prev, ...feastNotifications]);
+  }, [feastList]);
 
   // Initialize notifications on app load
   useEffect(() => {
     async function initNotifications() {
       await requestNotificationPermission();
-      // Clear old notifications to avoid duplicates
       await Notifications.cancelAllScheduledNotificationsAsync();
 
-      for (let i = 0; i < notificationList.length; i++) {
-        const element = notificationList[i];
-
+      for (const element of notificationList) {
         if (element.type === "date" && element.date) {
-          // Handle date-based notifications
           await scheduleNotificationDate({
             name: element.name,
             content: element.content,
@@ -112,9 +155,10 @@ export default function RootLayout() {
       }
     }
 
-    initNotifications();
-  }, []);
+    if (notificationList.length) initNotifications();
+  }, [notificationList]);
 
+  //Load of Fonts
   let [loaded, error] = useFonts({
     "Poppins-Bold": require("../assets/fonts/Poppins-Bold.ttf"),
     "Poppins-Light": require("../assets/fonts/Poppins-Light.ttf"),

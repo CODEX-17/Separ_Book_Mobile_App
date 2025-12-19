@@ -1,4 +1,4 @@
-import React, { Component, useContext } from "react";
+import React, { Component, useContext, useEffect } from "react";
 import {
   View,
   Text,
@@ -26,15 +26,7 @@ const Menus = () => {
   const { objSetting } = settingContext;
   const { bottomNavigation, setBottomNavigation } = bottomNavigationContext;
 
-  const fadeAnim = useSharedValue(0);
-
   const themeColors = objSetting.theme === "dark" ? COLORS.dark : COLORS.light;
-
-  // Animated style for background fade effect
-  const backgroundAnimation = useAnimatedStyle(() => ({
-    opacity: fadeAnim.value,
-    backgroundColor: themeColors.background,
-  }));
 
   interface ButtonListType {
     title: TabsRoutes;
@@ -99,7 +91,7 @@ const Menus = () => {
   ];
 
   return (
-    <View style={[styles.container, backgroundAnimation]}>
+    <View style={styles.container}>
       <Text
         allowFontScaling={false}
         style={[styles.title, { color: themeColors.primary }]}
