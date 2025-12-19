@@ -1,9 +1,16 @@
 import React, { useContext, useEffect, useState } from "react";
 import { View, Image, StyleSheet, Text, ImageBackground } from "react-native";
-
+import {
+  requestNotificationPermission,
+  scheduleNotificationDaily,
+  scheduleNotificationDate,
+} from "./Utils/notification";
+import { separ as chapterList } from "./data/chapters";
+import { feast as feastList } from "./data/feastDateList";
 import CustomizeButton from "./components/CustomizeButton";
 import Icon from "react-native-vector-icons/MaterialIcons";
 import { useRouter } from "expo-router";
+import * as Notifications from "expo-notifications";
 import Animated, {
   Easing,
   useAnimatedStyle,
@@ -14,10 +21,51 @@ import { SettingContext } from "./context/SettingContext";
 import COLORS from "./constants/colors";
 import { getStoreData } from "./Utils/storage";
 import { Profile } from "./types/interfaces";
+import { ChapterContext } from "./context/ChapterContex";
+import { getSaturdayDay } from "./Utils/dateUtils";
+
+export type listenerPropType = {
+  id: string;
+  route: string;
+  contentIndex?: number;
+};
+
+type NotificationType =
+  | {
+      scheduleType: "date";
+      name: string;
+      content: {
+        title: string;
+        body: string;
+        data: {
+          id: string;
+          route: string;
+          contentIndex?: number;
+        };
+      };
+      date: Date;
+    }
+  | {
+      scheduleType: "time";
+      name: string;
+      content: {
+        title: string;
+        body: string;
+        data: {
+          id: string;
+          route: string;
+          contentIndex?: number;
+        };
+      };
+      value: { hour: number; minute: number };
+    };
 
 const WelcomeScreen = () => {
   const router = useRouter();
-
+  const today = new Date();
+  const curretYear = today.getFullYear();
+  const currentMonth = today.getMonth(); // Months are zero-based
+  const currentSaturday = getSaturdayDay(); // Get the date of the upcoming Saturday
   const [profile, setProfile] = useState<Profile | null>(null);
 
   //Check for data
@@ -39,10 +87,185 @@ const WelcomeScreen = () => {
   }, []);
 
   const settingContext = useContext(SettingContext);
+  const chapterContext = useContext(ChapterContext);
+
+  const { currentChapter, setCurrentChapter } = chapterContext || {
+    currentChapter: 0,
+    setCurrentChapter: () => {},
+  };
 
   if (!settingContext) {
     return null;
   }
+
+  const morningSeparVerseIndex = Math.floor(Math.random() * chapterList.length);
+  const eveningSeparVerseIndex = Math.floor(Math.random() * chapterList.length);
+
+  const morningSeparVerse = chapterList[morningSeparVerseIndex]; // Random verse for morning
+
+  const eveningSeparVerse = chapterList[eveningSeparVerseIndex]; // Random verse for evening
+
+  // Initial notificationList
+  const [notificationList, setNotificationList] = useState<NotificationType[]>([
+    {
+      scheduleType: "date",
+      name: "shabbath-reminder",
+      content: {
+        title: "Shabbath Reminder",
+        body: `Shabbath Shalom! Prepare for the day of rest. Make sure to set aside time for reflection and prayer.`,
+        data: {
+          id: "shabbath-reminder",
+          route: "/(home)",
+        },
+      },
+      date: new Date(curretYear, currentMonth, currentSaturday, 6, 0), // 6:00 AM
+    },
+    {
+      scheduleType: "time",
+      name: "daily-tifillah-reminders-morning",
+      content: {
+        title: "Morning Tifillah Reminder",
+        body: `Shalom! It's time for your morning Tifillah.`,
+        data: {
+          id: "daily-tifillah-reminders-morning",
+          route: "/(home)",
+        },
+      },
+      value: { hour: 6, minute: 0 }, // 6:00 AM
+    },
+    {
+      scheduleType: "time",
+      name: "daily-tifillah-reminders-evening",
+      content: {
+        title: "Evening Tifillah Reminder",
+        body: `Shalom! It's time for your evening Tifillah.`,
+        data: {
+          id: "daily-tifillah-reminders-evening",
+          route: "/(home)",
+        },
+      },
+      value: { hour: 18, minute: 0 }, // 6:00 PM
+    },
+    {
+      scheduleType: "time",
+      name: "daily-verse-morning",
+      content: {
+        title: "Morning Separ Verse",
+        body: `Chapter: ${morningSeparVerse.chapter} - Verse: ${morningSeparVerse.verse}\n${morningSeparVerse.content}`,
+        data: {
+          id: "daily-verse-morning",
+          route: "/view-chapter",
+          contentIndex: morningSeparVerseIndex,
+        },
+      },
+      value: { hour: 7, minute: 0 },
+    },
+    {
+      scheduleType: "time",
+      name: "daily-verse-evening",
+      content: {
+        title: "Evening Separ Verse",
+        body: `Chapter: ${eveningSeparVerse.chapter} - Verse: ${eveningSeparVerse.verse}\n${eveningSeparVerse.content}`,
+        data: {
+          id: "daily-verse-evening",
+          route: "/view-chapter",
+          contentIndex: eveningSeparVerseIndex,
+        },
+      },
+      value: { hour: 19, minute: 0 },
+    },
+  ]);
+
+  // Initializing and pushing the feastList into NotificationList
+  useEffect(() => {
+    if (!feastList) return;
+
+    //console.log("newMoon:", newMoon());
+
+    const feastNotifications: NotificationType[] = feastList
+      .map((element) => {
+        return {
+          scheduleType: "date",
+          name: `feast-reminder-${element.name
+            .toLowerCase()
+            .replace(/ /g, "-")}`,
+          content: {
+            title: element.name,
+            body: `${element.name} is today. Remember to observe the feast! Make this day special.`,
+            data: {
+              id: `feast-reminder-${element.name
+                .toLowerCase()
+                .replace(/ /g, "-")}`,
+              route: "/(home)",
+            },
+          },
+          date: element.date,
+        };
+      })
+      .filter(
+        (
+          item
+        ): item is {
+          scheduleType: "date";
+          name: string;
+          content: {
+            title: string;
+            body: string;
+            data: { id: string; route: string };
+          };
+          date: Date;
+        } => item.date !== undefined
+      );
+
+    // Append to existing notifications
+    setNotificationList((prev) => [...prev, ...feastNotifications]);
+  }, [feastList]);
+
+  // Initialize notifications on app load
+  useEffect(() => {
+    async function initNotifications() {
+      await requestNotificationPermission();
+      await Notifications.cancelAllScheduledNotificationsAsync();
+
+      for (const element of notificationList) {
+        if (element.scheduleType === "date" && element.date) {
+          await scheduleNotificationDate({
+            name: element.name,
+            content: element.content,
+            date: element.date,
+          });
+        } else if (element.scheduleType === "time" && element.value) {
+          await scheduleNotificationDaily({
+            name: element.name,
+            content: element.content,
+            value: element.value,
+          });
+        }
+      }
+
+      Notifications.addNotificationResponseReceivedListener(
+        async (response) => {
+          if (!response) return;
+
+          const data = response.notification.request.content
+            .data as listenerPropType;
+
+          if (!data?.id) return;
+
+          console.log("Notification data:", data);
+
+          if (data.route) {
+            if (data?.contentIndex) {
+              setCurrentChapter(data?.contentIndex);
+            }
+            router.push("/view-chapter");
+          }
+        }
+      );
+    }
+
+    if (notificationList.length) initNotifications();
+  }, [notificationList]);
 
   const { objSetting } = settingContext;
 

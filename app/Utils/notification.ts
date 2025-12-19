@@ -1,6 +1,7 @@
 import * as Notifications from "expo-notifications";
 import { Platform } from "react-native";
 import { getStoreData, storeData } from "./storage";
+import { useRouter } from "expo-router";
 
 type Content = {
   title: string;
@@ -97,47 +98,31 @@ export const scheduleNotificationDate = async ({
   });
 };
 
-// Function to listen for notification responses and remove scheduled time from AsyncStorage
-export const listenForNotificationResponse = async () => {
-  try {
-    interface NotificationSchedule {
-      name: ("daily-verse-dayTime" | "daily-verse-nightTime")[];
+export type listenerPropType = {
+  id: string;
+  route: string;
+  chapterContent?: { chapter: string; verse: string; content: string };
+};
+
+// Set up a single listener for notification responses
+export const setupNotificationListener = () => {
+  const router = useRouter();
+
+  Notifications.addNotificationResponseReceivedListener(async (response) => {
+    if (!response) return;
+
+    const data = response.notification.request.content.data as listenerPropType;
+
+    if (!data?.id) return;
+
+    console.log("Notification data:", data);
+
+    if (data.route) {
+      // Navigate to the route and pass chapterContent if it exists
+      router.push({
+        pathname: "/view-chapter",
+        params: { chapterContent: JSON.stringify(data.chapterContent ?? {}) },
+      });
     }
-
-    const schedule = await getStoreData("NOTIFICATION");
-
-    Notifications.addNotificationResponseReceivedListener(async (response) => {
-      console.log("Notification received:", response);
-
-      // Check which notification was triggered using the identifier
-      if (response.notification.request.identifier === "daily-verse-dayTime") {
-        console.log("7:00 AM notification triggered");
-
-        const result = schedule?.name.filter(
-          (item) => item !== "daily-verse-dayTime"
-        );
-
-        console.log("Filtered schedule:", result);
-
-        // Update AsyncStorage with the filtered schedule
-        await storeData("NOTIFICATION", { name: result || [] });
-      }
-
-      if (
-        response.notification.request.identifier === "daily-verse-nightTime"
-      ) {
-        const result = schedule?.name.filter(
-          (item) => item !== "daily-verse-nightTime"
-        );
-
-        console.log("Filtered schedule:", result);
-
-        // Update AsyncStorage with the filtered schedule
-        await storeData("NOTIFICATION", { name: result || [] });
-      }
-    });
-  } catch (error) {
-    console.error("Error listening for notification response:", error);
-    return;
-  }
+  });
 };
