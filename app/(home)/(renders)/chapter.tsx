@@ -189,19 +189,13 @@ const ChapterScreen = () => {
                   >
                     <Text
                       allowFontScaling={false}
-                      style={[
-                        styles.btnTitle,
-                        { color: themeColors.background },
-                      ]}
+                      style={[styles.btnTitle, { color: COLORS.white }]}
                     >
                       {selectedChapter ? "Verse" : "Chapter"}
                     </Text>
                     <Text
                       allowFontScaling={false}
-                      style={[
-                        styles.btnNumber,
-                        { color: themeColors.background },
-                      ]}
+                      style={[styles.btnNumber, { color: COLORS.white }]}
                     >
                       {data}
                     </Text>

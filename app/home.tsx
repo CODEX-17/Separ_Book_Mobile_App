@@ -67,7 +67,12 @@ const Home = () => {
 
       {/* Tifillah Time Reminder Card */}
       {isTefillahTime() && (
-        <View style={[styles.reminderCard, { marginTop: 40 }]}>
+        <View
+          style={[
+            styles.reminderCard,
+            { marginTop: 40, backgroundColor: themeColors.card },
+          ]}
+        >
           <Text
             allowFontScaling={false}
             style={{
