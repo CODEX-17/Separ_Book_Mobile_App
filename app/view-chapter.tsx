@@ -5,6 +5,7 @@ import {
   StyleSheet,
   TouchableOpacity,
   ScrollView,
+  ToastAndroid,
 } from "react-native";
 import { ChapterContext } from "./context/ChapterContex";
 import { separ as chapterList } from "./data/chapters";
@@ -89,7 +90,6 @@ const ViewChapter = () => {
     getAllFavorites();
   }, [currentChapter]);
 
-  // Update profile level safely
   useEffect(() => {
     if (level === 1 && profile) {
       setProfile((prevProfile) => {
@@ -100,6 +100,28 @@ const ViewChapter = () => {
       });
     }
   }, [level]);
+
+  // Update profile level when reach user 20 sec in every chapter
+  useEffect(() => {
+    console.log("⏳ Timer started");
+
+    const timer = setTimeout(() => {
+      console.log("✅ User spent 20 seconds in ViewChapter");
+      setProfile((prevProfile) => {
+        if (!prevProfile) return prevProfile;
+        const updatedProfile = { ...prevProfile, level: prevProfile.level + 1 };
+        storeData("PROFILE", updatedProfile);
+        return updatedProfile;
+      });
+
+      ToastAndroid.show(`Level up! ${profile?.level}`, ToastAndroid.SHORT);
+    }, 20000); // 20 seconds
+
+    return () => {
+      clearTimeout(timer);
+      console.log("🧹 Timer cleared (component unmounted)");
+    };
+  }, [currentChapter]);
 
   if (
     currentChapter === null ||

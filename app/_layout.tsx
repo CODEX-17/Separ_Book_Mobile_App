@@ -6,8 +6,8 @@ import { useFonts } from "expo-font";
 import { useEffect } from "react";
 import { Stack } from "expo-router";
 import { Text, TextInput } from "react-native";
-
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { logAsyncStorage } from "./Utils/storage";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -31,14 +31,19 @@ export default function RootLayout() {
     }
   }, [loaded, error]);
 
-  //Clear Data
+  // LOG THE LOCAL STORAGE
   useEffect(() => {
-    const clearData = async () => {
-      await AsyncStorage.clear();
-    };
-
-    clearData();
+    logAsyncStorage();
   }, []);
+
+  // //Clear Data
+  // useEffect(() => {
+  //   const clearData = async () => {
+  //     await AsyncStorage.clear();
+  //   };
+
+  //   clearData();
+  // }, []);
 
   if (!loaded && !error) return null;
 
