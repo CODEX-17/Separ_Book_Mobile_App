@@ -12,6 +12,7 @@ import {
 } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome6";
 import Icon1 from "react-native-vector-icons/Entypo";
+import Icon2 from "react-native-vector-icons/SimpleLineIcons";
 
 const Developer = () => {
   const settingContext = useContext(SettingContext);
@@ -37,6 +38,31 @@ const Developer = () => {
       >
         The Developer (C0D3X)
       </Text>
+      <TouchableOpacity
+        style={{
+          flexDirection: "row",
+          gap: 2,
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+        onPress={() => Linking.openURL("https://rumarpamparo.vercel.app/")}
+      >
+        <Icon2
+          name="globe"
+          color={objSetting.theme === "dark" ? COLORS.white : COLORS.blue}
+          size={10}
+        />
+        <Text
+          allowFontScaling={false}
+          style={{
+            fontSize: 10,
+            color: objSetting.theme === "dark" ? COLORS.white : COLORS.blue,
+            gap: 10,
+          }}
+        >
+          Visit My Website
+        </Text>
+      </TouchableOpacity>
       <Text
         allowFontScaling={false}
         style={{
@@ -165,6 +191,33 @@ const Developer = () => {
               ]}
             >
               Github
+            </Text>
+          </View>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => Linking.openURL("https://rumarpamparo.vercel.app/")}
+        >
+          <View style={styles.btn}>
+            <Icon2
+              name="globe"
+              color={
+                objSetting.theme === "dark"
+                  ? COLORS.white
+                  : themeColors.primaryText
+              }
+              size={25}
+            />
+            <Text
+              allowFontScaling={false}
+              style={[
+                styles.boldText,
+                {
+                  color: themeColors.primaryText,
+                  fontSize: 10,
+                },
+              ]}
+            >
+              Website
             </Text>
           </View>
         </TouchableOpacity>

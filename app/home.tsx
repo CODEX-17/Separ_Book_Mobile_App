@@ -115,7 +115,7 @@ const Home = () => {
               <Text
                 allowFontScaling={false}
                 style={{
-                  color: themeColors.secondaryText,
+                  color: COLORS.black,
                   fontSize: 10,
                   fontFamily: "Poppins-Bold",
                 }}
