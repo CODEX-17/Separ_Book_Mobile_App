@@ -16,6 +16,7 @@ import { SettingContext } from "../context/SettingContext";
 import COLORS from "../constants/colors";
 import { showToast } from "../Utils/toast";
 import { getStoreData } from "../Utils/storage";
+import { findingRankStatus, rankMapping } from "../Utils/rankUtils";
 
 interface ScreenShotProps {
   selectedVerse: Verse | null;
@@ -203,6 +204,33 @@ const ScreenShot: React.FC<ScreenShotProps> = ({
           >
             {profile ? `Captured by: ${profile.name}` : "- Anonymous"}
           </Text>
+          <View
+            style={{
+              flexDirection: "row",
+              marginTop: 5,
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <Image
+              style={styles.image}
+              source={rankMapping(findingRankStatus(profile?.level))}
+            />
+            <View
+              style={{
+                backgroundColor: COLORS.yellow,
+                paddingVertical: 2,
+                borderRadius: 5,
+                paddingHorizontal: 5,
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <Text allowFontScaling={false} style={{ fontSize: 8 }}>
+                {findingRankStatus(profile?.level)}
+              </Text>
+            </View>
+          </View>
         </View>
       </View>
       <View style={styles.menu}>
@@ -259,6 +287,10 @@ const styles = StyleSheet.create({
     color: "#343434",
     fontSize: 15,
     textAlign: "center",
+  },
+  image: {
+    height: 20,
+    width: 20,
   },
   displayContent: {
     height: "79%",

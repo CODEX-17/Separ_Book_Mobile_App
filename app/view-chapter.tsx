@@ -114,7 +114,7 @@ const ViewChapter = () => {
         return updatedProfile;
       });
 
-      ToastAndroid.show(`Level up! ${profile?.level}`, ToastAndroid.SHORT);
+      ToastAndroid.show(`Level up!`, ToastAndroid.SHORT);
     }, 20000); // 20 seconds
 
     return () => {
