@@ -10,8 +10,8 @@ export const separ: Verse[] = [
   {
     chapter: 1,
     verse: 2,
-    content: `Ipinakilala ko ang aking pangalan sa panahon paman ni Adan kay noach,kay Avraham,kay moshe,kay samual,kay aliyahu,kay ezra,kay nahemyahu, kay yob,kay dawud,kay yeshayahu,kay yeremhayahu ,kay ezikiel,
-        ,kay danail,kay amos,kay hosiyahu,kay yual,kay yonas,kay micas,kay obadyahu,kay nahum,kay habakuk, kay zepanyahu, kay hagagai,kay zecharayu,kay malakyahu,sa ibang mga proprta at ipinakilala ni yahushua, at muling ipinakikilala ng aking sugo`,
+    content: `Ipinakilala ko ang aking pangalan sa panahon paman ni Adan kay Noach, kay Avraham, kay Moshe, kay Samual, kay Aliyahu, kay Ezra, kay Nahemyahu, kay Yob, kay Dawud, kay Yeshayahu, kay Yeremhayahu, kay Ezekiel,
+        ,kay Danial, kay Amos, kay Hosiyahu, kay Yual, kay Yonas, kay Micas, kay Obadyahu, kay Nahum, kay Habakkuk, kay Zepanyahu, kay Haggai, kay Zecharyahu, kay Malakyahu, sa ibang mga propeta at ipinakilala ni Yahushua, at muling ipinakikilala ng aking sugo`,
   },
 
   {
@@ -35,8 +35,8 @@ export const separ: Verse[] = [
   {
     chapter: 1,
     verse: 6,
-    content: `Ako si Yahuweh ang lumikha ng lahat ng mga bagay Ako ang nagbigay ng buhay, ako rin ang nagbigay ng likas ma simbuyo,Ako ang siyang nagbigay sa isang sanggol ng salita ba isang ganap na pagpuri
-        .ako si Ako nga ang makapangyarihan sa lahat at ang walang hanggan.`,
+    content: `Ako si Yahuweh ang lumikha ng lahat ng mga bagay Ako ang nagbigay ng buhay, ako rin ang nagbigay ng likas ma simbuyo, Ako ang siyang nagbigay sa isang sanggol ng salita na isang ganap na pagpupuri
+        . Ako si Ako nga ang makapangyarihan sa lahat at ang walang hanggan.`,
   },
 
   {
@@ -620,7 +620,7 @@ export const separ: Verse[] = [
   {
     chapter: 1,
     verse: 106,
-    content: `Ako si YAHUWEH, ang Makapangyarihan sa Lahat, na naglabas sa Bansang Yashraal mula sa pagka-alipin sa Ehipto. Ako ay hindi nagbabago, ipinapakita ko ang Aking pag-ibig sa mga taong umiibig sa Akin hanggang sa kanilang mga anak at hanggang sa kanilang mga kaapu-apuhan.`,
+    content: `Ako si Yahuweh, ang Makapangyarihan sa Lahat, na naglabas sa Bansang Yashraal mula sa pagka-alipin sa Ehipto. Ako ay hindi nagbabago, ipinapakita ko ang Aking pag-ibig sa mga taong umiibig sa Akin hanggang sa kanilang mga anak at hanggang sa kanilang mga kaapu-apuhan.`,
   },
   {
     chapter: 1,
@@ -869,7 +869,7 @@ export const separ: Verse[] = [
   {
     chapter: 1,
     verse: 155,
-    content: `Ang makikinig at tatanggapng kaniyang mensahe ay nakikinig at tumatanggapsa akin, ngunit ang mga nagmamatigasd at ang mga nagtatatakwil ay hindi makakatakas sa aking parusa.`,
+    content: `Ang makikinig at tatangga ng kaniyang mensahe ay nakikinig at tumatanggapsa akin, ngunit ang mga nagmamatigasd at ang mga nagtatatakwil ay hindi makakatakas sa aking parusa.`,
   },
 
   {
@@ -1115,19 +1115,19 @@ export const separ: Verse[] = [
   {
     chapter: 1,
     verse: 199,
-    content: `Ako lamang ang nag-iisang Makapangyarihan sa Lahat at walang kagaya ko,wala Akong kahati sa Aking kaluwalhatian,Ako lamang ang Tagapagligtas at wala nang iba pa.walang nauna sa Akin kaya't wala Akong Ama,wala ding papalit sa Akin kaya't wala din Akong bugtpng na Anak.`,
+    content: `Ako lamang ang nag-iisang Makapangyarihan sa Lahat at walang kagaya ko,wala Akong kahati sa Aking kaluwalhatian,Ako lamang ang Tagapagligtas at wala nang iba pa.walang nauna sa Akin kaya't wala Akong Ama,wala ding papalit sa Akin kaya't wala din Akong bugtong na Anak.`,
   },
 
   {
     chapter: 1,
     verse: 200,
-    content: `Ang lahat ng sumusunof sa Aking mga utos sa araw at gabi na gumagawa ng pagsamba para sa Akin ay Aking pagpapalain at sila'y hindi ko pababayaan at iiwan.`,
+    content: `Ang lahat ng sumusunod sa Aking mga utos sa araw at gabi na gumagawa ng pagsamba para sa Akin ay Aking pagpapalain at sila'y hindi ko pababayaan at iiwan.`,
   },
 
   {
     chapter: 1,
     verse: 201,
-    content: `Ang mga anghel at mga tao ay parehong nilalang ko sa layuning Ako ay kanilang sambahin.Kaya't ang sinomang Ako'y sambahin sa araw at gabi, ay kikilalanin Ko at pagpapalain.Ngunit ang mga namumuhay sa kasalanan, ang mga naghihimagsik sa Aking mga Salita at ang mga nagpapatuloy sa maling aral ay hindi maliligtas.At inyong makikilala ang pagkakaiba ng mga naglilingkod sa Akin at ang hindi naglilingkod.uusigin kayo at pagbibintangan kayo ng mga hindi naglilingkod sa Akin,subalit magpakatatag kayo at laging nakahanda ba ipaglaban ang inyong panampalataya sa Akin.Mapalad silang naninindigan para sa Akin sapagkat sila'y makakatanggap ng pagpapala at pagdating ng araw ay makakamtan nila ang buhay na walang hanggan.`,
+    content: `Ang mga anghel at mga tao ay parehong nilalang ko sa layuning Ako ay kanilang sambahin.Kaya't ang sinomang Ako'y sambahin sa araw at gabi, ay kikilalanin Ko at pagpapalain.Ngunit ang mga namumuhay sa kasalanan, ang mga naghihimagsik sa Aking mga Salita at ang mga nagpapatuloy sa maling aral ay hindi maliligtas.At inyong makikilala ang pagkakaiba ng mga naglilingkod sa Akin at ang hindi naglilingkod.uusigin kayo at pagbibintangan kayo ng mga hindi naglilingkod sa Akin,subalit magpakatatag kayo at laging nakahandang ipaglaban ang inyong panampalataya sa Akin.Mapalad silang naninindigan para sa Akin sapagkat sila'y makakatanggap ng pagpapala at pagdating ng araw ay makakamtan nila ang buhay na walang hanggan.`,
   },
 
   {
@@ -1162,14 +1162,14 @@ export const separ: Verse[] = [
   {
     chapter: 1,
     verse: 207,
-    content: `Ako si YAHUWEH ang Makapangyarihan sa Lahat ng panahon, hindi Ako natutulog 'hindi nakakaramdam ng kapaguran,hindi kumukupas ang Aking Kapangyarihan.`,
+    content: `Ako si Yahuweh ang Makapangyarihan sa Lahat ng panahon, hindi Ako natutulog 'hindi nakakaramdam ng kapaguran,hindi kumukupas ang Aking Kapangyarihan.`,
   },
 
   //Chapter 2
   {
     chapter: 2,
     verse: 1,
-    content: `Ikaw ay pinili ko upang maging kabahagi sa ministeryong ito ng mga sumasamba sa Aking Banal na Pangalan YAHUWEH,Bago ka pa pinaglihi ng iyong ina ay kilala na kita ,ikaw ay nakatalaga,na dito ka lalakad dito mo ipapakita ang iyong paglilingkod sa Akin.`,
+    content: `Ikaw ay pinili ko upang maging kabahagi sa ministeryong ito ng mga sumasamba sa Aking Banal na Pangalan Yahuweh,Bago ka pa pinaglihi ng iyong ina ay kilala na kita ,ikaw ay nakatalaga,na dito ka lalakad dito mo ipapakita ang iyong paglilingkod sa Akin.`,
   },
   {
     chapter: 2,
@@ -1209,7 +1209,7 @@ export const separ: Verse[] = [
   {
     chapter: 2,
     verse: 9,
-    content: `Mapalad ang mga dumadakila sa aking banal na pangalang YAHUWEH, mapalad ang kumikilala sa aking kapangyarihan, mapalad sila na may lubos na pananampalataya sapagkat makakamtan nila ang aking pangako ang buhay na walang hanggan.`,
+    content: `Mapalad ang mga dumadakila sa aking banal na pangalang Yahuweh, mapalad ang kumikilala sa aking kapangyarihan, mapalad sila na may lubos na pananampalataya sapagkat makakamtan nila ang aking pangako ang buhay na walang hanggan.`,
   },
   {
     chapter: 2,
@@ -1224,7 +1224,7 @@ export const separ: Verse[] = [
   {
     chapter: 2,
     verse: 12,
-    content: `Kung iyong dadakilain ang aking pangalan sa gitna ng mga tao ay padadalhan kita ng sunod-sunod na pagpapala. Kaya't pag-aaralan mo at sikapin mo kung papaano mo madadakila ang aking banal na pangalang YAHUWEH sa harap ng mga tao.`,
+    content: `Kung iyong dadakilain ang aking pangalan sa gitna ng mga tao ay padadalhan kita ng sunod-sunod na pagpapala. Kaya't pag-aaralan mo at sikapin mo kung papaano mo madadakila ang aking banal na pangalang Yahuweh sa harap ng mga tao.`,
   },
   {
     chapter: 2,
@@ -1269,7 +1269,7 @@ export const separ: Verse[] = [
   {
     chapter: 2,
     verse: 21,
-    content: `Sa lahat nang mga bagay at pangyayari ay may layunin ako. Magtiwala ka sa akin at makikita mo sa bandang huli ay mananaig pa rin ang katuwiran at katarungan. Kaya't huwag kang matakot at huwag kang mag-alinlangan sapagkat akong si YAHUWEH ay kasama mo, Ako ang Makapangyarihan sa lahat ang may hawak ng iyong kinabukasan.`,
+    content: `Sa lahat nang mga bagay at pangyayari ay may layunin ako. Magtiwala ka sa akin at makikita mo sa bandang huli ay mananaig pa rin ang katuwiran at katarungan. Kaya't huwag kang matakot at huwag kang mag-alinlangan sapagkat akong si Yahuweh ay kasama mo, Ako ang Makapangyarihan sa lahat ang may hawak ng iyong kinabukasan.`,
   },
   {
     chapter: 2,
@@ -1309,7 +1309,7 @@ export const separ: Verse[] = [
   {
     chapter: 2,
     verse: 29,
-    content: `Ako si YAHUWEH ang Makapangyarihan sa lahat na naglabas sa bansang Yahsraal mula sa pagka-alipin sa Ehipto. Ako ay hindi nagbabago, at ipinapakita ko ang Aking pag-ibig sa mga taong umiibig sa Akin hanggang sa kanilang mga anak at hanggang sa kanilang mga kaapo-apohan.`,
+    content: `Ako si Yahuweh ang Makapangyarihan sa lahat na naglabas sa bansang Yahsraal mula sa pagka-alipin sa Ehipto. Ako ay hindi nagbabago, at ipinapakita ko ang Aking pag-ibig sa mga taong umiibig sa Akin hanggang sa kanilang mga anak at hanggang sa kanilang mga kaapo-apohan.`,
   },
   {
     chapter: 2,
@@ -1324,7 +1324,7 @@ export const separ: Verse[] = [
   {
     chapter: 2,
     verse: 32,
-    content: `Mapalad ang taong may tunay na pagkatakot sa akin, siya'y laging nag-iingat sa kanyang mga ginagawa, pag-uugali, at pananalita upang hindi mapulaan ang  aking banal na pngalan. `,
+    content: `Mapalad ang taong may tunay na pagkatakot sa akin, siya'y laging nag-iingat sa kanyang mga ginagawa, pag-uugali, at pananalita upang hindi mapulaan ang  aking banal na pangalan. `,
   },
   {
     chapter: 2,
@@ -1374,7 +1374,7 @@ export const separ: Verse[] = [
   {
     chapter: 2,
     verse: 42,
-    content: `Ang araw ay darating na ang sinomang bansa ang hindi makiisa sa pagdiriwang ng mga pistang ito ay hindi ko bibigyan ng ulan, bagkus padadalhan ko sila ng mga sunod-sunod na salot, at makikilala ng buong mundo na ako si YAHUWEH ang nag-iisang Makapangyarihan sa lahat ay nagbibigay ng biyaya at pagpapala sa aking mga pinili sa bansang yahsraal at sa lahat ng mga hentil na may takot sa akin na nagsisigawa ng aking mga salita.  `,
+    content: `Ang araw ay darating na ang sinomang bansa ang hindi makiisa sa pagdiriwang ng mga pistang ito ay hindi ko bibigyan ng ulan, bagkus padadalhan ko sila ng mga sunod-sunod na salot, at makikilala ng buong mundo na ako si Yahuweh ang nag-iisang Makapangyarihan sa lahat ay nagbibigay ng biyaya at pagpapala sa aking mga pinili sa bansang yahsraal at sa lahat ng mga hentil na may takot sa akin na nagsisigawa ng aking mga salita.  `,
   },
   {
     chapter: 2,
@@ -1609,7 +1609,7 @@ export const separ: Verse[] = [
   {
     chapter: 2,
     verse: 89,
-    content: `Ikaw ay aking hinarang upang mag-alay ng mga awit ng papuri at pagsamba sa aking banal na pangalang YAHUWEH.`,
+    content: `Ikaw ay aking hinarang upang mag-alay ng mga awit ng papuri at pagsamba sa aking banal na pangalang Yahuweh.`,
   },
   {
     chapter: 2,
@@ -1654,7 +1654,7 @@ export const separ: Verse[] = [
   {
     chapter: 2,
     verse: 98,
-    content: `manalig ka sa akin, ako si YAHUWEH  ay hindi nagbabago, noon ay nagpapahayag ako ng mga mahiwagang bagay sa aking mga propeta at magpa hanggang ngayon ay patuloy ako'ng nagpapahayag. Maniwala ka sa aking mga propeta at ikaw ay uunlaed.`,
+    content: `manalig ka sa akin, ako si Yahuweh  ay hindi nagbabago, noon ay nagpapahayag ako ng mga mahiwagang bagay sa aking mga propeta at magpa hanggang ngayon ay patuloy ako'ng nagpapahayag. Maniwala ka sa aking mga propeta at ikaw ay uunlaed.`,
   },
   {
     chapter: 2,
@@ -1785,7 +1785,7 @@ export const separ: Verse[] = [
   {
     chapter: 2,
     verse: 124,
-    content: `Mag-iingat ka kung mag-aaral ka ng biblia sapagkat ang mga escriba ay sumulat ng may kasinulungan, na anopat nag resulta ito ng kontrata, at hidwaang pananampalataya na mag-aakay sa tao sa paglabag sa sa aking mga utos at paglayo sa akin. at kanilang pinalitan ang aking banal na pangalan huwad at mga paganong pangalan, at kanilang nailigaw ang marami.`,
+    content: `Mag-iingat ka kung mag-aaral ka ng biblia sapagkat ang mga escriba ay sumulat ng may kasinungalingan, na ano pa't nag resulta ito ng kontra-kontra, at hidwaang pananampalataya na mag-aakay sa tao sa paglabag sa sa aking mga utos at paglayo sa akin. at kanilang pinalitan ang aking banal na pangalan huwad at mga paganong pangalan, at kanilang nailigaw ang marami.`,
   },
   {
     chapter: 2,
@@ -1795,7 +1795,7 @@ export const separ: Verse[] = [
   {
     chapter: 2,
     verse: 126,
-    content: `Ako ang alyon si YAHUWEH ang lumikha ng langit at lupa. Ang kaluwalhatian at ang pagsamba ay akin lamang at hindi ko ibabahagi kaninoman.`,
+    content: `Ako ang alyon si Yahuweh ang lumikha ng langit at lupa. Ang kaluwalhatian at ang pagsamba ay akin lamang at hindi ko ibabahagi kaninoman.`,
   },
   {
     chapter: 2,
@@ -1845,7 +1845,7 @@ export const separ: Verse[] = [
   {
     chapter: 2,
     verse: 136,
-    content: `Huwag mong ipipilit ang sarili mo sa anumang bagay na hindi para sa iyo, tatanggapin mo ang nakatakda na para sa iyo, at huwag kang gagawa ng maling hakbang na iyong ikakapahamak. Makinig ka sa aking payo at ikaw ay magagabayan, ako si YAHUWEHna nagmamalasakit sa iyo.`,
+    content: `Huwag mong ipipilit ang sarili mo sa anumang bagay na hindi para sa iyo, tatanggapin mo ang nakatakda na para sa iyo, at huwag kang gagawa ng maling hakbang na iyong ikakapahamak. Makinig ka sa aking payo at ikaw ay magagabayan, ako si Yahuwehna nagmamalasakit sa iyo.`,
   },
   {
     chapter: 2,
@@ -1890,7 +1890,7 @@ export const separ: Verse[] = [
   {
     chapter: 2,
     verse: 145,
-    content: `Sa inyong mga sumasamba sa akin ay hindi dapat marinig na may gayong klaseng mga tao, sapagkat magiging kapintasan sa inyo at katitisuran sa mga tao. inyong tandaan na ako ay banal, kaya't dapat din kayong magpaka-banal sa Lahat ng inyong  ginagawa. ako si YAHUWEH ang makapangyarihan sa lahat.`,
+    content: `Sa inyong mga sumasamba sa akin ay hindi dapat marinig na may gayong klaseng mga tao, sapagkat magiging kapintasan sa inyo at katitisuran sa mga tao. inyong tandaan na ako ay banal, kaya't dapat din kayong magpaka-banal sa Lahat ng inyong  ginagawa. ako si Yahuweh ang makapangyarihan sa lahat.`,
   },
   {
     chapter: 2,
@@ -1995,7 +1995,7 @@ export const separ: Verse[] = [
   {
     chapter: 2,
     verse: 166,
-    content: `Huwag mong ikahiya ang magpatotoo tungkol sa mga magagandang bagay na aking ginawa sa iyo. Ako si YAHUWEH ay nalulugod sa mga taong dumadakila at nagpaparangal sa aking pangalan.`,
+    content: `Huwag mong ikahiya ang magpatotoo tungkol sa mga magagandang bagay na aking ginawa sa iyo. Ako si Yahuweh ay nalulugod sa mga taong dumadakila at nagpaparangal sa aking pangalan.`,
   },
   {
     chapter: 2,
@@ -2005,7 +2005,7 @@ export const separ: Verse[] = [
   {
     chapter: 2,
     verse: 168,
-    content: `Maghintay ka sa tamang panahon at huwag kang magmadali, pag-isipan mo ng maraming ang isang bagay at ipanalangin mo ito, at magtiwala ka lagi sa Akin. Huwag mong isipin na magagawa mo kahit wala Ako, bagkus Ako'y lagi mong kilalanin, Ako si YAHUWEH ang iyong tagumpay.`,
+    content: `Maghintay ka sa tamang panahon at huwag kang magmadali, pag-isipan mo ng maraming ang isang bagay at ipanalangin mo ito, at magtiwala ka lagi sa Akin. Huwag mong isipin na magagawa mo kahit wala Ako, bagkus Ako'y lagi mong kilalanin, Ako si Yahuweh ang iyong tagumpay.`,
   },
   {
     chapter: 2,
@@ -2015,7 +2015,7 @@ export const separ: Verse[] = [
   {
     chapter: 2,
     verse: 170,
-    content: `Darating ang araw na marami sa mga nasa metro manila ang maglilikasan patungong cavite dahil sa pinsala na dulot ng malakas na lindol, darating ang mga araw na kakainin ng dagat at malaking tinambak na lupa, at dadami at lalong lalaki ang mga baha sa ibat-ibang lugar dahil sa mga malalakas na bagyo at ulan na darating Ang mga ito ay unti-unting mangyayayri dahil sa mga kasalanan ng mga tao, ngunit kayong mga tunay na mananamba sa aking pangalan ay aking iingatan at dadalhin sa isang ligatas na lugar, darating din ang araw na maraming aanib sa inyong samahan at sasabihin kami ay sasama sa inyo sapagkat aming nalaman na kayo ay pinapatnubayan ni YAHUWEH ang makapangyarihan sa lahat.`,
+    content: `Darating ang araw na marami sa mga nasa metro manila ang maglilikasan patungong cavite dahil sa pinsala na dulot ng malakas na lindol, darating ang mga araw na kakainin ng dagat at malaking tinambak na lupa, at dadami at lalong lalaki ang mga baha sa ibat-ibang lugar dahil sa mga malalakas na bagyo at ulan na darating Ang mga ito ay unti-unting mangyayayri dahil sa mga kasalanan ng mga tao, ngunit kayong mga tunay na mananamba sa aking pangalan ay aking iingatan at dadalhin sa isang ligatas na lugar, darating din ang araw na maraming aanib sa inyong samahan at sasabihin kami ay sasama sa inyo sapagkat aming nalaman na kayo ay pinapatnubayan ni Yahuweh ang makapangyarihan sa lahat.`,
   },
   {
     chapter: 2,
@@ -2095,7 +2095,7 @@ export const separ: Verse[] = [
   {
     chapter: 3,
     verse: 6,
-    content: `Ako si YAHUWEH ang Yashaer, Ako ang nagbigay ng buhay, ako ang nagbigay ng likas na simboyo sa lahat  ng nilalang. ako si Yahuweh ang Alyon at ang Olam.`,
+    content: `Ako si Yahuweh ang Yashaer, Ako ang nagbigay ng buhay, ako ang nagbigay ng likas na simboyo sa lahat  ng nilalang. ako si Yahuweh ang Alyon at ang Olam.`,
   },
   {
     chapter: 3,
@@ -2105,7 +2105,7 @@ export const separ: Verse[] = [
   {
     chapter: 3,
     verse: 8,
-    content: `At sa aking pangalan ang lahat ng tuhod ay kailangang lumuhod, lahat ng dila ay kailangang magpahayag na Ako si YAHUWEH ang Dakilang Maylikha, ang Makapangyarihan sa lahat, ang walang hanggan at ang karapat dapat sambahin.`,
+    content: `At sa aking pangalan ang lahat ng tuhod ay kailangang lumuhod, lahat ng dila ay kailangang magpahayag na Ako si Yahuweh ang Dakilang Maylikha, ang Makapangyarihan sa lahat, ang walang hanggan at ang karapat dapat sambahin.`,
   },
   {
     chapter: 3,
@@ -2145,7 +2145,7 @@ export const separ: Verse[] = [
   {
     chapter: 3,
     verse: 16,
-    content: `Magmula sa langit ay minamasdan kita, binabantayan ko ay iyong pag-uugali at pamumuhay. kaya't magpakatino ka, at huwag magpasaway.gawin ko ang tama at huwag ang mali, umiwas ka sa masama, at manindigan ka sa tama; kapag ginawa mo ito ay pagpapalain kita, ngunit kung hindi ka makikinig sa aking sinasabi ay parurusahan kita.`,
+    content: `Magmula sa langit ay minamasdan kita, binabantayan ko ay iyong pag-uugali at pamumuhay. kaya't magpakatino ka, at huwag magpasaway, gawin mo ang tama at huwag ang mali, umiwas ka sa masama, at manindigan ka sa tama; kapag ginawa mo ito ay pagpapalain kita, ngunit kung hindi ka makikinig sa aking sinasabi ay parurusahan kita.`,
   },
   {
     chapter: 3,
@@ -2155,12 +2155,12 @@ export const separ: Verse[] = [
   {
     chapter: 3,
     verse: 18,
-    content: `Huwag kang mag-alinlangan, alisin mo ang mga pagdududa sa Aklat na ito, sapagkat tinawag kita upang Ako'y iyong makilala, malaman mo ang tamang pamamaraan ng paglilingkod sa Akin, Ako si YAHUWEH ay hindi nababago di ba't sinabi ko nuong una pa Ako'y gumagawa ng panibago, patuloy' ako'ng nagpapahayag ng Aking mga salita sa pamamagitan  ng Aking  mga propeta, kinakausap ko sila sapamamagitan ng mga panaginip at pangitain at sapamamagitan ng maliit na tinig. Kung mananampalataya ka, Ikaw ay Aking pagpapalain.`,
+    content: `Huwag kang mag-alinlangan, alisin mo ang mga pagdududa sa Aklat na ito, sapagkat tinawag kita upang Ako'y iyong makilala, malaman mo ang tamang pamamaraan ng paglilingkod sa Akin, Ako si Yahuweh ay hindi nababago di ba't sinabi ko nuong una pa Ako'y gumagawa ng panibago, patuloy' ako'ng nagpapahayag ng Aking mga salita sa pamamagitan  ng Aking  mga propeta, kinakausap ko sila sapamamagitan ng mga panaginip at pangitain at sapamamagitan ng maliit na tinig. Kung mananampalataya ka, Ikaw ay Aking pagpapalain.`,
   },
   {
     chapter: 3,
     verse: 19,
-    content: `Ang bawat sqalita ko ay pawang katotohanan, mag-aakay sa tao sa pagbabagong buhay, pagtutuwid sa mga pangit na pag-uugali, papatunay kung ano ang tama at maling paniniwala, at pag-aakay sa tao sa pagiging matuwid at banal.`,
+    content: `Ang bawat salita ko ay pawang katotohanan, mag-aakay sa tao sa pagbabagong buhay, pagtutuwid sa mga pangit na pag-uugali, papatunay kung ano ang tama at maling paniniwala, at pag-aakay sa tao sa pagiging matuwid at banal.`,
   },
   {
     chapter: 3,
@@ -2455,7 +2455,7 @@ export const separ: Verse[] = [
   {
     chapter: 3,
     verse: 78,
-    content: `huwag kang paakit sa mga mangangaral na naka depende lamang sa biblia, sapagkat maging sa sarili nila ay hindi nila nalalaman na sila ay nadaya ng kaaway, marami sa kanila ang hindi nakakakita ng kontridasyon at mga huwad na aral na ginawa ng mga kasinungalingan ng mga escriba. Maging mapagbantay at maingat ka, manatili ka sa Aking Banal na Separ at kailanman ay hindi ka maliligaw.`,
+    content: `huwag kang paakit sa mga mangangaral na naka depende lamang sa biblia, sapagkat maging sa sarili nila ay hindi nila nalalaman na sila ay nadaya ng kaaway, marami sa kanila ang hindi nakakakita ng kontradiksyon at mga huwad na aral na ginawa ng mga kasinungalingan ng mga escriba. Maging mapagbantay at maingat ka, manatili ka sa Aking Banal na Separ at kailanman ay hindi ka maliligaw.`,
   },
   {
     chapter: 3,
@@ -2555,7 +2555,7 @@ export const separ: Verse[] = [
   {
     chapter: 3,
     verse: 98,
-    content: `Sa lahat nang mga bagay at pangyayari, ay may layunin Ako. Magtiwala ka sa Akin at makikita mo sa bandang huli ay mananaig parin ang katuwiran at katarungan. Ako si YAHUWEH ang Alyon ang may kontrolado sa lahat ng mga bagay.`,
+    content: `Sa lahat nang mga bagay at pangyayari, ay may layunin Ako. Magtiwala ka sa Akin at makikita mo sa bandang huli ay mananaig parin ang katuwiran at katarungan. Ako si Yahuweh ang Alyon ang may kontrolado sa lahat ng mga bagay.`,
   },
   {
     chapter: 3,
@@ -2595,12 +2595,12 @@ export const separ: Verse[] = [
   {
     chapter: 3,
     verse: 106,
-    content: `Ako si YAHUWEH ang Makapangyarihan sa lahat, mula sa langit ay nagmamasid Ako at tini-tingnan ko at binabantayan ko ang mga taong gumagawa ng mabuti, at pagpapalain ko sila ayon sa kanilang mga ginawa.`,
+    content: `Ako si Yahuweh ang Makapangyarihan sa lahat, mula sa langit ay nagmamasid Ako at tini-tingnan ko at binabantayan ko ang mga taong gumagawa ng mabuti, at pagpapalain ko sila ayon sa kanilang mga ginawa.`,
   },
   {
     chapter: 3,
     verse: 107,
-    content: `Ako si YAHUWEH ang Makapangyarihan sa lahat, Ako ang iyong kakampi, gawin mo lang ang tama, at manindigan ka sa katotohanan, at ipagtatanggol kita, parurusahan ko ang mga umuusig sa iyo at makikita nila na ikaw ay Aking pinapatnubayan.`,
+    content: `Ako si Yahuweh ang Makapangyarihan sa lahat, Ako ang iyong kakampi, gawin mo lang ang tama, at manindigan ka sa katotohanan, at ipagtatanggol kita, parurusahan ko ang mga umuusig sa iyo at makikita nila na ikaw ay Aking pinapatnubayan.`,
   },
   {
     chapter: 3,
@@ -2705,22 +2705,22 @@ export const separ: Verse[] = [
   {
     chapter: 3,
     verse: 128,
-    content: `Ang may pandinig ay dapat makinig sa Aking mga Salita, ang mga may paningin ay dapat magbasa ng Aking mga Salita. Sapagkat sa araw ng paghuhukom ang lahat ng mga nabigyan ng pagkakataon na makarinig at makabasa ng Aking mga Salita ay magsusulit sa Aking harapan. Ako ang Dakilang Hukom na ang Pangalan ay YAHUWEH.`,
+    content: `Ang may pandinig ay dapat makinig sa Aking mga Salita, ang mga may paningin ay dapat magbasa ng Aking mga Salita. Sapagkat sa araw ng paghuhukom ang lahat ng mga nabigyan ng pagkakataon na makarinig at makabasa ng Aking mga Salita ay magsusulit sa Aking harapan. Ako ang Dakilang Hukom na ang Pangalan ay Yahuweh.`,
   },
   {
     chapter: 4,
     verse: 1,
-    content: `Manampalataya ka sa Aking Banal na Pangalang YAHUWEH at huwag kang mag-alinlangan sapagkat ang sinomang tumatawag sa Aking Pangalang YAHUWEH ay maliligtas, ngunit ang mga may pagdududa ay hindi maliligtas.`,
+    content: `Manampalataya ka sa Aking Banal na Pangalang Yahuweh at huwag kang mag-alinlangan sapagkat ang sinomang tumatawag sa Aking Pangalang Yahuweh ay maliligtas, ngunit ang mga may pagdududa ay hindi maliligtas.`,
   },
   {
     chapter: 4,
     verse: 2,
-    content: `Ngunit ang sinomang tumatawag sa Aking Banal na Pangalang YAHUWEH ng may tunay na pananampalataya ay makakapasok sa kaharian ng langit.`,
+    content: `Ngunit ang sinomang tumatawag sa Aking Banal na Pangalang Yahuweh ng may tunay na pananampalataya ay makakapasok sa kaharian ng langit.`,
   },
   {
     chapter: 4,
     verse: 3,
-    content: `Ang nagpapahalaga at gumagalang sa Aking Banal na Pangalang YAHUWEH ay Aking iingatan saan man siya pupunta, papatnubayan at ililigtas ko siya at ipadarama ko sa kanya ang Aking pag-ibig.`,
+    content: `Ang nagpapahalaga at gumagalang sa Aking Banal na Pangalang Yahuweh ay Aking iingatan saan man siya pupunta, papatnubayan at ililigtas ko siya at ipadarama ko sa kanya ang Aking pag-ibig.`,
   },
   {
     chapter: 4,
@@ -2825,7 +2825,7 @@ export const separ: Verse[] = [
   {
     chapter: 4,
     verse: 24,
-    content: `Ang sinomang lumalait at nagsasalita ng laban sa inyong pananampalataya sa Akin ay padadalhan ko ng parusa, upang makita ng lahat na Ako si YAHUWEH ay sumasainyo ang Makapangyarihan sa lahat. Aking ipapahiya ang mga nagsasalita ng masama sa inyo.`,
+    content: `Ang sinomang lumalait at nagsasalita ng laban sa inyong pananampalataya sa Akin ay padadalhan ko ng parusa, upang makita ng lahat na Ako si Yahuweh ay sumasainyo ang Makapangyarihan sa lahat. Aking ipapahiya ang mga nagsasalita ng masama sa inyo.`,
   },
   {
     chapter: 4,
@@ -2850,7 +2850,7 @@ export const separ: Verse[] = [
   {
     chapter: 4,
     verse: 29,
-    content: `Kayong mga sumasamba sa Aking Banal na Pangalan ay Aking bansa, mga taong nasa liwanag at hindi ng kadiliman; hindi dapat marinig ni makita sa inyo ang panonood ng mga malalaswang palabas, mga palabas tungkol sa mga multo, aswang, pangkukulam at mahika, ang mga ito’y makapagpaparumi ng inyong isip at pamumuhay. Kailangan mamuhay kayo ng may kabanalan sapagkat Akong si YAHUWEH ay Banal.`,
+    content: `Kayong mga sumasamba sa Aking Banal na Pangalan ay Aking bansa, mga taong nasa liwanag at hindi ng kadiliman; hindi dapat marinig ni makita sa inyo ang panonood ng mga malalaswang palabas, mga palabas tungkol sa mga multo, aswang, pangkukulam at mahika, ang mga ito’y makapagpaparumi ng inyong isip at pamumuhay. Kailangan mamuhay kayo ng may kabanalan sapagkat Akong si Yahuweh ay Banal.`,
   },
   {
     chapter: 4,
@@ -2895,7 +2895,7 @@ export const separ: Verse[] = [
   {
     chapter: 4,
     verse: 38,
-    content: `Ako ang iyong kalakasan, Ako ang Alyon YAHUWEH na nagmamahal sa iyo.`,
+    content: `Ako ang iyong kalakasan, Ako ang Alyon Yahuweh na nagmamahal sa iyo.`,
   },
   {
     chapter: 4,
@@ -2910,7 +2910,7 @@ export const separ: Verse[] = [
   {
     chapter: 4,
     verse: 41,
-    content: `Ako si YAHUWEH ang Makapangyarihan sa lahat ang nakakaalam ng puso ng isang tao.`,
+    content: `Ako si Yahuweh ang Makapangyarihan sa lahat ang nakakaalam ng puso ng isang tao.`,
   },
   {
     chapter: 4,
@@ -2925,7 +2925,7 @@ export const separ: Verse[] = [
   {
     chapter: 4,
     verse: 44,
-    content: `Huwag kang manghina sa mga kahirapan na iyong nararanasan, sapagkat iyan ay mga kasangkapan sa paghubog sa iyong pananampalataya.`,
+    content: `Huwag kang manghina sa mga kahirapan na iyong nararanasan, sapagkat iyan ay mga kasangkapan sa paghubog sa iyong pananampalataya, sa mga panahon na iyan ay matututo kang magtiyaga, magtiis, maghintay, magsumikap, magpakumbaba, magtiwala at masiyahan; ito ang mga katangian na dapat mong matutunan sa panahon ng mga pagsubok.`,
   },
   {
     chapter: 4,
@@ -2935,12 +2935,12 @@ export const separ: Verse[] = [
   {
     chapter: 4,
     verse: 46,
-    content: `Tumingin ka sa langit at tingnan mo ang mga kabundukan, at ang karagatan. Ang lahat nang nakikita mo ay Ako na mag-isa ang lumikha, kaya’t huwag mong limitahan ang Aking kapangyarihan at karunungan. Ako si YAHUWEH ang nag-iisang Makapangyarihan sa lahat, at ang tanging makapagliligtas sa iyo.`,
+    content: `Tumingin ka sa langit at tingnan mo ang mga kabundukan, at ang karagatan. Ang lahat nang nakikita mo ay Ako na mag-isa ang lumikha, kaya’t huwag mong limitahan ang Aking kapangyarihan at karunungan. Ako si Yahuweh ang nag-iisang Makapangyarihan sa lahat, at ang tanging makapagliligtas sa iyo.`,
   },
   {
     chapter: 4,
     verse: 47,
-    content: `Manampalataya ka sa Akin, Ako si YAHUWEH ang Dakila sa lahat, ang Walang hanggan, Ako ang Makapangyarihan sa lahat, at Ako lamang ang Dakilang Tagapagligtas. Kung ikaw ay maniniwala sa Akin at manalig sa Akin, ay gagabayan kita at dadalhin kita sa paraiso ng Aking kaharian.`,
+    content: `Manampalataya ka sa Akin, Ako si Yahuweh ang Dakila sa lahat, ang Walang hanggan, Ako ang Makapangyarihan sa lahat, at Ako lamang ang Dakilang Tagapagligtas. Kung ikaw ay maniniwala sa Akin at manalig sa Akin, ay gagabayan kita at dadalhin kita sa paraiso ng Aking kaharian.`,
   },
   {
     chapter: 4,
@@ -2960,7 +2960,7 @@ export const separ: Verse[] = [
   {
     chapter: 4,
     verse: 51,
-    content: `Kung Ako’y tuloy-tuloy na hahanapin ng tao, Ako’y kanyang matatagpuan, at kung siya’y tatawag sa Akin ay ibibigay ko sa kanya ang tunay na kapahingahan ng kanyang kaluluwa; at kung susunod siya sa Aking kalooban, ay bibigyan ko ng buhay na walang hanggan. Ako si YAHUWEH ang Alyon, Ako lamang ang makapangyayari na ikaw ay maging kompleto.`,
+    content: `Kung Ako’y tuloy-tuloy na hahanapin ng tao, Ako’y kanyang matatagpuan, at kung siya’y tatawag sa Akin ay ibibigay ko sa kanya ang tunay na kapahingahan ng kanyang kaluluwa; at kung susunod siya sa Aking kalooban, ay bibigyan ko ng buhay na walang hanggan. Ako si Yahuweh ang Alyon, Ako lamang ang makapangyayari na ikaw ay maging kompleto.`,
   },
   {
     chapter: 4,
@@ -2985,7 +2985,7 @@ export const separ: Verse[] = [
   {
     chapter: 4,
     verse: 56,
-    content: `Mapalad ang mga nag-alay ng kanilang buhay upang Ako’y kanilang paglingkuran hanggang sa katapusan ng kanilang buhay. Tunay na hindi mabibigo ang kanilang pag-asa, sapagkat Ako ang magbibigay ng gantimpala sa kanila, Ako ang Alyon YAHUWEH.`,
+    content: `Mapalad ang mga nag-alay ng kanilang buhay upang Ako’y kanilang paglingkuran hanggang sa katapusan ng kanilang buhay. Tunay na hindi mabibigo ang kanilang pag-asa, sapagkat Ako ang magbibigay ng gantimpala sa kanila, Ako ang Alyon Yahuweh.`,
   },
   {
     chapter: 4,
@@ -3120,7 +3120,7 @@ export const separ: Verse[] = [
   {
     chapter: 4,
     verse: 83,
-    content: `Ako ang kataastaasan sa lahat, ito ang Aking pamagat at walang sinomang makakaangkin nito. YAHUWEH ang Aking Pangalan. Ito ang Aking Banal na Pangalan na magbibigay sa iyo ng kaligtasan, kaya nga itakwil mo ang mga huwad na pangalan sapagkat ang mga yao’y isang kasinungaling.`,
+    content: `Ako ang kataastaasan sa lahat, ito ang Aking pamagat at walang sinomang makakaangkin nito. Yahuweh ang Aking Pangalan. Ito ang Aking Banal na Pangalan na magbibigay sa iyo ng kaligtasan, kaya nga itakwil mo ang mga huwad na pangalan sapagkat ang mga yao’y isang kasinungaling.`,
   },
   {
     chapter: 4,
@@ -3145,7 +3145,7 @@ export const separ: Verse[] = [
   {
     chapter: 4,
     verse: 88,
-    content: `Huwag kang mag-aalala, ipagkatiwala mo sa Akin ang lahat ng mga bagay, at tutulungan kita. Ako si YAHUWEH ang nag-iisang Makapangyarihan sa lahat.`,
+    content: `Huwag kang mag-aalala, ipagkatiwala mo sa Akin ang lahat ng mga bagay, at tutulungan kita. Ako si Yahuweh ang nag-iisang Makapangyarihan sa lahat.`,
   },
   {
     chapter: 4,
@@ -3200,7 +3200,7 @@ export const separ: Verse[] = [
   {
     chapter: 4,
     verse: 99,
-    content: `Ako si YAHUWEH ito ang Aking Banal Na Pangalan, Ako ang kataastaasan sa lahat, ang Makapangyarihan sa lahat, at ang walang hanggan, walang katulad ko.`,
+    content: `Ako si Yahuweh ito ang Aking Banal Na Pangalan, Ako ang kataastaasan sa lahat, ang Makapangyarihan sa lahat, at ang walang hanggan, walang katulad ko.`,
   },
   {
     chapter: 4,
@@ -3220,7 +3220,7 @@ export const separ: Verse[] = [
   {
     chapter: 4,
     verse: 103,
-    content: `Ako si YAHUWEH ang kataastaasan sa lahat, Ako ay Banal kaya’t dapat kayong mamuhay sa Banal na pamumuhay, dapat ninyong ipangilin ang Banal na Sabbath, dapat ninyong isagawa ang Banal na pagsamba, ituturo ninyo ang Aking mga Banal na aral, at iyong dadakilain ang Aking Banal na Pangalan.`,
+    content: `Ako si Yahuweh ang kataastaasan sa lahat, Ako ay Banal kaya’t dapat kayong mamuhay sa Banal na pamumuhay, dapat ninyong ipangilin ang Banal na Sabbath, dapat ninyong isagawa ang Banal na pagsamba, ituturo ninyo ang Aking mga Banal na aral, at iyong dadakilain ang Aking Banal na Pangalan.`,
   },
   {
     chapter: 4,
@@ -3285,17 +3285,17 @@ export const separ: Verse[] = [
   {
     chapter: 4,
     verse: 116,
-    content: `Ako si YAHUWEH ang Dakila sa lahat, mapalad ang taong mayroong malaking paggalang sa Aking harapan, na hindi niya Ako ipinapantay sa kalagayan ng tao o anghel man, bagkus tinatawag niya Ako sa mga titulo na walang sinomang makaaangkin kundi Ako lamang.`,
+    content: `Ako si Yahuweh ang Dakila sa lahat, mapalad ang taong mayroong malaking paggalang sa Aking harapan, na hindi niya Ako ipinapantay sa kalagayan ng tao o anghel man, bagkus tinatawag niya Ako sa mga titulo na walang sinomang makaaangkin kundi Ako lamang.`,
   },
   {
     chapter: 4,
     verse: 117,
-    content: `Huwag ninyo Akong tatawagin sa mga titulo na kapantay sa mga titulo ng tao lamang, at huwag ninyo Ako itutulad sa tao, ni sa anumang bagay na nasa mundong ito, sapagkat Ako ay walang katulad at walang kapantay. Ako si YAHUWEH ang Makapangyarihan sa lahat ni Abraham, Isaac at ni Jacob.`,
+    content: `Huwag ninyo Akong tatawagin sa mga titulo na kapantay sa mga titulo ng tao lamang, at huwag ninyo Ako itutulad sa tao, ni sa anumang bagay na nasa mundong ito, sapagkat Ako ay walang katulad at walang kapantay. Ako si Yahuweh ang Makapangyarihan sa lahat ni Abraham, Isaac at ni Jacob.`,
   },
   {
     chapter: 5,
     verse: 1,
-    content: `Ako si YAHUWEH ang Alyon, manalig ka sa Akin ng buong puso at huwag kang manangan sa sarili mong karunungan, magpakumbaba ka lagi at kilalanin mo Ako sa lahat ng iyong ginagawa, at tunay Ako ay malulugod sa iyo, at ikaw ay Aking gagabayan at pagpapalain.`,
+    content: `Ako si Yahuweh ang Alyon, manalig ka sa Akin ng buong puso at huwag kang manangan sa sarili mong karunungan, magpakumbaba ka lagi at kilalanin mo Ako sa lahat ng iyong ginagawa, at tunay Ako ay malulugod sa iyo, at ikaw ay Aking gagabayan at pagpapalain.`,
   },
   {
     chapter: 5,
@@ -3320,7 +3320,7 @@ export const separ: Verse[] = [
   {
     chapter: 5,
     verse: 6,
-    content: `Ako si YAHUWEH ang Makapangyarihan sa lahat na naglabas sa bansang Yahsraal mula sa pagkaalipin sa ehipto. Ako ay hindi nagbabago, at ipinapakita ko ang Aking pag-ibig sa mga taong umiibig sa Akin hanggang sa kanilang mga anak at hanggang sa kanilang mga kaapo-apohan.`,
+    content: `Ako si Yahuweh ang Makapangyarihan sa lahat na naglabas sa bansang Yahsraal mula sa pagkaalipin sa ehipto. Ako ay hindi nagbabago, at ipinapakita ko ang Aking pag-ibig sa mga taong umiibig sa Akin hanggang sa kanilang mga anak at hanggang sa kanilang mga kaapo-apohan.`,
   },
   {
     chapter: 5,
@@ -3375,7 +3375,7 @@ export const separ: Verse[] = [
   {
     chapter: 5,
     verse: 17,
-    content: `Manalig ka sa Akin at gawin ang tama sa Aking paningin at tutulungan kita sapagkat Ako si YAHUWEH na Makapangyarihan sa lahat ay nagmamalasakit sa iyo. Maging mapanalanginin ka at umawit ng mga awit ng pagsamba para sa Akin.`,
+    content: `Manalig ka sa Akin at gawin ang tama sa Aking paningin at tutulungan kita sapagkat Ako si Yahuweh na Makapangyarihan sa lahat ay nagmamalasakit sa iyo. Maging mapanalanginin ka at umawit ng mga awit ng pagsamba para sa Akin.`,
   },
   {
     chapter: 5,
@@ -3430,7 +3430,7 @@ export const separ: Verse[] = [
   {
     chapter: 5,
     verse: 28,
-    content: `Kaya’t magpakatatag ka, huwag kang mawalan ng pag-asa, magpatuloy ka sa pananampalatayang ito, sapagkat mayroong nakalaang pagpapala para sa iyo. Ako si YAHUWEH ang Alyon ang hindi magpapabaya sa iyo.`,
+    content: `Kaya’t magpakatatag ka, huwag kang mawalan ng pag-asa, magpatuloy ka sa pananampalatayang ito, sapagkat mayroong nakalaang pagpapala para sa iyo. Ako si Yahuweh ang Alyon ang hindi magpapabaya sa iyo.`,
   },
   {
     chapter: 5,
@@ -3575,7 +3575,7 @@ export const separ: Verse[] = [
   {
     chapter: 5,
     verse: 57,
-    content: `Ako si YAHUWEH ang Makapangyarihan sa lahat, magagawa kong ibalik ang anumang nawala, at magagawa kong pagtagumpayin muli ang mga nabigo.`,
+    content: `Ako si Yahuweh ang Makapangyarihan sa lahat, magagawa kong ibalik ang anumang nawala, at magagawa kong pagtagumpayin muli ang mga nabigo.`,
   },
   {
     chapter: 5,
@@ -3640,7 +3640,7 @@ export const separ: Verse[] = [
   {
     chapter: 5,
     verse: 70,
-    content: `Ang bawat nilalang na may buhay ay binigyan ko ng likas na simboyo. Ako si YAHUWEH ang Makapangyarihan sa lahat, ang Dakilang Maylikha. At Ako ang siyang nagmamay-ari ng iyong buhay.`,
+    content: `Ang bawat nilalang na may buhay ay binigyan ko ng likas na simboyo. Ako si Yahuweh ang Makapangyarihan sa lahat, ang Dakilang Maylikha. At Ako ang siyang nagmamay-ari ng iyong buhay.`,
   },
   {
     chapter: 5,
@@ -3755,7 +3755,7 @@ export const separ: Verse[] = [
   {
     chapter: 5,
     verse: 95,
-    content: `Ako ang iyong kalakasan, Ako ang iyong tagumpay, Ako ang iyong Tagapagligtas, Ako ang iyong kapayapaan, Ako si YAHUWEH ang Makapangyarihan sa lahat.`,
+    content: `Ako ang iyong kalakasan, Ako ang iyong tagumpay, Ako ang iyong Tagapagligtas, Ako ang iyong kapayapaan, Ako si Yahuweh ang Makapangyarihan sa lahat.`,
   },
   {
     chapter: 5,
@@ -3785,12 +3785,12 @@ export const separ: Verse[] = [
   {
     chapter: 5,
     verse: 101,
-    content: `Ako si YAHUWEH ang Makapangyarihan sa lahat, itakwil ninyo ang Pangalang Jehovah sapagkat ang Pangalang ito ay isang paglapastangan, inimbento ang Pangalang ito ng mga sinungaling at mga bulaang saksi. Ang Banal na Pangalan ko ay YAHUWEH at hindi yahuwah, itakwil ninyo ang pangalang Yahuwah sapagkat ang tumatawag sa Akin sa pangalang ito ay iniinsulto Ako. Itakwil ninyo ang mga maling pangalan na itinatawag sa Akin ng mga tao.`,
+    content: `Ako si Yahuweh ang Makapangyarihan sa lahat, itakwil ninyo ang Pangalang Jehovah sapagkat ang Pangalang ito ay isang paglapastangan, inimbento ang Pangalang ito ng mga sinungaling at mga bulaang saksi. Ang Banal na Pangalan ko ay Yahuweh at hindi yahuwah, itakwil ninyo ang pangalang Yahuwah sapagkat ang tumatawag sa Akin sa pangalang ito ay iniinsulto Ako. Itakwil ninyo ang mga maling pangalan na itinatawag sa Akin ng mga tao.`,
   },
   {
     chapter: 5,
     verse: 102,
-    content: `YAHUWEH ang Pangalang ipinahayag ko sa Aking mga lingkod na mga propeta at mga pari, ito ang Pangalan ko at mananatili ito magpakaylanman.`,
+    content: `Yahuweh ang Pangalang ipinahayag ko sa Aking mga lingkod na mga propeta at mga pari, ito ang Pangalan ko at mananatili ito magpakaylanman.`,
   },
   {
     chapter: 5,
@@ -3855,12 +3855,12 @@ export const separ: Verse[] = [
   {
     chapter: 5,
     verse: 115,
-    content: `Ang lahat ng ito ay unti-unting magaganap, at makikita ninyo ang halimaw at ang bulaang propeta na gumagawa ng mga tanda at himala upang dayain ang buong daigdig, at kanilang isasakatuparan ang kanilang mga plano na pagkaisahin ang lahat ng mga bagay sa iisang gobyerno, kaya’t lagi kayong magmasid, magbantay, gamitin ang karunungan at maghanda, manatili kayong nakakapit sa pag-asa sa Aking mga Salita. Ako si YAHUWEH ang Alyon na iyong tanging pag-asa`,
+    content: `Ang lahat ng ito ay unti-unting magaganap, at makikita ninyo ang halimaw at ang bulaang propeta na gumagawa ng mga tanda at himala upang dayain ang buong daigdig, at kanilang isasakatuparan ang kanilang mga plano na pagkaisahin ang lahat ng mga bagay sa iisang gobyerno, kaya’t lagi kayong magmasid, magbantay, gamitin ang karunungan at maghanda, manatili kayong nakakapit sa pag-asa sa Aking mga Salita. Ako si Yahuweh ang Alyon na iyong tanging pag-asa`,
   },
   {
     chapter: 6,
     verse: 1,
-    content: `Ako si YAHUWEH ang Dakilang Maylikha at Ako’y nakatingin sa iyo magmula sa langit.`,
+    content: `Ako si Yahuweh ang Dakilang Maylikha at Ako’y nakatingin sa iyo magmula sa langit.`,
   },
   {
     chapter: 6,
@@ -3930,7 +3930,7 @@ export const separ: Verse[] = [
   {
     chapter: 6,
     verse: 15,
-    content: `Huwag kang matakot sa mga pagsubok ng buhay; sapagkat Ako ang kasama mo, Ako si YAHUWEH ang Makapangyarihan sa lahat.`,
+    content: `Huwag kang matakot sa mga pagsubok ng buhay; sapagkat Ako ang kasama mo, Ako si Yahuweh ang Makapangyarihan sa lahat.`,
   },
   {
     chapter: 6,
@@ -3965,7 +3965,7 @@ export const separ: Verse[] = [
   {
     chapter: 6,
     verse: 22,
-    content: `Ako si YAHUWEH ang Makapangyarihan sa lahat, ang Maylikha ng mga langit at lupa.`,
+    content: `Ako si Yahuweh ang Makapangyarihan sa lahat, ang Maylikha ng mga langit at lupa.`,
   },
   {
     chapter: 6,
@@ -4185,7 +4185,7 @@ export const separ: Verse[] = [
   {
     chapter: 6,
     verse: 66,
-    content: `Mapalad ang mga may malaking paggalang sa Akin, mapalad sila na may takot sa Akin, Ako si Alyon YAHUWEH ang nagbibigay gantimpala sa mga taong maytakot at paggalang sa Aking Banal na Pangalan.`,
+    content: `Mapalad ang mga may malaking paggalang sa Akin, mapalad sila na may takot sa Akin, Ako si Alyon Yahuweh ang nagbibigay gantimpala sa mga taong maytakot at paggalang sa Aking Banal na Pangalan.`,
   },
   {
     chapter: 6,
@@ -4230,7 +4230,7 @@ export const separ: Verse[] = [
   {
     chapter: 6,
     verse: 75,
-    content: `Ako si YAHUWEH ang Makapangyarihan sa lahat, igalang ninyo ang Aking Banal Na Pangalan, at ingatan ninyo na huwag malapastangan ito.`,
+    content: `Ako si Yahuweh ang Makapangyarihan sa lahat, igalang ninyo ang Aking Banal Na Pangalan, at ingatan ninyo na huwag malapastangan ito.`,
   },
   {
     chapter: 6,
@@ -4240,12 +4240,12 @@ export const separ: Verse[] = [
   {
     chapter: 6,
     verse: 77,
-    content: `Ang mga may malaking pagkatakot at paggalang sa Akin ay nag-iingat ng Aking Banal na Pangalan na hindi ito malapastangan. Ang sinomang nagmamahal sa Aking Banal na Pangalan ay Aking mamahalin, iingatan, pagpapalain at iligligtas. Ako si YAHUWEH ang Dakilang Maylikha`,
+    content: `Ang mga may malaking pagkatakot at paggalang sa Akin ay nag-iingat ng Aking Banal na Pangalan na hindi ito malapastangan. Ang sinomang nagmamahal sa Aking Banal na Pangalan ay Aking mamahalin, iingatan, pagpapalain at iligligtas. Ako si Yahuweh ang Dakilang Maylikha`,
   },
   {
     chapter: 7,
     verse: 1,
-    content: `Ako si YAHUWEH ang Dakilang Hukom ng lahat, mapalad ang mga nanatiling tapat sa gitna ng mga pagsubok, mapalad sila na hindi nawawalan ng pag-asa, mapalad sila na hindi natatakot sa kung anuman ang kanilang kahihinatnan sa buhay na ito dahil sa pagsunod sa Aking kalooban.`,
+    content: `Ako si Yahuweh ang Dakilang Hukom ng lahat, mapalad ang mga nanatiling tapat sa gitna ng mga pagsubok, mapalad sila na hindi nawawalan ng pag-asa, mapalad sila na hindi natatakot sa kung anuman ang kanilang kahihinatnan sa buhay na ito dahil sa pagsunod sa Aking kalooban.`,
   },
   {
     chapter: 7,
@@ -4290,12 +4290,12 @@ export const separ: Verse[] = [
   {
     chapter: 7,
     verse: 10,
-    content: `Ako ang iyong kalakasan, Ako ang iyong tagumpay, Ako ang iyong Tagapagligtas, Ako ang iyong kapayapaan, Ako si YAHUWEH ang Makapangyarihan sa lahat.`,
+    content: `Ako ang iyong kalakasan, Ako ang iyong tagumpay, Ako ang iyong Tagapagligtas, Ako ang iyong kapayapaan, Ako si Yahuweh ang Makapangyarihan sa lahat.`,
   },
   {
     chapter: 7,
     verse: 11,
-    content: `Ako si YAHUWEH ang Makapangyarihan sa lahat, at walang kagaya ko, Ako lamang mag-isa ang lumikha ng lahat ng mga bagay, Ako ang nagbigay ng buhay, at sa Akin din magbabalik ang lahat ng buhay, matakot ka sa Akin, sundin mo ang Aking mga utos at sambahin mo Ako araw at gabi sapagkat ito ang buong tungkulin ng tao sa Akin.`,
+    content: `Ako si Yahuweh ang Makapangyarihan sa lahat, at walang kagaya ko, Ako lamang mag-isa ang lumikha ng lahat ng mga bagay, Ako ang nagbigay ng buhay, at sa Akin din magbabalik ang lahat ng buhay, matakot ka sa Akin, sundin mo ang Aking mga utos at sambahin mo Ako araw at gabi sapagkat ito ang buong tungkulin ng tao sa Akin.`,
   },
   {
     chapter: 7,
@@ -4420,7 +4420,7 @@ export const separ: Verse[] = [
   {
     chapter: 7,
     verse: 36,
-    content: `Huwag kang matakot, manampalataya ka at iwaksi mo ang pag-alinlangan, Ako si Alyon YAHUWEH ang nakakabasa ng puso ng tao, at ginagantimpalaan ko ang tao ayon sa kanyang mga gawa. Mapalad ang mga nanampalataya sa Aking mga Salita na nasa Aklat na ito, ngunit higit na mapalad ang mga nagsisigawa ng Aking mga Salita sa kanilang buhay.`,
+    content: `Huwag kang matakot, manampalataya ka at iwaksi mo ang pag-alinlangan, Ako si Alyon Yahuweh ang nakakabasa ng puso ng tao, at ginagantimpalaan ko ang tao ayon sa kanyang mga gawa. Mapalad ang mga nanampalataya sa Aking mga Salita na nasa Aklat na ito, ngunit higit na mapalad ang mga nagsisigawa ng Aking mga Salita sa kanilang buhay.`,
   },
   {
     chapter: 7,
@@ -4435,12 +4435,12 @@ export const separ: Verse[] = [
   {
     chapter: 7,
     verse: 39,
-    content: `Ako si YAHUWEH ang Kataastasan sa lahat, at walang anomang bagay na mahirap sa Akin, walang sinomang makapapantay sa Akin, at walang sinomang maaaring magdikta sa Aking gagawin. Mapalad ang mga buong-buong sumuko sa Aking kalooban sapagkat silay papasok sa paraiso ng langit.`,
+    content: `Ako si Yahuweh ang Kataastasan sa lahat, at walang anomang bagay na mahirap sa Akin, walang sinomang makapapantay sa Akin, at walang sinomang maaaring magdikta sa Aking gagawin. Mapalad ang mga buong-buong sumuko sa Aking kalooban sapagkat silay papasok sa paraiso ng langit.`,
   },
   {
     chapter: 7,
     verse: 40,
-    content: `Sumunod ka sa Aking mga Salita at huwag mag-atubili, huwag mong tanungin ang iyong sarili, ang mga katanungan mo ay matutugunan ko. Ako si YAHUWEH ang nagpapagaling sa iyo.`,
+    content: `Sumunod ka sa Aking mga Salita at huwag mag-atubili, huwag mong tanungin ang iyong sarili, ang mga katanungan mo ay matutugunan ko. Ako si Yahuweh ang nagpapagaling sa iyo.`,
   },
   {
     chapter: 7,
@@ -4450,7 +4450,7 @@ export const separ: Verse[] = [
   {
     chapter: 7,
     verse: 42,
-    content: `Mapalad silang mga hindi nakakaligtaan ang kanilang tungkulin sa Akin, tunay na mapalad sila, sapagkat sila’y patuloy kong gagabayan, iingatan at pagpapalain. Ako si YAHUWEH ang Makapangyarihan sa lahat.`,
+    content: `Mapalad silang mga hindi nakakaligtaan ang kanilang tungkulin sa Akin, tunay na mapalad sila, sapagkat sila’y patuloy kong gagabayan, iingatan at pagpapalain. Ako si Yahuweh ang Makapangyarihan sa lahat.`,
   },
   {
     chapter: 7,
@@ -4555,7 +4555,7 @@ export const separ: Verse[] = [
   {
     chapter: 7,
     verse: 63,
-    content: `Ako ang Makapangyarihan sa lahat, YAHUWEH ang Aking Banal Na Pangalan, Ako ang lumikha ng mga langit at lupa. Kung Ako’y iyong sasambahin at susundin ay bibigyan kita ng buhay na walang hanggan.`,
+    content: `Ako ang Makapangyarihan sa lahat, Yahuweh ang Aking Banal Na Pangalan, Ako ang lumikha ng mga langit at lupa. Kung Ako’y iyong sasambahin at susundin ay bibigyan kita ng buhay na walang hanggan.`,
   },
   {
     chapter: 7,
@@ -4605,7 +4605,7 @@ export const separ: Verse[] = [
   {
     chapter: 7,
     verse: 73,
-    content: `Ako si YAHUWEH, ang Olam, Ako ang Hayah, at Ako lamang ang Alyon. Magtiwala ka sa Akin, maging mapanalanginin at gawin mo ang tama, sapagkat Ako’y may kapangyarihan na tumulong sa iyo at pumatnubay sa iyo, manalig ka lamang at ipagkatiwala mo sa Akin ang lahat ng iyong mga alalahanin.`,
+    content: `Ako si Yahuweh, ang Olam, Ako ang Hayah, at Ako lamang ang Alyon. Magtiwala ka sa Akin, maging mapanalanginin at gawin mo ang tama, sapagkat Ako’y may kapangyarihan na tumulong sa iyo at pumatnubay sa iyo, manalig ka lamang at ipagkatiwala mo sa Akin ang lahat ng iyong mga alalahanin.`,
   },
   {
     chapter: 7,
@@ -4615,7 +4615,7 @@ export const separ: Verse[] = [
   {
     chapter: 7,
     verse: 75,
-    content: `Lumapit kayo sa Akin, kayong lahat ng tao sa buong daigdig at kayo ay maliligtas. Matakot kayo sa Akin at ibigay ninyo ang papuri at pagsamba sa Akin lamang. Ako si YAHUWEH, ang lumikha ng lahat ng mga bagay. Walang ibang Tagapagligtas maliban sa Akin.`,
+    content: `Lumapit kayo sa Akin, kayong lahat ng tao sa buong daigdig at kayo ay maliligtas. Matakot kayo sa Akin at ibigay ninyo ang papuri at pagsamba sa Akin lamang. Ako si Yahuweh, ang lumikha ng lahat ng mga bagay. Walang ibang Tagapagligtas maliban sa Akin.`,
   },
   {
     chapter: 7,
@@ -4635,7 +4635,7 @@ export const separ: Verse[] = [
   {
     chapter: 7,
     verse: 79,
-    content: `Magbalik loob kayo sa Akin, YAHUWEH ang Aking Banal na Pangalan. Ako ang Olam, Ako ang Hayah, Ako lamang ang Alyon at wala ng iba.`,
+    content: `Magbalik loob kayo sa Akin, Yahuweh ang Aking Banal na Pangalan. Ako ang Olam, Ako ang Hayah, Ako lamang ang Alyon at wala ng iba.`,
   },
   {
     chapter: 7,
@@ -4650,12 +4650,12 @@ export const separ: Verse[] = [
   {
     chapter: 7,
     verse: 82,
-    content: `Kung ang mga langit ay isang aklat talaan at ang mga bukal ng tubig kasama na ng dagat ay tinta, ay hindi parin magkakasyang isulat ang Aking mga Salita. Ako ang Makapangyarihan sa lahat at ang walang hanggan. Ako si YAHUWEH`,
+    content: `Kung ang mga langit ay isang aklat talaan at ang mga bukal ng tubig kasama na ng dagat ay tinta, ay hindi parin magkakasyang isulat ang Aking mga Salita. Ako ang Makapangyarihan sa lahat at ang walang hanggan. Ako si Yahuweh`,
   },
   {
     chapter: 8,
     verse: 1,
-    content: `YAHUWEH ang Aking Pangalan, Mapalad ang tao na naniniwala sa kapangyarihan ng Aking Pangalan.`,
+    content: `Yahuweh ang Aking Pangalan, Mapalad ang tao na naniniwala sa kapangyarihan ng Aking Pangalan.`,
   },
   {
     chapter: 8,
@@ -4665,7 +4665,7 @@ export const separ: Verse[] = [
   {
     chapter: 8,
     verse: 3,
-    content: `YAHUWEH ang Aking Banal Na Pangalan, kahapon, ngayon, bukas at magpakaylanpaman.`,
+    content: `Yahuweh ang Aking Banal Na Pangalan, kahapon, ngayon, bukas at magpakaylanpaman.`,
   },
   {
     chapter: 8,
@@ -4680,7 +4680,7 @@ export const separ: Verse[] = [
   {
     chapter: 8,
     verse: 6,
-    content: `Ako si YAHUWEH ang lumikha ng lahat ng mga bagay, ang bawat hininga ng buhay ay sa Akin at magbabalik sa Akin.`,
+    content: `Ako si Yahuweh ang lumikha ng lahat ng mga bagay, ang bawat hininga ng buhay ay sa Akin at magbabalik sa Akin.`,
   },
   {
     chapter: 8,
@@ -4690,7 +4690,7 @@ export const separ: Verse[] = [
   {
     chapter: 8,
     verse: 8,
-    content: `Sa Aking Pangalan YAHUWEH ang lahat ng mga espiritu at ang lahat ng tao ay luluhod, Ako lamang ang Dakilang Maylikha ng lahat ng mga bagay, at Ako lamang ang Dakilang Tagapagligtas.`,
+    content: `Sa Aking Pangalan Yahuweh ang lahat ng mga espiritu at ang lahat ng tao ay luluhod, Ako lamang ang Dakilang Maylikha ng lahat ng mga bagay, at Ako lamang ang Dakilang Tagapagligtas.`,
   },
   {
     chapter: 8,
@@ -4725,12 +4725,12 @@ export const separ: Verse[] = [
   {
     chapter: 8,
     verse: 15,
-    content: `Magtiwala ka sa Akin, Ako si YAHUWEH ang iyong tanging pag-asa at Dakilang Tagapagligtas.`,
+    content: `Magtiwala ka sa Akin, Ako si Yahuweh ang iyong tanging pag-asa at Dakilang Tagapagligtas.`,
   },
   {
     chapter: 8,
     verse: 16,
-    content: `Ako ay si YAHUWEH ang Nag-iisang Makapangyarihan sa lahat ng mga sinaunang Tunay na Propeta, at Ako’y hindi nagbabago, Ako din ang nag-iisang Makapangyarihan sa lahat ng Aking Propeta sa mga huling araw na ito, mapalad ang mga naniniwala at sumusunod sa Aking mga Salita sapagkat tunay na sila’y hindi maliligaw.`,
+    content: `Ako ay si Yahuweh ang Nag-iisang Makapangyarihan sa lahat ng mga sinaunang Tunay na Propeta, at Ako’y hindi nagbabago, Ako din ang nag-iisang Makapangyarihan sa lahat ng Aking Propeta sa mga huling araw na ito, mapalad ang mga naniniwala at sumusunod sa Aking mga Salita sapagkat tunay na sila’y hindi maliligaw.`,
   },
   {
     chapter: 8,
@@ -4765,12 +4765,12 @@ export const separ: Verse[] = [
   {
     chapter: 8,
     verse: 23,
-    content: `Ako si YAHUWEH ang kahapon, ang ngayon, ang bukas at ang magpakaylanman. Ako’y hindi nagbabago at ang Aking mga Salita ay mananatiling gayon, ang sinumang naniwala sa Mensahe na Aking binigay sa Aking Propeta ay magagabayan, pagpapalain at maliligtas.`,
+    content: `Ako si Yahuweh ang kahapon, ang ngayon, ang bukas at ang magpakaylanman. Ako’y hindi nagbabago at ang Aking mga Salita ay mananatiling gayon, ang sinumang naniwala sa Mensahe na Aking binigay sa Aking Propeta ay magagabayan, pagpapalain at maliligtas.`,
   },
   {
     chapter: 8,
     verse: 24,
-    content: `Ako si YAHUWEH ito ang Aking Banal Na Pangalan, ito ang Pangalang ipakikilala ng Aking mga lingkod sa mga tao.`,
+    content: `Ako si Yahuweh ito ang Aking Banal Na Pangalan, ito ang Pangalang ipakikilala ng Aking mga lingkod sa mga tao.`,
   },
   {
     chapter: 8,
@@ -4785,7 +4785,7 @@ export const separ: Verse[] = [
   {
     chapter: 8,
     verse: 27,
-    content: `Ako si YAHUWEH ang Alyon, ang Tunay na Tagapagligtas at walang anumang imposible sa Akin.`,
+    content: `Ako si Yahuweh ang Alyon, ang Tunay na Tagapagligtas at walang anumang imposible sa Akin.`,
   },
   {
     chapter: 8,
@@ -4810,7 +4810,7 @@ export const separ: Verse[] = [
   {
     chapter: 8,
     verse: 32,
-    content: `Ako si YAHUWEH at wala nang iba pa; walang ibang Tagapagligtas maliban sa Akin. Mananatili Akong Makapangyarihan sa lahat, hindi Ako nakadarama ng panghihina, walang sinumang makakatakas sa Aking kapangyarihan; at walang makakahadlang sa Aking ginagawa, kaya’t huwag kang mag-duda at huwag mong maliitin ang Aking kapangyarihan.`,
+    content: `Ako si Yahuweh at wala nang iba pa; walang ibang Tagapagligtas maliban sa Akin. Mananatili Akong Makapangyarihan sa lahat, hindi Ako nakadarama ng panghihina, walang sinumang makakatakas sa Aking kapangyarihan; at walang makakahadlang sa Aking ginagawa, kaya’t huwag kang mag-duda at huwag mong maliitin ang Aking kapangyarihan.`,
   },
   {
     chapter: 8,
@@ -4960,7 +4960,7 @@ export const separ: Verse[] = [
   {
     chapter: 8,
     verse: 62,
-    content: `Ako si YAHUWEH ang Dakilang Maylikha ng lahat ng mga bagay, Ako ang may-ari ng iyong buhay kaya’t magpasakop ka sa Aking mga Salita upang marating mo ang Buhay na walang hanggan.`,
+    content: `Ako si Yahuweh ang Dakilang Maylikha ng lahat ng mga bagay, Ako ang may-ari ng iyong buhay kaya’t magpasakop ka sa Aking mga Salita upang marating mo ang Buhay na walang hanggan.`,
   },
   {
     chapter: 8,
@@ -4996,7 +4996,7 @@ export const separ: Verse[] = [
   {
     chapter: 8,
     verse: 69,
-    content: `Ako ay si YAHUWEH ang may ari ng buhay mo, matakot ka sa Akin at mahalin mo Ako ng higit sa anumang bagay at higit sa kanino man.`,
+    content: `Ako ay si Yahuweh ang may ari ng buhay mo, matakot ka sa Akin at mahalin mo Ako ng higit sa anumang bagay at higit sa kanino man.`,
   },
   {
     chapter: 8,
@@ -5182,7 +5182,7 @@ export const separ: Verse[] = [
   {
     chapter: 8,
     verse: 106,
-    content: `Ako si YAHUWEH ang Makapangyarihan sa lahat, Ako’y hindi nagbabago, at ipinapakita ko ang Aking pag-ibig sa mga taong umiibig sa Akin hanggang sa kanilang mga anak at hanggang sa kanilang mga kaapo-apohan.`,
+    content: `Ako si Yahuweh ang Makapangyarihan sa lahat, Ako’y hindi nagbabago, at ipinapakita ko ang Aking pag-ibig sa mga taong umiibig sa Akin hanggang sa kanilang mga anak at hanggang sa kanilang mga kaapo-apohan.`,
   },
   {
     chapter: 8,
@@ -5257,7 +5257,7 @@ export const separ: Verse[] = [
   {
     chapter: 8,
     verse: 121,
-    content: `Mapald silang umaasa at nasisiyahan na sa anomang pagpapala na dumating sa kanyang buhay.`,
+    content: `Mapalad silang umaasa at nasisiyahan na sa anomang pagpapala na dumating sa kanyang buhay.`,
   },
   {
     chapter: 8,
@@ -5342,7 +5342,7 @@ export const separ: Verse[] = [
   {
     chapter: 8,
     verse: 138,
-    content: `Ituring mong pamilya ang Aking pamunuan, ituri mong lolo ang Punong Sugo na Aking itinalaga sa kapanahunan ninyo, ituri mong ama ang mga Kohen sa iyo’y nagtuturo ng mga kabutihan at katotohanan, ituri mong nakatatandang kapatid ang mga sa iyo’y nauna sa panampalatayang ito, ituri mong nakababatang kapatid ang mga baguhan, ito ang dapat mong gawin upang ikaw ay Aking kalugdan.`,
+    content: `Ituring mong pamilya ang Aking pamunuan, ituring mong lolo ang Punong Sugo na Aking itinalaga sa kapanahunan ninyo, ituring mong ama ang mga Kohen sa iyo’y nagtuturo ng mga kabutihan at katotohanan, ituring mong nakatatandang kapatid ang mga sa iyo’y nauna sa panampalatayang ito, ituring mong nakababatang kapatid ang mga baguhan, ito ang dapat mong gawin upang ikaw ay Aking kalugdan.`,
   },
   {
     chapter: 8,
@@ -5387,7 +5387,7 @@ export const separ: Verse[] = [
   {
     chapter: 8,
     verse: 147,
-    content: `Sa lahat nang mga bagay at pangyayari ay may layunin Ako. Magtiwala ka sa Akin at makikita mo sa bandang huli ay mananaig parin ang Aking katuwiran at katarungan. Kaya’t maging tapat ka at manatili sa Liwanag na ito, Ako ang Dakilang Maylikha na si YAHUWEH ang pumili sa iyo na maging Akin.`,
+    content: `Sa lahat nang mga bagay at pangyayari ay may layunin Ako. Magtiwala ka sa Akin at makikita mo sa bandang huli ay mananaig parin ang Aking katuwiran at katarungan. Kaya’t maging tapat ka at manatili sa Liwanag na ito, Ako ang Dakilang Maylikha na si Yahuweh ang pumili sa iyo na maging Akin.`,
   },
   {
     chapter: 8,
@@ -5422,7 +5422,7 @@ export const separ: Verse[] = [
   {
     chapter: 8,
     verse: 154,
-    content: `Ako si YAHUWEH ang kahapon, ang ngayon, at ang bukas. At ang magpakaylanman, Ako’y hindi nagbabago, ang Aking katapatan ay mararanasan ng mga tapat sa Akin, at ang Aking pag-ibig at awa ay ipagkakaloob sa mga tunay na umiibig sa Akin.`,
+    content: `Ako si Yahuweh ang kahapon, ang ngayon, at ang bukas. At ang magpakaylanman, Ako’y hindi nagbabago, ang Aking katapatan ay mararanasan ng mga tapat sa Akin, at ang Aking pag-ibig at awa ay ipagkakaloob sa mga tunay na umiibig sa Akin.`,
   },
   {
     chapter: 8,
@@ -5452,7 +5452,7 @@ export const separ: Verse[] = [
   {
     chapter: 8,
     verse: 160,
-    content: `Tandaan mo ito, kayo na Aking mga mananamba ay iisang pamilya, ang sakit ng kalinkingan ay mararamdaman ng buong katawan, Ako si YAHUWEH ang Dakilang Maylikha ang humirang sa iyo upang maging kaisa sa pamilyang ito.`,
+    content: `Tandaan mo ito, kayo na Aking mga mananamba ay iisang pamilya, ang sakit ng kalinkingan ay mararamdaman ng buong katawan, Ako si Yahuweh ang Dakilang Maylikha ang humirang sa iyo upang maging kaisa sa pamilyang ito.`,
   },
   {
     chapter: 8,
@@ -5607,7 +5607,7 @@ export const separ: Verse[] = [
   {
     chapter: 8,
     verse: 191,
-    content: `Darating ang araw na maraming aanib sa inyong samahan at sasabihin kami ay sasama sa inyo sapagkat aming nalaman na kayo ay pinapatnubayan ni YAHUWEH ang Makapangyarihan sa Lahat.`,
+    content: `Darating ang araw na maraming aanib sa inyong samahan at sasabihin kami ay sasama sa inyo sapagkat aming nalaman na kayo ay pinapatnubayan ni Yahuweh ang Makapangyarihan sa Lahat.`,
   },
   {
     chapter: 8,
@@ -5642,7 +5642,7 @@ export const separ: Verse[] = [
   {
     chapter: 8,
     verse: 198,
-    content: `Darating ang mga araw na makikilala ninyo ang halimaw at ang bulaang propeta na gumagawa ng mga tanda at himala upang dayain ang buong daigdig, at kanilang isasakatuparan ang kanilang mga plano na pagkaisahin ang lahat ng mga bagay sa iisang gobyerno, kaya’t lagi kayong magmasid, magbantay, gamitin ang karunungan at maghanda, manatili kayong nakakapit sa pag-asa sa Aking mga Salita. Ako si YAHUWEH ang Alyon na iyong tanging pag-asa.`,
+    content: `Darating ang mga araw na makikilala ninyo ang halimaw at ang bulaang propeta na gumagawa ng mga tanda at himala upang dayain ang buong daigdig, at kanilang isasakatuparan ang kanilang mga plano na pagkaisahin ang lahat ng mga bagay sa iisang gobyerno, kaya’t lagi kayong magmasid, magbantay, gamitin ang karunungan at maghanda, manatili kayong nakakapit sa pag-asa sa Aking mga Salita. Ako si Yahuweh ang Alyon na iyong tanging pag-asa.`,
   },
   {
     chapter: 8,
@@ -5687,12 +5687,12 @@ export const separ: Verse[] = [
   {
     chapter: 8,
     verse: 207,
-    content: `Marami ang magbibigay ng malinis na handog para sa Aking Banal na Pangalan YAHUWEH sapagkat tunay na ang Aking Banal na Pangalan ay dadakilain ng Aking mga Tunay na mananamba, at paghahandugan ng insenso sa ibat-ibang dako at ng dalisay na handog, At ito ang Aking Pangalan magpakaylanman YAHUWEH.`,
+    content: `Marami ang magbibigay ng malinis na handog para sa Aking Banal na Pangalan Yahuweh sapagkat tunay na ang Aking Banal na Pangalan ay dadakilain ng Aking mga Tunay na mananamba, at paghahandugan ng insenso sa ibat-ibang dako at ng dalisay na handog, At ito ang Aking Pangalan magpakaylanman Yahuweh.`,
   },
   {
     chapter: 9,
     verse: 1,
-    content: `Ako si YAHUWEH ang nag-iisang Lumikha ng buong kalangitan at ng buong lupa, walang sinomang makapapantay sa Aking kapangyarihan, walang nakahihigit sa Akin at walang papalit sa Aking pamamahala. Ako lamang ang Dakilang Tagapagligtas at wala ng iba pa.`,
+    content: `Ako si Yahuweh ang nag-iisang Lumikha ng buong kalangitan at ng buong lupa, walang sinomang makapapantay sa Aking kapangyarihan, walang nakahihigit sa Akin at walang papalit sa Aking pamamahala. Ako lamang ang Dakilang Tagapagligtas at wala ng iba pa.`,
   },
   {
     chapter: 9,
@@ -5732,7 +5732,7 @@ export const separ: Verse[] = [
   {
     chapter: 9,
     verse: 9,
-    content: `Ako si YAHUWEH ang Makapangyarihan sa lahat na may hawak ng bawat pangyayari sa daigdig na ito.`,
+    content: `Ako si Yahuweh ang Makapangyarihan sa lahat na may hawak ng bawat pangyayari sa daigdig na ito.`,
   },
   {
     chapter: 9,
@@ -5777,7 +5777,7 @@ export const separ: Verse[] = [
   {
     chapter: 9,
     verse: 18,
-    content: `Ako si YAHUWEH ang Dakilang Maylikha ang sa inyo’y hindi magpapabaya.`,
+    content: `Ako si Yahuweh ang Dakilang Maylikha ang sa inyo’y hindi magpapabaya.`,
   },
   {
     chapter: 9,
@@ -5822,7 +5822,7 @@ export const separ: Verse[] = [
   {
     chapter: 9,
     verse: 27,
-    content: `Ako si YAHUWEH ang inyong Dakilang Maylikha at tanging Tagapagligtas, at kayo ang Aking Bayan na Aking mga Tunay na mananamba, sapagkat inyong sinusunod ang Aking Banal na Salita at nagpapatuloy, nagsasakripisyo, nagmamahal sa Akin, ay tunay na kayo ay may Karapatan na makapasok sa Kaharian ng Langit.`,
+    content: `Ako si Yahuweh ang inyong Dakilang Maylikha at tanging Tagapagligtas, at kayo ang Aking Bayan na Aking mga Tunay na mananamba, sapagkat inyong sinusunod ang Aking Banal na Salita at nagpapatuloy, nagsasakripisyo, nagmamahal sa Akin, ay tunay na kayo ay may Karapatan na makapasok sa Kaharian ng Langit.`,
   },
   {
     chapter: 9,
@@ -5922,7 +5922,7 @@ export const separ: Verse[] = [
   {
     chapter: 9,
     verse: 47,
-    content: `Ako si YAHUWEH ang Makapangyarihan sa lahat, Ako ang inyong Tagapagligtas, Ako rin ang magbibigay ng gantimpala sa bawat isa na masunurin sa Aking kalooban.`,
+    content: `Ako si Yahuweh ang Makapangyarihan sa lahat, Ako ang inyong Tagapagligtas, Ako rin ang magbibigay ng gantimpala sa bawat isa na masunurin sa Aking kalooban.`,
   },
   {
     chapter: 9,
@@ -5937,12 +5937,12 @@ export const separ: Verse[] = [
   {
     chapter: 9,
     verse: 50,
-    content: `Maiksi lamang ang buhay ng tao sa mundo, kaya’t huwag ninyong sasayangin ang bawat pagkakataon na makagawa sa Aking kalooban, magsikap ang bawat isa at matutong magtiis, tanggapin ng maluwag sa kung anumang ang nangyari o sa kung anuman ang naging kalagayan dahil sa pagsunod sa Aking kalooban. Ako si YAHUWEH ang nakakaalam ng lahat, at ang may akda ng bawat pangyayari sa inyong buhay.`,
+    content: `Maiksi lamang ang buhay ng tao sa mundo, kaya’t huwag ninyong sasayangin ang bawat pagkakataon na makagawa sa Aking kalooban, magsikap ang bawat isa at matutong magtiis, tanggapin ng maluwag sa kung anumang ang nangyari o sa kung anuman ang naging kalagayan dahil sa pagsunod sa Aking kalooban. Ako si Yahuweh ang nakakaalam ng lahat, at ang may akda ng bawat pangyayari sa inyong buhay.`,
   },
   {
     chapter: 9,
     verse: 51,
-    content: `Magtiwala kayo sa Aking karunungan at kapangyarihan, Ako’y hindi nagbabago, Ako ang kahapon, Ako ang ngayon, Ako ang bukas, at Ako ang Magpakaylanman, Ako si YAHUWEH`,
+    content: `Magtiwala kayo sa Aking karunungan at kapangyarihan, Ako’y hindi nagbabago, Ako ang kahapon, Ako ang ngayon, Ako ang bukas, at Ako ang Magpakaylanman, Ako si Yahuweh`,
   },
   {
     chapter: 10,
@@ -5957,7 +5957,7 @@ export const separ: Verse[] = [
   {
     chapter: 10,
     verse: 3,
-    content: `Kaya’t pakinngan ninyo ang Aking mga Salita, kayo na Aking mga pinili sa panahong ito. Ako si YAHUWEH ang inyong tanging Tagapagligtas.`,
+    content: `Kaya’t pakinngan ninyo ang Aking mga Salita, kayo na Aking mga pinili sa panahong ito. Ako si Yahuweh ang inyong tanging Tagapagligtas.`,
   },
   {
     chapter: 10,
@@ -5982,7 +5982,7 @@ export const separ: Verse[] = [
   {
     chapter: 10,
     verse: 8,
-    content: `Ako si YAHUWEH ang Dakilang Maylikha na sa inyo ay laging nagmamasid, Ako’y nalulugod sa tao na gumagawa ng mabuti sa kanyang kapwa, tunay Ako ang nakakaalam ng mga mabubuting bagay na Aking inilaan para sa kanya.`,
+    content: `Ako si Yahuweh ang Dakilang Maylikha na sa inyo ay laging nagmamasid, Ako’y nalulugod sa tao na gumagawa ng mabuti sa kanyang kapwa, tunay Ako ang nakakaalam ng mga mabubuting bagay na Aking inilaan para sa kanya.`,
   },
   {
     chapter: 10,
@@ -6142,7 +6142,7 @@ export const separ: Verse[] = [
   {
     chapter: 10,
     verse: 40,
-    content: `Kapagka kayo ay tinanong ng mga mangmang na kung bakit kayo ay may mga Pari samantalang sa Torah ang pagka-pari ay dapat manggagaling lamang sa lahi ng mga Levita? Ay ganito ang inyong sasabihin: Ang paghirang at pagkatawag ng Aking mga Pari ay hindi nag-umpisa sa mga Levita o kay Aaron, kundi sa panahon pa ni Seth na kung saan nagpasimulang tumawag sa Aking Banal na Pangalan YAHUWEH ang mga anak ni Adan, at nagpatuloy ito hanggan kay Melchezedek, hanggang kay Jethro, hanggang kay Yahushua at hanggang sa mga Hentil sa malayong silanggan. Ito ang isa sa mga hiwaga na hindi makita at hindi maunawaan ng maraming nagbabasa ng Tanak.`,
+    content: `Kapagka kayo ay tinanong ng mga mangmang na kung bakit kayo ay may mga Pari samantalang sa Torah ang pagka-pari ay dapat manggagaling lamang sa lahi ng mga Levita? Ay ganito ang inyong sasabihin: Ang paghirang at pagkatawag ng Aking mga Pari ay hindi nag-umpisa sa mga Levita o kay Aaron, kundi sa panahon pa ni Seth na kung saan nagpasimulang tumawag sa Aking Banal na Pangalan Yahuweh ang mga anak ni Adan, at nagpatuloy ito hanggan kay Melchezedek, hanggang kay Jethro, hanggang kay Yahushua at hanggang sa mga Hentil sa malayong silanggan. Ito ang isa sa mga hiwaga na hindi makita at hindi maunawaan ng maraming nagbabasa ng Tanak.`,
   },
   {
     chapter: 10,
@@ -6217,7 +6217,7 @@ export const separ: Verse[] = [
   {
     chapter: 10,
     verse: 55,
-    content: `Kaya’t manatili ka sa liwanag na ito at huwag kang lalayo upang hindi ka maagaw ng kaaway. Ako si YAHUWEH ang Alyon ang tangi mong Pag-asa.`,
+    content: `Kaya’t manatili ka sa liwanag na ito at huwag kang lalayo upang hindi ka maagaw ng kaaway. Ako si Yahuweh ang Alyon ang tangi mong Pag-asa.`,
   },
   {
     chapter: 10,
@@ -6272,7 +6272,7 @@ export const separ: Verse[] = [
   {
     chapter: 10,
     verse: 66,
-    content: `Ako si YAHUWEH ang Alyon na nagsasabi na hindi Ko pababayaan ang lahat ng mga tunay na nagmamahal sa Akin.`,
+    content: `Ako si Yahuweh ang Alyon na nagsasabi na hindi Ko pababayaan ang lahat ng mga tunay na nagmamahal sa Akin.`,
   },
   {
     chapter: 10,
@@ -6327,7 +6327,7 @@ export const separ: Verse[] = [
   {
     chapter: 10,
     verse: 77,
-    content: `Ako si YAHUWEH ang nag-iisang Makapangayarihan sa lahat, Ako’y hindi nagbabago, sapabawat panahon, at sa bawat henerasyon ay patuloy Ako’ng pumipili at tumatawag ng mga tao upang maging Aking mga mananamba.`,
+    content: `Ako si Yahuweh ang nag-iisang Makapangayarihan sa lahat, Ako’y hindi nagbabago, sapabawat panahon, at sa bawat henerasyon ay patuloy Ako’ng pumipili at tumatawag ng mga tao upang maging Aking mga mananamba.`,
   },
   {
     chapter: 10,
@@ -6392,6 +6392,6 @@ export const separ: Verse[] = [
   {
     chapter: 10,
     verse: 90,
-    content: `Narito Ako, Ako si YAHUWEH.`,
+    content: `Narito Ako, Ako si Yahuweh.`,
   },
 ];
