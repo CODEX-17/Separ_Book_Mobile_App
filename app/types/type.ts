@@ -9,7 +9,8 @@ export type TabsRoutes =
   | "Favorites"
   | "Developer"
   | "Room"
-  | "Search";
+  | "Search"
+  | "Terms";
 
 export type RankingTypes =
   | "Newcomer"

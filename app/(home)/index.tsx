@@ -24,6 +24,7 @@ import Toast from "react-native-toast-message";
 import Favorites from "./(renders)/favorites";
 import Home from "../home";
 import Developer from "./(renders)/developer";
+import Terms from "./(renders)/terms";
 
 const HomeLayout = () => {
   const bottomNavigationContext = useContext(BottomNavigationContext);
@@ -58,6 +59,8 @@ const HomeLayout = () => {
         return <Calendar />;
       case "Random":
         return <RandomPick />;
+      case "Terms":
+        return <Terms />;
       default:
         return <OnProgress />; // Fallback UI
     }

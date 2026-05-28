@@ -83,6 +83,12 @@ const Menus = () => {
       ),
     },
     {
+      title: "Terms",
+      icon: (isActive: boolean) => (
+        <Icon name="book-open" color={COLORS.white} size={25} />
+      ),
+    },
+    {
       title: "Developer",
       icon: (isActive: boolean) => (
         <Icon2 name="code" color={COLORS.white} size={25} />

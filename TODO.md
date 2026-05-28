@@ -46,3 +46,11 @@
 - [ ] Add new moon informative card in Home (current or incoming).
 - [ ] Keep fallback when username is missing in notifications.
 - [ ] Mark completed steps after implementation.
+
+## Current Task: Add Terms tab with searchable word meanings
+
+- [x] Add `Terms` in `TabsRoutes` type (`app/types/type.ts`).
+- [x] Create `app/(home)/(renders)/terms.tsx` with minimalist design, 20 words, and search bar.
+- [x] Add `Terms` item to `app/(home)/menu.tsx`.
+- [x] Render `Terms` tab in `app/(home)/index.tsx`.
+- [x] Mark completed steps after implementation.
