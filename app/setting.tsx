@@ -24,6 +24,18 @@ const Setting = () => {
   const [userName, setUserName] = useState<string | null>(null);
   const [profile, setProfile] = useState<Profile | null>(null);
   const [fonstSizeInput, setFontSizeInput] = useState<number>(0);
+  const [fontStyleInput, setFontStyleInput] =
+    useState<string>("Poppins-Regular");
+  const [genderInput, setGenderInput] = useState<"male" | "female">("male");
+
+  const fontOptions = [
+    { label: "Poppins Regular", value: "Poppins-Regular" },
+    { label: "Poppins Light", value: "Poppins-Light" },
+    { label: "Poppins Bold", value: "Poppins-Bold" },
+    { label: "Sans", value: "sans-serif" },
+    { label: "Serif", value: "serif" },
+    { label: "Monospace", value: "monospace" },
+  ];
 
   if (!settingContext) return false;
 
@@ -35,8 +47,9 @@ const Setting = () => {
     if (userName !== "" && userName !== null) {
       storeData("PROFILE", {
         name: userName,
-        rank: profile?.rank || ("" as RankingTypes),
-        level: profile?.level || 0,
+        gender: genderInput,
+        rank: profile?.rank || ("Newcomer" as RankingTypes),
+        level: profile?.level || 1,
       });
     } else {
       showToast({
@@ -49,7 +62,11 @@ const Setting = () => {
 
     if (isNaN(fonstSizeInput) || fonstSizeInput < 10 || fonstSizeInput > 100)
       return;
-    const updatedSettings = { ...objSetting, fontSize: fonstSizeInput };
+    const updatedSettings = {
+      ...objSetting,
+      fontSize: fonstSizeInput,
+      fontStyle: fontStyleInput,
+    };
     handleChangeSetting(updatedSettings);
 
     showToast({
@@ -62,6 +79,7 @@ const Setting = () => {
   useEffect(() => {
     if (objSetting) {
       setFontSizeInput(objSetting.fontSize);
+      setFontStyleInput(objSetting.fontStyle || "Poppins-Regular");
     }
 
     const getData = async () => {
@@ -70,6 +88,7 @@ const Setting = () => {
       if (profileData) {
         setProfile(profileData);
         setUserName(profileData.name);
+        setGenderInput(profileData.gender || "male");
       } else {
         return null;
       }
@@ -233,6 +252,82 @@ const Setting = () => {
               />
             </View>
 
+            {/* Gender */}
+            <View
+              style={{
+                width: "100%",
+                flexDirection: "column",
+                gap: 10,
+                marginTop: 20,
+              }}
+            >
+              <Text
+                allowFontScaling={false}
+                style={[
+                  styles.title,
+                  {
+                    fontSize: 16,
+                    color: themeColors.primaryText,
+                    textAlign: "left",
+                  },
+                ]}
+              >
+                Gender
+              </Text>
+
+              <View style={{ flexDirection: "row", gap: 8 }}>
+                <TouchableOpacity
+                  onPress={() => setGenderInput("male")}
+                  style={[
+                    styles.genderButton,
+                    {
+                      backgroundColor:
+                        genderInput === "male" ? "#319166ff" : themeColors.card,
+                    },
+                  ]}
+                >
+                  <Text
+                    style={{
+                      color:
+                        genderInput === "male"
+                          ? "#fff"
+                          : themeColors.primaryText,
+                      fontFamily: "Poppins-Regular",
+                      fontSize: 12,
+                    }}
+                  >
+                    Male (Achi)
+                  </Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity
+                  onPress={() => setGenderInput("female")}
+                  style={[
+                    styles.genderButton,
+                    {
+                      backgroundColor:
+                        genderInput === "female"
+                          ? "#319166ff"
+                          : themeColors.card,
+                    },
+                  ]}
+                >
+                  <Text
+                    style={{
+                      color:
+                        genderInput === "female"
+                          ? "#fff"
+                          : themeColors.primaryText,
+                      fontFamily: "Poppins-Regular",
+                      fontSize: 12,
+                    }}
+                  >
+                    Female (Achot)
+                  </Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+
             {/* FontSize */}
             <View
               style={{
@@ -287,6 +382,61 @@ const Setting = () => {
                 >
                   <Icon name="minus" color="#003092" size={20} />
                 </TouchableOpacity>
+              </View>
+            </View>
+
+            {/* Font Style */}
+            <View
+              style={{
+                width: "100%",
+                flexDirection: "column",
+                gap: 10,
+                marginTop: 20,
+              }}
+            >
+              <Text
+                allowFontScaling={false}
+                style={[
+                  styles.title,
+                  {
+                    fontSize: 16,
+                    color: themeColors.primaryText,
+                    textAlign: "left",
+                  },
+                ]}
+              >
+                Font Style
+              </Text>
+
+              <View style={{ flexDirection: "row", flexWrap: "wrap", gap: 8 }}>
+                {fontOptions.map((option) => {
+                  const isActive = fontStyleInput === option.value;
+
+                  return (
+                    <TouchableOpacity
+                      key={option.value}
+                      onPress={() => setFontStyleInput(option.value)}
+                      style={{
+                        paddingVertical: 8,
+                        paddingHorizontal: 12,
+                        borderRadius: 8,
+                        backgroundColor: isActive
+                          ? "#319166ff"
+                          : themeColors.card,
+                      }}
+                    >
+                      <Text
+                        style={{
+                          color: isActive ? "#fff" : themeColors.primaryText,
+                          fontFamily: option.value,
+                          fontSize: 12,
+                        }}
+                      >
+                        {option.label}
+                      </Text>
+                    </TouchableOpacity>
+                  );
+                })}
               </View>
             </View>
 
@@ -416,6 +566,11 @@ const styles = StyleSheet.create({
     color: "#343434",
     fontSize: 30,
     textAlign: "center",
+  },
+  genderButton: {
+    paddingVertical: 8,
+    paddingHorizontal: 12,
+    borderRadius: 8,
   },
   verse: {
     fontFamily: "Poppins-Regular",

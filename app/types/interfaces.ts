@@ -15,6 +15,7 @@ export interface Setting {
 
 export interface Profile {
   name: string;
+  gender?: "male" | "female";
   rank: RankingTypes;
   level: number;
 }

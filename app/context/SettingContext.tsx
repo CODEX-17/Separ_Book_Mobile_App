@@ -1,48 +1,48 @@
 import React, { createContext, useState, useEffect } from "react";
-import { storeData, getStoreData }  from "../Utils/storage";
+import { storeData, getStoreData } from "../Utils/storage";
 import { Setting } from "../types/interfaces";
 import { ReactNode } from "react";
 
 export interface SettingContextType {
-    objSetting: Setting
-    handleChangeSetting: (value: Setting) => void
+  objSetting: Setting;
+  handleChangeSetting: (value: Setting) => void;
 }
 
 interface SettingProviderType {
-    children: ReactNode
+  children: ReactNode;
 }
 
-export const SettingContext = createContext<SettingContextType| null>(null)
+export const SettingContext = createContext<SettingContextType | null>(null);
 
-export const SettingContextProvider: React.FC<SettingProviderType> = ({ children }) => {
+export const SettingContextProvider: React.FC<SettingProviderType> = ({
+  children,
+}) => {
+  const [objSetting, setObjSetting] = useState<Setting>({
+    fontSize: 30,
+    theme: "light",
+    fontStyle: "Poppins-Regular",
+  });
 
-    const [objSetting, setObjSetting] = useState<Setting>(
-        { 
-            fontSize: 30, 
-            theme: 'light' 
-        }
-    )
+  // Load stored settings when the component mounts
+  useEffect(() => {
+    const loadSettings = async () => {
+      const storedData = await getStoreData("SETTING");
+      if (storedData) {
+        setObjSetting(storedData);
+      }
+    };
+    loadSettings();
+  }, []);
 
-     // Load stored settings when the component mounts
-         useEffect(() => {
-                const loadSettings = async () => {
-                    const storedData = await getStoreData('SETTING')
-                    if (storedData) {
-                        setObjSetting(storedData)
-                    }
-                }
-                loadSettings()
-        }, [])
-    
-        const handleChangeSetting = (value: Setting) => {
-            if (!value) return
-            setObjSetting(value)
-            storeData('SETTING', value)
-        }
+  const handleChangeSetting = (value: Setting) => {
+    if (!value) return;
+    setObjSetting(value);
+    storeData("SETTING", value);
+  };
 
-    return(
-        <SettingContext.Provider value={{ objSetting, handleChangeSetting }}>
-            { children }
-        </SettingContext.Provider>
-    )
-}
+  return (
+    <SettingContext.Provider value={{ objSetting, handleChangeSetting }}>
+      {children}
+    </SettingContext.Provider>
+  );
+};

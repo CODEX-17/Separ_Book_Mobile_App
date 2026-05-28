@@ -7,12 +7,84 @@ import isTefillahTime from "./Utils/tifillahTime";
 import { Profile } from "./types/interfaces";
 import { ranks } from "./data/ranking";
 import { findingRankStatus, rankMapping } from "./Utils/rankUtils";
+import { feast } from "./data/feastDateList";
+import { newMoon } from "./Utils/newMoonCalculation";
 
 const Home = () => {
   const [userName, setUserName] = useState<string>("");
   const today = new Date();
   const day = today.getDay();
   const [profile, setProfile] = useState<Profile>();
+
+  const formatDate = (date: Date) =>
+    date.toLocaleDateString(undefined, {
+      month: "short",
+      day: "numeric",
+      year: "numeric",
+    });
+
+  const normalizeDate = (date: Date) =>
+    new Date(date.getFullYear(), date.getMonth(), date.getDate());
+
+  const todayOnly = normalizeDate(today);
+
+  const currentFeast = feast.find((item: any) => {
+    if ("date" in item && item.date instanceof Date) {
+      return normalizeDate(item.date).getTime() === todayOnly.getTime();
+    }
+
+    if (
+      "dateFrom" in item &&
+      item.dateFrom instanceof Date &&
+      "dateTo" in item &&
+      item.dateTo instanceof Date
+    ) {
+      const start = normalizeDate(item.dateFrom).getTime();
+      const end = normalizeDate(item.dateTo).getTime();
+      const current = todayOnly.getTime();
+      return current >= start && current <= end;
+    }
+
+    return false;
+  });
+
+  const upcomingFeasts = feast
+    .map((item: any) => {
+      if ("date" in item && item.date instanceof Date) {
+        return { ...item, nextDate: normalizeDate(item.date) };
+      }
+
+      if ("dateFrom" in item && item.dateFrom instanceof Date) {
+        return { ...item, nextDate: normalizeDate(item.dateFrom) };
+      }
+
+      return null;
+    })
+    .filter(
+      (item: any) => item && item.nextDate.getTime() > todayOnly.getTime(),
+    )
+    .sort((a: any, b: any) => a.nextDate.getTime() - b.nextDate.getTime());
+
+  const nextFeast = upcomingFeasts[0];
+
+  const parseNewMoonISO = (item: any) =>
+    item?.iso ? new Date(item.iso) : null;
+
+  const newMoonList = newMoon()
+    .map((item: any) => {
+      const isoDate = parseNewMoonISO(item);
+      return isoDate && !isNaN(isoDate.getTime()) ? { ...item, isoDate } : null;
+    })
+    .filter(Boolean) as any[];
+
+  const currentNewMoon = newMoonList.find((item: any) => {
+    const d = normalizeDate(item.isoDate);
+    return d.getTime() === todayOnly.getTime();
+  });
+
+  const nextNewMoon = newMoonList
+    .filter((item: any) => item.isoDate.getTime() > Date.now())
+    .sort((a: any, b: any) => a.isoDate.getTime() - b.isoDate.getTime())[0];
 
   const settingContext = useContext(SettingContext);
 
@@ -139,6 +211,86 @@ const Home = () => {
           </View>
         )}
       </View>
+      {/* Feast Status Card */}
+      {(currentFeast || nextFeast) && (
+        <View
+          style={[
+            styles.reminderCard,
+            { marginTop: 20, backgroundColor: themeColors.card },
+          ]}
+        >
+          <Text
+            allowFontScaling={false}
+            style={{
+              color: themeColors.primaryText,
+              fontFamily: "Poppins-Bold",
+            }}
+          >
+            Feast Schedule
+          </Text>
+
+          {currentFeast ? (
+            <Text
+              allowFontScaling={false}
+              style={{ color: themeColors.secondaryText, marginTop: 4 }}
+            >
+              Currently Scheduled: {currentFeast.name}
+              {"dateFrom" in (currentFeast as any) &&
+              "dateTo" in (currentFeast as any)
+                ? ` (${formatDate((currentFeast as any).dateFrom)} - ${formatDate(
+                    (currentFeast as any).dateTo,
+                  )})`
+                : ` (${formatDate((currentFeast as any).date)})`}
+            </Text>
+          ) : (
+            <Text
+              allowFontScaling={false}
+              style={{ color: themeColors.secondaryText, marginTop: 4 }}
+            >
+              Incoming Feast: {nextFeast.name} ({formatDate(nextFeast.nextDate)}
+              )
+            </Text>
+          )}
+        </View>
+      )}
+
+      {/* New Moon Status Card */}
+      {(currentNewMoon || nextNewMoon) && (
+        <View
+          style={[
+            styles.reminderCard,
+            { marginTop: 20, backgroundColor: themeColors.card },
+          ]}
+        >
+          <Text
+            allowFontScaling={false}
+            style={{
+              color: themeColors.primaryText,
+              fontFamily: "Poppins-Bold",
+            }}
+          >
+            New Moon Schedule
+          </Text>
+
+          {currentNewMoon ? (
+            <Text
+              allowFontScaling={false}
+              style={{ color: themeColors.secondaryText, marginTop: 4 }}
+            >
+              Currently Scheduled: New Moon ({currentNewMoon.date}{" "}
+              {currentNewMoon.time})
+            </Text>
+          ) : (
+            <Text
+              allowFontScaling={false}
+              style={{ color: themeColors.secondaryText, marginTop: 4 }}
+            >
+              Incoming New Moon: {nextNewMoon.date} {nextNewMoon.time}
+            </Text>
+          )}
+        </View>
+      )}
+
       {/* Tifillah Time Reminder Card */}
       {isTefillahTime() && (
         <View

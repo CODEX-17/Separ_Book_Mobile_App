@@ -23,11 +23,12 @@ import { getStoreData, storeData } from "./Utils/storage";
 
 const AskName = () => {
   const [userName, setUsername] = useState<string | null>(null);
+  const [gender, setGender] = useState<"male" | "female" | null>(null);
   const [textLabel, setTextLabel] = useState<string>(`What's your name?`);
   const router = useRouter();
 
   const handleSearch = (text: string) => {
-    if (userName) {
+    if (text && gender) {
       setTimeout(() => {
         buttonProgress.value = withTiming(1, {
           duration: 1000,
@@ -37,7 +38,7 @@ const AskName = () => {
         buttonPosition.value = withRepeat(
           withTiming(0, { duration: 800 }), // Fade in/out in 1s
           -1, // Infinite loop
-          true // Reverse animation (fades in and out)
+          true, // Reverse animation (fades in and out)
         );
       }, 1000);
     } else {
@@ -90,9 +91,14 @@ const AskName = () => {
 
     setTextLabel(userName ?? "");
 
-    if (!userName) return;
+    if (!userName || !gender) return;
 
-    storeData("PROFILE", { name: userName, rank: "Newcomer", level: 1 });
+    storeData("PROFILE", {
+      name: userName,
+      gender,
+      rank: "Newcomer",
+      level: 1,
+    });
 
     setTimeout(() => {
       textProgress.value = 1;
@@ -100,7 +106,7 @@ const AskName = () => {
       textFlexDirection.value = "row";
       textGap.value = withDelay(
         1000,
-        withSpring(10, { damping: 30, stiffness: 200 })
+        withSpring(10, { damping: 30, stiffness: 200 }),
       );
 
       setTimeout(() => {
@@ -134,8 +140,50 @@ const AskName = () => {
           placeholder="ex. Salem"
           placeholderTextColor="#ccc"
         />
+        <View style={styles.genderContainer}>
+          <TouchableOpacity
+            style={[
+              styles.genderButton,
+              gender === "male" && styles.genderButtonActive,
+            ]}
+            onPress={() => {
+              setGender("male");
+              if (userName) handleSearch(userName);
+            }}
+          >
+            <Text
+              allowFontScaling={false}
+              style={[
+                styles.genderText,
+                gender === "male" && styles.genderTextActive,
+              ]}
+            >
+              Male
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[
+              styles.genderButton,
+              gender === "female" && styles.genderButtonActive,
+            ]}
+            onPress={() => {
+              setGender("female");
+              if (userName) handleSearch(userName);
+            }}
+          >
+            <Text
+              allowFontScaling={false}
+              style={[
+                styles.genderText,
+                gender === "female" && styles.genderTextActive,
+              ]}
+            >
+              Female
+            </Text>
+          </TouchableOpacity>
+        </View>
       </Animated.View>
-      {userName && (
+      {userName && gender && (
         <Animated.View style={buttonAnimation}>
           <TouchableOpacity style={{ marginTop: 50 }} onPress={handleSubmit}>
             <Icon name="arrow-right-circle" color={COLORS.blue} size={40} />
@@ -180,6 +228,31 @@ const styles = StyleSheet.create({
     borderRadius: 100,
     marginTop: 20,
     color: "2A3335",
+  },
+  genderContainer: {
+    flexDirection: "row",
+    marginTop: 15,
+    gap: 10,
+    justifyContent: "center",
+  },
+  genderButton: {
+    paddingVertical: 8,
+    paddingHorizontal: 16,
+    borderRadius: 20,
+    borderWidth: 1,
+    borderColor: COLORS.blue,
+    backgroundColor: "transparent",
+  },
+  genderButtonActive: {
+    backgroundColor: COLORS.blue,
+  },
+  genderText: {
+    color: COLORS.blue,
+    fontFamily: FONTS.regular,
+    fontSize: 14,
+  },
+  genderTextActive: {
+    color: "#fff",
   },
 });
 

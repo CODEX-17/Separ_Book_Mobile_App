@@ -5,7 +5,6 @@ import {
   StyleSheet,
   TouchableOpacity,
   ScrollView,
-  ToastAndroid,
 } from "react-native";
 import { ChapterContext } from "./context/ChapterContex";
 import { separ as chapterList } from "./data/chapters";
@@ -20,6 +19,7 @@ import Icon from "react-native-vector-icons/Feather";
 import Icon1 from "react-native-vector-icons/MaterialCommunityIcons";
 import { useLevelTimer } from "./Utils/useLevelTimer";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { showToast } from "./Utils/toast";
 
 const ViewChapter = () => {
   const router = useRouter();
@@ -38,6 +38,7 @@ const ViewChapter = () => {
 
   const themeColors = objSetting.theme === "dark" ? COLORS.dark : COLORS.light;
   const fontSize = objSetting.fontSize;
+  const fontStyle = objSetting.fontStyle || "Poppins-Regular";
 
   const [selectedVerse, setSelectedVerse] = useState<Verse | null>(null);
   const [isShowPreview, setIsShowPreview] = useState(false);
@@ -114,7 +115,11 @@ const ViewChapter = () => {
         return updatedProfile;
       });
 
-      ToastAndroid.show(`Level up!`, ToastAndroid.SHORT);
+      showToast({
+        type: "success",
+        title: "Level Up",
+        message: "You gained +1 level.",
+      });
     }, 20000); // 20 seconds
 
     return () => {
@@ -171,7 +176,27 @@ const ViewChapter = () => {
     });
   };
 
-  const handleSave = () => setIsShowPreview(true);
+  const handleSave = async () => {
+    setIsShowPreview(true);
+
+    showToast({
+      type: "info",
+      title: "Download",
+      message: "Preparing verse image...",
+    });
+
+    if (!profile) return;
+
+    const updatedProfile = { ...profile, level: profile.level + 1 };
+    setProfile(updatedProfile);
+    await storeData("PROFILE", updatedProfile);
+
+    showToast({
+      type: "success",
+      title: "Points",
+      message: "+1 point added!",
+    });
+  };
 
   const handleBack = () => {
     if (params.route === "random") {
@@ -268,20 +293,26 @@ const ViewChapter = () => {
               <View style={{ flexDirection: "column" }}>
                 <Text
                   allowFontScaling={false}
-                  style={[styles.chapter, { color: themeColors.primaryText }]}
+                  style={[
+                    styles.chapter,
+                    { color: themeColors.primaryText, fontFamily: fontStyle },
+                  ]}
                 >
                   {`Chapter ${selectedVerse.chapter}`}
                 </Text>
                 <Text
                   allowFontScaling={false}
-                  style={[styles.verse, { color: themeColors.secondaryText }]}
+                  style={[
+                    styles.verse,
+                    { color: themeColors.secondaryText, fontFamily: fontStyle },
+                  ]}
                 >
                   {`Verse ${selectedVerse.verse}`}
                 </Text>
               </View>
               <TouchableOpacity
                 onPress={() => {
-                  setBottomNavigation("Settings"), router.push("/(home)");
+                  (setBottomNavigation("Settings"), router.push("/(home)"));
                 }}
               >
                 <Icon name="settings" color={themeColors.primary} size={25} />
@@ -296,6 +327,7 @@ const ViewChapter = () => {
                     {
                       fontSize: objSetting.fontSize,
                       color: themeColors.primaryText,
+                      fontFamily: fontStyle,
                     },
                   ]}
                 >
