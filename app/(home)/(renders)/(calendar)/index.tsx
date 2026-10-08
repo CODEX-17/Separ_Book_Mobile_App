@@ -15,7 +15,7 @@ import { convertDateFormatIntoString } from "../../../Utils/dateUtils";
 import Icon from "react-native-vector-icons/Feather";
 
 const Calendar = () => {
-  const dateList = newMoon();
+  const dateList: { date: string; time: string; iso: string }[] = newMoon();
   const currentDate = new Date().getMonth();
 
   const settingContext = useContext(SettingContext);

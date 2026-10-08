@@ -30,7 +30,7 @@ const Menus = () => {
 
   interface ButtonListType {
     title: TabsRoutes;
-    icon: (isActive: boolean) => JSX.Element;
+    icon: (isActive: boolean) => React.ReactElement;
   }
 
   const buttonList: ButtonListType[] = [

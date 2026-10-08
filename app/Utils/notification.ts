@@ -25,18 +25,20 @@ Notifications.setNotificationHandler({
 
 //request permission to send notifications
 export async function requestNotificationPermission() {
-  const { status } = await Notifications.getPermissionsAsync();
+  let { status } = await Notifications.getPermissionsAsync();
 
   if (status !== "granted") {
-    await Notifications.requestPermissionsAsync();
+    ({ status } = await Notifications.requestPermissionsAsync());
   }
 
-  if (Platform.OS === "android") {
+  if (status === "granted" && Platform.OS === "android") {
     await Notifications.setNotificationChannelAsync("default", {
       name: "default",
       importance: Notifications.AndroidImportance.MAX,
     });
   }
+
+  return status === "granted";
 }
 
 export interface ScheduleNotificationDailyType {
@@ -80,6 +82,17 @@ export const scheduleNotificationDate = async ({
   content,
   date,
 }: ScheduleNotificationDateType) => {
+  if (!Number.isFinite(date.getTime())) {
+    throw new RangeError(`Notification "${name}" requires a valid date.`);
+  }
+
+  if (date.getTime() <= Date.now()) {
+    console.info(
+      `Skipping notification "${name}" because its scheduled date has passed.`
+    );
+    return;
+  }
+
   if (Platform.OS === "android") {
     await Notifications.setNotificationChannelAsync(name, {
       name,

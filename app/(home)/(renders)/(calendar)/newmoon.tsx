@@ -6,7 +6,7 @@ import LottieView from "lottie-react-native";
 import { SettingContext } from "@/app/context/SettingContext";
 
 const NewMoon = () => {
-  const dateList = newMoon();
+  const dateList: { date: string; time: string; iso: string }[] = newMoon();
   const currentDate = new Date().getMonth();
 
   const settingContext = useContext(SettingContext);

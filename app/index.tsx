@@ -60,6 +60,32 @@ type NotificationType =
       value: { hour: number; minute: number };
     };
 
+const feastNotifications: NotificationType[] = feastList.flatMap(
+  (element): NotificationType[] => {
+    if (!element.date) return [];
+
+    const id = `feast-reminder-${element.name
+      .toLowerCase()
+      .replace(/ /g, "-")}`;
+
+    return [
+      {
+        scheduleType: "date",
+        name: id,
+        content: {
+          title: element.name,
+          body: `${element.name} is today. Remember to observe the feast! Make this day special.`,
+          data: {
+            id,
+            route: "/(home)",
+          },
+        },
+        date: element.date,
+      },
+    ];
+  }
+);
+
 const WelcomeScreen = () => {
   const router = useRouter();
   const today = new Date();
@@ -106,7 +132,7 @@ const WelcomeScreen = () => {
   const eveningSeparVerse = chapterList[eveningSeparVerseIndex]; // Random verse for evening
 
   // Initial notificationList
-  const [notificationList, setNotificationList] = useState<NotificationType[]>([
+  const [notificationList] = useState<NotificationType[]>([
     {
       scheduleType: "date",
       name: "shabbath-reminder",
@@ -174,57 +200,18 @@ const WelcomeScreen = () => {
       },
       value: { hour: 19, minute: 0 },
     },
+    ...feastNotifications,
   ]);
-
-  // Initializing and pushing the feastList into NotificationList
-  useEffect(() => {
-    if (!feastList) return;
-
-    //console.log("newMoon:", newMoon());
-
-    const feastNotifications: NotificationType[] = feastList
-      .map((element) => {
-        return {
-          scheduleType: "date",
-          name: `feast-reminder-${element.name
-            .toLowerCase()
-            .replace(/ /g, "-")}`,
-          content: {
-            title: element.name,
-            body: `${element.name} is today. Remember to observe the feast! Make this day special.`,
-            data: {
-              id: `feast-reminder-${element.name
-                .toLowerCase()
-                .replace(/ /g, "-")}`,
-              route: "/(home)",
-            },
-          },
-          date: element.date,
-        };
-      })
-      .filter(
-        (
-          item
-        ): item is {
-          scheduleType: "date";
-          name: string;
-          content: {
-            title: string;
-            body: string;
-            data: { id: string; route: string };
-          };
-          date: Date;
-        } => item.date !== undefined
-      );
-
-    // Append to existing notifications
-    setNotificationList((prev) => [...prev, ...feastNotifications]);
-  }, [feastList]);
 
   // Initialize notifications on app load
   useEffect(() => {
+    let isActive = true;
+    let responseSubscription: Notifications.EventSubscription | undefined;
+
     async function initNotifications() {
-      await requestNotificationPermission();
+      const hasPermission = await requestNotificationPermission();
+      if (!hasPermission || !isActive) return;
+
       await Notifications.cancelAllScheduledNotificationsAsync();
 
       for (const element of notificationList) {
@@ -243,31 +230,41 @@ const WelcomeScreen = () => {
         }
       }
 
-      Notifications.addNotificationResponseReceivedListener(
-        async (response) => {
-          if (!response) return;
+      if (!isActive) return;
 
-          const data = response.notification.request.content
-            .data as listenerPropType;
+      responseSubscription =
+        Notifications.addNotificationResponseReceivedListener(
+          async (response) => {
+            if (!response) return;
 
-          if (!data?.id) return;
+            const data = response.notification.request.content
+              .data as listenerPropType;
 
-          console.log("Notification data:", data);
+            if (!data?.id) return;
 
-          if (data.route) {
-            if (data?.contentIndex) {
-              setCurrentChapter(data?.contentIndex);
-              router.push("/view-chapter");
-            } else {
-              router.push("/(home)");
+            console.log("Notification data:", data);
+
+            if (data.route) {
+              if (data?.contentIndex) {
+                setCurrentChapter(data?.contentIndex);
+                router.push("/view-chapter");
+              } else {
+                router.push("/(home)");
+              }
             }
           }
-        }
-      );
+        );
     }
 
-    if (notificationList.length) initNotifications();
-  }, [notificationList]);
+    void initNotifications().catch((error: unknown) => {
+      console.error("Failed to initialize notifications:", error);
+    });
+
+    return () => {
+      isActive = false;
+      responseSubscription?.remove();
+    };
+  }, [notificationList, router, setCurrentChapter]);
 
   const { objSetting } = settingContext;
 

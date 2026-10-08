@@ -170,7 +170,9 @@ const RandomPick = () => {
         </Animated.View>
       )) ||
         (display === "picking" && (
-          <View style={[styles.loadingContainer, pickingContainerAnimation]}>
+          <Animated.View
+            style={[styles.loadingContainer, pickingContainerAnimation]}
+          >
             <LottieView
               source={require("../../../assets/animation/book-animation.json")}
               autoPlay
@@ -183,7 +185,7 @@ const RandomPick = () => {
             >
               Waiting for a Divinely Chosen Verse...
             </Text>
-          </View>
+          </Animated.View>
         ))}
     </View>
   );
