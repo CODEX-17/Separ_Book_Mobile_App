@@ -7,53 +7,122 @@ import COLORS from "@/app/constants/colors";
 type TermItem = {
   word: string;
   meaning: string;
+  tagalogMeaning?: string;
 };
 
 const TERMS: TermItem[] = [
-  { word: "Cohen", meaning: "Cohen means priest o pari in tagalog." },
-  { word: "Shalom", meaning: "A Hebrew greeting meaning peace and wholeness." },
   {
-    word: "Torah",
-    meaning: "The divine teaching or law in the first five books.",
+    word: "OHAYAH",
+    meaning:
+      "The highest form of praise that came from the mouths of newborns. (Psalms 8:2)",
+    tagalogMeaning:
+      "Ang pinakamataas na uri ng papuri na nanggagaling sa bibig ng mga sanggol. (Mga Awit 8:2)",
   },
   {
-    word: "Mitzvah",
-    meaning: "A commandment or good deed done in obedience to God.",
-  },
-  { word: "Sabbath", meaning: "A sacred day of rest and worship." },
-  { word: "Tefillah", meaning: "Prayer or act of communicating with God." },
-  { word: "Amen", meaning: "A declaration meaning truly, so be it." },
-  {
-    word: "Hallelujah",
-    meaning: "An expression of praise meaning praise the Lord.",
-  },
-  { word: "Messiah", meaning: "The anointed one promised to bring salvation." },
-  {
-    word: "Covenant",
-    meaning: "A sacred agreement between God and His people.",
+    word: "YADAH",
+    meaning: "Give acknowledge",
+    tagalogMeaning: "Magbigay ng pagkilala",
   },
   {
-    word: "Disciple",
-    meaning: "A follower and learner of spiritual teachings.",
+    word: "TODDAH RABBAH",
+    meaning: "Express Thanksgiving",
+    tagalogMeaning: "Magpahayag ng pasasalamat",
   },
-  { word: "Grace", meaning: "Unmerited favor and kindness from God." },
-  { word: "Mercy", meaning: "Compassion shown toward someone in need." },
-  { word: "Faith", meaning: "Trust and confidence in God and His promises." },
   {
-    word: "Wisdom",
-    meaning: "The right application of knowledge with understanding.",
+    word: "SHALEM/SHALOM",
+    meaning: "Peace",
+    tagalogMeaning: "Kapayapaan",
   },
-  { word: "Prophet", meaning: "A messenger who speaks God’s word." },
   {
-    word: "Redemption",
-    meaning: "Deliverance from sin through divine intervention.",
+    word: "ACHI or AKI",
+    meaning: "Brother",
+    tagalogMeaning: "Kapatid na lalaki",
   },
-  { word: "Sanctify", meaning: "To set apart as holy for God." },
   {
-    word: "Blessing",
-    meaning: "A gift of favor, protection, or spiritual benefit.",
+    word: "ACHOT or AKOT",
+    meaning: "Sister",
+    tagalogMeaning: "Kapatid na babae",
   },
-  { word: "Kingdom", meaning: "The reign and rule of God over all creation." },
+  {
+    word: "ELDER",
+    meaning: "Jr. Kohens",
+    tagalogMeaning: "Bunsong Kohen / Nakababagong Saserdote",
+  },
+  {
+    word: "KOHEN",
+    meaning: "Priest",
+    tagalogMeaning: "Pari o Saserdote",
+  },
+  {
+    word: "BERKAT KOHANIM",
+    meaning: "Priestly Blessings",
+    tagalogMeaning: "Mga Pagpapala ng mga Saserdote",
+  },
+  {
+    word: "QUIRAAH",
+    meaning: "Calling Forth",
+    tagalogMeaning: "Pagtawag o Pagpapalabas",
+  },
+  {
+    word: "SEPHAR or SEPAR",
+    meaning: "Book of Remembrance",
+    tagalogMeaning: "Aklat ng Alaala",
+  },
+  {
+    word: "SHACHA",
+    meaning: "Bow down",
+    tagalogMeaning: "Yumukod o Magpatirapa",
+  },
+  {
+    word: "ALYON",
+    meaning: "ALMIGHTY ONE",
+    tagalogMeaning: "ANG MAKAPANGYARIHAN SA LAHAT",
+  },
+  {
+    word: "BRETHREN",
+    meaning: "Members of the same spiritual family.",
+    tagalogMeaning: "Mga miyembro ng iisang espirituwal na pamilya.",
+  },
+  {
+    word: "BOKER TOV",
+    meaning: "Good morning",
+    tagalogMeaning: "Magandang umaga",
+  },
+  {
+    word: "EREV TOV",
+    meaning: "Good evening",
+    tagalogMeaning: "Magandang gabi",
+  },
+  {
+    word: "LAILA TOV",
+    meaning: "Good night",
+    tagalogMeaning: "Magandang gabi / Tulog nang mahimbing",
+  },
+  {
+    word: "YAHBERCHEM",
+    meaning: "Yahuweh's multiple blessings be unto you.",
+    tagalogMeaning: "Ang saganang pagpapala ni Yahuweh ay sumaiyo.",
+  },
+  {
+    word: "SHABACHADSHEYOM",
+    meaning: "Joyous Blessed Sacred Seventh Day.",
+    tagalogMeaning: "Masayang Pinagpalang Banal na Ikapitong Araw.",
+  },
+  {
+    word: "SHAMEACH BARAK CHADOSH SHEBI YOM",
+    meaning: "Shabachadsheyom",
+    tagalogMeaning: "Masayang Pinagpalang Banal na Ikapitong Araw",
+  },
+  {
+    word: "MASHIAC",
+    meaning: "Messiah",
+    tagalogMeaning: "Mesiyas / Ang Pinahidang Tagapagligtas",
+  },
+  {
+    word: "MALAK",
+    meaning: "Angel",
+    tagalogMeaning: "Anghel",
+  },
 ];
 
 const Terms = () => {
@@ -77,7 +146,8 @@ const Terms = () => {
     return TERMS.filter(
       (item) =>
         item.word.toLowerCase().includes(normalized) ||
-        item.meaning.toLowerCase().includes(normalized),
+        item.meaning.toLowerCase().includes(normalized) ||
+        (item.tagalogMeaning ?? "").toLowerCase().includes(normalized),
     );
   }, [query]);
 
@@ -139,6 +209,22 @@ const Terms = () => {
               >
                 {item.meaning}
               </Text>
+              {item.tagalogMeaning ? (
+                <>
+                  <Text
+                    allowFontScaling={false}
+                    style={[styles.tagalogLabel, { color: themeColors.primaryText }]}
+                  >
+                    Tagalog Meaning:
+                  </Text>
+                  <Text
+                    allowFontScaling={false}
+                    style={[styles.tagalogMeaning, { color: themeColors.secondaryText }]}
+                  >
+                    {item.tagalogMeaning}
+                  </Text>
+                </>
+              ) : null}
             </View>
           ))
         ) : (
@@ -214,6 +300,17 @@ const styles = StyleSheet.create({
     marginBottom: 4,
   },
   meaning: {
+    fontFamily: "Poppins-Regular",
+    fontSize: 13,
+    lineHeight: 20,
+  },
+  tagalogLabel: {
+    marginTop: 8,
+    fontFamily: "Poppins-SemiBold",
+    fontSize: 12,
+  },
+  tagalogMeaning: {
+    marginTop: 2,
     fontFamily: "Poppins-Regular",
     fontSize: 13,
     lineHeight: 20,
