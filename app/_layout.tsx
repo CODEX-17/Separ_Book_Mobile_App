@@ -8,6 +8,7 @@ import { Stack } from "expo-router";
 import { Text, TextInput } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { logAsyncStorage } from "./Utils/storage";
+import Toast from "react-native-toast-message";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -51,28 +52,31 @@ export default function RootLayout() {
     <BottomNavigationProvider>
       <SettingContextProvider>
         <ChapterContextProvider>
-          <Stack
-            screenOptions={{
-              headerShown: false,
-              keyboardHandlingEnabled: true,
-            }}
-          >
-            <Stack.Screen name="index" />
-            <Stack.Screen name="update-notification" />
-            <Stack.Screen name="preface" />
-            <Stack.Screen name="onboard" />
-            <Stack.Screen name="ask-name" />
-            <Stack.Screen name="(home)" />
-            <Stack.Screen name="view-chapter" />
-            <Stack.Screen name="setting" />
-            <Stack.Screen
-              name="(home)/modal.tsx"
-              options={{
-                headerShown: true,
-                presentation: "modal",
+          <>
+            <Stack
+              screenOptions={{
+                headerShown: false,
+                keyboardHandlingEnabled: true,
               }}
-            />
-          </Stack>
+            >
+              <Stack.Screen name="index" />
+              <Stack.Screen name="update-notification" />
+              <Stack.Screen name="preface" />
+              <Stack.Screen name="onboard" />
+              <Stack.Screen name="ask-name" />
+              <Stack.Screen name="(home)" />
+              <Stack.Screen name="view-chapter" />
+              <Stack.Screen name="setting" />
+              <Stack.Screen
+                name="(home)/modal.tsx"
+                options={{
+                  headerShown: true,
+                  presentation: "modal",
+                }}
+              />
+            </Stack>
+            <Toast />
+          </>
         </ChapterContextProvider>
       </SettingContextProvider>
     </BottomNavigationProvider>

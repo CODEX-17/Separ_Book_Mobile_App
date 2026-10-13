@@ -12,28 +12,6 @@ type TermItem = {
 
 const TERMS: TermItem[] = [
   {
-    word: "OHAYAH",
-    meaning:
-      "The highest form of praise that came from the mouths of newborns. (Psalms 8:2)",
-    tagalogMeaning:
-      "Ang pinakamataas na uri ng papuri na nanggagaling sa bibig ng mga sanggol. (Mga Awit 8:2)",
-  },
-  {
-    word: "YADAH",
-    meaning: "Give acknowledge",
-    tagalogMeaning: "Magbigay ng pagkilala",
-  },
-  {
-    word: "TODDAH RABBAH",
-    meaning: "Express Thanksgiving",
-    tagalogMeaning: "Magpahayag ng pasasalamat",
-  },
-  {
-    word: "SHALEM/SHALOM",
-    meaning: "Peace",
-    tagalogMeaning: "Kapayapaan",
-  },
-  {
     word: "ACHI or AKI",
     meaning: "Brother",
     tagalogMeaning: "Kapatid na lalaki",
@@ -44,9 +22,34 @@ const TERMS: TermItem[] = [
     tagalogMeaning: "Kapatid na babae",
   },
   {
+    word: "ALYON",
+    meaning: "ALMIGHTY ONE",
+    tagalogMeaning: "ANG MAKAPANGYARIHAN SA LAHAT",
+  },
+  {
+    word: "BERKAT KOHANIM",
+    meaning: "Priestly Blessings",
+    tagalogMeaning: "Mga Pagpapala ng mga Saserdote",
+  },
+  {
+    word: "BOKER TOV",
+    meaning: "Good morning",
+    tagalogMeaning: "Magandang umaga",
+  },
+  {
+    word: "BRETHREN",
+    meaning: "Members of the same spiritual family.",
+    tagalogMeaning: "Mga miyembro ng iisang espirituwal na pamilya.",
+  },
+  {
     word: "ELDER",
     meaning: "Jr. Kohens",
     tagalogMeaning: "Bunsong Kohen / Nakababagong Saserdote",
+  },
+  {
+    word: "EREV TOV",
+    meaning: "Good evening",
+    tagalogMeaning: "Magandang gabi",
   },
   {
     word: "KOHEN",
@@ -54,9 +57,26 @@ const TERMS: TermItem[] = [
     tagalogMeaning: "Pari o Saserdote",
   },
   {
-    word: "BERKAT KOHANIM",
-    meaning: "Priestly Blessings",
-    tagalogMeaning: "Mga Pagpapala ng mga Saserdote",
+    word: "LAILA TOV",
+    meaning: "Good night",
+    tagalogMeaning: "Magandang gabi / Tulog nang mahimbing",
+  },
+  {
+    word: "MALAK",
+    meaning: "Angel",
+    tagalogMeaning: "Anghel",
+  },
+  {
+    word: "MASHIAC",
+    meaning: "Messiah",
+    tagalogMeaning: "Mesiyas / Ang Pinahidang Tagapagligtas",
+  },
+  {
+    word: "OHAYAH",
+    meaning:
+      "The highest form of praise that came from the mouths of newborns. (Psalms 8:2)",
+    tagalogMeaning:
+      "Ang pinakamataas na uri ng papuri na nanggagaling sa bibig ng mga sanggol. (Mga Awit 8:2)",
   },
   {
     word: "QUIRAAH",
@@ -69,44 +89,19 @@ const TERMS: TermItem[] = [
     tagalogMeaning: "Aklat ng Alaala",
   },
   {
+    word: "SHABACHADSHEYOM",
+    meaning: "Joyous Blessed Sacred Seventh Day.",
+    tagalogMeaning: "Masayang Pinagpalang Banal na Ikapitong Araw.",
+  },
+  {
     word: "SHACHA",
     meaning: "Bow down",
     tagalogMeaning: "Yumukod o Magpatirapa",
   },
   {
-    word: "ALYON",
-    meaning: "ALMIGHTY ONE",
-    tagalogMeaning: "ANG MAKAPANGYARIHAN SA LAHAT",
-  },
-  {
-    word: "BRETHREN",
-    meaning: "Members of the same spiritual family.",
-    tagalogMeaning: "Mga miyembro ng iisang espirituwal na pamilya.",
-  },
-  {
-    word: "BOKER TOV",
-    meaning: "Good morning",
-    tagalogMeaning: "Magandang umaga",
-  },
-  {
-    word: "EREV TOV",
-    meaning: "Good evening",
-    tagalogMeaning: "Magandang gabi",
-  },
-  {
-    word: "LAILA TOV",
-    meaning: "Good night",
-    tagalogMeaning: "Magandang gabi / Tulog nang mahimbing",
-  },
-  {
-    word: "YAHBERCHEM",
-    meaning: "Yahuweh's multiple blessings be unto you.",
-    tagalogMeaning: "Ang saganang pagpapala ni Yahuweh ay sumaiyo.",
-  },
-  {
-    word: "SHABACHADSHEYOM",
-    meaning: "Joyous Blessed Sacred Seventh Day.",
-    tagalogMeaning: "Masayang Pinagpalang Banal na Ikapitong Araw.",
+    word: "SHALEM/SHALOM",
+    meaning: "Peace",
+    tagalogMeaning: "Kapayapaan",
   },
   {
     word: "SHAMEACH BARAK CHADOSH SHEBI YOM",
@@ -114,14 +109,19 @@ const TERMS: TermItem[] = [
     tagalogMeaning: "Masayang Pinagpalang Banal na Ikapitong Araw",
   },
   {
-    word: "MASHIAC",
-    meaning: "Messiah",
-    tagalogMeaning: "Mesiyas / Ang Pinahidang Tagapagligtas",
+    word: "TODDAH RABBAH",
+    meaning: "Express Thanksgiving",
+    tagalogMeaning: "Magpahayag ng pasasalamat",
   },
   {
-    word: "MALAK",
-    meaning: "Angel",
-    tagalogMeaning: "Anghel",
+    word: "YADAH",
+    meaning: "Give acknowledge",
+    tagalogMeaning: "Magbigay ng pagkilala",
+  },
+  {
+    word: "YAHBERCHEM",
+    meaning: "Yahuweh's multiple blessings be unto you.",
+    tagalogMeaning: "Ang saganang pagpapala ni Yahuweh ay sumaiyo.",
   },
 ];
 

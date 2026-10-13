@@ -1,17 +1,23 @@
 package com.codex17.Separ_Book
 import expo.modules.splashscreen.SplashScreenManager
 
+import android.app.Activity
 import android.os.Build
 import android.os.Bundle
+import java.util.concurrent.Executor
 
 import com.facebook.react.ReactActivity
 import com.facebook.react.ReactActivityDelegate
+import com.facebook.react.ReactApplication
 import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint.fabricEnabled
 import com.facebook.react.defaults.DefaultReactActivityDelegate
+import com.facebook.react.modules.core.DeviceEventManagerModule
 
 import expo.modules.ReactActivityDelegateWrapper
 
 class MainActivity : ReactActivity() {
+  private var screenCaptureCallback: Activity.ScreenCaptureCallback? = null
+
   override fun onCreate(savedInstanceState: Bundle?) {
     // Set the theme to AppTheme BEFORE onCreate to support
     // coloring the background, status bar, and navigation bar.
@@ -21,6 +27,36 @@ class MainActivity : ReactActivity() {
     SplashScreenManager.registerOnActivity(this)
     // @generated end expo-splashscreen
     super.onCreate(null)
+  }
+
+  override fun onStart() {
+    super.onStart()
+
+    if (
+      Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE &&
+      screenCaptureCallback == null
+    ) {
+      val callback = Activity.ScreenCaptureCallback {
+        val reactContext =
+          (application as ReactApplication).reactNativeHost.reactInstanceManager.currentReactContext
+        reactContext
+          ?.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter::class.java)
+          ?.emit("onAndroidScreenshotDetected", null)
+      }
+      screenCaptureCallback = callback
+      registerScreenCaptureCallback(Executor { command -> runOnUiThread(command) }, callback)
+    }
+  }
+
+  override fun onStop() {
+    if (
+      Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE &&
+      screenCaptureCallback != null
+    ) {
+      unregisterScreenCaptureCallback(screenCaptureCallback!!)
+      screenCaptureCallback = null
+    }
+    super.onStop()
   }
 
   /**

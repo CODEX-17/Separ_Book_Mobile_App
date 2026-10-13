@@ -1,6 +1,5 @@
-import * as Notifications from "expo-notifications";
 import { Platform } from "react-native";
-import { getStoreData, storeData } from "./storage";
+import { isRunningInExpoGo } from "expo";
 import { useRouter } from "expo-router";
 
 type Content = {
@@ -13,18 +12,34 @@ type TriggerDaily = {
   minute: number;
 };
 
-Notifications.setNotificationHandler({
-  handleNotification: async () => ({
-    shouldShowAlert: true,
-    shouldPlaySound: true,
-    shouldSetBadge: true,
-    shouldShowBanner: true,
-    shouldShowList: true,
-  }),
-});
+let notificationHandlerConfigured = false;
+
+export async function loadNotifications() {
+  if (Platform.OS === "android" && isRunningInExpoGo()) {
+    return null;
+  }
+
+  const Notifications = await import("expo-notifications");
+  if (!notificationHandlerConfigured) {
+    Notifications.setNotificationHandler({
+      handleNotification: async () => ({
+        shouldShowAlert: true,
+        shouldPlaySound: true,
+        shouldSetBadge: true,
+        shouldShowBanner: true,
+        shouldShowList: true,
+      }),
+    });
+    notificationHandlerConfigured = true;
+  }
+  return Notifications;
+}
 
 //request permission to send notifications
 export async function requestNotificationPermission() {
+  const Notifications = await loadNotifications();
+  if (!Notifications) return false;
+
   let { status } = await Notifications.getPermissionsAsync();
 
   if (status !== "granted") {
@@ -58,6 +73,9 @@ export const scheduleNotificationDaily = async ({
   content,
   value,
 }: ScheduleNotificationDailyType) => {
+  const Notifications = await loadNotifications();
+  if (!Notifications) return;
+
   if (Platform.OS === "android") {
     await Notifications.setNotificationChannelAsync(name, {
       name,
@@ -93,6 +111,9 @@ export const scheduleNotificationDate = async ({
     return;
   }
 
+  const Notifications = await loadNotifications();
+  if (!Notifications) return;
+
   if (Platform.OS === "android") {
     await Notifications.setNotificationChannelAsync(name, {
       name,
@@ -121,21 +142,26 @@ export type listenerPropType = {
 export const setupNotificationListener = () => {
   const router = useRouter();
 
-  Notifications.addNotificationResponseReceivedListener(async (response) => {
-    if (!response) return;
+  void loadNotifications()
+    .then((Notifications) => {
+      if (!Notifications) return;
 
-    const data = response.notification.request.content.data as listenerPropType;
+      Notifications.addNotificationResponseReceivedListener((response) => {
+        const data = response.notification.request.content
+          .data as listenerPropType;
 
-    if (!data?.id) return;
-
-    console.log("Notification data:", data);
-
-    if (data.route) {
-      // Navigate to the route and pass chapterContent if it exists
-      router.push({
-        pathname: "/view-chapter",
-        params: { chapterContent: JSON.stringify(data.chapterContent ?? {}) },
+        if (!data?.id) return;
+        if (data.route) {
+          router.push({
+            pathname: "/view-chapter",
+            params: {
+              chapterContent: JSON.stringify(data.chapterContent ?? {}),
+            },
+          });
+        }
       });
-    }
-  });
+    })
+    .catch((error: unknown) => {
+      console.error("Failed to set up notification listener:", error);
+    });
 };

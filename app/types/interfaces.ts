@@ -24,6 +24,12 @@ export interface Favorite {
   verseIndex: number[];
 }
 
+export interface VerseHighlight {
+  start: number;
+  end: number;
+  color: string;
+}
+
 export interface NotificationSchedule {
   name: string;
   content?: string;

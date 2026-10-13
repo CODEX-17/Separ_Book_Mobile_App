@@ -83,6 +83,16 @@ const BottomNavigation = () => {
       ),
     },
     {
+      title: "Notes",
+      icon: (isActive: boolean) => (
+        <Icon
+          name="file-text"
+          color={isActive ? themeColors.highlight : themeColors.secondaryText}
+          size={23}
+        />
+      ),
+    },
+    {
       title: "Menu",
       icon: (isActive: boolean) => (
         <Icon
@@ -185,7 +195,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#E9F0FF",
     borderRadius: 10,
     height: 60,
-    width: 60,
+    width: 54,
   },
   button: {
     flexDirection: "column",
@@ -193,7 +203,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     borderRadius: 10,
     height: 60,
-    width: 60,
+    width: 54,
   },
   buttonText: {
     fontSize: 10,

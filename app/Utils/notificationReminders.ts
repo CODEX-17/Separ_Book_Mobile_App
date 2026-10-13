@@ -1,20 +1,12 @@
-import * as Notifications from "expo-notifications";
 import { feast } from "../data/feastDateList";
-import { scheduleNotificationDate } from "./notification";
+import { loadNotifications, scheduleNotificationDate } from "./notification";
 import { getStoreData } from "./storage";
 import { newMoon } from "./newMoonCalculation";
 
-Notifications.setNotificationHandler({
-  handleNotification: async () => ({
-    shouldShowAlert: true,
-    shouldPlaySound: true,
-    shouldSetBadge: false,
-    shouldShowBanner: true,
-    shouldShowList: true,
-  }),
-});
-
 export async function scheduleDailyNotifications() {
+  const Notifications = await loadNotifications();
+  if (!Notifications) return;
+
   // Clear old notifications to avoid duplicates
   await Notifications.cancelAllScheduledNotificationsAsync();
 

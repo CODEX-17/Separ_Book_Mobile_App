@@ -20,11 +20,12 @@ import { StatusBar } from "expo-status-bar";
 import Menu from "./menu";
 import OnProgress from "./(renders)/on-progress";
 import Setting from "../setting";
-import Toast from "react-native-toast-message";
 import Favorites from "./(renders)/favorites";
 import Home from "../home";
 import Developer from "./(renders)/developer";
 import Terms from "./(renders)/terms";
+import AnnouncementModal from "./announcement-modal";
+import Notes from "./(renders)/notes";
 
 const HomeLayout = () => {
   const bottomNavigationContext = useContext(BottomNavigationContext);
@@ -61,6 +62,8 @@ const HomeLayout = () => {
         return <RandomPick />;
       case "Terms":
         return <Terms />;
+      case "Notes":
+        return <Notes />;
       default:
         return <OnProgress />; // Fallback UI
     }
@@ -94,19 +97,7 @@ const HomeLayout = () => {
         style={objSetting.theme === "dark" ? "light" : "dark"}
       />
       <SafeAreaView style={[styles.safeArea, { flex: 1 }]}>
-        {/* Toast */}
-        <View
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            right: 0,
-            zIndex: 10,
-          }}
-        >
-          <Toast />
-        </View>
-
+        <AnnouncementModal />
         <View style={styles.header}>
           <Header setModalVisible={setModalVisible} />
         </View>

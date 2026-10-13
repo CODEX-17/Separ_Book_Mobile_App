@@ -77,6 +77,12 @@ const Menus = () => {
       ),
     },
     {
+      title: "Notes",
+      icon: (isActive: boolean) => (
+        <Icon name="file-text" color={COLORS.white} size={25} />
+      ),
+    },
+    {
       title: "Settings",
       icon: (isActive: boolean) => (
         <Icon name="settings" color={COLORS.white} size={25} />

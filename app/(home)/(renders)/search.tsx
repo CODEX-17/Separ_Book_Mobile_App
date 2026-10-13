@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useMemo, useState } from "react";
 import {
   View,
   Text,
@@ -42,35 +42,67 @@ const MyComponent = () => {
 
   const router = useRouter();
 
-  const fuseOptions = {
-    // isCaseSensitive: false,
-    includeScore: true,
-    // ignoreDiacritics: false,
-    shouldSort: true,
-    includeMatches: true,
-    findAllMatches: true,
-    // minMatchCharLength: 1,
-    // location: 0,
-    threshold: 0.2,
-    // distance: 100,
-    // useExtendedSearch: false,
-    // ignoreLocation: false,
-    // ignoreFieldNorm: false,
-    // fieldNormWeight: 1,
-    keys: ["content"],
-  };
+  const fuse = useMemo(
+    () =>
+      new Fuse(chapterList, {
+        shouldSort: true,
+        threshold: 0.35,
+        ignoreLocation: true,
+        minMatchCharLength: 2,
+        keys: ["content"],
+      }),
+    [],
+  );
 
-  const fuse = new Fuse(chapterList, fuseOptions);
-
-  const handleSearch = (text: string) => {
-    setResultList([]);
-    setText(text);
-    setLoading(true);
-    const result = fuse.search(text).map((res) => res.item);
-    setTimeout(() => {
+  useEffect(() => {
+    const terms = normalizeSearchText(text).split(" ").filter(Boolean);
+    if (terms.length === 0) {
+      setResultList([]);
       setLoading(false);
-      setResultList(result);
-    }, 1000);
+      return;
+    }
+
+    setLoading(true);
+    const timeout = setTimeout(() => {
+      const exactResults = chapterList.filter((verse) => {
+        const content = normalizeSearchText(verse.content);
+        return terms.every((term) =>
+          content.split(" ").some((word) => word.includes(term)),
+        );
+      });
+
+      if (exactResults.length > 0) {
+        setResultList(exactResults);
+        setLoading(false);
+        return;
+      }
+
+      const resultsByTerm = terms.map((term) =>
+        new Map(
+          fuse.search(term).map(({ item }) => [
+            `${item.chapter}:${item.verse}`,
+            item,
+          ]),
+        ),
+      );
+      const firstTermResults = [...resultsByTerm[0].entries()];
+      const fuzzyResults = firstTermResults
+        .filter(([verseKey]) =>
+          resultsByTerm
+            .slice(1)
+            .every((termResults) => termResults.has(verseKey)),
+        )
+        .map(([, item]) => item);
+
+      setResultList(fuzzyResults);
+      setLoading(false);
+    }, 120);
+
+    return () => clearTimeout(timeout);
+  }, [text, fuse]);
+
+  const handleSearch = (value: string) => {
+    setText(value);
   };
 
   const handleSelectVerse = (chapter: number, verse: number) => {
@@ -174,6 +206,16 @@ const MyComponent = () => {
     </View>
   );
 };
+
+function normalizeSearchText(value: string) {
+  return value
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLocaleLowerCase()
+    .replace(/[^\p{L}\p{N}]+/gu, " ")
+    .trim()
+    .replace(/\s+/g, " ");
+}
 
 const styles = StyleSheet.create({
   container: {

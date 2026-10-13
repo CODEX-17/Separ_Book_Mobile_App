@@ -1,17 +1,29 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { Favorite, Profile, Setting } from "../types/interfaces";
+import { Favorite, Profile, Setting, VerseHighlight } from "../types/interfaces";
 
-type AllowedKeys = "SETTING" | "PROFILE" | "FAVORITE" | "NOTIFICATION";
+type AllowedKeys =
+  | "SETTING"
+  | "PROFILE"
+  | "FAVORITE"
+  | "NOTIFICATION"
+  | "VERSE_NOTES"
+  | "VERSE_HIGHLIGHTS"
+  | "ANNOUNCEMENT_DISMISSED_V1";
 
 interface NotificationSchedule {
   name: ("daily-verse-dayTime" | "daily-verse-nightTime")[];
 }
+
+type VerseNotesMap = Record<string, string>;
 
 type KeyValueMap = {
   SETTING: Setting;
   PROFILE: Profile;
   FAVORITE: Favorite;
   NOTIFICATION: NotificationSchedule;
+  VERSE_NOTES: VerseNotesMap;
+  VERSE_HIGHLIGHTS: Record<string, VerseHighlight[]>;
+  ANNOUNCEMENT_DISMISSED_V1: boolean;
 };
 
 export const storeData = async <K extends AllowedKeys>(

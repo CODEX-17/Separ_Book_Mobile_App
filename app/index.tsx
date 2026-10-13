@@ -1,16 +1,18 @@
 import React, { useContext, useEffect, useState } from "react";
-import { View, Image, StyleSheet, Text, ImageBackground } from "react-native";
 import {
-  requestNotificationPermission,
-  scheduleNotificationDaily,
-  scheduleNotificationDate,
-} from "./Utils/notification";
+  View,
+  Image,
+  StyleSheet,
+  Text,
+  ImageBackground,
+  Platform,
+} from "react-native";
+import { isRunningInExpoGo } from "expo";
 import { separ as chapterList } from "./data/chapters";
 import { feast as feastList } from "./data/feastDateList";
 import CustomizeButton from "./components/CustomizeButton";
 import Icon from "react-native-vector-icons/MaterialIcons";
 import { useRouter } from "expo-router";
-import * as Notifications from "expo-notifications";
 import Animated, {
   Easing,
   useAnimatedStyle,
@@ -206,9 +208,22 @@ const WelcomeScreen = () => {
   // Initialize notifications on app load
   useEffect(() => {
     let isActive = true;
-    let responseSubscription: Notifications.EventSubscription | undefined;
+    let responseSubscription: { remove: () => void } | undefined;
 
     async function initNotifications() {
+      if (Platform.OS === "android" && isRunningInExpoGo()) {
+        console.info(
+          "Notifications are disabled in Expo Go on Android. Use a development build to enable them."
+        );
+        return;
+      }
+
+      const Notifications = await import("expo-notifications");
+      const {
+        requestNotificationPermission,
+        scheduleNotificationDaily,
+        scheduleNotificationDate,
+      } = await import("./Utils/notification");
       const hasPermission = await requestNotificationPermission();
       if (!hasPermission || !isActive) return;
 
