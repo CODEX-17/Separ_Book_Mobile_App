@@ -18,6 +18,10 @@ const FEATURES = [
   "Added notes for individual verses.",
   "Added definitions for terms.",
   "Earn 2 points when sharing a verse.",
+  "Highlight verses to make important passages easy to find.",
+  "Cleaner, easier-to-use navigation buttons while viewing verses.",
+  "Instructions for sharing verses on social media.",
+  "A slider to adjust verse font size.",
 ];
 
 const AnnouncementModal = () => {
