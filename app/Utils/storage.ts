@@ -8,6 +8,8 @@ type AllowedKeys =
   | "NOTIFICATION"
   | "VERSE_NOTES"
   | "VERSE_HIGHLIGHTS"
+  | "CALENDAR_NEW_MOON"
+  | "CALENDAR_FEAST"
   | "ANNOUNCEMENT_DISMISSED_V1";
 
 interface NotificationSchedule {
@@ -23,6 +25,8 @@ type KeyValueMap = {
   NOTIFICATION: NotificationSchedule;
   VERSE_NOTES: VerseNotesMap;
   VERSE_HIGHLIGHTS: Record<string, VerseHighlight[]>;
+  CALENDAR_NEW_MOON: { date: string; time: string }[];
+  CALENDAR_FEAST: { name: string; date: string }[];
   ANNOUNCEMENT_DISMISSED_V1: boolean;
 };
 

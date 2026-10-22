@@ -2,46 +2,37 @@ export const convertDateFormatIntoString = (date) => {
   if (!date) return;
 
   const finalDate = date.substring(0, 10);
+  const monthNames = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+  let year;
+  let month;
+  let day;
 
-  if (finalDate) {
-    if (finalDate.includes("-")) {
-      let [year, month, day] = finalDate.split("-");
-      month =
-        ((month === "1" || month === "01") && "Jan") ||
-        ((month === "2" || month === "02") && "Feb") ||
-        ((month === "3" || month === "03") && "Mar") ||
-        ((month === "4" || month === "04") && "Apr") ||
-        ((month === "5" || month === "05") && "May") ||
-        ((month === "6" || month === "06") && "Jun") ||
-        ((month === "7" || month === "07") && "Jul") ||
-        ((month === "8" || month === "08") && "Aug") ||
-        ((month === "9" || month === "09") && "Sep") ||
-        (month === "10" && "Oct") ||
-        (month === "11" && "Nov") ||
-        (month === "12" && "Dec");
-
-      return `${month}. ${day}, ${year}`;
-    } else if (finalDate.includes("/")) {
-      let [month, day, year] = finalDate.split("/");
-      month =
-        (month === "1" && "Jan") ||
-        (month === "2" && "Feb") ||
-        (month === "3" && "Mar") ||
-        (month === "4" && "Apr") ||
-        (month === "5" && "May") ||
-        (month === "6" && "Jun") ||
-        (month === "7" && "Jul") ||
-        (month === "8" && "Aug") ||
-        (month === "9" && "Sep") ||
-        (month === "10" && "Oct") ||
-        (month === "11" && "Nov") ||
-        (month === "12" && "Dec");
-
-      return `${month}. ${day}, 20${year}`;
-    }
+  if (finalDate.includes("-")) {
+    [year, month, day] = finalDate.split("-");
+  } else if (finalDate.includes("/")) {
+    [month, day, year] = finalDate.split("/");
+    if (year.length === 2) year = `20${year}`;
+  } else {
+    return null;
   }
 
-  return null;
+  const monthName = monthNames[Number(month) - 1];
+  if (!monthName || !day || !year) return null;
+
+  return `${monthName}. ${day}, ${year}`;
 };
 
 export const formatTime = (timeString) => {

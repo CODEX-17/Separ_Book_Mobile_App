@@ -53,6 +53,18 @@
         }
       ],
       "expo-web-browser",
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Allow Separ Book to access your camera to scan calendar QR codes."
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Allow Separ Book to access your photos to upload a calendar QR code."
+        }
+      ],
       "expo-audio",
       "expo-video",
       "expo-sharing",
