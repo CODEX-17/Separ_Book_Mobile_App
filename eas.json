@@ -11,7 +11,7 @@
     "preview": {
       "distribution": "internal",
       "android": {
-        "gradleCommand": ":app:assembleRelease --no-parallel"
+        "gradleCommand": "--system-prop org.gradle.parallel=false :app:assembleRelease --no-parallel"
       }
     },
     "production": {
