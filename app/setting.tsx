@@ -1,12 +1,12 @@
-import React, { use, useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import {
   View,
   Text,
   StyleSheet,
   TouchableOpacity,
   TextInput,
+  ScrollView,
 } from "react-native";
-import { useRouter } from "expo-router";
 import { SettingContext } from "./context/SettingContext";
 import Icon from "react-native-vector-icons/Feather";
 import COLORS from "./constants/colors";
@@ -18,7 +18,6 @@ import { showToast } from "./Utils/toast";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 const Setting = () => {
-  const router = useRouter();
   const settingContext = useContext(SettingContext);
   const [modalVisible, setModalVisible] = useState<number>(0);
   const [userName, setUserName] = useState<string | null>(null);
@@ -27,6 +26,9 @@ const Setting = () => {
   const [fontStyleInput, setFontStyleInput] =
     useState<string>("Poppins-Regular");
   const [genderInput, setGenderInput] = useState<"male" | "female">("male");
+  const [maleTitleInput, setMaleTitleInput] =
+    useState<"Cohen" | "Elder" | "Achi">("Achi");
+  const maleTitles = ["Cohen", "Elder", "Achi"] as const;
 
   const fontOptions = [
     { label: "Poppins Regular", value: "Poppins-Regular" },
@@ -43,14 +45,17 @@ const Setting = () => {
 
   const themeColors = objSetting.theme === "dark" ? COLORS.dark : COLORS.light;
 
-  const handleSaveChangeSetting = () => {
+  const handleSaveChangeSetting = async () => {
     if (userName !== "" && userName !== null) {
-      storeData("PROFILE", {
+      const updatedProfile: Profile = {
         name: userName,
         gender: genderInput,
+        maleTitle: genderInput === "male" ? maleTitleInput : undefined,
         rank: profile?.rank || ("Newcomer" as RankingTypes),
         level: profile?.level || 1,
-      });
+      };
+      await storeData("PROFILE", updatedProfile);
+      setProfile(updatedProfile);
     } else {
       showToast({
         type: "error",
@@ -89,6 +94,7 @@ const Setting = () => {
         setProfile(profileData);
         setUserName(profileData.name);
         setGenderInput(profileData.gender || "male");
+        setMaleTitleInput(profileData.maleTitle || "Achi");
       } else {
         return null;
       }
@@ -100,9 +106,17 @@ const Setting = () => {
     <View
       style={[styles.container, { backgroundColor: themeColors.background }]}
     >
-      <SafeAreaView>
-        <View style={styles.content}>
-          <View style={[styles.modal, { opacity: modalVisible }]}>
+      <SafeAreaView style={styles.safeArea}>
+        <ScrollView
+          style={styles.scrollView}
+          contentContainerStyle={styles.content}
+          showsVerticalScrollIndicator={false}
+          keyboardShouldPersistTaps="handled"
+        >
+          <View
+            pointerEvents={modalVisible ? "auto" : "none"}
+            style={[styles.modal, { opacity: modalVisible }]}
+          >
             <View
               style={[
                 styles.modalCard,
@@ -326,6 +340,55 @@ const Setting = () => {
                   </Text>
                 </TouchableOpacity>
               </View>
+              {genderInput === "male" && (
+                <View style={{ gap: 8, marginTop: 4 }}>
+                  <Text
+                    allowFontScaling={false}
+                    style={[
+                      styles.title,
+                      {
+                        fontSize: 14,
+                        color: themeColors.primaryText,
+                        textAlign: "left",
+                      },
+                    ]}
+                  >
+                    Male Title
+                  </Text>
+                  <View style={{ flexDirection: "row", flexWrap: "wrap", gap: 8 }}>
+                    {maleTitles.map((title) => {
+                      const isSelected = maleTitleInput === title;
+                      return (
+                        <TouchableOpacity
+                          key={title}
+                          accessibilityRole="radio"
+                          accessibilityState={{ selected: isSelected }}
+                          onPress={() => setMaleTitleInput(title)}
+                          style={[
+                            styles.genderButton,
+                            {
+                              backgroundColor: isSelected
+                                ? "#319166ff"
+                                : themeColors.card,
+                            },
+                          ]}
+                        >
+                          <Text
+                            allowFontScaling={false}
+                            style={{
+                              color: isSelected ? "#fff" : themeColors.primaryText,
+                              fontFamily: "Poppins-Regular",
+                              fontSize: 12,
+                            }}
+                          >
+                            {title}
+                          </Text>
+                        </TouchableOpacity>
+                      );
+                    })}
+                  </View>
+                </View>
+              )}
             </View>
 
             {/* FontSize */}
@@ -497,7 +560,7 @@ const Setting = () => {
               </TouchableOpacity>
             </View>
           </View>
-        </View>
+        </ScrollView>
       </SafeAreaView>
     </View>
   );
@@ -505,18 +568,21 @@ const Setting = () => {
 
 const styles = StyleSheet.create({
   container: {
-    width: "100%",
-    height: "100%",
-    flexDirection: "column",
-    position: "relative",
+    flex: 1,
     backgroundColor: "transparent",
-    padding: 20,
+  },
+  safeArea: {
+    flex: 1,
+    width: "100%",
   },
   content: {
-    flexDirection: "column",
-    height: "100%",
+    flexGrow: 1,
     width: "100%",
-    position: "relative",
+    padding: 20,
+    paddingBottom: 36,
+  },
+  scrollView: {
+    flex: 1,
   },
   modal: {
     width: "100%",
@@ -550,7 +616,7 @@ const styles = StyleSheet.create({
     fontFamily: "Poppins-Bold",
   },
   display: {
-    height: "90%",
+    width: "100%",
     alignItems: "center",
   },
   input: {

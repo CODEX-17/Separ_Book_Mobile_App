@@ -25,6 +25,7 @@ import { getStoreData } from "./Utils/storage";
 import { Profile } from "./types/interfaces";
 import { ChapterContext } from "./context/ChapterContex";
 import { getSaturdayDay } from "./Utils/dateUtils";
+import { getDailyVerses } from "./Utils/dailyVerse";
 
 export type listenerPropType = {
   id: string;
@@ -85,7 +86,7 @@ const feastNotifications: NotificationType[] = feastList.flatMap(
         date: element.date,
       },
     ];
-  }
+  },
 );
 
 const WelcomeScreen = () => {
@@ -95,6 +96,7 @@ const WelcomeScreen = () => {
   const currentMonth = today.getMonth(); // Months are zero-based
   const currentSaturday = getSaturdayDay(); // Get the date of the upcoming Saturday
   const [profile, setProfile] = useState<Profile | null>(null);
+  const dailyVerses = getDailyVerses(chapterList, today);
 
   //Check for data
   useEffect(() => {
@@ -122,16 +124,39 @@ const WelcomeScreen = () => {
     setCurrentChapter: () => {},
   };
 
-  if (!settingContext) {
-    return null;
+  const dailyVerseNotifications: NotificationType[] = [];
+  if (dailyVerses.morning) {
+    dailyVerseNotifications.push({
+      scheduleType: "time",
+      name: "daily-verse-morning",
+      content: {
+        title: "Morning Separ Verse",
+        body: `Chapter: ${dailyVerses.morning.verse.chapter} - Verse: ${dailyVerses.morning.verse.verse}\n${dailyVerses.morning.verse.content}`,
+        data: {
+          id: "daily-verse-morning",
+          route: "/view-chapter",
+          contentIndex: dailyVerses.morning.index,
+        },
+      },
+      value: { hour: 7, minute: 0 },
+    });
   }
-
-  const morningSeparVerseIndex = Math.floor(Math.random() * chapterList.length);
-  const eveningSeparVerseIndex = Math.floor(Math.random() * chapterList.length);
-
-  const morningSeparVerse = chapterList[morningSeparVerseIndex]; // Random verse for morning
-
-  const eveningSeparVerse = chapterList[eveningSeparVerseIndex]; // Random verse for evening
+  if (dailyVerses.evening) {
+    dailyVerseNotifications.push({
+      scheduleType: "time",
+      name: "daily-verse-evening",
+      content: {
+        title: "Evening Separ Verse",
+        body: `Chapter: ${dailyVerses.evening.verse.chapter} - Verse: ${dailyVerses.evening.verse.verse}\n${dailyVerses.evening.verse.content}`,
+        data: {
+          id: "daily-verse-evening",
+          route: "/view-chapter",
+          contentIndex: dailyVerses.evening.index,
+        },
+      },
+      value: { hour: 19, minute: 0 },
+    });
+  }
 
   // Initial notificationList
   const [notificationList] = useState<NotificationType[]>([
@@ -174,36 +199,13 @@ const WelcomeScreen = () => {
       },
       value: { hour: 18, minute: 0 }, // 6:00 PM
     },
-    {
-      scheduleType: "time",
-      name: "daily-verse-morning",
-      content: {
-        title: "Morning Separ Verse",
-        body: `Chapter: ${morningSeparVerse.chapter} - Verse: ${morningSeparVerse.verse}\n${morningSeparVerse.content}`,
-        data: {
-          id: "daily-verse-morning",
-          route: "/view-chapter",
-          contentIndex: morningSeparVerseIndex,
-        },
-      },
-      value: { hour: 7, minute: 0 },
-    },
-    {
-      scheduleType: "time",
-      name: "daily-verse-evening",
-      content: {
-        title: "Evening Separ Verse",
-        body: `Chapter: ${eveningSeparVerse.chapter} - Verse: ${eveningSeparVerse.verse}\n${eveningSeparVerse.content}`,
-        data: {
-          id: "daily-verse-evening",
-          route: "/view-chapter",
-          contentIndex: eveningSeparVerseIndex,
-        },
-      },
-      value: { hour: 19, minute: 0 },
-    },
+    ...dailyVerseNotifications,
     ...feastNotifications,
   ]);
+
+  if (!settingContext) {
+    return null;
+  }
 
   // Initialize notifications on app load
   useEffect(() => {
@@ -213,7 +215,7 @@ const WelcomeScreen = () => {
     async function initNotifications() {
       if (Platform.OS === "android" && isRunningInExpoGo()) {
         console.info(
-          "Notifications are disabled in Expo Go on Android. Use a development build to enable them."
+          "Notifications are disabled in Expo Go on Android. Use a development build to enable them.",
         );
         return;
       }
@@ -260,14 +262,14 @@ const WelcomeScreen = () => {
             console.log("Notification data:", data);
 
             if (data.route) {
-              if (data?.contentIndex) {
+              if (data.contentIndex !== undefined) {
                 setCurrentChapter(data?.contentIndex);
                 router.push("/view-chapter");
               } else {
                 router.push("/(home)");
               }
             }
-          }
+          },
         );
     }
 
@@ -334,7 +336,7 @@ const WelcomeScreen = () => {
               style={[styles.text, { fontSize: 15 }]}
               allowFontScaling={false}
             >
-              Version 1.0.0
+              Version 1.0.1
             </Text>
           </View>
         </View>

@@ -25,6 +25,9 @@ interface ScreenShotProps {
   onAutoSaveHandled?: () => void;
 }
 
+const SHARE_REWARD_COOLDOWN_MS = 12 * 60 * 60 * 1000;
+const DAILY_SHARE_REWARD_LIMIT = 10;
+
 const ScreenShot: React.FC<ScreenShotProps> = ({
   selectedVerse,
   setIsShowPreview,
@@ -204,6 +207,16 @@ const ScreenShot: React.FC<ScreenShotProps> = ({
   const handleShare = async () => {
     if (isSharing) return;
 
+    const verseToShare = selectedVerse;
+    if (!verseToShare) {
+      showToast({
+        type: "error",
+        title: "Verse unavailable",
+        message: "Select a verse before sharing.",
+      });
+      return;
+    }
+
     if (!imageUri) {
       showToast({
         type: "error",
@@ -234,6 +247,45 @@ const ScreenShot: React.FC<ScreenShotProps> = ({
       if (!currentProfile) {
         throw new Error("User profile is unavailable; share points were not saved.");
       }
+
+      const verseKey = `${verseToShare.chapter}:${verseToShare.verse}`;
+      const now = Date.now();
+      const today = new Date(now);
+      const localDate = `${today.getFullYear()}-${String(
+        today.getMonth() + 1,
+      ).padStart(2, "0")}-${String(today.getDate()).padStart(2, "0")}`;
+      const rewardState = await getStoreData("VERSE_SHARE_REWARDS");
+      const verseLastAwardedAt = rewardState?.verseLastAwardedAt ?? {};
+      const lastAwardAt = verseLastAwardedAt[verseKey] ?? 0;
+
+      if (lastAwardAt && now - lastAwardAt < SHARE_REWARD_COOLDOWN_MS) {
+        showToast({
+          type: "info",
+          title: "Reward on cooldown",
+          message: "You can earn a reward for this verse again after 12 hours.",
+        });
+        return;
+      }
+
+      const dailyAwards =
+        rewardState?.dailyDate === localDate ? rewardState.dailyAwards : 0;
+      if (dailyAwards >= DAILY_SHARE_REWARD_LIMIT) {
+        showToast({
+          type: "info",
+          title: "Daily limit reached",
+          message: "You’ve reached today’s limit of 10 share rewards.",
+        });
+        return;
+      }
+
+      await storeData("VERSE_SHARE_REWARDS", {
+        verseLastAwardedAt: {
+          ...verseLastAwardedAt,
+          [verseKey]: now,
+        },
+        dailyDate: localDate,
+        dailyAwards: dailyAwards + 1,
+      });
 
       const updatedProfile = {
         ...currentProfile,

@@ -177,6 +177,7 @@ const Terms = () => {
         allowFontScaling={false}
         style={[styles.resultLabel, { color: themeColors.secondaryText }]}
       >
+        <Icon name="book-open" size={13} color={themeColors.primary} />{" "}
         Results: {filteredTerms.length}
       </Text>
 
@@ -197,12 +198,26 @@ const Terms = () => {
                 },
               ]}
             >
-              <Text
-                allowFontScaling={false}
-                style={[styles.word, { color: themeColors.primaryText }]}
-              >
-                {item.word}
-              </Text>
+              <View style={styles.termHeading}>
+                <View
+                  style={[
+                    styles.termIcon,
+                    { backgroundColor: themeColors.activeCard },
+                  ]}
+                >
+                  <Icon
+                    name="book"
+                    size={16}
+                    color={themeColors.primary}
+                  />
+                </View>
+                <Text
+                  allowFontScaling={false}
+                  style={[styles.word, { color: themeColors.primaryText }]}
+                >
+                  {item.word}
+                </Text>
+              </View>
               <Text
                 allowFontScaling={false}
                 style={[styles.meaning, { color: themeColors.secondaryText }]}
@@ -211,18 +226,33 @@ const Terms = () => {
               </Text>
               {item.tagalogMeaning ? (
                 <>
-                  <Text
-                    allowFontScaling={false}
-                    style={[styles.tagalogLabel, { color: themeColors.primaryText }]}
-                  >
-                    Tagalog Meaning:
-                  </Text>
-                  <Text
-                    allowFontScaling={false}
-                    style={[styles.tagalogMeaning, { color: themeColors.secondaryText }]}
-                  >
-                    {item.tagalogMeaning}
-                  </Text>
+                  <View style={styles.tagalogRow}>
+                    <Icon
+                      name="globe"
+                      size={14}
+                      color={themeColors.primary}
+                    />
+                    <View style={styles.tagalogTextContainer}>
+                      <Text
+                        allowFontScaling={false}
+                        style={[
+                          styles.tagalogLabel,
+                          { color: themeColors.primaryText },
+                        ]}
+                      >
+                        Tagalog Meaning:
+                      </Text>
+                      <Text
+                        allowFontScaling={false}
+                        style={[
+                          styles.tagalogMeaning,
+                          { color: themeColors.secondaryText },
+                        ]}
+                      >
+                        {item.tagalogMeaning}
+                      </Text>
+                    </View>
+                  </View>
                 </>
               ) : null}
             </View>
@@ -237,6 +267,12 @@ const Terms = () => {
               },
             ]}
           >
+            <Icon
+              name="search"
+              size={24}
+              color={themeColors.secondaryText}
+              style={styles.emptyIcon}
+            />
             <Text
               allowFontScaling={false}
               style={[styles.emptyText, { color: themeColors.secondaryText }]}
@@ -294,10 +330,23 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     marginBottom: 10,
   },
+  termHeading: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 9,
+    marginBottom: 5,
+  },
+  termIcon: {
+    width: 30,
+    height: 30,
+    borderRadius: 15,
+    alignItems: "center",
+    justifyContent: "center",
+  },
   word: {
     fontFamily: "Poppins-Bold",
     fontSize: 15,
-    marginBottom: 4,
+    flex: 1,
   },
   meaning: {
     fontFamily: "Poppins-Regular",
@@ -305,15 +354,23 @@ const styles = StyleSheet.create({
     lineHeight: 20,
   },
   tagalogLabel: {
-    marginTop: 8,
     fontFamily: "Poppins-SemiBold",
     fontSize: 12,
   },
   tagalogMeaning: {
-    marginTop: 2,
+    marginTop: 1,
     fontFamily: "Poppins-Regular",
     fontSize: 13,
     lineHeight: 20,
+  },
+  tagalogRow: {
+    flexDirection: "row",
+    alignItems: "flex-start",
+    gap: 7,
+    marginTop: 9,
+  },
+  tagalogTextContainer: {
+    flex: 1,
   },
   emptyState: {
     borderWidth: 1,
@@ -325,6 +382,10 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontFamily: "Poppins-Regular",
     fontSize: 13,
+  },
+  emptyIcon: {
+    alignSelf: "center",
+    marginBottom: 8,
   },
 });
 

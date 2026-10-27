@@ -6,8 +6,7 @@ import {
   TouchableOpacity,
   ScrollView,
   TextInput,
-  NativeSyntheticEvent,
-  TextInputSelectionChangeEventData,
+  TextInputSelectionChangeEvent,
   Alert,
   PanResponder,
   DeviceEventEmitter,
@@ -22,7 +21,6 @@ import COLORS from "./constants/colors";
 import { getStoreData, storeData, removeStorageData } from "./Utils/storage";
 import { Profile, Setting, Verse, VerseHighlight } from "./types/interfaces";
 import Icon from "react-native-vector-icons/Feather";
-import { useLevelTimer } from "./Utils/useLevelTimer";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { showToast } from "./Utils/toast";
 
@@ -67,6 +65,7 @@ const ViewChapter = () => {
   const [favoriteList, setFavoriteList] = useState<number[]>([]);
   const [isFavorite, setIsFavorite] = useState(false);
   const [profile, setProfile] = useState<Profile>();
+  const profileRef = useRef<Profile | undefined>(profile);
   const [noteText, setNoteText] = useState("");
   const [showNoteEditor, setShowNoteEditor] = useState(false);
   const [hasVerseNote, setHasVerseNote] = useState(false);
@@ -112,8 +111,6 @@ const ViewChapter = () => {
     { name: "Pink", value: "#F48FB1" },
     { name: "Purple", value: "#CE93D8" },
   ];
-
-  const level = useLevelTimer(30000);
 
   const updateFontSizeFromSlider = (locationX: number) => {
     const usableWidth = fontSliderWidth - 18;
@@ -269,28 +266,39 @@ const ViewChapter = () => {
     getAllFavorites();
   }, [currentChapter]);
 
+  // Update profile level only once per verse, and only after 12 hours have passed.
   useEffect(() => {
-    if (level === 1 && profile) {
+    profileRef.current = profile;
+  }, [profile]);
+
+  useEffect(() => {
+    if (!selectedVerse || !profileRef.current) return;
+
+    const verseKey = getVerseKey(selectedVerse);
+    const cooldownWindowMs = 12 * 60 * 60 * 1000;
+
+    const timer = setTimeout(async () => {
+      const cooldownMap = ((await getStoreData("VERSE_LEVEL_COOLDOWN")) ?? {}) as Record<
+        string,
+        number
+      >;
+      const lastAwardAt = cooldownMap[verseKey] ?? 0;
+      const now = Date.now();
+
+      if (lastAwardAt && now - lastAwardAt < cooldownWindowMs) {
+        return;
+      }
+
       setProfile((prevProfile) => {
         if (!prevProfile) return prevProfile;
         const updatedProfile = { ...prevProfile, level: prevProfile.level + 1 };
         storeData("PROFILE", updatedProfile);
         return updatedProfile;
       });
-    }
-  }, [level]);
 
-  // Update profile level when reach user 20 sec in every chapter
-  useEffect(() => {
-    console.log("⏳ Timer started");
-
-    const timer = setTimeout(() => {
-      console.log("✅ User spent 20 seconds in ViewChapter");
-      setProfile((prevProfile) => {
-        if (!prevProfile) return prevProfile;
-        const updatedProfile = { ...prevProfile, level: prevProfile.level + 1 };
-        storeData("PROFILE", updatedProfile);
-        return updatedProfile;
+      await storeData("VERSE_LEVEL_COOLDOWN", {
+        ...cooldownMap,
+        [verseKey]: now,
       });
 
       showToast({
@@ -302,9 +310,8 @@ const ViewChapter = () => {
 
     return () => {
       clearTimeout(timer);
-      console.log("🧹 Timer cleared (component unmounted)");
     };
-  }, [currentChapter]);
+  }, [selectedVerse, currentChapter]);
 
   if (
     currentChapter === null ||
@@ -421,7 +428,7 @@ const ViewChapter = () => {
   };
 
   const handleTextSelectionChange = (
-    event: NativeSyntheticEvent<TextInputSelectionChangeEventData>,
+    event: TextInputSelectionChangeEvent,
   ) => {
     const { start, end } = event.nativeEvent.selection;
     const selectionStart = Math.min(start, end);

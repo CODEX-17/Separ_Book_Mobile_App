@@ -8,7 +8,6 @@ import {
   TouchableOpacity,
 } from "react-native";
 import LottieView from "lottie-react-native";
-import { shortenText } from "../../Utils/textUtils";
 import { separ as chapterList } from "@/app/data/chapters";
 import Fuse from "fuse.js";
 import { ChapterContext } from "@/app/context/ChapterContex";
@@ -19,6 +18,8 @@ import COLORS from "@/app/constants/colors";
 import Icon from "react-native-vector-icons/Feather";
 
 const MyComponent = () => {
+  type SearchLevel = "Exact" | "Balanced" | "Broad";
+
   type Verse = {
     chapter: number;
     verse: number;
@@ -28,6 +29,7 @@ const MyComponent = () => {
   const [text, setText] = useState("");
   const [resultList, setResultList] = useState<Verse[] | []>([]);
   const [loading, setLoading] = useState(false);
+  const [searchLevel, setSearchLevel] = useState<SearchLevel>("Balanced");
 
   const settingContext = useContext(SettingContext);
   const chapterContext = useContext(ChapterContext);
@@ -46,12 +48,12 @@ const MyComponent = () => {
     () =>
       new Fuse(chapterList, {
         shouldSort: true,
-        threshold: 0.35,
+        threshold: searchLevel === "Broad" ? 0.6 : 0.35,
         ignoreLocation: true,
-        minMatchCharLength: 2,
+        minMatchCharLength: 1,
         keys: ["content"],
       }),
-    [],
+    [searchLevel],
   );
 
   useEffect(() => {
@@ -71,7 +73,7 @@ const MyComponent = () => {
         );
       });
 
-      if (exactResults.length > 0) {
+      if (exactResults.length > 0 || searchLevel === "Exact") {
         setResultList(exactResults);
         setLoading(false);
         return;
@@ -99,7 +101,7 @@ const MyComponent = () => {
     }, 120);
 
     return () => clearTimeout(timeout);
-  }, [text, fuse]);
+  }, [text, fuse, searchLevel]);
 
   const handleSearch = (value: string) => {
     setText(value);
@@ -131,6 +133,56 @@ const MyComponent = () => {
           value={text}
         />
       </View>
+      <View style={styles.searchLevelSection}>
+        <Text
+          allowFontScaling={false}
+          style={[styles.searchLevelLabel, { color: themeColors.primaryText }]}
+        >
+          Search level
+        </Text>
+        <View style={styles.searchLevels}>
+          {(["Exact", "Balanced", "Broad"] as const).map((level) => {
+            const isSelected = searchLevel === level;
+            return (
+              <TouchableOpacity
+                key={level}
+                accessibilityRole="button"
+                accessibilityState={{ selected: isSelected }}
+                onPress={() => setSearchLevel(level)}
+                style={[
+                  styles.searchLevelButton,
+                  {
+                    backgroundColor: isSelected
+                      ? themeColors.primary
+                      : themeColors.card,
+                    borderColor: themeColors.border,
+                  },
+                ]}
+              >
+                <Text
+                  allowFontScaling={false}
+                  style={[
+                    styles.searchLevelButtonText,
+                    {
+                      color: isSelected
+                        ? COLORS.white
+                        : themeColors.secondaryText,
+                    },
+                  ]}
+                >
+                  {level}
+                </Text>
+              </TouchableOpacity>
+            );
+          })}
+        </View>
+        <Text
+          allowFontScaling={false}
+          style={[styles.searchLevelHint, { color: themeColors.secondaryText }]}
+        >
+          Exact: eksaktong salita · Balanced: karaniwang tugma · Broad: mas malawak na tugma
+        </Text>
+      </View>
       <Text
         allowFontScaling={false}
         style={[styles.label, { color: themeColors.primaryText }]}
@@ -141,6 +193,7 @@ const MyComponent = () => {
         {resultList.length > 0 ? (
           resultList.map((data, index) => (
             <TouchableOpacity
+              key={`${data.chapter}:${data.verse}`}
               onPress={() => handleSelectVerse(data.chapter, data.verse)}
             >
               <View
@@ -151,7 +204,6 @@ const MyComponent = () => {
                     borderColor: themeColors.border,
                   },
                 ]}
-                key={index}
               >
                 <Text
                   allowFontScaling={false}
@@ -174,7 +226,7 @@ const MyComponent = () => {
                     { color: themeColors.secondaryText },
                   ]}
                 >
-                  {shortenText(data.content, 25)}
+                  {getHighlightedSnippet(data.content, text)}
                 </Text>
               </View>
             </TouchableOpacity>
@@ -206,6 +258,108 @@ const MyComponent = () => {
     </View>
   );
 };
+
+function getHighlightedSnippet(content: string, query: string) {
+  const terms = normalizeSearchText(query).split(" ").filter(Boolean);
+  const normalizedCharacters: { character: string; start: number; end: number }[] =
+    [];
+  let sourceOffset = 0;
+
+  Array.from(content).forEach((character) => {
+    const start = sourceOffset;
+    sourceOffset += character.length;
+    const normalized = character
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .toLocaleLowerCase();
+
+    for (const normalizedCharacter of normalized) {
+      if (/[\p{L}\p{N}]/u.test(normalizedCharacter)) {
+        normalizedCharacters.push({
+          character: normalizedCharacter,
+          start,
+          end: start + character.length,
+        });
+      }
+    }
+  });
+
+  const normalizedContent = normalizedCharacters
+    .map(({ character }) => character)
+    .join("");
+  const ranges: { start: number; end: number }[] = [];
+
+  terms.forEach((term) => {
+    let index = normalizedContent.indexOf(term);
+    while (index !== -1) {
+      const start = normalizedCharacters[index]?.start;
+      const end = normalizedCharacters[index + term.length - 1]?.end;
+      if (start !== undefined && end !== undefined) {
+        ranges.push({ start, end });
+      }
+      index = normalizedContent.indexOf(term, index + term.length);
+    }
+  });
+
+  const firstMatch = ranges.reduce<{ start: number; end: number } | null>(
+    (first, range) => (!first || range.start < first.start ? range : first),
+    null,
+  );
+  const snippetStart = firstMatch ? Math.max(0, firstMatch.start - 40) : 0;
+  const snippetEnd = Math.min(
+    content.length,
+    Math.max(snippetStart + 140, firstMatch?.end ?? 0),
+  );
+  const visibleRanges = ranges
+    .filter((range) => range.start < snippetEnd && range.end > snippetStart)
+    .map((range) => ({
+      start: Math.max(range.start, snippetStart),
+      end: Math.min(range.end, snippetEnd),
+    }))
+    .sort((a, b) => a.start - b.start);
+
+  const segments: { text: string; highlighted: boolean }[] = [];
+  let cursor = snippetStart;
+
+  visibleRanges.forEach((range) => {
+    if (range.start > cursor) {
+      segments.push({
+        text: content.slice(cursor, range.start),
+        highlighted: false,
+      });
+    }
+    if (range.end > cursor) {
+      segments.push({
+        text: content.slice(Math.max(cursor, range.start), range.end),
+        highlighted: true,
+      });
+      cursor = range.end;
+    }
+  });
+
+  if (cursor < snippetEnd) {
+    segments.push({ text: content.slice(cursor, snippetEnd), highlighted: false });
+  }
+
+  return (
+    <>
+      {snippetStart > 0 ? "..." : ""}
+      {segments.map((segment, index) => (
+        <Text
+          key={`${index}:${segment.text}`}
+          style={
+            segment.highlighted
+              ? styles.highlightedSearchText
+              : undefined
+          }
+        >
+          {segment.text}
+        </Text>
+      ))}
+      {snippetEnd < content.length ? "..." : ""}
+    </>
+  );
+}
 
 function normalizeSearchText(value: string) {
   return value
@@ -248,6 +402,38 @@ const styles = StyleSheet.create({
     fontFamily: "Poppins-Regular",
     fontSize: 16,
   },
+  searchLevelSection: {
+    width: "100%",
+    marginBottom: 16,
+  },
+  searchLevelLabel: {
+    fontFamily: "Poppins-SemiBold",
+    fontSize: 13,
+    marginBottom: 8,
+  },
+  searchLevels: {
+    flexDirection: "row",
+    gap: 8,
+  },
+  searchLevelButton: {
+    flex: 1,
+    minHeight: 36,
+    alignItems: "center",
+    justifyContent: "center",
+    borderWidth: 1,
+    borderRadius: 9,
+    paddingHorizontal: 5,
+  },
+  searchLevelButtonText: {
+    fontFamily: "Poppins-SemiBold",
+    fontSize: 12,
+  },
+  searchLevelHint: {
+    fontFamily: "Poppins-Regular",
+    fontSize: 10,
+    lineHeight: 15,
+    marginTop: 6,
+  },
   label: {
     fontFamily: "Poppins-Bold",
     color: "#343434",
@@ -287,6 +473,11 @@ const styles = StyleSheet.create({
     color: "#343434",
     fontSize: 15,
     textAlign: "left",
+  },
+  highlightedSearchText: {
+    backgroundColor: "#FFE082",
+    color: "#222222",
+    fontFamily: "Poppins-Bold",
   },
   searchLoading: {
     width: 250,

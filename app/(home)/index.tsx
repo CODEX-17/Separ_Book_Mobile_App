@@ -18,7 +18,7 @@ import Animated, {
 import Calendar from "./(renders)/(calendar)/index";
 import { StatusBar } from "expo-status-bar";
 import Menu from "./menu";
-import OnProgress from "./(renders)/on-progress";
+import Music from "./(renders)/music";
 import Setting from "../setting";
 import Favorites from "./(renders)/favorites";
 import Home from "../home";
@@ -26,6 +26,9 @@ import Developer from "./(renders)/developer";
 import Terms from "./(renders)/terms";
 import AnnouncementModal from "./announcement-modal";
 import Notes from "./(renders)/notes";
+import Announcements from "./(renders)/announcements";
+import About from "./(renders)/about";
+import Room from "./(renders)/Room";
 
 const HomeLayout = () => {
   const bottomNavigationContext = useContext(BottomNavigationContext);
@@ -51,7 +54,9 @@ const HomeLayout = () => {
       case "Favorites":
         return <Favorites />;
       case "Music":
-        return <OnProgress />;
+        return <Music />;
+      case "Room":
+        return <Room />;
       case "Developer":
         return <Developer />;
       case "Settings":
@@ -64,8 +69,12 @@ const HomeLayout = () => {
         return <Terms />;
       case "Notes":
         return <Notes />;
+      case "Website":
+        return <Announcements />;
+      case "About":
+        return <About />;
       default:
-        return <OnProgress />; // Fallback UI
+        return <Music />; // Fallback UI
     }
   };
 

@@ -22,6 +22,8 @@ const BottomNavigation = () => {
     "Favorites",
     "Developer",
     "Room",
+    "Website",
+    "About",
   ];
 
   const bottomNavigationContext = useContext(BottomNavigationContext);

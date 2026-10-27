@@ -8,6 +8,8 @@ type AllowedKeys =
   | "NOTIFICATION"
   | "VERSE_NOTES"
   | "VERSE_HIGHLIGHTS"
+  | "VERSE_LEVEL_COOLDOWN"
+  | "VERSE_SHARE_REWARDS"
   | "CALENDAR_NEW_MOON"
   | "CALENDAR_FEAST"
   | "ANNOUNCEMENT_DISMISSED_V1";
@@ -25,6 +27,12 @@ type KeyValueMap = {
   NOTIFICATION: NotificationSchedule;
   VERSE_NOTES: VerseNotesMap;
   VERSE_HIGHLIGHTS: Record<string, VerseHighlight[]>;
+  VERSE_LEVEL_COOLDOWN: Record<string, number>;
+  VERSE_SHARE_REWARDS: {
+    verseLastAwardedAt: Record<string, number>;
+    dailyDate: string;
+    dailyAwards: number;
+  };
   CALENDAR_NEW_MOON: { date: string; time: string }[];
   CALENDAR_FEAST: { name: string; date: string }[];
   ANNOUNCEMENT_DISMISSED_V1: boolean;

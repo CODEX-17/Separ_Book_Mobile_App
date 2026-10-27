@@ -23,6 +23,7 @@ import {
   useAudioPlayerStatus,
   setAudioModeAsync,
 } from "expo-audio";
+import { MUSIC_SOUNDS } from "../data/musicSounds";
 
 // Define the type for the props
 interface HeaderProps {
@@ -62,10 +63,11 @@ const Header: FC<HeaderProps> = ({ setModalVisible }) => {
     };
   });
 
-  const audioSource = require("../../assets/sound/am.mp3");
+  const audioSource =
+    MUSIC_SOUNDS.find((sound) => sound.id === objSetting.musicSound)?.source ??
+    MUSIC_SOUNDS[0].source;
   const player = useAudioPlayer(audioSource);
   const status = useAudioPlayerStatus(player);
-  const [isAudioPlay, setIsAudioPlay] = useState<boolean>(false);
 
   const rotateAnimation = () => {
     progress.value = withSpring(1, {
@@ -141,19 +143,21 @@ const Header: FC<HeaderProps> = ({ setModalVisible }) => {
       <View style={{ flexDirection: "row", gap: 10 }}>
         <TouchableOpacity
           onPress={() => {
-            setModalVisible(true);
-            setIsAudioPlay(!isAudioPlay);
-            if (isAudioPlay) {
-              player.play();
-              player.loop = true;
-              ToastAndroid.show("Sound Playing!", ToastAndroid.SHORT);
-            } else {
+            if (status.playing) {
               player.pause();
               ToastAndroid.show("Sound Paused!", ToastAndroid.SHORT);
+            } else {
+              player.loop = true;
+              player.play();
+              ToastAndroid.show("Sound Playing!", ToastAndroid.SHORT);
             }
           }}
         >
-          <Icon name="music" color={themeColors.secondaryText} size={25} />
+          <Icon
+            name={status.playing ? "pause" : "music"}
+            color={themeColors.secondaryText}
+            size={25}
+          />
         </TouchableOpacity>
         <Animated.View style={[rotateStyleAnimation]}>
           <TouchableOpacity onPress={handleTheme}>

@@ -11,7 +11,9 @@ export type TabsRoutes =
   | "Room"
   | "Search"
   | "Terms"
-  | "Notes";
+  | "Notes"
+  | "Website"
+  | "About";
 
 export type RankingTypes =
   | "Newcomer"

@@ -10,12 +10,14 @@ export interface Setting {
   theme: "dark" | "light";
   fontScale?: number;
   notificationsEnabled?: boolean;
+  musicSound?: string;
   [key: string]: any;
 }
 
 export interface Profile {
   name: string;
   gender?: "male" | "female";
+  maleTitle?: "Cohen" | "Elder" | "Achi";
   rank: RankingTypes;
   level: number;
 }

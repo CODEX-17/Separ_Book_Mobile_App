@@ -12,6 +12,7 @@ import {
   scanFromURLAsync,
   useCameraPermissions,
 } from "expo-camera";
+import { MaterialIcons } from "@expo/vector-icons";
 import * as ImagePicker from "expo-image-picker";
 import { newMoon } from "../../../Utils/newMoonCalculation";
 import COLORS from "@/app/constants/colors";
@@ -169,10 +170,10 @@ const Calendar = () => {
     {
       name: "New Moon",
       icon: (isActive: boolean) => (
-        <Icon
-          name="target"
+        <MaterialIcons
+          name="brightness-2"
           color={isActive ? COLORS.white : themeColors.primaryText}
-          size={20}
+          size={22}
         />
       ),
       description: `View monthly new moon dates to easily determine the exact time for observing the New Moon Sabbath.`,
@@ -180,10 +181,10 @@ const Calendar = () => {
     {
       name: "Feast",
       icon: (isActive: boolean) => (
-        <Icon
-          name="feather"
+        <MaterialIcons
+          name="celebration"
           color={isActive ? COLORS.white : themeColors.primaryText}
-          size={20}
+          size={22}
         />
       ),
       description: `View annual biblical feast dates to easily determine the exact time for observing Alyon appointed festivals.`,
@@ -294,18 +295,25 @@ const Calendar = () => {
               allowFontScaling={false}
               style={[styles.modalTitle, { color: themeColors.primaryText }]}
             >
+              <MaterialIcons
+                name="qr-code"
+                size={20}
+                color={themeColors.primary}
+              />{" "}
               QR format reminder
             </Text>
             <Text
               allowFontScaling={false}
               style={[styles.formatText, { color: themeColors.secondaryText }]}
             >
+              <MaterialIcons name="brightness-2" size={15} color={themeColors.primary} />{" "}
               New Moon: 01/19/2026 4:00am
             </Text>
             <Text
               allowFontScaling={false}
               style={[styles.formatText, { color: themeColors.secondaryText }]}
             >
+              <MaterialIcons name="celebration" size={15} color={themeColors.primary} />{" "}
               Feast: Feast of Passover 02/01/2026
             </Text>
             <Text
@@ -408,15 +416,24 @@ const Calendar = () => {
           style={[styles.scanButton, { backgroundColor: themeColors.highlight }]}
           onPress={() => setIsFormatReminderVisible(true)}
         >
-          <Icon name="camera" color={COLORS.white} size={18} />
+          <MaterialIcons name="qr-code-scanner" color={COLORS.white} size={20} />
           <Text style={styles.scanButtonText}>Scan or Upload QR</Text>
         </TouchableOpacity>
       </View>
       <View style={{ width: "100%", marginBottom: 20, alignItems: "center" }}>
         <Text
           allowFontScaling={false}
-          style={[styles.title, { color: themeColors.primaryText }]}
+          style={[
+            styles.title,
+            styles.dateListTitle,
+            { color: themeColors.primaryText },
+          ]}
         >
+          <MaterialIcons
+            name={selectedMenu === "New Moon" ? "brightness-2" : "celebration"}
+            size={18}
+            color={themeColors.primary}
+          />{" "}
           {selectedMenu} Date List
         </Text>
         <Text
@@ -493,34 +510,55 @@ const Calendar = () => {
                       },
                     ]}
                   >
-                    <Text
-                      allowFontScaling={false}
-                      style={[
-                        styles.textDate,
-                        { color: themeColors.primaryText },
-                      ]}
-                    >
-                      {item.name}
-                    </Text>
-                    <Text
-                      allowFontScaling={false}
-                      style={[
-                        styles.textTime,
-                        { color: themeColors.primaryText },
-                      ]}
-                    >
-                      {item.dateLabel}
-                    </Text>
-                    {isCurrentFeast && (
+                    <View style={styles.calendarItemHeading}>
+                      <MaterialIcons
+                        name="event"
+                        size={20}
+                        color={themeColors.primary}
+                      />
+                      <Text
+                        allowFontScaling={false}
+                        style={[
+                          styles.textDate,
+                          { color: themeColors.primaryText },
+                        ]}
+                      >
+                        {item.name}
+                      </Text>
+                    </View>
+                    <View style={styles.calendarDateRow}>
+                      <MaterialIcons
+                        name="calendar-month"
+                        size={17}
+                        color={themeColors.secondaryText}
+                      />
                       <Text
                         allowFontScaling={false}
                         style={[
                           styles.textTime,
-                          { color: themeColors.secondaryText },
+                          { color: themeColors.primaryText },
                         ]}
                       >
-                        (current new moon)
+                        {item.dateLabel}
                       </Text>
+                    </View>
+                    {isCurrentFeast && (
+                      <View style={styles.currentBadge}>
+                        <MaterialIcons
+                          name="check-circle"
+                          size={14}
+                          color={themeColors.primary}
+                        />
+                        <Text
+                          allowFontScaling={false}
+                          style={[
+                            styles.currentBadgeText,
+                            { color: themeColors.primary },
+                          ]}
+                        >
+                          Current feast
+                        </Text>
+                      </View>
                     )}
                   </View>
                 );
@@ -546,25 +584,28 @@ const Calendar = () => {
                     },
                   ]}
                 >
-                  <Text
-                    allowFontScaling={false}
-                    style={[
-                      styles.textDate,
-                      { color: themeColors.primaryText },
-                    ]}
-                  >
-                    {moon.date}
-                  </Text>
-                  <Text
-                    allowFontScaling={false}
-                    style={[
-                      styles.textTime,
-                      { color: themeColors.secondaryText },
-                    ]}
-                  >
-                    {moon.time}
-                  </Text>
-                  {index === currentDate && (
+                  <View style={styles.calendarItemHeading}>
+                    <MaterialIcons
+                      name="brightness-2"
+                      size={20}
+                      color={themeColors.primary}
+                    />
+                    <Text
+                      allowFontScaling={false}
+                      style={[
+                        styles.textDate,
+                        { color: themeColors.primaryText },
+                      ]}
+                    >
+                      {moon.date}
+                    </Text>
+                  </View>
+                  <View style={styles.calendarDateRow}>
+                    <MaterialIcons
+                      name="schedule"
+                      size={17}
+                      color={themeColors.secondaryText}
+                    />
                     <Text
                       allowFontScaling={false}
                       style={[
@@ -572,8 +613,26 @@ const Calendar = () => {
                         { color: themeColors.secondaryText },
                       ]}
                     >
-                      (current new moon)
+                      {moon.time}
                     </Text>
+                  </View>
+                  {index === currentDate && (
+                    <View style={styles.currentBadge}>
+                      <MaterialIcons
+                        name="check-circle"
+                        size={14}
+                        color={themeColors.primary}
+                      />
+                      <Text
+                        allowFontScaling={false}
+                        style={[
+                          styles.currentBadgeText,
+                          { color: themeColors.primary },
+                        ]}
+                      >
+                        Current new moon
+                      </Text>
+                    </View>
                   )}
                 </View>
               ))}
@@ -591,7 +650,7 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   btnMenu: {
-    backgroundColor: "red",
+    backgroundColor: "transparent",
     width: 150,
     height: 40,
     borderRadius: 100,
@@ -731,6 +790,31 @@ const styles = StyleSheet.create({
     shadowColor: "#000",
     borderWidth: 1,
     marginBottom: 10,
+  },
+  calendarItemHeading: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 9,
+    marginBottom: 6,
+  },
+  calendarDateRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 7,
+  },
+  currentBadge: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 5,
+    marginTop: 8,
+  },
+  currentBadgeText: {
+    fontFamily: "Poppins-SemiBold",
+    fontSize: 11,
+  },
+  dateListTitle: {
+    flexDirection: "row",
+    alignItems: "center",
   },
   textDate: {
     fontSize: 15,

@@ -1,4 +1,4 @@
-import React, { Component, useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import {
   View,
   Text,
@@ -8,7 +8,6 @@ import {
 } from "react-native";
 import COLORS from "../constants/colors";
 import { SettingContext } from "../context/SettingContext";
-import { useAnimatedStyle, useSharedValue } from "react-native-reanimated";
 import { TabsRoutes } from "../types/type";
 import { BottomNavigationContext } from "../context/BottomNavigationContext";
 import Icon from "react-native-vector-icons/Feather";
@@ -92,6 +91,18 @@ const Menus = () => {
       title: "Terms",
       icon: (isActive: boolean) => (
         <Icon name="book-open" color={COLORS.white} size={25} />
+      ),
+    },
+    {
+      title: "Website",
+      icon: (isActive: boolean) => (
+        <Icon name="globe" color={COLORS.white} size={25} />
+      ),
+    },
+    {
+      title: "About",
+      icon: (isActive: boolean) => (
+        <Icon name="info" color={COLORS.white} size={25} />
       ),
     },
     {

@@ -11,18 +11,7 @@ import Icon from "react-native-vector-icons/Feather";
 import { SettingContext } from "../context/SettingContext";
 import COLORS from "../constants/colors";
 import { getStoreData, storeData } from "../Utils/storage";
-
-const FEATURES = [
-  "Fixed verse text and other verses.",
-  "Updated new moon and feast dates.",
-  "Added notes for individual verses.",
-  "Added definitions for terms.",
-  "Earn 2 points when sharing a verse.",
-  "Highlight verses to make important passages easy to find.",
-  "Cleaner, easier-to-use navigation buttons while viewing verses.",
-  "Instructions for sharing verses on social media.",
-  "A slider to adjust verse font size.",
-];
+import { APP_FEATURES } from "../data/appFeatures";
 
 const AnnouncementModal = () => {
   const settingContext = useContext(SettingContext);
@@ -102,7 +91,7 @@ const AnnouncementModal = () => {
             style={styles.featuresList}
             showsVerticalScrollIndicator={false}
           >
-            {FEATURES.map((feature) => (
+            {APP_FEATURES.map((feature) => (
               <View key={feature} style={styles.featureRow}>
                 <Icon
                   name="check-circle"

@@ -1,0 +1,16 @@
+export const APP_FEATURES = [
+  "Improved and corrected verse text for a smoother reading experience.",
+  "Updated Feast Day and New Moon schedules for better planning and reference.",
+  "Access the official website directly from the app for quick updates and resources.",
+  "Scan QR codes to view the latest Feast Day and New Moon information instantly.",
+  "Added personal notes for individual verses.",
+  "Included clear definitions for key terms and concepts.",
+  "Earn 2 points when sharing a verse with others.",
+  "Highlight important verses to make meaningful passages easier to revisit.",
+  "Enjoy cleaner, more intuitive navigation while reading.",
+  "Follow simple step-by-step instructions for sharing verses on social media.",
+  "Adjust the verse font size with a convenient slider for comfortable reading.",
+  "Choose and preview your preferred background sound in the Music tab.",
+  "Explore the About tab for helpful answers in the FAQ.",
+  "Visit our Facebook pages directly from the About tab.",
+];
