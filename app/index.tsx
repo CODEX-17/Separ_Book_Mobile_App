@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import {
   View,
   Image,
@@ -26,6 +26,7 @@ import { Profile } from "./types/interfaces";
 import { ChapterContext } from "./context/ChapterContex";
 import { getSaturdayDay } from "./Utils/dateUtils";
 import { getDailyVerses } from "./Utils/dailyVerse";
+import type { NotificationResponse } from "expo-notifications";
 
 export type listenerPropType = {
   id: string;
@@ -91,6 +92,7 @@ const feastNotifications: NotificationType[] = feastList.flatMap(
 
 const WelcomeScreen = () => {
   const router = useRouter();
+  const handledNotificationId = useRef<string | null>(null);
   const today = new Date();
   const curretYear = today.getFullYear();
   const currentMonth = today.getMonth(); // Months are zero-based
@@ -249,28 +251,43 @@ const WelcomeScreen = () => {
 
       if (!isActive) return;
 
+      const handleNotificationResponse = (response: NotificationResponse) => {
+        const notificationId = response.notification.request.identifier;
+        if (handledNotificationId.current === notificationId) return;
+        handledNotificationId.current = notificationId;
+
+        const data = response.notification.request.content
+          .data as listenerPropType;
+
+        if (!data?.id) return;
+
+        const isDailyVerseNotification =
+          data.id.startsWith("daily-verse-") &&
+          data.route === "/view-chapter" &&
+          Number.isInteger(data.contentIndex);
+
+        if (isDailyVerseNotification) {
+          setCurrentChapter(data.contentIndex!);
+          router.push("/view-chapter");
+          return;
+        }
+
+        // All non-verse notifications are reminders. They should only open
+        // the Home tab, regardless of the route stored in their payload.
+        router.push("/(home)");
+      };
+
       responseSubscription =
         Notifications.addNotificationResponseReceivedListener(
-          async (response) => {
-            if (!response) return;
-
-            const data = response.notification.request.content
-              .data as listenerPropType;
-
-            if (!data?.id) return;
-
-            console.log("Notification data:", data);
-
-            if (data.route) {
-              if (data.contentIndex !== undefined) {
-                setCurrentChapter(data?.contentIndex);
-                router.push("/view-chapter");
-              } else {
-                router.push("/(home)");
-              }
-            }
-          },
+          handleNotificationResponse,
         );
+
+      // Also handle a notification tap that launched the app from a closed
+      // state. The response listener above only covers taps after mounting.
+      const lastResponse = await Notifications.getLastNotificationResponseAsync();
+      if (isActive && lastResponse) {
+        handleNotificationResponse(lastResponse);
+      }
     }
 
     void initNotifications().catch((error: unknown) => {

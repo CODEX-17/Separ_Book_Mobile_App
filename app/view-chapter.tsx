@@ -374,14 +374,6 @@ const ViewChapter = () => {
     chapterSwipeGesture,
   );
 
-  if (
-    currentChapter === null ||
-    currentChapter === undefined ||
-    !selectedVerse ||
-    !profile
-  )
-    return null;
-
   const handleFavorite = async (verseNumber: number) => {
     try {
       const prevData: any = await getStoreData("FAVORITE");
@@ -612,6 +604,14 @@ const ViewChapter = () => {
       ],
     );
   };
+
+  if (
+    currentChapter === null ||
+    currentChapter === undefined ||
+    !selectedVerse ||
+    !profile
+  )
+    return null;
 
   const handleBack = () => {
     if (params.route === "random") {
@@ -1213,7 +1213,7 @@ const ViewChapter = () => {
                           { color: themeColors.secondaryText },
                         ]}
                       >
-                        Select text, choose a color, then tap Highlight.
+                        Hold text to select it, choose a color, then tap Highlight.
                       </Text>
                       <View style={styles.highlightColors}>
                         {highlightColors.map((color) => (
@@ -1334,6 +1334,11 @@ const ViewChapter = () => {
                     ) : (
                       <Text
                         allowFontScaling={false}
+                        selectable
+                        onLongPress={() => {
+                          setSelectedTextRange(null);
+                          setIsSelectingHighlight(true);
+                        }}
                         style={[
                           styles.contentText,
                           {
