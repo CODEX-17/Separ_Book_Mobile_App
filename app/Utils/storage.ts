@@ -12,7 +12,8 @@ type AllowedKeys =
   | "VERSE_SHARE_REWARDS"
   | "CALENDAR_NEW_MOON"
   | "CALENDAR_FEAST"
-  | "ANNOUNCEMENT_DISMISSED_V1";
+  | "ANNOUNCEMENT_DISMISSED_V1"
+  | "VIEW_CHAPTER_INTERACTION_GUIDE_DISMISSED";
 
 interface NotificationSchedule {
   name: ("daily-verse-dayTime" | "daily-verse-nightTime")[];
@@ -36,6 +37,7 @@ type KeyValueMap = {
   CALENDAR_NEW_MOON: { date: string; time: string }[];
   CALENDAR_FEAST: { name: string; date: string }[];
   ANNOUNCEMENT_DISMISSED_V1: boolean;
+  VIEW_CHAPTER_INTERACTION_GUIDE_DISMISSED: boolean;
 };
 
 export const storeData = async <K extends AllowedKeys>(

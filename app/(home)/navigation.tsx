@@ -13,6 +13,7 @@ import COLORS from "../constants/colors";
 import Icon from "react-native-vector-icons/Feather";
 import Icon1 from "react-native-vector-icons/FontAwesome";
 import { TabsRoutes } from "../types/type";
+import Animated, { useAnimatedStyle, useSharedValue, withSpring } from "react-native-reanimated";
 
 const BottomNavigation = () => {
   const MenuButtons: TabsRoutes[] = [
@@ -142,26 +143,20 @@ const BottomNavigation = () => {
               key={index}
               onPress={() => setBottomNavigation(btn.title)}
             >
-              {btn.icon(isActive())}
-              <Text
-                allowFontScaling={false}
-                style={[
-                  styles.buttonText,
-                  {
-                    color: isActive()
-                      ? themeColors.highlight
-                      : themeColors.secondaryText,
-                  },
-                ]}
-              >
-                {btn.title}
-              </Text>
+              <AnimatedButtonContent active={isActive()} icon={btn.icon} title={btn.title} themeColors={themeColors} />
             </Pressable>
           );
         })}
       </View>
     </View>
   );
+};
+
+const AnimatedButtonContent = ({ active, icon, title, themeColors }: { active: boolean; icon: (active: boolean) => React.ReactElement; title: string; themeColors: typeof COLORS.light }) => {
+  const scale = useSharedValue(1);
+  const style = useAnimatedStyle(() => ({ transform: [{ scale: scale.value }] }));
+  React.useEffect(() => { scale.value = withSpring(active ? 1.08 : 1, { damping: 14, stiffness: 220 }); }, [active]);
+  return <Animated.View style={[styles.buttonContent, style]}>{icon(active)}<Text allowFontScaling={false} style={[styles.buttonText, { color: active ? themeColors.highlight : themeColors.secondaryText }]}>{title}</Text></Animated.View>;
 };
 
 const styles = StyleSheet.create({
@@ -214,6 +209,12 @@ const styles = StyleSheet.create({
     margin: 0,
     fontFamily: "Poppins-Bold",
     color: "#343434",
+  },
+  buttonContent: {
+    width: "100%",
+    height: "100%",
+    alignItems: "center",
+    justifyContent: "center",
   },
 });
 

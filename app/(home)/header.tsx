@@ -40,7 +40,7 @@ const Header: FC<HeaderProps> = ({ setModalVisible }) => {
     return false;
   }
 
-  const { bottomNavigation, setBottomNavigation } = bottomNavigationContext;
+  const { bottomNavigation, goBackNavigation } = bottomNavigationContext;
   const { objSetting, handleChangeSetting } = settingContext;
 
   const themeColors = objSetting.theme === "dark" ? COLORS.dark : COLORS.light;
@@ -126,7 +126,13 @@ const Header: FC<HeaderProps> = ({ setModalVisible }) => {
   return (
     <View style={styles.container}>
       <Animated.View style={translateXAnimation}>
-        <TouchableOpacity onPress={() => router.back()}>
+        <TouchableOpacity
+          onPress={() => {
+            if (!goBackNavigation()) {
+              router.back();
+            }
+          }}
+        >
           <Icon
             name="chevron-left"
             color={themeColors.secondaryText}

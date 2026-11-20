@@ -9,6 +9,7 @@ import { Text, TextInput } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { logAsyncStorage } from "./Utils/storage";
 import Toast from "react-native-toast-message";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -49,36 +50,38 @@ export default function RootLayout() {
   if (!loaded && !error) return null;
 
   return (
-    <BottomNavigationProvider>
-      <SettingContextProvider>
-        <ChapterContextProvider>
-          <>
-            <Stack
-              screenOptions={{
-                headerShown: false,
-                keyboardHandlingEnabled: true,
-              }}
-            >
-              <Stack.Screen name="index" />
-              <Stack.Screen name="update-notification" />
-              <Stack.Screen name="preface" />
-              <Stack.Screen name="onboard" />
-              <Stack.Screen name="ask-name" />
-              <Stack.Screen name="(home)" />
-              <Stack.Screen name="view-chapter" />
-              <Stack.Screen name="setting" />
-              <Stack.Screen
-                name="(home)/modal.tsx"
-                options={{
-                  headerShown: true,
-                  presentation: "modal",
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <BottomNavigationProvider>
+        <SettingContextProvider>
+          <ChapterContextProvider>
+            <>
+              <Stack
+                screenOptions={{
+                  headerShown: false,
+                  keyboardHandlingEnabled: true,
                 }}
-              />
-            </Stack>
-            <Toast />
-          </>
-        </ChapterContextProvider>
-      </SettingContextProvider>
-    </BottomNavigationProvider>
+              >
+                <Stack.Screen name="index" />
+                <Stack.Screen name="update-notification" />
+                <Stack.Screen name="preface" />
+                <Stack.Screen name="onboard" />
+                <Stack.Screen name="ask-name" />
+                <Stack.Screen name="(home)" />
+                <Stack.Screen name="view-chapter" />
+                <Stack.Screen name="setting" />
+                <Stack.Screen
+                  name="(home)/modal.tsx"
+                  options={{
+                    headerShown: true,
+                    presentation: "modal",
+                  }}
+                />
+              </Stack>
+              <Toast />
+            </>
+          </ChapterContextProvider>
+        </SettingContextProvider>
+      </BottomNavigationProvider>
+    </GestureHandlerRootView>
   );
 }

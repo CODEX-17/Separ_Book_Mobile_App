@@ -11,6 +11,8 @@ import { SettingContext } from "../context/SettingContext";
 import COLORS from "../constants/colors";
 import Animated, {
   Easing,
+  FadeIn,
+  FadeOut,
   useAnimatedStyle,
   useSharedValue,
   withTiming,
@@ -110,7 +112,16 @@ const HomeLayout = () => {
         <View style={styles.header}>
           <Header setModalVisible={setModalVisible} />
         </View>
-        <View style={styles.content}>{renderTab()}</View>
+        <View style={styles.content}>
+          <Animated.View
+            key={bottomNavigation ?? "tab"}
+            entering={FadeIn.duration(260)}
+            exiting={FadeOut.duration(140)}
+            style={styles.tabContent}
+          >
+            {renderTab()}
+          </Animated.View>
+        </View>
         <View style={styles.bottonNavigation}>
           <Navigation />
         </View>
@@ -141,6 +152,9 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "80%",
     position: "relative",
+  },
+  tabContent: {
+    flex: 1,
   },
   bottonNavigation: {
     flex: 1,

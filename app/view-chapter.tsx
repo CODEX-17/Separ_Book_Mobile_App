@@ -11,6 +11,8 @@ import {
   PanResponder,
   DeviceEventEmitter,
 } from "react-native";
+import { Gesture, GestureDetector } from "react-native-gesture-handler";
+import { runOnJS } from "react-native-reanimated";
 import { ChapterContext } from "./context/ChapterContex";
 import { separ as chapterList } from "./data/chapters";
 import ScreenShot from "./(home)/screen-shot";
@@ -71,6 +73,7 @@ const ViewChapter = () => {
   const [hasVerseNote, setHasVerseNote] = useState(false);
   const [isMoreOptionsOpen, setIsMoreOptionsOpen] = useState(false);
   const [showShareTutorial, setShowShareTutorial] = useState(false);
+  const [showInteractionGuide, setShowInteractionGuide] = useState(true);
   const [verseHighlights, setVerseHighlights] = useState<VerseHighlight[]>([]);
   const [isSelectingHighlight, setIsSelectingHighlight] = useState(false);
   const [selectedTextRange, setSelectedTextRange] = useState<{
@@ -79,6 +82,11 @@ const ViewChapter = () => {
   } | null>(null);
   const [highlightColor, setHighlightColor] = useState("#FFF176");
   const [fontSliderWidth, setFontSliderWidth] = useState(0);
+  const [chapterViewportHeight, setChapterViewportHeight] = useState(0);
+  const [chapterContentHeight, setChapterContentHeight] = useState(0);
+
+  const chapterContentIsShort =
+    chapterContentHeight === 0 || chapterContentHeight <= chapterViewportHeight;
 
   useEffect(() => {
     if (pathname !== "/view-chapter") return;
@@ -164,6 +172,20 @@ const ViewChapter = () => {
       if (profileData) setProfile(profileData);
     })();
   }, []);
+
+  useEffect(() => {
+    (async () => {
+      const guideDismissed = await getStoreData(
+        "VIEW_CHAPTER_INTERACTION_GUIDE_DISMISSED",
+      );
+      if (guideDismissed) setShowInteractionGuide(false);
+    })();
+  }, []);
+
+  const dismissInteractionGuide = async () => {
+    setShowInteractionGuide(false);
+    await storeData("VIEW_CHAPTER_INTERACTION_GUIDE_DISMISSED", true);
+  };
 
   useEffect(() => {
     let isCurrentVerse = true;
@@ -313,6 +335,45 @@ const ViewChapter = () => {
     };
   }, [selectedVerse, currentChapter]);
 
+  const handleSwitchVerse = (direction: "next" | "prev") => {
+    const index =
+      direction === "next" ? (currentChapter ?? 0) + 1 : (currentChapter ?? 0) - 1;
+    if (index < 0 || index >= chapterList.length) return;
+    setCurrentChapter(index);
+  };
+
+  const updateFontSizeFromPinch = (scale: number) => {
+    const currentFontSize = fontSize ?? 30;
+    const nextFontSize = Math.max(
+      MIN_FONT_SIZE,
+      Math.min(MAX_FONT_SIZE, Math.round(currentFontSize * scale)),
+    );
+
+    if (nextFontSize !== currentFontSize) {
+      handleChangeSetting({ ...objSetting, fontSize: nextFontSize });
+    }
+  };
+
+  const pinchGesture = Gesture.Pinch().onEnd((event) => {
+    // Pinch out increases the text size; pinch in decreases it.
+    runOnJS(updateFontSizeFromPinch)(event.scale);
+  });
+
+  const chapterSwipeGesture = Gesture.Pan()
+    .activeOffsetX([-40, 40])
+    .failOffsetY([-25, 25])
+    .onEnd((event) => {
+      if (Math.abs(event.translationX) < 80) return;
+
+      // Left swipe: previous chapter. Right swipe: next chapter.
+      runOnJS(handleSwitchVerse)(event.translationX < 0 ? "prev" : "next");
+    });
+
+  const chapterGesture = Gesture.Simultaneous(
+    pinchGesture,
+    chapterSwipeGesture,
+  );
+
   if (
     currentChapter === null ||
     currentChapter === undefined ||
@@ -320,13 +381,6 @@ const ViewChapter = () => {
     !profile
   )
     return null;
-
-  const handleSwitchVerse = (direction: "next" | "prev") => {
-    const index =
-      direction === "next" ? currentChapter + 1 : currentChapter - 1;
-    if (index < 0 || index >= chapterList.length) return;
-    setCurrentChapter(index);
-  };
 
   const handleFavorite = async (verseNumber: number) => {
     try {
@@ -919,6 +973,115 @@ const ViewChapter = () => {
           </View>
         </View>
       )}
+      {showInteractionGuide && !showNoteEditor && !showShareTutorial && (
+        <View style={styles.interactionGuideOverlay}>
+          <View
+            style={[
+              styles.interactionGuideCard,
+              {
+                backgroundColor: themeColors.card,
+                borderColor: themeColors.border,
+              },
+            ]}
+          >
+            <View style={styles.interactionGuideHeader}>
+              <View
+                style={[
+                  styles.interactionGuideHeroIcon,
+                  { backgroundColor: themeColors.primary },
+                ]}
+              >
+                <Icon name="move" color="#fff" size={24} />
+              </View>
+              <TouchableOpacity
+                onPress={dismissInteractionGuide}
+                accessibilityRole="button"
+                accessibilityLabel="Close chapter interaction guide"
+                style={styles.interactionGuideClose}
+              >
+                <Icon name="x" color={themeColors.secondaryText} size={22} />
+              </TouchableOpacity>
+            </View>
+            <Text
+              allowFontScaling={false}
+              style={[styles.interactionGuideTitle, { color: themeColors.primaryText }]}
+            >
+              Explore this chapter
+            </Text>
+            <Text
+              allowFontScaling={false}
+              style={[
+                styles.interactionGuideSubtitle,
+                { color: themeColors.secondaryText },
+              ]}
+            >
+              Use these gestures to read comfortably.
+              {"\n"}
+              (Gamitin ang mga galaw na ito para mas madaling magbasa.)
+            </Text>
+            <View style={styles.interactionGuideStep}>
+              <View
+                style={[
+                  styles.interactionGuideStepIcon,
+                  { backgroundColor: themeColors.background },
+                ]}
+              >
+                <Icon name="arrow-left" color={themeColors.primary} size={20} />
+                <Icon name="arrow-right" color={themeColors.primary} size={20} />
+              </View>
+              <View style={styles.interactionGuideStepText}>
+                <Text
+                  allowFontScaling={false}
+                  style={[styles.interactionGuideStepTitle, { color: themeColors.primaryText }]}
+                >
+                  Swipe left or right
+                </Text>
+                <Text
+                  allowFontScaling={false}
+                  style={[styles.interactionGuideStepDescription, { color: themeColors.secondaryText }]}
+                >
+                  Move between chapters. (Lumipat sa ibang kabanata.)
+                </Text>
+              </View>
+            </View>
+            <View style={styles.interactionGuideStep}>
+              <View
+                style={[
+                  styles.interactionGuideStepIcon,
+                  { backgroundColor: themeColors.background },
+                ]}
+              >
+                <Icon name="zoom-in" color={themeColors.primary} size={22} />
+              </View>
+              <View style={styles.interactionGuideStepText}>
+                <Text
+                  allowFontScaling={false}
+                  style={[styles.interactionGuideStepTitle, { color: themeColors.primaryText }]}
+                >
+                  Pinch to change text size
+                </Text>
+                <Text
+                  allowFontScaling={false}
+                  style={[styles.interactionGuideStepDescription, { color: themeColors.secondaryText }]}
+                >
+                  Pinch out to enlarge or pinch in to reduce the text.
+                  (I-pinch palabas para palakihin o paloob para paliitin ang teksto.)
+                </Text>
+              </View>
+            </View>
+            <TouchableOpacity
+              onPress={dismissInteractionGuide}
+              accessibilityRole="button"
+              accessibilityLabel="Got it"
+              style={[styles.interactionGuideButton, { backgroundColor: themeColors.primary }]}
+            >
+              <Text allowFontScaling={false} style={styles.interactionGuideButtonText}>
+                Got it (Nakuha ko)
+              </Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      )}
       <SafeAreaView>
         <View style={styles.content}>
           <View style={styles.display}>
@@ -988,13 +1151,34 @@ const ViewChapter = () => {
                 <Icon name="settings" color={themeColors.primary} size={25} />
               </TouchableOpacity>
             </View>
-            <View style={styles.displayContent}>
-              <ScrollView
-                style={{ padding: 10, width: "100%" }}
-                keyboardShouldPersistTaps="handled"
-              >
-                {isSelectingHighlight ? (
-                  <>
+            <View
+              style={styles.displayContent}
+              onLayout={(event) =>
+                setChapterViewportHeight(event.nativeEvent.layout.height)
+              }
+            >
+              <GestureDetector gesture={chapterGesture}>
+                <View style={styles.gestureContent}>
+                  <ScrollView
+                    style={{ padding: 10, width: "100%" }}
+                    contentContainerStyle={[
+                      styles.chapterScrollContent,
+                      {
+                        justifyContent: chapterContentIsShort
+                          ? "center"
+                          : "flex-start",
+                      },
+                    ]}
+                    keyboardShouldPersistTaps="handled"
+                  >
+                    <View
+                      style={styles.chapterContent}
+                      onLayout={(event) =>
+                        setChapterContentHeight(event.nativeEvent.layout.height)
+                      }
+                    >
+                    {isSelectingHighlight ? (
+                      <>
                     <TextInput
                       allowFontScaling={false}
                       multiline
@@ -1146,34 +1330,37 @@ const ViewChapter = () => {
                         </TouchableOpacity>
                       </View>
                     </View>
-                  </>
-                ) : (
-                  <Text
-                    allowFontScaling={false}
-                    style={[
-                      styles.contentText,
-                      {
-                        fontSize: autoFontSize,
-                        color: themeColors.primaryText,
-                        fontFamily: fontStyle,
-                      },
-                    ]}
-                  >
-                    {highlightedSegments.map((segment, index) => (
+                      </>
+                    ) : (
                       <Text
-                        key={`${index}:${segment.text}`}
-                        style={
-                          segment.color
-                            ? { backgroundColor: segment.color }
-                            : undefined
-                        }
+                        allowFontScaling={false}
+                        style={[
+                          styles.contentText,
+                          {
+                            fontSize: autoFontSize,
+                            color: themeColors.primaryText,
+                            fontFamily: fontStyle,
+                          },
+                        ]}
                       >
-                        {segment.text}
+                        {highlightedSegments.map((segment, index) => (
+                          <Text
+                            key={`${index}:${segment.text}`}
+                            style={
+                              segment.color
+                                ? { backgroundColor: segment.color }
+                                : undefined
+                            }
+                          >
+                            {segment.text}
+                          </Text>
+                        ))}
                       </Text>
-                    ))}
-                  </Text>
-                )}
-              </ScrollView>
+                    )}
+                    </View>
+                  </ScrollView>
+                </View>
+              </GestureDetector>
             </View>
           </View>
           <View style={styles.menu}>
@@ -1474,6 +1661,16 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
+  gestureContent: {
+    flex: 1,
+    width: "100%",
+  },
+  chapterScrollContent: {
+    flexGrow: 1,
+  },
+  chapterContent: {
+    width: "100%",
+  },
   menu: {
     position: "relative",
     flexDirection: "row",
@@ -1667,6 +1864,88 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   shareTutorialButtonText: {
+    color: "#fff",
+    fontFamily: "Poppins-Bold",
+    fontSize: 13,
+  },
+  interactionGuideOverlay: {
+    position: "absolute",
+    inset: 0,
+    backgroundColor: "rgba(0, 0, 0, 0.52)",
+    justifyContent: "center",
+    alignItems: "center",
+    zIndex: 40,
+    padding: 20,
+  },
+  interactionGuideCard: {
+    width: "100%",
+    maxWidth: 420,
+    borderRadius: 18,
+    borderWidth: 1,
+    padding: 20,
+  },
+  interactionGuideHeader: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+  },
+  interactionGuideHeroIcon: {
+    width: 48,
+    height: 48,
+    borderRadius: 24,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  interactionGuideClose: {
+    padding: 6,
+  },
+  interactionGuideTitle: {
+    fontFamily: "Poppins-Bold",
+    fontSize: 22,
+    marginTop: 12,
+  },
+  interactionGuideSubtitle: {
+    fontFamily: "Poppins-Regular",
+    fontSize: 13,
+    lineHeight: 19,
+    marginTop: 2,
+    marginBottom: 10,
+  },
+  interactionGuideStep: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginVertical: 7,
+  },
+  interactionGuideStepIcon: {
+    width: 44,
+    height: 44,
+    borderRadius: 12,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    marginRight: 12,
+  },
+  interactionGuideStepText: {
+    flex: 1,
+  },
+  interactionGuideStepTitle: {
+    fontFamily: "Poppins-Bold",
+    fontSize: 12,
+  },
+  interactionGuideStepDescription: {
+    fontFamily: "Poppins-Regular",
+    fontSize: 10,
+    lineHeight: 15,
+    marginTop: 2,
+  },
+  interactionGuideButton: {
+    minHeight: 46,
+    borderRadius: 12,
+    marginTop: 14,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  interactionGuideButtonText: {
     color: "#fff",
     fontFamily: "Poppins-Bold",
     fontSize: 13,
